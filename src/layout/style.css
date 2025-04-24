@@ -1,0 +1,11 @@
+body {
+    background-color: #000; 
+    color: #fff;
+    font-family: "Inter", sans-serif;
+}  
+a {
+    transition: opacity 0.2s;
+}  
+a:hover {
+    opacity: 0.8;
+}
