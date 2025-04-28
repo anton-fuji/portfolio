@@ -1,15 +1,6 @@
 // import { Project, Skill, SocialLink } from "../types";
 import {SocialLink} from "../types";
 
-// export const SKILLS: Skill[] = [
-//     { name: "JavaScript", level: 5, category: "languages" },
-//     { name: "TypeScript", level: 4, category: "languages" },
-//     { name: "React", level: 5, category: "frontend" },
-//     { name: "Node.js", level: 4, category: "backend" },
-//     { name: "HTML/CSS", level: 5, category: "frontend" },
-//     { name: "TailwindCSS", level: 4, category: "frontend" },
-// ];
-
 export const SOCIAL_LINKS: SocialLink[] = [
     {
         name: "GitHub",
@@ -35,9 +26,19 @@ export const SOCIAL_LINKS: SocialLink[] = [
 
 export const PERSONAL_INFO = {
     name: "Kazuki Fujimoto",
-    title: "",
+    title: "Go楽しい",
     description: "やっほー",
     location: "Okayama, Japan",
     email: "test@example.com",
     profileImage: ""
 };
+
+
+// export const SKILLS: Skill[] = [
+//     { name: "JavaScript", level: 5, category: "languages" },
+//     { name: "TypeScript", level: 4, category: "languages" },
+//     { name: "React", level: 5, category: "frontend" },
+//     { name: "Node.js", level: 4, category: "backend" },
+//     { name: "HTML/CSS", level: 5, category: "frontend" },
+//     { name: "TailwindCSS", level: 4, category: "frontend" },
+// ];
