@@ -1,8 +1,8 @@
 // import { useState } from 'react'
 import { useEffect } from 'react'
-import './App.css'
-import Header from './layouts/Header'
+import './styles/App.css'
 import {PERSONAL_INFO} from './mydata/data'
+import Layout from './layouts';
 
 
 
@@ -13,7 +13,9 @@ function App() {
 
   return (
     <div className='relative'>
-      {/* <Header /> */}
+      <Layout>
+        {/* ここに HeroSection などを入れる */}
+      </Layout>
       
     </div>
   )

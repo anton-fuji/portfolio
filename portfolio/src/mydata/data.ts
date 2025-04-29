@@ -26,7 +26,7 @@ export const SOCIAL_LINKS: SocialLink[] = [
 
 export const PERSONAL_INFO = {
     name: "Kazuki Fujimoto",
-    title: "Go楽しい",
+    title: "My Portfolio",
     description: "やっほー",
     location: "Okayama, Japan",
     email: "test@example.com",
