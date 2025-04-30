@@ -3,6 +3,7 @@ import { useEffect } from 'react'
 import './styles/App.css'
 import {PERSONAL_INFO} from './mydata/data'
 import Layout from './layouts';
+import Profile from './pages/Profile';
 
 
 
@@ -14,7 +15,9 @@ function App() {
   return (
     <div className='relative'>
       <Layout>
-        {/* ここに HeroSection などを入れる */}
+        <main>
+          <Profile />
+        </main>
       </Layout>
       
     </div>

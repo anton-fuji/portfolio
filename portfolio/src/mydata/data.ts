@@ -9,7 +9,7 @@ export const SOCIAL_LINKS: SocialLink[] = [
     },
     {
         name: "X",
-        url: "",
+        url: "https://x.com/sXq7XBrxuB87199",
         icon: "X",
     },
     {
@@ -27,10 +27,10 @@ export const SOCIAL_LINKS: SocialLink[] = [
 export const PERSONAL_INFO = {
     name: "Kazuki Fujimoto",
     title: "My Portfolio",
-    description: "やっほー",
+    description: "現在 19 歳、岡山県出身だよ〜",
     location: "Okayama, Japan",
     email: "test@example.com",
-    profileImage: ""
+    profileImage: ".public/fuji-icon.jpg"
 };
 
 
