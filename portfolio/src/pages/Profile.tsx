@@ -12,7 +12,7 @@ const Profile: FC = () => {
     return (
         <div className='flex flex-col items-center  min-h-screen justify-center px-8'>
             <div className='flex items-center gap-12'> 
-                <div className='w-44 h-44 rounded-full overflow-hidden border-4 border-white'>
+                <div className='w-44 h-44 rounded-full overflow-hidden border-4 border-gray-800'>
                     <img className='w-full h-full object-cover' 
                         src={ProfileIcon}
                         alt=''
