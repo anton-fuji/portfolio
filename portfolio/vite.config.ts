@@ -8,7 +8,14 @@ export default defineConfig({
   plugins: [
       react(),
       tailwindcss(),
-      svgr(),
+      svgr({
+        svgrOptions: {
+          icon: true,
+          svgProps: {
+            fill: "currentColor",
+          },
+        },
+      }),
     ],
     server: {
       hmr: {overlay: false}

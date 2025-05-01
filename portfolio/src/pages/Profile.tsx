@@ -1,6 +1,7 @@
 import { FC } from 'react';
-import ProfileIcon from "../assets/fuji-icon.jpg"
+import ProfileIcon from "../assets/fuji-icon.jpg";
 import { PERSONAL_INFO } from "../mydata/data";
+import Socials from './index/Socials';
 
 
 const profile = {
@@ -24,10 +25,11 @@ const Profile: FC = () => {
                         <h1 className='whitespace-pre-wrap font-bold texxt-3xl sm:text-4xl'>
                             {profile.name}
                         </h1>
-                        <p className='whitespace-pre-wrap text-xl text-gray-300 max-w-lg'>{profile.description}</p>
+                        <p className='whitespace-pre-wrap text-xl text-gray-300 max-w-lg'>{profile.description}
+                            <Socials />
+                        </p>
                     </div>
                 </div>
-                {/* <SocialLinks /> */}
             </div>
         </div>
     )
