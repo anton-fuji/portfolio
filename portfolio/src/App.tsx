@@ -20,6 +20,7 @@ function App() {
       <div className='relative'>
       <Layout>
           <Profile />
+
       </Layout>
       </div>
     </div>

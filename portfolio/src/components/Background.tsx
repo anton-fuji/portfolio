@@ -1,44 +1,37 @@
-import { useCallback } from "react";
-import Particles from "react-tsparticles";
-// import type { Engine } from "tsparticles-engine";
-import { loadFull } from "tsparticles";
+import { useEffect, useRef } from "react";
+import NET from "vanta/dist/vanta.net.min";
+import * as THREE from "three";
 
 const Background = () => {
-  const particlesInit = useCallback(async (engine: any) => {
-    await loadFull(engine);
+  const vantaRef = useRef<HTMLDivElement | null>(null);
+  const effectRef = useRef<any>(null); 
+
+  useEffect(() => {
+    if (!effectRef.current && vantaRef.current) {
+      effectRef.current = (NET as any)({
+        el: vantaRef.current,
+        THREE,
+        mouseControls: true,
+        touchControls: true,
+        gyroControls: false,
+        minHeight: 200.0,
+        minWidth: 200.0,
+        scale: 1.0,
+        scaleMobile: 1.0,
+        color: 0xf7f6f6,
+        backgroundColor: 0x000000,
+      });
+    }
+
+    return () => {
+      if (effectRef.current) {
+        effectRef.current.destroy();
+        effectRef.current = null;
+      }
+    };
   }, []);
 
-  return (
-    <Particles
-      id="tsparticles"
-      init={particlesInit}
-      options={{
-        fullScreen: { enable: true, zIndex: -1},
-        background: { color: { value: "#0a0a0a" } },
-        particles: {
-          color: { value: "#ffffff" },
-          links: {
-            color: "#ffffff",
-            distance: 120,
-            enable: true,
-            opacity: 0.3,
-            width: 1,
-          },
-          move: {
-            enable: true,
-            speed: 1,
-            outModes: { default: "bounce" },
-          },
-          number: {
-            value: 60,
-            density: { enable: true, area: 800 },
-          },
-          shape: { type: "circle" },
-          size: { value: { min: 1, max: 4 } },
-        },
-      }}
-    />
-  );
+  return <div ref={vantaRef} className="absolute inset-0 -z-10" />;
 };
 
 export default Background;
