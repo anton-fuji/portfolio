@@ -4,15 +4,14 @@ import { PERSONAL_INFO } from '../mydata/data';
 import { Github } from 'lucide-react';
 
 const Footer: React.FC = () => {
-  const currentYear = new Date().getFullYear();
   
   return (
-    <footer className="py-8 bg-white dark:bg-gray-900 border-gray-200 dark:border-gray-800">
+    <footer className="py-8 bg-[#0a0a0a] text-gray-400">
       <div className="container mx-auto px-6 md:px-12">
         <div className="flex flex-col md:flex-row justify-center items-center">
           <div className="mb-4 md:mb-0">
             <p className="text-gray-600 dark:text-gray-400">
-              &copy; {currentYear} {PERSONAL_INFO.name}
+              &copy; 2025 {PERSONAL_INFO.name}
             </p>
             <a 
               href="https://github.com/anton-fuji"
