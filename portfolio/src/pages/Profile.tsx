@@ -11,7 +11,7 @@ const profile = {
 
 const Profile: FC = () => {
     return (
-        <div className='flex flex-col items-center  min-h-screen justify-center px-8'>
+        <div className='flex flex-col items-center justify-center px-8 py-24'>
             <div className='flex items-center gap-12'> 
                 <div className='w-44 h-44 rounded-full overflow-hidden border-4 border-gray-400'>
                     <img className='w-full h-full object-cover' 

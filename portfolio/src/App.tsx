@@ -4,6 +4,8 @@ import './styles/App.css'
 import {PERSONAL_INFO} from './mydata/data'
 import Layout from './layouts';
 import Profile from './pages/Profile';
+import Background from './components/Background';
+
 
 
 
@@ -13,13 +15,13 @@ function App() {
   }, []);
 
   return (
-    <div className='relative'>
+    <div className='relative min-h-screen overflow-hidden'>
+      <Background />
+      <div className='relative'>
       <Layout>
-        <main>
           <Profile />
-        </main>
       </Layout>
-      
+      </div>
     </div>
   )
 }

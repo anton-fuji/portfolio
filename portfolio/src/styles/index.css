@@ -13,7 +13,7 @@ html {
 }
 
 body {
-  @apply bg-white text-gray-900 dark:bg-gray-900 dark:text-white transition-colors duration-300;
+  @apply bg-[#0a0a0a] text-gray-900 dark:bg-gray-900 dark:text-white transition-colors duration-300;
 }
 
 /* Theme transition
