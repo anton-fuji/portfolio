@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react";
 import NET from "vanta/dist/vanta.net.min";
+// import GLOBE from "vanta/dist/vanta.globe.min";
 import * as THREE from "three";
 
 const Background = () => {
@@ -19,7 +20,11 @@ const Background = () => {
         scale: 1.0,
         scaleMobile: 1.0,
         color: 0xf7f6f6,
-        backgroundColor: 0x000000,
+        point: 10.0,
+        backgroundColor: 0x0a0a0a,
+        maxDistance: 22.0,
+        spacing: 18.0,
+        showDot: false
       });
     }
 

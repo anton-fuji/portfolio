@@ -17,7 +17,7 @@ const Header: React.FC = () =>{
 
                 <nav className="flex items-center space-x-8">
                     {navLinks.map((link) => (
-                        <a key={link.name} href={link.href} className="text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white transition-colors">
+                        <a key={link.name} href={link.href} className="font-bold text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white transition-colors">
                             {link.name}
                         </a>
                     ))}
