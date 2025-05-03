@@ -25,7 +25,8 @@ const Profile: FC = () => {
                         <h1 className='whitespace-pre-wrap font-bold texxt-3xl sm:text-4xl'>
                             {profile.name}
                         </h1>
-                        <p className='whitespace-pre-wrap text-xl text-gray-300 max-w-lg'>{profile.description}
+                        <p className='whitespace-pre-wrap text-xl text-gray-300 max-w-lg'>
+                            {profile.description}
                             <Socials />
                         </p>
                     </div>
