@@ -5,6 +5,8 @@ import {PERSONAL_INFO} from './mydata/data'
 import Layout from './layouts';
 import Profile from './pages/Profile';
 import Background from './components/Background';
+import ProjectsPage from './pages/projects/Projects';
+
 
 
 
@@ -21,6 +23,7 @@ function App() {
       <Layout>
           <Profile />
 
+          <ProjectsPage />
       </Layout>
       </div>
     </div>
