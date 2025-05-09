@@ -1,0 +1,51 @@
+// import type {FC} from 'react';
+
+export type Platform = {
+    Zenn?: string | null;
+    Qiita?: string | null;
+    url: string;
+};
+
+
+export const PLATFORM: Platform[] = [
+    {
+        Zenn: "Dockerイメージ軽量化のアーキテクチャ設計を考える",
+        url: "https://zenn.dev/fuuji/articles/9eb7f2aefcd6c5",
+    },
+    {
+        Zenn: "Dockerイメージの安全性を高める10のセキュリティハック",
+        url: "https://zenn.dev/fuuji/articles/3909c8d444eaa9",
+    },
+    {
+        Zenn: "Terraform で DockerイメージをLambdaへデプロイ",
+        url: "https://zenn.dev/fuuji/articles/547388be4ca9ce",
+    },
+    {
+        Zenn: "Terraform で ECR + Lambda + API Gateway 構築し、FastAPI をサーバーレスにデプロイ",
+        url: "https://zenn.dev/fuuji/articles/f712b546218815",
+    },
+    {
+        Qiita: "【Go言語】Goのメモリ管理の全貌を徹底解剖",
+        url: "https://qiita.com/fujifuji1414/items/359d754f9ab0ad2ccbb7",
+    },
+    {
+        Qiita: "ブラウザでWebサイトが表示されるまでの仕組みを整理してみた",
+        url: "https://qiita.com/fujifuji1414/items/f9c53b451fa4890b8bfc",
+    },
+    {
+        Qiita: "OSの仕組みと魅力について知る",
+        url: "https://qiita.com/fujifuji1414/items/5373f3da51465c82d0d4",
+    },
+    {
+        Qiita: "【Go言語】阿部寛さんのHPをechoでホスティングしてみる",
+        url: "https://qiita.com/fujifuji1414/items/612d3fdc2bafdfb7b524",
+    },
+    {
+        Qiita: "【Go言語】Goで学ぶOAuth認証",
+        url: "https://qiita.com/fujifuji1414/items/98af4c0529430f112209",
+    },
+    {
+        Qiita: "【Go言語】Qiitaの投稿をGitHubのプロフィールに反映させてみた",
+        url: "https://qiita.com/fujifuji1414/items/f9606bb184951d4a3fb2",
+    },
+];
