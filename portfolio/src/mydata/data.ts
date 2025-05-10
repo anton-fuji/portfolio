@@ -27,7 +27,7 @@ export const SOCIAL_LINKS: SocialLink[] = [
 export const PERSONAL_INFO = {
     name: "Kazuki Fujimoto",
     title: "My Portfolio",
-    description: "現在 19 歳、岡山県出身。\n高校卒業後は、自分の '好奇心' を追求すべく ITスクール「 RareTECH 」でITの基礎概念と実践的なスキルを体系的に学習。\n普段はGolang, TypeScriptそしてLuaを楽しみながら探求しています。",
+    description: "現在 19 歳、岡山県出身。\n高校卒業後は、自分の '好奇心' を追求すべく ITスクール「 RareTECH 」でITの基礎概念と実践的なスキルを体系的に学習。\n普段はGolang・TypeScript・Luaを楽しみながら探求しています。",
     location: "Okayama, Japan",
     email: "test@example.com",
     profileImage: ".public/fuji-icon.jpg"
