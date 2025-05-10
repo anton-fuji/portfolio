@@ -5,7 +5,6 @@ import {PERSONAL_INFO} from '../../mydata/data'
 // import Layout from '../../layouts';
 import Profile from './Profile';
 import Background from '../../components/Background';
-import ProjectsPage from '../projects/Projects';
 export { Page };
 
 
@@ -18,11 +17,8 @@ function Page() {
     <div className='relative min-h-screen overflow-hidden'>
       <Background />
       <div className='relative'>
-      {/* <Layout> */}
           <Profile />
 
-          <ProjectsPage />
-      {/* </Layout> */}
       </div>
     </div>
   )

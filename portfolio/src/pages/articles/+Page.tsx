@@ -9,7 +9,6 @@ function Page() {
     const zenn = PLATFORM.filter((p) => p.Zenn);
     const qiita = PLATFORM.filter((p)=> p.Qiita);
 
-    <Background />
     return (
         <>
         <Background />
