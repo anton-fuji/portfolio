@@ -26,8 +26,8 @@ export default function Header() {
                                 ? urlPathname === '/'
                                 : urlPathname.startsWith(href)
                         return (
-                            <a key={name} href={href} className={`font-bold text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white transition-colors
-                                ${isActive ? 'text-white underline underline-offset-4' : 'text-gray-400 hover:text-gray-200'}`}
+                            <a key={name} href={href} className={`font-sans text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white transition-colors duration-200 hover:scale-105 focus:scale-105
+                                ${isActive ? 'font-bold text-white underline underline-offset-4' : 'text-gray-400 hover:text-gray-200'}`}
                             >
                                 {name}
                             </a>

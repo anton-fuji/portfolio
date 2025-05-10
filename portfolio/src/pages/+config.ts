@@ -5,7 +5,7 @@ import Layout from '../layouts/Layout';
 
 export default {
   Layout,              
-  title:       'Kazuki Fujimoto',
+  title:       'Portfolio | Kazuki Fujimoto',
   lang:'ja',
 
 
