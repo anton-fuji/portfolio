@@ -21,14 +21,14 @@ const Profile: FC = () => {
                 </div>
 
                 <div className='flex flex-col gap-4 text-left'>
-                    <div className='flex flex-col gap-2 text-white'>
+                    <div className='flex flex-col gap-4 text-white'>
                         <h1 className='whitespace-pre-wrap font-bold texxt-3xl sm:text-4xl'>
                             {profile.name}
                         </h1>
-                        <p className='whitespace-pre-wrap text-xl text-gray-300 max-w-lg'>
+                        <p className='whitespace-pre-line leading-relaxed text-xl text-gray-200 max-w-lg'>
                             {profile.description}
-                            <Socials />
                         </p>
+                        <Socials />
                     </div>
                 </div>
             </div>
