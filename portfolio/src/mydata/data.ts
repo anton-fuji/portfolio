@@ -27,7 +27,7 @@ export const SOCIAL_LINKS: SocialLink[] = [
 export const PERSONAL_INFO = {
     name: "Kazuki Fujimoto",
     title: "My Portfolio",
-    description: "現在 19 歳、岡山県出身。好きな言語は、GolangとTypeScript, Luaです。",
+    description: "現在 19 歳、岡山県出身。\n高校卒業後は、自分の '興味' と '情熱' を追求すべく ITスクール「 RareTECH 」でITの基礎概念と実践的なスキルを体系的に学習。\n普段はGolang, TypeScriptそしてLuaを楽しんでいます。",
     location: "Okayama, Japan",
     email: "test@example.com",
     profileImage: ".public/fuji-icon.jpg"
@@ -36,7 +36,7 @@ export const PERSONAL_INFO = {
 
 // export const SKILLS: Skill[] = [
 //     { name: "JavaScript", level: 5, category: "languages" },
-//     { name: "TypeScript", level: 4, category: "languages" },
+//     { name: "TypeScript", level: 4, category: "languages" }, 
 //     { name: "React", level: 5, category: "frontend" },
 //     { name: "Node.js", level: 4, category: "backend" },
 //     { name: "HTML/CSS", level: 5, category: "frontend" },
