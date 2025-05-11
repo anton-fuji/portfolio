@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react';
 import { IoLogoGithub } from "react-icons/io5"
+import { FaPeopleGroup } from "react-icons/fa6";
 
 export interface ProjectGroup {
     name: string;
@@ -15,8 +16,8 @@ export interface Project {
 
 export const projectGroups: ProjectGroup[] = [
     {
-    name: "My Project",
-    icon: <IoLogoGithub  size={30} />,
+    name: "Hackathon Projects",
+    icon: <FaPeopleGroup  size={30} />,
     projects: [
         {
             name: "Tech Hub",
@@ -28,13 +29,19 @@ export const projectGroups: ProjectGroup[] = [
             description: "小学校向け 連絡帳チャットアプリ",
             githuburl: "https://github.com/2024-Summer-Raretech-Team-F/chatapp",
         },
-        {
-            name: "Tech Feed",
-            description: "QiitaやZennの記事をGitHubのREADMEに自動埋め込みするGo製ツール",
-            githuburl: "https://github.com/anton-fuji/techfeed",
-        },
     ],
-},
+    },
+    {
+        name: "My Project",
+        icon: <IoLogoGithub  size={30} />,
+        projects: [
+            {
+                name: "Tech Feed",
+                description: "QiitaやZennの記事をGitHubのREADMEに自動埋め込みするGo製ツール",
+                githuburl: "https://github.com/anton-fuji/techfeed",
+            },
+        ],
+        },
 ]
 
 export default projectGroups;
