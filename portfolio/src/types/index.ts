@@ -1,11 +1,19 @@
-// export interface Skill {
-//     name: string;
-//     level: number; // 1-5
-//     category: 'frontend' | 'backend' | 'tools' | 'languages';
-//     }
-
 export interface SocialLink {
     name: string;
     url: string;
     icon: string;
+}
+
+export interface SlillCategory {
+    id: string,
+    name: string,
+    color: string,
+    skills: Skill[]
+}
+
+export interface Skill {
+    id: string,
+    name: string,
+    color: string,
+    level: number,
 }
