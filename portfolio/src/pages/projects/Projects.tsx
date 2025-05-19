@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react';
-import { IoLogoGithub } from "react-icons/io5"
 import { FaPeopleGroup } from "react-icons/fa6";
+import { FaGolang } from "react-icons/fa6";
 
 export interface ProjectGroup {
     name: string;
@@ -32,13 +32,18 @@ export const projectGroups: ProjectGroup[] = [
     ],
     },
     {
-        name: "My Project",
-        icon: <IoLogoGithub  size={30} />,
+        name: "Golang",
+        icon: <FaGolang  size={30} />,
         projects: [
             {
                 name: "Tech Feed",
                 description: "QiitaやZennの記事をGitHubのREADMEに自動埋め込みするGo製ツール",
                 githuburl: "https://github.com/anton-fuji/techfeed",
+            },
+            {
+                name: "mini link",
+                description: "FiberでURL Shortener を実装",
+                githuburl: "https://github.com/anton-fuji/minilink",
             },
         ],
         },

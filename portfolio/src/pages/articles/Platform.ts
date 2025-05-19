@@ -25,6 +25,10 @@ export const PLATFORM: Platform[] = [
         url: "https://zenn.dev/fuuji/articles/f712b546218815",
     },
     {
+        Zenn: "Fiber + Redis で URL Shortenerを実装し、仕組みを理解する",
+        url: "https://zenn.dev/fuuji/articles/5e148160d40698",
+    },
+    {
         Qiita: "【Go言語】Goのメモリ管理の全貌を徹底解剖",
         url: "https://qiita.com/fujifuji1414/items/359d754f9ab0ad2ccbb7",
     },
@@ -47,5 +51,5 @@ export const PLATFORM: Platform[] = [
     {
         Qiita: "【Go言語】Qiitaの投稿をGitHubのプロフィールに反映させてみた",
         url: "https://qiita.com/fujifuji1414/items/f9606bb184951d4a3fb2",
-    },
+    },   
 ];

@@ -12,7 +12,7 @@ export type ProjectCardProps = {
 
 const ProjectCard: FC<ProjectCardProps> = ({ project, url, description }) => {
     return (
-        <Card className='relative justify-between p-6 pl-6 rounded-xl bg-[#0a0a0a]/90 background-blur-sm border-white/20 hover:shadow-lg hover:-trancelate-y-1 transition-all'>
+        <Card className='relative justify-between p-6 pl-6 rounded-xl bg-[#0a0a0a]/90 background-blur-sm border-gray-600/30 hover:shadow-lg hover:-trancelate-y-1 transition-all'>
             <a 
                 className='flex item-center mb-2  text-white hover:text-gray-400 transition-colors'
                 href={url}
