@@ -39,7 +39,7 @@ export const SKILLS: SkillCategory[] = [
     {
         id:"frontend",  
         name: "Frontend", 
-        color: "bg-pink-600",
+        color: "bg-sky-300",
         skills: [
             { id: "react", name: "React", level: 40 }, 
             { id: "typescript", name: "TypeScript", level: 60 }, 
@@ -59,7 +59,7 @@ export const SKILLS: SkillCategory[] = [
     {
         id:"infra",  
         name: "Infra", 
-        color: "bg-yellow-300/80",
+        color: "bg-blue-600",
         skills: [
             { id: "aws", name: "AWS", level: 50 }, 
             { id: "terraform", name: "Terraform", level: 10 }, 
@@ -70,7 +70,7 @@ export const SKILLS: SkillCategory[] = [
     {
         id:"other",  
         name: "Other", 
-        color: "bg-indigo-800",
+        color: "bg-indigo-600",
         skills: [
             { id: "git", name: "Git", level: 70 }, 
             { id: "linux", name: "Linux", level: 70 }, 

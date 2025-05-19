@@ -12,7 +12,7 @@ const SkillSection: FC = () => (
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {SKILLS.map(( category: SkillCategory) => (
-                <Card key={category.id} className="bg-[#0a0a0a]/80 backdrop-blur-sm p-6 space-y-4">
+                <Card key={category.id} className="bg-[#0a0a0a]/50 backdrop-blur-sm p-6 space-y-4 border-gray-800">
                     <h3 className="text-2xl font-semibold text-white text-center">
                         {category.name}
                     </h3>
