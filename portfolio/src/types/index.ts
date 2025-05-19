@@ -4,7 +4,7 @@ export interface SocialLink {
     icon: string;
 }
 
-export interface SlillCategory {
+export interface SkillCategory {
     id: string,
     name: string,
     color: string,

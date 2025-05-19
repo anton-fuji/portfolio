@@ -5,6 +5,7 @@ import {PERSONAL_INFO} from '../../mydata/data'
 // import Layout from '../../layouts';
 import Profile from './Profile';
 import Background from '../../components/Background';
+import SkillSection from '../../components/SkillSection';
 export { Page };
 
 
@@ -19,6 +20,7 @@ function Page() {
       <div className='relative'>
           <Profile />
 
+          <SkillSection />
       </div>
     </div>
   )

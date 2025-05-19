@@ -1,0 +1,37 @@
+import type {FC} from "react"
+import { SKILLS } from "../../src/mydata/data"
+import { SkillCategory } from "../types"
+import Card from "./Card"
+import SkillBar from "./SkillBar"
+
+const SkillSection: FC = () => (
+    <section className="py-20 px-8 space-y-12">
+        <h2 className="text-4xl font-bold text-center text-white">
+            Skills
+        </h2>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {SKILLS.map(( category: SkillCategory) => (
+                <Card key={category.id} className="bg-[#0a0a0a]/80 backdrop-blur-sm p-6 space-y-4">
+                    <h3 className="text-2xl font-semibold text-white text-center">
+                        {category.name}
+                    </h3>
+                    <div className="space-y-4">
+                        {category.skills.map((skill, i) => (
+                            <SkillBar 
+                                key={skill.id}
+                                name={skill.name}
+                                level={skill.level}
+                                color={category.color}
+                                delay={i *100}
+                            />
+                        ))}
+                    </div>
+                </Card>
+            ))}
+        </div>
+    </section>
+    
+)
+
+export default SkillSection;

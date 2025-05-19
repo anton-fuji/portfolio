@@ -1,5 +1,6 @@
-// import { Project, Skill, SocialLink } from "../types";
+import { SkillCategory } from "../types/index";
 import {SocialLink} from "../types";
+
 
 export const SOCIAL_LINKS: SocialLink[] = [
     {
@@ -34,11 +35,47 @@ export const PERSONAL_INFO = {
 };
 
 
-// export const SKILLS: Skill[] = [
-//     { name: "JavaScript", level: 5, category: "languages" },
-//     { name: "TypeScript", level: 4, category: "languages" }, 
-//     { name: "React", level: 5, category: "frontend" },
-//     { name: "Node.js", level: 4, category: "backend" },
-//     { name: "HTML/CSS", level: 5, category: "frontend" },
-//     { name: "TailwindCSS", level: 4, category: "frontend" },
-// ];
+export const SKILLS: SkillCategory[] = [
+    {
+        id:"frontend",  
+        name: "Frontend", 
+        color: "bg-pink-600",
+        skills: [
+            { id: "react", name: "React", level: 40 }, 
+            { id: "typescript", name: "TypeScript", level: 60 }, 
+            { id: "tailwind", name: "Tailwind CSS", level: 30}, 
+        ]
+    },
+    {
+        id:"backend",  
+        name: "Backend", 
+        color: "bg-sky-600",
+        skills: [
+            { id: "go", name: "Go", level: 60 }, 
+            { id: "python", name: "Python", level: 65 }, 
+            { id: "mysql", name: "MySQL", level: 50}, 
+        ]
+    },
+    {
+        id:"infra",  
+        name: "Infra", 
+        color: "bg-yellow-300/80",
+        skills: [
+            { id: "aws", name: "AWS", level: 50 }, 
+            { id: "terraform", name: "Terraform", level: 10 }, 
+            { id: "gh-actions", name: "Github Actions", level: 40 }, 
+            { id: "docker", name: "Docker", level: 50 }, 
+        ]
+    },
+    {
+        id:"other",  
+        name: "Other", 
+        color: "bg-indigo-800",
+        skills: [
+            { id: "git", name: "Git", level: 70 }, 
+            { id: "linux", name: "Linux", level: 70 }, 
+            { id: "lua", name: "Lua", level: 50 }, 
+            { id: "neovim", name: "Neovim", level: 50 }, 
+        ]
+    },
+];
