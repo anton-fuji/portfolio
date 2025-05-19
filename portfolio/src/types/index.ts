@@ -14,6 +14,5 @@ export interface SlillCategory {
 export interface Skill {
     id: string,
     name: string,
-    color: string,
     level: number,
 }
