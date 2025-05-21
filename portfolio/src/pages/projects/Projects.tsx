@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react';
-import { FaPeopleGroup } from "react-icons/fa6";
-import { FaGolang } from "react-icons/fa6";
+import { FaPeopleGroup, FaGolang } from "react-icons/fa6";
+import { SiLua } from "react-icons/si";
 
 export interface ProjectGroup {
     name: string;
@@ -46,7 +46,18 @@ export const projectGroups: ProjectGroup[] = [
                 githuburl: "https://github.com/anton-fuji/minilink",
             },
         ],
-        },
+    },
+    {
+        name: "Lua",
+        icon: <SiLua  size={30} />,
+        projects: [
+            {
+                name: "dotfiles",
+                description: "Neovim + WezTerm 環境構築",
+                githuburl: "https://github.com/anton-fuji/dotfiles",
+            },
+        ],
+    },
 ]
 
 export default projectGroups;

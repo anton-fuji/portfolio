@@ -8,7 +8,7 @@ function Page ()  {
         <>
         <Background />
         <div className="space-y-12 py-20 px-8">
-            <h2 className='text-white text-4xl font-extrabold text-center sm:text-5xl'>My Projects</h2>
+            <h2 className='text-white text-4xl font-extrabold text-center sm:text-5xl animate-pulse'>My Projects</h2>
             {projectGroups.map((group) => (
             <section key={group.name} id={group.name}>
                 

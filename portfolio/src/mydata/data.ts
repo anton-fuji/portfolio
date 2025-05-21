@@ -23,6 +23,11 @@ export const SOCIAL_LINKS: SocialLink[] = [
         url: "https://qiita.com/fujifuji1414",
         icon: "Qiita",
     },
+    {
+        name: "Note",
+        url: "https://note.com/easy_dolphin1414",
+        icon: "Note",
+    },
 ];
 
 export const PERSONAL_INFO = {
