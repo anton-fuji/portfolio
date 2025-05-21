@@ -23,7 +23,7 @@ function Page() {
                 <div className="container mx-auto px-8">
                     <div className='grid grid-cols-1 sm:grid-cols-2 gap-8 justify-center-safe'>
                         {zenn.map((plat) => (
-                            <Card key={plat.url} className='flex justify-evenly p-6 pl-6 rounded-xl bg-[#0a0a0a]/90 background-blur-sm border-gray-600/30 hover:shadow-lg hover:-trancelate-y-1 '>
+                            <Card key={plat.url} className='flex flex-col justify-evenly p-6 pl-6 rounded-xl bg-[#0a0a0a]/90 background-blur-sm border-gray-600/30 hover:shadow-lg hover:-trancelate-y-1 '>
                                 <a href={plat.url} target='_blank' rel='noopener noreferrer' className='text-white hover:text-gray-400 transition-colors'>
                                     <h3 className='text-xl font-medium'>{plat.Zenn}</h3>
                                 </a>
@@ -49,7 +49,7 @@ function Page() {
                 <div className="container mx-auto px-8">
                     <div className='grid grid-cols-1 sm:grid-cols-2 gap-8 justify-center-safe'>
                         {qiita.map((plat) => (
-                            <Card key={plat.url} className='relative justify-between p-6 pl-6 rounded-xl bg-[#0a0a0a]/90 background-blur-sm border-gray-600/30 hover:shadow-lg hover:-trancelate-y-1 transition-all'>
+                            <Card key={plat.url} className='flex flex-col justify-evenly p-6 pl-6 rounded-xl bg-[#0a0a0a]/90 background-blur-sm border-gray-600/30 hover:shadow-lg hover:-trancelate-y-1'>
                                 <a href={plat.url} target='_blank' rel='noopener noreferrer' className='text-white hover:text-gray-400 transition-colors'>
                                     <h3 className='text-xl font-medium'>{plat.Qiita}</h3>
                                 </a>

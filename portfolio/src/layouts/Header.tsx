@@ -1,4 +1,3 @@
-import React from "react";
 import { usePageContext } from "vike-react/usePageContext";
 import { PERSONAL_INFO } from "../mydata/data";
 

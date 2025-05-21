@@ -10,7 +10,7 @@ export type LayoutProps = {
 
 export default function Layout({ children }: LayoutProps) {
     return (
-        <div className="flex flex-col min-h-screen overflow-hidden-">
+        <div className="flex flex-col min-h-screen overflow-hidden">
             <Header />
                 <main className="relative z-10 pt-16 pb-16 flex-grow ">
                     {children}
