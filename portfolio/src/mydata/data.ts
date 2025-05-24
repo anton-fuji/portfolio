@@ -67,7 +67,7 @@ export const SKILLS: SkillCategory[] = [
         color: "bg-blue-500",
         skills: [
             { id: "aws", name: "AWS", level: 50 }, 
-            { id: "terraform", name: "Terraform", level: 10 }, 
+            { id: "terraform", name: "Terraform", level: 20 }, 
             { id: "gh-actions", name: "Github Actions", level: 40 }, 
             { id: "docker", name: "Docker", level: 60 }, 
         ]

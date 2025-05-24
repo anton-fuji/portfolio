@@ -19,12 +19,13 @@ const Background = () => {
         minWidth: 200.0,
         scale: 1.0,
         scaleMobile: 1.0,
-        color: 0xf7f6f6,
-        point: 10.0,
+        color: 0x3fffdd,
+        points: 10.0,
         backgroundColor: 0x0a0a0a,
+        backgroundAlpha: 1.0,
         maxDistance: 22.0,
         spacing: 18.0,
-        showDot: false
+        showDots: true,
       });
     }
 

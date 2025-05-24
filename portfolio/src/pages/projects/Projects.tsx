@@ -1,6 +1,7 @@
 import type { ReactNode } from 'react';
 import { FaPeopleGroup, FaGolang } from "react-icons/fa6";
 import { SiLua } from "react-icons/si";
+import { BiLogoTypescript } from "react-icons/bi";
 
 export interface ProjectGroup {
     name: string;
@@ -55,6 +56,17 @@ export const projectGroups: ProjectGroup[] = [
                 name: "dotfiles",
                 description: "Neovim + WezTerm 環境構築",
                 githuburl: "https://github.com/anton-fuji/dotfiles",
+            },
+        ],
+    },
+    {
+        name: "TypeScript",
+        icon: <BiLogoTypescript  size={30} />,
+        projects: [
+            {
+                name: "Portfolio",
+                description: "個人のポートフォリオサイト",
+                githuburl: "https://github.com/anton-fuji/portfolio",
             },
         ],
     },
