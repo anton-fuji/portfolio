@@ -1,3 +1,3 @@
 export const title = () => {
-    return "Projects | Fuji"
-}
+  return "Projects | Fuji";
+};

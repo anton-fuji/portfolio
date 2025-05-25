@@ -1,10 +1,10 @@
-import { useEffect, useRef } from 'react';
-import NET from 'vanta/dist/vanta.net.min';
-import * as THREE from 'three';
+import { useEffect, useRef } from "react";
+import NET from "vanta/dist/vanta.net.min";
+import * as THREE from "three";
 
 const Background = () => {
   const vantaRef = useRef<HTMLDivElement | null>(null);
-  const effectRef = useRef<any>(null); 
+  const effectRef = useRef<any>(null);
 
   useEffect(() => {
     if (!effectRef.current && vantaRef.current) {

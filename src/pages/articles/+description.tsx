@@ -1,3 +1,3 @@
 export const description = () => {
-    return "技術記事";
+  return "技術記事";
 };

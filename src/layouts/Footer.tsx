@@ -1,9 +1,8 @@
-import React from 'react';
-import { PERSONAL_INFO } from '../mydata/data';
-import { Github } from 'lucide-react';
+import React from "react";
+import { PERSONAL_INFO } from "../mydata/data";
+import { Github } from "lucide-react";
 
 const Footer: React.FC = () => {
-  
   return (
     <footer className="py-8 bg-[#0a0a0a] text-gray-400">
       <div className="container mx-auto px-6 md:px-12">
@@ -12,16 +11,16 @@ const Footer: React.FC = () => {
             <p className="text-gray-600 dark:text-gray-400">
               &copy; 2025 {PERSONAL_INFO.name}
             </p>
-            <a 
+            <a
               href="https://github.com/anton-fuji"
-              target='_blank'
-              rel='noopener noreferrer'
-              className='inline-flex items-center'>
-                <Github size={20} className='mr-2'/>
-                <span>View on GitHub</span>
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center"
+            >
+              <Github size={20} className="mr-2" />
+              <span>View on GitHub</span>
             </a>
           </div>
-          
         </div>
       </div>
     </footer>
