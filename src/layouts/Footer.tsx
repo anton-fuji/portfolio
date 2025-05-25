@@ -4,9 +4,9 @@ import { Github } from "lucide-react";
 
 const Footer: React.FC = () => {
   return (
-    <footer className="py-8 bg-[#0a0a0a] text-gray-400">
+    <footer className="bg-[#0a0a0a] py-8 text-gray-400">
       <div className="container mx-auto px-6 md:px-12">
-        <div className="flex flex-col md:flex-row justify-center items-center">
+        <div className="flex flex-col justify-center items-center md:flex-row">
           <div className="mb-4 md:mb-0">
             <p className="text-gray-600 dark:text-gray-400">
               &copy; 2025 {PERSONAL_INFO.name}
