@@ -2,7 +2,7 @@
 import vikeReact from "vike-react/config";
 import type { Config } from "vike/types";
 import Layout from "../layouts/Layout";
-// import favicon from '../';
+
 
 export default {
   Layout,

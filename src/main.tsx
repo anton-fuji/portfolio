@@ -1,21 +1,21 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import { renderPage } from "vike/react";
-import { PageShell } from "./PageShell";
+import  renderPage  from "vike/client";
+import Layout from "./layouts/Layout";
 import "./styles/index.css";
 import "./styles/App.css";
 
 const container = document.getElementById("root");
 if (!container) {
-  throw new Error("root error");
+  throw new Error("root element not found");
 }
 
 createRoot(container).render(
-  renderPage(({ Page, pageContext }) => (
+  renderPage(({ Page }:{ Page: React.ComponentType }) => (
     <StrictMode>
-      <PageShell pageContext={pageContext}>
+      <Layout>
         <Page />
-      </PageShell>
+      </Layout>
     </StrictMode>
   ))
 );
