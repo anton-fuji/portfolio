@@ -1,4 +1,4 @@
-import { FC } from "react";
+import type { FC } from "react";
 import Card from "../../components/Card";
 import { LuExternalLink } from "react-icons/lu";
 
