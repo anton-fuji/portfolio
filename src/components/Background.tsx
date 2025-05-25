@@ -1,7 +1,6 @@
-import { useEffect, useRef } from "react";
-import NET from "vanta/dist/vanta.net.min";
-// import GLOBE from "vanta/dist/vanta.globe.min";
-import * as THREE from "three";
+import { useEffect, useRef } from 'react';
+import NET from 'vanta/dist/vanta.net.min';
+import * as THREE from 'three';
 
 const Background = () => {
   const vantaRef = useRef<HTMLDivElement | null>(null);

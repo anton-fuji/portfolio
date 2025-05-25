@@ -1,5 +1,3 @@
-// import type {FC} from 'react';
-
 export type Platform = {
     Zenn?: string | null;
     Qiita?: string | null;

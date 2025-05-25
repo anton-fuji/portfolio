@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import Card from '../../components/Card';
-import { LuExternalLink } from "react-icons/lu";
+import { LuExternalLink } from 'react-icons/lu';
 
 
 

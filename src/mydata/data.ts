@@ -1,5 +1,5 @@
-import { SkillCategory } from "../types/index";
-import {SocialLink} from "../types";
+import { SkillCategory } from '../types/index';
+import { SocialLink } from '../types';
 
 
 export const SOCIAL_LINKS: SocialLink[] = [
@@ -42,7 +42,7 @@ export const PERSONAL_INFO = {
 
 export const SKILLS: SkillCategory[] = [
     {
-        id:"frontend",  
+        id: "frontend",  
         name: "Frontend", 
         color: "bg-cyan-400",
         skills: [
@@ -52,7 +52,7 @@ export const SKILLS: SkillCategory[] = [
         ]
     },
     {
-        id:"backend",  
+        id: "backend",  
         name: "Backend", 
         color: "bg-sky-600",
         skills: [
@@ -62,7 +62,7 @@ export const SKILLS: SkillCategory[] = [
         ]
     },
     {
-        id:"infra",  
+        id: "infra",  
         name: "Infra", 
         color: "bg-blue-500",
         skills: [
@@ -73,7 +73,7 @@ export const SKILLS: SkillCategory[] = [
         ]
     },
     {
-        id:"other",  
+        id: "other",  
         name: "Other", 
         color: "bg-blue-900",
         skills: [

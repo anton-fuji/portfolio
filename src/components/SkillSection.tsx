@@ -1,9 +1,9 @@
-import type {FC} from "react"
-import { SKILLS } from "../../src/mydata/data"
-import { SkillCategory } from "../types"
-import Card from "./Card"
-import SkillBar from "./SkillBar"
-import { FaCode } from "react-icons/fa6";
+import type {FC} from 'react';
+import { SKILLS } from '../../src/mydata/data';
+import { SkillCategory } from '../types';
+import Card from './Card';
+import SkillBar from './SkillBar';
+import { FaCode } from 'react-icons/fa6';
 
 const SkillSection: FC = () => (
     <section className="py-20 px-8 space-y-12">

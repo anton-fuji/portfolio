@@ -1,8 +1,8 @@
-import "./tailwind.css"
-import "./style.css"
-import Header from "./Header"
-import { ReactNode } from "react";
-import Footer from "./Footer";
+import './tailwind.css';
+import './style.css';
+import Header from './Header';
+import { ReactNode } from 'react';
+import Footer from './Footer';
 
 export type LayoutProps = {
     children: ReactNode;

@@ -1,9 +1,9 @@
-import ZennIcon  from "../../assets/icons/socials/zenn.svg?react";
-import QiitaIcon from "../../assets/icons/socials/qiita.svg?react";
+import ZennIcon  from '../../assets/icons/socials/zenn.svg?react';
+import QiitaIcon from '../../assets/icons/socials/qiita.svg?react';
 import Card from '../../components/Card';
-import { FaLink } from "react-icons/fa6";
+import { FaLink } from 'react-icons/fa6';
 import { PLATFORM } from './Platform';
-import Background from "../../components/Background";
+import Background from '../../components/Background';
 export { Page }
 
 function Page() {

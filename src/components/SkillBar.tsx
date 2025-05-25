@@ -1,5 +1,5 @@
-import {FC,  useEffect, useState} from "react";
-import { twMerge } from "tailwind-merge";
+import {FC,  useEffect, useState} from 'react';
+import { twMerge } from 'tailwind-merge';
 
 interface SkillBarProps {
     name: string;

@@ -1,5 +1,5 @@
-import { usePageContext } from "vike-react/usePageContext";
-import { PERSONAL_INFO } from "../mydata/data";
+import { usePageContext } from 'vike-react/usePageContext';
+import { PERSONAL_INFO } from '../mydata/data';
 
 const navLinks = [
         {name: "Home", href: '/'},

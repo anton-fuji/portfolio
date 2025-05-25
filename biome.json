@@ -20,6 +20,9 @@
 			},
 			"nursery": {
 				"useSortedClasses": "error"
+			},
+			"suspicious": {
+				"noExplicitAny": "off"
 			}
 		}
 	}

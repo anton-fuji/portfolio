@@ -1,6 +1,6 @@
 import { FC } from 'react';
-import ProfileIcon from "../../assets/fuji-icon.jpg";
-import { PERSONAL_INFO } from "../../mydata/data";
+import ProfileIcon from '../../assets/fuji-icon.jpg';
+import { PERSONAL_INFO } from '../../mydata/data';
 import Socials from './Socials';
 
 

@@ -1,5 +1,4 @@
 import React from 'react';
-// import SocialLinks from './SocialLinks';
 import { PERSONAL_INFO } from '../mydata/data';
 import { Github } from 'lucide-react';
 
@@ -23,7 +22,6 @@ const Footer: React.FC = () => {
             </a>
           </div>
           
-          {/* <SocialLinks /> */}
         </div>
       </div>
     </footer>
