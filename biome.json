@@ -27,7 +27,7 @@
         "noUnusedVariables": "error"
       },
       "nursery": {
-        "useSortedClasses": "error"
+        "useSortedClasses": "off"
       },
       "suspicious": {
         "noExplicitAny": "off"

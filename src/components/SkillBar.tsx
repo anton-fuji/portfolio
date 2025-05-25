@@ -1,4 +1,5 @@
-import { FC, useEffect, useState } from "react";
+import type { FC } from "react";
+import { useEffect, useState } from "react";
 import { twMerge } from "tailwind-merge";
 
 interface SkillBarProps {
@@ -25,11 +26,11 @@ const SkillBar: FC<SkillBarProps> = ({
 
   return (
     <div className="mb-6">
-      <div className="flex justify-between items-center mb-1">
-        <span className="text-sm font-medium text-gray-300">{name}</span>
-        <span className="text-sm font-medium text-gray-300">{width}%</span>
+      <div className="mb-1 flex items-center justify-between">
+        <span className="font-medium text-gray-300 text-sm">{name}</span>
+        <span className="font-medium text-gray-300 text-sm">{width}%</span>
       </div>
-      <div className="h-2.5 bg-gray-700 rounded-full overflow-hidden">
+      <div className="h-2.5 overflow-hidden rounded-full bg-gray-700">
         <div
           className={twMerge(
             "h-full rounded-full transition-all duration-1000 ease-out",

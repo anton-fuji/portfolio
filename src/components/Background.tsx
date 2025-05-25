@@ -36,7 +36,7 @@ const Background = () => {
     };
   }, []);
 
-  return <div ref={vantaRef} className="absolute inset-0 -z-10" />;
+  return <div ref={vantaRef} className="-z-10 absolute inset-0"/>;
 };
 
 export default Background;

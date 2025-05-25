@@ -1,5 +1,5 @@
-import { SkillCategory } from "../types/index";
-import { SocialLink } from "../types";
+import type { SkillCategory } from "../types/index";
+import type { SocialLink } from "../types";
 
 export const SOCIAL_LINKS: SocialLink[] = [
   {
