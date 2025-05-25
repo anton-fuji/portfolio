@@ -1,0 +1,40 @@
+name: CI
+permissions: {}
+
+defaults:
+  run:
+    shell: bash
+
+on:
+  push:
+    branches:  
+        - main 
+  pull_request:
+    branches:
+        - main
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest        
+    timeout-minutes: 10
+    steps:
+      - name: Setup & Run Lint    
+        uses: ./.github/actions/setup
+        with:
+          script: biome:lint
+
+  build:
+    name: Build & Type-Check
+    needs: lint
+    runs-on: ubuntu-latest        
+    timeout-minutes: 10
+    steps:
+      - name: Setup & Run Build
+        uses: ./.github/actions/setup
+        with:
+          script: build
