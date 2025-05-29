@@ -35,7 +35,7 @@ export const PERSONAL_INFO = {
   description:
     "現在 19 歳、岡山県出身。\n普段はGolang・TypeScript・Luaを楽しみながら探求しています!",
   location: "Okayama, Japan",
-  email: "test@example.com",
+  email: "",
   profileImage: ".public/fuji-icon.jpg",
 };
 
