@@ -33,7 +33,7 @@ export const PERSONAL_INFO = {
   name: "Kazuki Fujimoto",
   title: "My Portfolio",
   description:
-    "現在 19 歳、岡山県出身。\n普段はGolang・TypeScript・Luaを楽しみながら探求しています。",
+    "現在 19 歳、岡山県出身。\n普段はGolang・TypeScript・Luaを楽しみながら探求しています!",
   location: "Okayama, Japan",
   email: "test@example.com",
   profileImage: ".public/fuji-icon.jpg",
