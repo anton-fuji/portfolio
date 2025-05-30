@@ -50,6 +50,21 @@ jobs:
             - name: Build My Site
               run: npm run build
 
+            - name: Get OIDC Token for Debugging
+              id: debug_token
+              uses: actions/github-script@v6 
+              with:
+                  script: |
+                    const core = require('@actions/core');
+                    try {
+                      const token = await core.getIDToken('sts.amazonaws.com');
+                      const decodedToken = JSON.parse(Buffer.from(token.split('.')[1], 'base64').toString());
+                      core.info(`Decoded OIDC Token Subject (sub): ${decodedToken.sub}`); 
+                      core.info(`Decoded OIDC Token Audience (aud): ${decodedToken.aud}`);
+                      } catch (error) {
+                      core.error(`Failed to get OIDC token for debugging: ${error.message}`);
+                    }
+
             - name: Configure AWS Credentials
               uses: aws-actions/configure-aws-credentials@v4
               with:
