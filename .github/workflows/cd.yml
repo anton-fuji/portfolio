@@ -65,7 +65,7 @@ jobs:
                   S3_BUCKET_NAME: ${{ vars.S3_BUCKET_NAME }}
   
             - name: Upload dist/ to S3
-              run: aws s3 cp dist/ s3://${{ env.S3_BUCKET_NAME }}/ --recursive
+              run: aws s3 cp dist/. s3://${{ env.S3_BUCKET_NAME }}/ --recursive
 
 
 
