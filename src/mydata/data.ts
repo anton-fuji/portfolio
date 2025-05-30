@@ -79,7 +79,7 @@ export const SKILLS: SkillCategory[] = [
       { id: "git", name: "Git", level: 70 },
       { id: "linux", name: "Linux", level: 70 },
       { id: "lua", name: "Lua", level: 50 },
-      { id: "neovim", name: "Neovim", level: 50 },
+      { id: "neovim", name: "Neovim", level: 55 },
     ],
   },
 ];
