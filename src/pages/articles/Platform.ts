@@ -26,6 +26,10 @@ export const PLATFORM: Platform[] = [
     url: "https://zenn.dev/fuuji/articles/5e148160d40698",
   },
   {
+    Zenn: "TerraformでAmplifyを構築し、爆速でデプロイする",
+    url: "https://zenn.dev/fuuji/articles/795a7b6c9e4050",
+  },
+  {
     Qiita: "【Go言語】Goのメモリ管理の全貌を徹底解剖",
     url: "https://qiita.com/fujifuji1414/items/359d754f9ab0ad2ccbb7",
   },
