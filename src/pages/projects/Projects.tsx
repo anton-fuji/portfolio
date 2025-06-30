@@ -46,6 +46,10 @@ export const projectGroups: ProjectGroup[] = [
         name: "mini link",
         description: "FiberでURL Shortener を実装",
         githuburl: "https://github.com/anton-fuji/minilink",
+      },{
+        name: "gitviz",
+        description: "Gitのコミット履歴をContributionグラフのようにターミナルで視覚化するCLIツール",
+        githuburl: "https://github.com/anton-fuji/gitviz",
       },
     ],
   },
