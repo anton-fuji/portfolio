@@ -24,6 +24,7 @@ jobs:
         name: Build for CD
         runs-on: ubuntu-latest
         timeout-minutes: 10
+        if: github.actor != 'renovate[bot]'
         steps:
             - name: Checkout Repo
               uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
@@ -38,6 +39,7 @@ jobs:
         needs: build
         runs-on: ubuntu-latest
         timeout-minutes: 10
+        if: github.actor != 'renovate[bot]'
         environment: production
         
         steps:
