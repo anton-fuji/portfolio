@@ -10,8 +10,7 @@
 ![Infra](img/Infra.png)
 
 
-## 📂 IaC Repository
-
-The Terraform configuration used to provision the infrastructure (`S3`, `CloudFront`, `Route53`, `ACM`, `IAM`, etc.) is available in a separate repository 👍
+## 📂 Terraform Repository
+以下のリポジトリがインフラで利用したTerraformのコードになります。
 
 👉 [**terraform_s3_cloudfront**](https://github.com/anton-fuji/terraform_s3_cloudfront)
