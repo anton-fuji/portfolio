@@ -30,8 +30,8 @@ export const PLATFORM: Platform[] = [
     url: "https://zenn.dev/fuuji/articles/795a7b6c9e4050",
   },
   {
-    Qiita: "【Go言語】Goのメモリ管理の全貌を徹底解剖",
-    url: "https://qiita.com/fujifuji1414/items/359d754f9ab0ad2ccbb7",
+    Qiita: "ソケット通信を一緒に理解しよう！！",
+    url: "https://qiita.com/fujifuji1414/items/6daa393a86582d81f0b5",
   },
   {
     Qiita: "ブラウザでWebサイトが表示されるまでの仕組みを整理してみた",
