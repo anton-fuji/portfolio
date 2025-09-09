@@ -14,7 +14,7 @@ runs:
         persist-credentials: false
 
     - name: Setup Node.js
-      uses: actions/setup-node@65beceff8e91358525397bdce9103d999507ab03
+      uses: actions/setup-node@cd2651c46231bc0d6f48d6b34433b845331235fe
       with:
         node-version: '20'
         cache: 'npm'
