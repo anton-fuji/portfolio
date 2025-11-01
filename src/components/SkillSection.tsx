@@ -16,7 +16,6 @@ const SkillSection: FC = () => (
       {SKILLS.map((category: SkillCategory) => (
         <Card
           key={category.id}
-          className="space-y-4 border-gray-800 bg-[#0a0a0a]/50 p-6 backdrop-blur-sm"
         >
           <h3 className="text-center font-semibold text-2xl text-white">
             {category.name}

@@ -3,7 +3,7 @@ import QiitaIcon from "../../assets/icons/socials/qiita.svg?react";
 import Card from "../../components/Card";
 import { FaLink } from "react-icons/fa6";
 import { PLATFORM } from "./Platform";
-import Background from "../../components/Background";
+import BackgroundGlobe from "../../components/BackgroundGlobe";
 export { Page };
 
 function Page() {
@@ -12,7 +12,7 @@ function Page() {
 
   return (
     <>
-      <Background />
+      <BackgroundGlobe />
       <div className="space-y-16 py-20">
         <section>
           <div className="flex items-center gap-2 mb-6 px-15">
@@ -25,7 +25,7 @@ function Page() {
               {zenn.map((plat) => (
                 <Card
                   key={plat.url}
-                  className="flex flex-col justify-evenly p-6 pl-6 rounded-xl bg-[#0a0a0a]/90 background-blur-sm border-gray-600/30 hover:shadow-lg hover:-trancelate-y-1 "
+                  className="flex flex-col justify-evenly pl-6 hover:shadow-lg hover:-trancelate-y-1"
                 >
                   <a
                     href={plat.url}
@@ -64,7 +64,7 @@ function Page() {
               {qiita.map((plat) => (
                 <Card
                   key={plat.url}
-                  className="flex flex-col justify-evenly p-6 pl-6 rounded-xl bg-[#0a0a0a]/90 background-blur-sm border-gray-600/30 hover:shadow-lg hover:-trancelate-y-1"
+                  className="flex flex-col justify-evenly pl-6 hover:shadow-lg hover:-trancelate-y-1"
                 >
                   <a
                     href={plat.url}

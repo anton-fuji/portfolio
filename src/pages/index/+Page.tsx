@@ -4,7 +4,7 @@ import "../../styles/App.css";
 import { PERSONAL_INFO } from "../../mydata/data";
 // import Layout from '../../layouts';
 import Profile from "./Profile";
-import Background from "../../components/Background";
+import BackgroundGlobe from "../../components/BackgroundGlobe";
 import SkillSection from "../../components/SkillSection";
 export { Page };
 
@@ -15,7 +15,7 @@ function Page() {
 
   return (
     <div className="relative min-h-screen overflow-hidden">
-      <Background />
+      <BackgroundGlobe />
       <div className="relative">
         <Profile />
 
