@@ -29,7 +29,8 @@ function Page() {
                   {certs.map((cert) => (
                     <Card
                       key={cert.name}
-                      className="flex flex-col p-6 rounded-xl bg-[#0a0a0a]/90 backdrop-blur-sm border-gray-600/30 hover:shadow-lg hover:-translate-y-1 transition-all"
+                              // "rounded-lg border border-gray-600/20 bg-black/50 backdrop-blur-md p-6 shadow-xl/20 opacity-80",
+                      className="flex flex-col hover:shadow-lg hover:-translate-y-1 transition-all"
                     >
                     <div className="mb-4 flex items-center justify-center min-h-[180px]">
                       <img
