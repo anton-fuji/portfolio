@@ -1,6 +1,6 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import  renderPage  from "vike/client";
+import renderPage from "vike/client";
 import Layout from "./layouts/Layout";
 import "./styles/index.css";
 import "./styles/App.css";
@@ -11,11 +11,11 @@ if (!container) {
 }
 
 createRoot(container).render(
-  renderPage(({ Page }:{ Page: React.ComponentType }) => (
+  renderPage(({ Page }: { Page: React.ComponentType }) => (
     <StrictMode>
       <Layout>
         <Page />
       </Layout>
     </StrictMode>
-  ))
+  )),
 );

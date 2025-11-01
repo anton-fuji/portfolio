@@ -1,3 +1,3 @@
 export const title = () => {
-    return "Certifications | Kazuki Fujimoto";
+  return "Certifications | Kazuki Fujimoto";
 };

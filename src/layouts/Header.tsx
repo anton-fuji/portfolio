@@ -6,36 +6,36 @@ const navLinks = [
   { name: "Home", href: "/" },
   { name: "Articles", href: "/articles" },
   { name: "Projects", href: "/projects" },
-  { name: "Certs", href: "/certifications"}
+  { name: "Certs", href: "/certifications" },
 ];
 
 export default function Header() {
   const pageContext = usePageContext();
   const { urlPathname } = pageContext;
   const [isVisible, setIsVisible] = useState(true);
-  const [lastScrollY, setLastScrollY] = useState(0)
-  const [isScrolled, setIsScrolled] = useState(false)
+  const [lastScrollY, setLastScrollY] = useState(0);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
 
-      setIsScrolled(currentScrollY > 30)
+      setIsScrolled(currentScrollY > 30);
 
-    if (currentScrollY > lastScrollY && currentScrollY > 80) {
-      setIsVisible(false);
-    }  else {
-      setIsVisible(true)
-    }
+      if (currentScrollY > lastScrollY && currentScrollY > 80) {
+        setIsVisible(false);
+      } else {
+        setIsVisible(true);
+      }
 
-    setLastScrollY(currentScrollY);
-  };
-  window.addEventListener("scroll", handleScroll, { passive: true });
+      setLastScrollY(currentScrollY);
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
 
-  return () => {
-    window.removeEventListener("scroll", handleScroll);
-  };
-  }, [lastScrollY])
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [lastScrollY]);
 
   return (
     <header
@@ -61,11 +61,11 @@ export default function Header() {
                 key={name}
                 href={href}
                 className={`relative font-sans transition-all duration-300 hover:scale-105 group ${
-                    isActive ? "font-bold text-white" : "text-gray-400"
-                  }`}
+                  isActive ? "font-bold text-white" : "text-gray-400"
+                }`}
               >
                 {name}
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full transition-all duration-300 group-hover:w-full" />
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full transition-all duration-300 group-hover:w-full" />
               </a>
             );
           })}

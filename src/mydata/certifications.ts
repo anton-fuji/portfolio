@@ -1,4 +1,4 @@
-import aceImage from "../assets/icons/certifications/googlecloud-ace.png"
+import aceImage from "../assets/icons/certifications/googlecloud-ace.png";
 
 interface Certification {
   name: string;
@@ -8,7 +8,6 @@ interface Certification {
   category: string;
   credentialUrl?: string;
 }
-
 
 export const CERTIFICATIONS: Certification[] = [
   {
