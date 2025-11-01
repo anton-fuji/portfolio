@@ -1,12 +1,12 @@
 import projectGroups from "./Projects";
 import ProjectCard from "./ProjectCard";
-import Background from "../../components/Background";
+import BackgroundGlobe from "../../components/BackgroundGlobe";
 export { Page };
 
 function Page() {
   return (
     <>
-      <Background />
+      <BackgroundGlobe />
       <div className="space-y-12 py-20 px-8">
         <h2 className="text-white text-4xl font-extrabold text-center sm:text-5xl animate-pulse">
           My Projects
