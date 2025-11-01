@@ -10,7 +10,7 @@ const Card: FC<CardProps> = ({ children, className }) => {
   return (
     <div
       className={twMerge(
-        "rounded-lg border border-gray-900 bg-[#0a0a0a] p-4",
+        "rounded-lg border border-gray-600/20 bg-black/50 backdrop-blur-md p-6 shadow-xl/20 opacity-80",
         className,
       )}
     >

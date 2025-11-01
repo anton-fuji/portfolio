@@ -33,7 +33,7 @@ export const PERSONAL_INFO = {
   name: "Kazuki Fujimoto",
   title: "My Portfolio",
   description:
-    "現在 19 歳、岡山県出身。\n普段はGolang・TypeScript・Luaを楽しみながら探求しています!",
+    "20 y/o | Software Engineer\n Go / Rust / TypeScript / Lua / Google Cloud / AWS",
   location: "Okayama, Japan",
   email: "test",
   profileImage: ".public/fuji-icon.jpg",
@@ -55,9 +55,10 @@ export const SKILLS: SkillCategory[] = [
     name: "Backend",
     color: "bg-sky-600",
     skills: [
-      { id: "go", name: "Go", level: 60 },
-      { id: "python", name: "Python", level: 65 },
-      { id: "mysql", name: "MySQL", level: 50 },
+      { id: "go", name: "Go", level: 65 },
+      { id: "rust", name: "Rust", level: 50 },
+      { id: "python", name: "Python", level: 50 },
+      { id: "postgresql", name: "PostgreSQL", level: 50 },
     ],
   },
   {
@@ -66,6 +67,7 @@ export const SKILLS: SkillCategory[] = [
     color: "bg-blue-500",
     skills: [
       { id: "aws", name: "AWS", level: 50 },
+      { id: "gcp", name: "Google Cloud", level: 40 },
       { id: "terraform", name: "Terraform", level: 20 },
       { id: "gh-actions", name: "Github Actions", level: 40 },
       { id: "docker", name: "Docker", level: 60 },
@@ -79,7 +81,7 @@ export const SKILLS: SkillCategory[] = [
       { id: "git", name: "Git", level: 70 },
       { id: "linux", name: "Linux", level: 70 },
       { id: "lua", name: "Lua", level: 50 },
-      { id: "neovim", name: "Neovim", level: 55 },
+      { id: "neovim", name: "Neovim", level: 65 },
     ],
   },
 ];
