@@ -29,7 +29,6 @@ function Page() {
                   {certs.map((cert) => (
                     <Card
                       key={cert.name}
-                              // "rounded-lg border border-gray-600/20 bg-black/50 backdrop-blur-md p-6 shadow-xl/20 opacity-80",
                       className="flex flex-col hover:shadow-lg hover:-translate-y-1 transition-all"
                     >
                     <div className="mb-4 flex items-center justify-center min-h-[180px]">
@@ -40,7 +39,6 @@ function Page() {
                       />
                     </div>
 
-                      {/* 資格情報 */}
                       <div className="space-y-2 flex-grow">
                         {cert.credentialUrl ? (
                           <a

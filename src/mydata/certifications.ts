@@ -1,3 +1,5 @@
+import aceImage from "../assets/icons/certifications/googlecloud-ace.png"
+
 interface Certification {
   name: string;
   organization: string;
@@ -13,7 +15,7 @@ export const CERTIFICATIONS: Certification[] = [
     name: "Assosiate Cloud Engineer",
     organization: "Google Cloud",
     date: "2025年10月",
-    imageUrl: "src/assets/icons/certifications/googlecloud-ace.png",
+    imageUrl: aceImage,
     category: "IT",
   },
 ];
