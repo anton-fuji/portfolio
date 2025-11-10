@@ -1,4 +1,5 @@
 import aceImage from "../assets/icons/certifications/googlecloud-ace.png";
+import cdlImage from "../assets/icons/certifications/googlecloud-cdl.png"
 
 interface Certification {
   name: string;
@@ -10,6 +11,13 @@ interface Certification {
 }
 
 export const CERTIFICATIONS: Certification[] = [
+  {
+    name: "Cloud Digital Leader",
+    organization: "Google Cloud",
+    date: "2025年11月",
+    imageUrl: cdlImage,
+    category: "IT",
+  },
   {
     name: "Assosiate Cloud Engineer",
     organization: "Google Cloud",
