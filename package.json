@@ -18,7 +18,7 @@
     "tailwind-merge": "^3.2.0",
     "three": "^0.182.0",
     "vanta": "^0.5.24",
-    "vike": "0.4.250",
+    "vike": "0.4.251",
     "vike-react": "^0.6.1",
     "vite-plugin-ssr": "^0.4.142"
   },
