@@ -33,8 +33,8 @@ export const PERSONAL_INFO = {
   name: "Kazuki Fujimoto",
   title: "My Portfolio",
   description:
-    "20 y/o | Software Engineer\n Go / Rust / TypeScript / Lua / Google Cloud / AWS",
-  location: "Okayama, Japan",
+    "20 y/o | Software Engineer\n Likes: Go / Rust / TypeScript / Neovim / WezTerm" ,
+  location: "Osaka, Japan",
   email: "test",
   profileImage: ".public/fuji-icon.jpg",
 };
@@ -55,7 +55,7 @@ export const SKILLS: SkillCategory[] = [
     name: "Backend",
     color: "bg-sky-600",
     skills: [
-      { id: "go", name: "Go", level: 65 },
+      { id: "go", name: "Go", level: 70 },
       { id: "rust", name: "Rust", level: 50 },
       { id: "python", name: "Python", level: 50 },
       { id: "postgresql", name: "PostgreSQL", level: 50 },
@@ -70,6 +70,7 @@ export const SKILLS: SkillCategory[] = [
       { id: "gcp", name: "Google Cloud", level: 40 },
       { id: "terraform", name: "Terraform", level: 20 },
       { id: "gh-actions", name: "Github Actions", level: 40 },
+      { id: "nix" , name: "Nix", level: 30 },
       { id: "docker", name: "Docker", level: 60 },
     ],
   },

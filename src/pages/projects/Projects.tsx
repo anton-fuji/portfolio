@@ -33,7 +33,7 @@ export const projectGroups: ProjectGroup[] = [
     ],
   },
   {
-    name: "Golang",
+    name: "Go",
     icon: <FaGolang size={30} />,
     projects: [
       {
@@ -52,6 +52,12 @@ export const projectGroups: ProjectGroup[] = [
         description:
           "Gitのコミット履歴をContributionグラフのようにターミナルで視覚化するCLIツール",
         githuburl: "https://github.com/anton-fuji/gitviz",
+      },
+      {
+        name: "dibo",
+        description:
+          ".dockerignoreファイルのテンプレートを生成するCLIツール",
+        githuburl: "https://github.com/anton-fuji/dibo",
       },
     ],
   },

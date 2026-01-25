@@ -1,6 +1,7 @@
 import aceImage from "../assets/icons/certifications/googlecloud-ace.png";
 import cdlImage from "../assets/icons/certifications/googlecloud-cdl.png";
 import pcdImage from "../assets/icons/certifications/googlecloud-pcd.png";
+import pcaImage from "../assets/icons/certifications/googlecloud-pca.png";
 
 interface Certification {
   name: string;
@@ -31,6 +32,13 @@ export const CERTIFICATIONS: Certification[] = [
     organization: "Google Cloud",
     date: "2025年12月",
     imageUrl: pcdImage,
+    category: "IT",
+  },
+  {
+    name: "Professional Cloud Architect",
+    organization: "Google Cloud",
+    date: "2026年 1月",
+    imageUrl: pcaImage,
     category: "IT",
   },
 ];
