@@ -21,7 +21,7 @@ runs:
 
     - name: Cache & install dependencies
       id: deps
-      uses: actions/cache@5a3ec84eff668545956fd18022155c47e93e2684
+      uses: actions/cache@b7e8d49f17405cc70c1c120101943203c98d3a4b
       with:
         path: node_modules
         key: ${{ runner.os }}-npm-${{ hashFiles('**/package-lock.json') }}
