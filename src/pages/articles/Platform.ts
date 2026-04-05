@@ -14,8 +14,8 @@ export const PLATFORM: Platform[] = [
     url: "https://zenn.dev/fuuji/articles/3909c8d444eaa9",
   },
   {
-    Zenn: "Terraform で DockerイメージをLambdaへデプロイ",
-    url: "https://zenn.dev/fuuji/articles/547388be4ca9ce",
+    Zenn: "GoでUNIXコマンドを作りながら、I/O処理を理解する",
+    url: "https://zenn.dev/fuuji/articles/6b2afad9252676",
   },
   {
     Zenn: "Terraform で ECR + Lambda + API Gateway 構築し、FastAPI をサーバーレスにデプロイ",
