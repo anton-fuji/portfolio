@@ -2,6 +2,7 @@ import type { ReactNode } from "react";
 import { FaPeopleGroup, FaGolang } from "react-icons/fa6";
 import { SiLua } from "react-icons/si";
 import { BiLogoTypescript } from "react-icons/bi";
+import { SiZig } from "react-icons/si";
 
 export interface ProjectGroup {
   name: string;
@@ -69,6 +70,17 @@ export const projectGroups: ProjectGroup[] = [
         name: "dotfiles",
         description: "Neovim + WezTerm 環境構築",
         githuburl: "https://github.com/anton-fuji/dotfiles",
+      },
+    ],
+  },
+  {
+    name: "Zig",
+    icon: <SiZig size={30} />,
+    projects: [
+      {
+        name: "ztree",
+        description: "Zig ディレクトリツリーCLI",
+        githuburl: "https://github.com/anton-fuji/ztree",
       },
     ],
   },

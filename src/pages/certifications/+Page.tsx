@@ -41,7 +41,7 @@ function Page() {
                         />
                       </div>
 
-                      <div className="space-y-2 flex-grow">
+                      <div className="space-y-2 grow">
                         {cert.credentialUrl ? (
                           <a
                             href={cert.credentialUrl}
