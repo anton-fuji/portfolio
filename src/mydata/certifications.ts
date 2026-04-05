@@ -2,6 +2,7 @@ import aceImage from "../assets/icons/certifications/googlecloud-ace.png";
 import cdlImage from "../assets/icons/certifications/googlecloud-cdl.png";
 import pcdImage from "../assets/icons/certifications/googlecloud-pcd.png";
 import pcaImage from "../assets/icons/certifications/googlecloud-pca.png";
+import doImage from "../assets/icons/certifications/googlecloud-devops.png";
 
 interface Certification {
   name: string;
@@ -39,6 +40,13 @@ export const CERTIFICATIONS: Certification[] = [
     organization: "Google Cloud",
     date: "2026年 1月",
     imageUrl: pcaImage,
+    category: "IT",
+  },
+  {
+    name: "Professional DevOps Engineer",
+    organization: "Google Cloud",
+    date: "2026年 4月",
+    imageUrl: doImage,
     category: "IT",
   },
 ];
