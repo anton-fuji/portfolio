@@ -35,6 +35,7 @@ export const PERSONAL_INFO = {
   description:
     "20 y/o | Software Engineer\n Likes: Go / Rust / TypeScript / Neovim / WezTerm" ,
   location: "Osaka, Japan",
+  url: "fuuji.site",
   email: "test",
   profileImage: ".public/fuji-icon.jpg",
 };
@@ -57,7 +58,7 @@ export const SKILLS: SkillCategory[] = [
     skills: [
       { id: "go", name: "Go", level: 70 },
       { id: "rust", name: "Rust", level: 50 },
-      { id: "python", name: "Python", level: 50 },
+      { id: "python", name: "Python", level: 40 },
       { id: "postgresql", name: "PostgreSQL", level: 50 },
     ],
   },
@@ -67,10 +68,10 @@ export const SKILLS: SkillCategory[] = [
     color: "bg-blue-500",
     skills: [
       { id: "aws", name: "AWS", level: 50 },
-      { id: "gcp", name: "Google Cloud", level: 40 },
-      { id: "terraform", name: "Terraform", level: 20 },
-      { id: "gh-actions", name: "Github Actions", level: 40 },
-      { id: "nix" , name: "Nix", level: 30 },
+      { id: "gcp", name: "Google Cloud", level: 70 },
+      { id: "terraform", name: "Terraform", level: 50 },
+      { id: "gh-actions", name: "Github Actions", level: 50 },
+      { id: "nix" , name: "Nix", level: 50 },
       { id: "docker", name: "Docker", level: 60 },
     ],
   },

@@ -60,7 +60,7 @@ export default function Header() {
             href="/"
             className="text-xl md:text-2xl font-semibold text-white z-50 relative"
           >
-            {PERSONAL_INFO.name}
+            {PERSONAL_INFO.url}
           </a>
 
           <nav className="hidden md:flex items-center space-x-6 lg:space-x-8">

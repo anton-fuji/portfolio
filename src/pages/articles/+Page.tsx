@@ -1,96 +1,58 @@
-import ZennIcon from "../../assets/icons/socials/zenn.svg?react";
-import QiitaIcon from "../../assets/icons/socials/qiita.svg?react";
-import Card from "../../components/Card";
 import { FaLink } from "react-icons/fa6";
-import { PLATFORM } from "./Platform";
+import { useData } from "vike-react/useData";
 import BackgroundGlobe from "../../components/BackgroundGlobe";
+import type { Data } from "./+data";
+import ArticleCard from "./ArticleCard";
+import { PLATFORM_THEMES } from "./articleTheme";
+
 export { Page };
 
 function Page() {
-  const zenn = PLATFORM.filter((p) => p.Zenn);
-  const qiita = PLATFORM.filter((p) => p.Qiita);
+  const articles = useData<Data>();
 
   return (
     <>
       <BackgroundGlobe />
       <div className="space-y-16 py-20">
-        <section>
-          <div className="flex items-center gap-2 mb-6 px-15">
-            <ZennIcon className="w-6 h-6 text-white" />
-            <h2 className="text-3xl font-bold text-white">Zenn Articles</h2>
-          </div>
+        {PLATFORM_THEMES.map((theme) => {
+          const items = articles.filter((a) => a.platform === theme.key);
+          const { Icon } = theme;
 
-          <div className="container mx-auto px-8">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 justify-center-safe">
-              {zenn.map((plat) => (
-                <Card
-                  key={plat.url}
-                  className="flex flex-col justify-evenly pl-6 hover:shadow-lg hover:-trancelate-y-1"
-                >
+          return (
+            <section key={theme.key}>
+              <div className="mb-6 flex items-center gap-2 px-15">
+                <Icon className="h-6 w-6 text-white" />
+                <h2 className={`text-3xl font-bold ${theme.title}`}>
+                  {theme.label}
+                </h2>
+              </div>
+
+              <div className="container mx-auto px-8">
+                <div className="grid grid-cols-1 gap-8 sm:grid-cols-2">
+                  {items.map((article) => (
+                    <ArticleCard
+                      key={article.url}
+                      article={article}
+                      theme={theme}
+                    />
+                  ))}
+                </div>
+
+                <div className="mt-8 flex justify-center">
                   <a
-                    href={plat.url}
+                    href={theme.profileUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-white hover:text-gray-400 transition-colors"
+                    className={`inline-flex items-center gap-2 rounded-full px-6 py-2 font-medium text-white shadow-md transition-colors hover:shadow-lg ${theme.button}`}
                   >
-                    <h3 className="text-xl font-medium">{plat.Zenn}</h3>
+                    <FaLink size={15} className="animate-pulse" />
+                    <span>View more on {theme.key}</span>
                   </a>
-                </Card>
-              ))}
-            </div>
-
-            <div className="flex justify-center mt-8">
-              <a
-                href="https://zenn.dev/fuuji"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-gray-600 hover:bg-gray-700 text-white font-medium px-6 py-2 rounded-full shadow-md hover:shadow-lg transition-colors"
-              >
-                <FaLink size={15} className="animate-pulse" />
-                <span>View more on Zenn</span>
-              </a>
-            </div>
-          </div>
-        </section>
-
-        <section>
-          <div className="flex items-center gap-2 mb-6 px-15">
-            <QiitaIcon className="w-6 h-6 text-white" />
-            <h2 className="text-3xl font-bold text-white">Qiita Articles</h2>
-          </div>
-
-          <div className="container mx-auto px-8">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 justify-center-safe">
-              {qiita.map((plat) => (
-                <Card
-                  key={plat.url}
-                  className="flex flex-col justify-evenly pl-6 hover:shadow-lg hover:-trancelate-y-1"
-                >
-                  <a
-                    href={plat.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-white hover:text-gray-400 transition-colors"
-                  >
-                    <h3 className="text-xl font-medium">{plat.Qiita}</h3>
-                  </a>
-                </Card>
-              ))}
-            </div>
-
-            <div className="flex justify-center mt-8">
-              <a
-                href="https://qiita.com/fujifuji1414"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-gray-600 hover:bg-gray-700 text-white font-medium px-6 py-2 rounded-full shadow-md hover:shadow-lg transition-colors"
-              >
-                <FaLink size={15} className="animate-pulse" />
-                <span>View more on Qiita</span>
-              </a>
-            </div>
-          </div>
-        </section>
+                </div>
+              </div>
+            </section>
+          );
+        })}
       </div>
     </>
   );
