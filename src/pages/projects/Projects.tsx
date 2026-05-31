@@ -18,22 +18,6 @@ export interface Project {
 
 export const projectGroups: ProjectGroup[] = [
   {
-    name: "Hackathon Projects",
-    icon: <FaPeopleGroup size={30} />,
-    projects: [
-      {
-        name: "Tech Hub",
-        description: "RareTECH 受講生向けに作成した、記事プラットフォーム",
-        githuburl: "https://github.com/E-Team-Hackathon/TechHub",
-      },
-      {
-        name: "Chimy",
-        description: "小学校向け 連絡帳チャットアプリ",
-        githuburl: "https://github.com/2024-Summer-Raretech-Team-F/chatapp",
-      },
-    ],
-  },
-  {
     name: "Go",
     icon: <FaGolang size={30} />,
     projects: [
@@ -92,6 +76,22 @@ export const projectGroups: ProjectGroup[] = [
         name: "Portfolio",
         description: "個人のポートフォリオサイト",
         githuburl: "https://github.com/anton-fuji/portfolio",
+      },
+    ],
+  },
+  {
+    name: "Hackathon Projects",
+    icon: <FaPeopleGroup size={30} />,
+    projects: [
+      {
+        name: "Tech Hub",
+        description: "RareTECH 受講生向けに作成した、記事プラットフォーム",
+        githuburl: "https://github.com/E-Team-Hackathon/TechHub",
+      },
+      {
+        name: "Chimy",
+        description: "小学校向け 連絡帳チャットアプリ",
+        githuburl: "https://github.com/2024-Summer-Raretech-Team-F/chatapp",
       },
     ],
   },
