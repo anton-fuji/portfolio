@@ -5,7 +5,7 @@ on:
         branches:
             - main
         paths:
-            - 'src/**' 
+            - 'src/**'
 
 permissions:
     id-token: write
@@ -28,7 +28,7 @@ jobs:
         steps:
             - name: Checkout Repo
               uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
-              
+
             - name: Setup & Run Build
               uses: ./.github/actions/setup
               with:
@@ -41,7 +41,7 @@ jobs:
         timeout-minutes: 10
         if: github.actor != 'renovate[bot]'
         environment: production
-        
+
         steps:
             - name: Checkout Repo
               uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
@@ -58,7 +58,7 @@ jobs:
               uses: aws-actions/configure-aws-credentials@v4
               with:
                 role-to-assume: ${{ secrets.AWS_IAM_ROLE_ARN }}
-                aws-region: ap-northeast-1 
+                aws-region: ap-northeast-1
 
             - name: Set S3 Bucket Name and CloudFront ID
               run: |
@@ -72,9 +72,10 @@ jobs:
               env:
                   S3_BUCKET_NAME: ${{ vars.S3_BUCKET_NAME }}
                   CLOUDFRONT_DISTRIBUTION_ID: ${{ vars.CLOUDFRONT_DISTRIBUTION_ID }}
-  
-            - name: Upload dist/ to S3
-              run: aws s3 cp dist/. s3://${{ env.S3_BUCKET_NAME }}/ --recursive
+
+            - name: Upload to S3
+              run: aws s3 sync dist/client/ s3://${{ env.S3_BUCKET_NAME }}/ --delete
+
 
             - name: Invalidate CloudFront cache
               run: |
