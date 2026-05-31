@@ -20,23 +20,8 @@ concurrency:
     cancel-in-progress: true
 
 jobs:
-    build:
-        name: Build for CD
-        runs-on: ubuntu-latest
-        timeout-minutes: 10
-        if: github.actor != 'renovate[bot]'
-        steps:
-            - name: Checkout Repo
-              uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
-
-            - name: Setup & Run Build
-              uses: ./.github/actions/setup
-              with:
-                script: build
-
     deploy:
-        name: Deploy to S3/CloudFront
-        needs: build
+        name: Build & Deploy to S3/CloudFront
         runs-on: ubuntu-latest
         timeout-minutes: 10
         if: github.actor != 'renovate[bot]'
@@ -46,13 +31,10 @@ jobs:
             - name: Checkout Repo
               uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
 
-            - name: Install Dependencies
+            - name: Setup, Install & Build
               uses: ./.github/actions/setup
               with:
-                script: ""
-
-            - name: Build My Site
-              run: npm run build
+                script: build
 
             - name: Configure AWS Credentials
               uses: aws-actions/configure-aws-credentials@v4
@@ -62,25 +44,14 @@ jobs:
 
             - name: Set S3 Bucket Name and CloudFront ID
               run: |
-                  S3_BUCKET_NAME="${{ vars.S3_BUCKET_NAME }}"
-                  echo "S3_BUCKET_NAME=$S3_BUCKET_NAME" >> $GITHUB_ENV
-                  echo "Using S3 Bucket Name: $S3_BUCKET_NAME"
-
-                  CLOUDFRONT_DISTRIBUTION_ID="${{ vars.CLOUDFRONT_DISTRIBUTION_ID }}"
-                  echo "CLOUDFRONT_DISTRIBUTION_ID=$CLOUDFRONT_DISTRIBUTION_ID" >> $GITHUB_ENV
-                  echo "Using CloudFront Distribution ID: $CLOUDFRONT_DISTRIBUTION_ID"
-              env:
-                  S3_BUCKET_NAME: ${{ vars.S3_BUCKET_NAME }}
-                  CLOUDFRONT_DISTRIBUTION_ID: ${{ vars.CLOUDFRONT_DISTRIBUTION_ID }}
+                  echo "S3_BUCKET_NAME=${{ vars.S3_BUCKET_NAME }}" >> $GITHUB_ENV
+                  echo "CLOUDFRONT_DISTRIBUTION_ID=${{ vars.CLOUDFRONT_DISTRIBUTION_ID }}" >> $GITHUB_ENV
 
             - name: Upload to S3
               run: aws s3 sync dist/client/ s3://${{ env.S3_BUCKET_NAME }}/ --delete
 
-
             - name: Invalidate CloudFront cache
               run: |
                   aws cloudfront create-invalidation \
-                  --distribution-id ${{ env.CLOUDFRONT_DISTRIBUTION_ID }} \
-                  --paths "/*"
-
-
+                    --distribution-id ${{ env.CLOUDFRONT_DISTRIBUTION_ID }} \
+                    --paths "/*"
