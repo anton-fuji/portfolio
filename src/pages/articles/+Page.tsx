@@ -25,9 +25,6 @@ function Page() {
                 <h2 className={`text-3xl font-bold ${theme.title}`}>
                   {theme.label}
                 </h2>
-                <span className="rounded-full border border-gray-600/40 px-2 py-0.5 text-sm text-gray-400">
-                  {items.length}
-                </span>
               </div>
 
               <div className="container mx-auto px-8">
