@@ -35,6 +35,7 @@ export const PERSONAL_INFO = {
   description:
     "20 y/o | Software Engineer\n Likes: Go / Rust / TypeScript / Neovim / WezTerm" ,
   location: "Osaka, Japan",
+  url: "fuuji.site",
   email: "test",
   profileImage: ".public/fuji-icon.jpg",
 };
