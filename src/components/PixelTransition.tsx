@@ -1,108 +1,168 @@
 import type { CSSProperties, FC, ReactNode } from "react";
-import { useMemo, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { gsap } from "gsap";
 import { twMerge } from "tailwind-merge";
 
 type PixelTransitionProps = {
-  firstContent: ReactNode;
-  secondContent: ReactNode;
-  secondImageSrc?: string;
-  className?: string;
-  pixelGridClassName?: string;
+  firstContent: ReactNode | string;
+  secondContent: ReactNode | string;
   gridSize?: number;
   pixelColor?: string;
-};
-
-type PixelStyle = CSSProperties & {
-  "--pixel-bg": string;
-  "--pixel-color": string;
-  "--pixel-delay": string;
-  "--pixel-image-size": string;
-  "--pixel-position": string;
+  animationStepDuration?: number;
+  once?: boolean;
+  className?: string;
+  style?: CSSProperties;
+  aspectRatio?: string;
 };
 
 const PixelTransition: FC<PixelTransitionProps> = ({
   firstContent,
   secondContent,
-  secondImageSrc,
+  gridSize = 7,
+  pixelColor = "currentColor",
+  animationStepDuration = 0.3,
+  once = false,
+  aspectRatio = "100%",
   className,
-  pixelGridClassName,
-  gridSize = 10,
-  pixelColor = "#0a0a0a",
+  style = {},
 }) => {
-  const [active, setActive] = useState(false);
+  const containerRef = useRef<HTMLDivElement | null>(null);
+  const pixelGridRef = useRef<HTMLDivElement | null>(null);
+  const activeRef = useRef<HTMLDivElement | null>(null);
+  const delayedCallRef = useRef<gsap.core.Tween | null>(null);
 
-  const pixels = useMemo(
-    () =>
-      Array.from({ length: gridSize * gridSize }, (_, index) => {
-        const x = index % gridSize;
-        const y = Math.floor(index / gridSize);
-        const center = (gridSize - 1) / 2;
-        const distance = Math.hypot(x - center, y - center);
+  const [isActive, setIsActive] = useState(false);
+  const [isTouchDevice, setIsTouchDevice] = useState(false);
 
-        return {
-          id: `${x}-${y}`,
-          x,
-          y,
-          delay: `${distance * 24}ms`,
-        };
-      }),
-    [gridSize],
-  );
+  useEffect(() => {
+    setIsTouchDevice(
+      "ontouchstart" in window ||
+        navigator.maxTouchPoints > 0 ||
+        window.matchMedia("(pointer: coarse)").matches,
+    );
+  }, []);
+
+  useEffect(() => {
+    const pixelGridEl = pixelGridRef.current;
+    if (!pixelGridEl) return;
+
+    pixelGridEl.innerHTML = "";
+
+    for (let row = 0; row < gridSize; row += 1) {
+      for (let col = 0; col < gridSize; col += 1) {
+        const pixel = document.createElement("div");
+        pixel.classList.add("pixelated-image-card__pixel");
+        pixel.classList.add("absolute", "hidden");
+        pixel.style.backgroundColor = pixelColor;
+
+        const size = 100 / gridSize;
+        pixel.style.width = `${size}%`;
+        pixel.style.height = `${size}%`;
+        pixel.style.left = `${col * size}%`;
+        pixel.style.top = `${row * size}%`;
+
+        pixelGridEl.appendChild(pixel);
+      }
+    }
+  }, [gridSize, pixelColor]);
+
+  useEffect(() => {
+    return () => {
+      delayedCallRef.current?.kill();
+    };
+  }, []);
+
+  const animatePixels = (activate: boolean): void => {
+    setIsActive(activate);
+
+    const pixelGridEl = pixelGridRef.current;
+    const activeEl = activeRef.current;
+    if (!pixelGridEl || !activeEl) return;
+
+    const pixels = pixelGridEl.querySelectorAll<HTMLDivElement>(
+      ".pixelated-image-card__pixel",
+    );
+    if (!pixels.length) return;
+
+    gsap.killTweensOf(pixels);
+    delayedCallRef.current?.kill();
+
+    gsap.set(pixels, { display: "none" });
+
+    const totalPixels = pixels.length;
+    const staggerDuration = animationStepDuration / totalPixels;
+
+    gsap.to(pixels, {
+      display: "block",
+      duration: 0,
+      stagger: {
+        each: staggerDuration,
+        from: "random",
+      },
+    });
+
+    delayedCallRef.current = gsap.delayedCall(animationStepDuration, () => {
+      activeEl.style.display = activate ? "block" : "none";
+      activeEl.style.pointerEvents = activate ? "none" : "";
+    });
+
+    gsap.to(pixels, {
+      display: "none",
+      duration: 0,
+      delay: animationStepDuration,
+      stagger: {
+        each: staggerDuration,
+        from: "random",
+      },
+    });
+  };
+
+  const handleEnter = (): void => {
+    if (!isActive) animatePixels(true);
+  };
+
+  const handleLeave = (): void => {
+    if (isActive && !once) animatePixels(false);
+  };
+
+  const handleClick = (): void => {
+    if (!isActive) animatePixels(true);
+    else if (!once) animatePixels(false);
+  };
 
   return (
     <div
+      ref={containerRef}
       className={twMerge(
-        "pixel-transition group relative h-full w-full overflow-hidden",
+        "relative max-w-full overflow-hidden rounded-[15px] text-white",
         className,
       )}
-      onMouseEnter={() => setActive(true)}
-      onMouseLeave={() => setActive(false)}
-      onFocus={() => setActive(true)}
-      onBlur={() => setActive(false)}
+      style={style}
+      onMouseEnter={!isTouchDevice ? handleEnter : undefined}
+      onMouseLeave={!isTouchDevice ? handleLeave : undefined}
+      onClick={isTouchDevice ? handleClick : undefined}
+      onFocus={!isTouchDevice ? handleEnter : undefined}
+      onBlur={!isTouchDevice ? handleLeave : undefined}
+      tabIndex={0}
     >
-      <div className="absolute inset-0">{firstContent}</div>
+      <div style={{ paddingTop: aspectRatio }} />
+
+      <div className="absolute inset-0 h-full w-full" aria-hidden={isActive}>
+        {firstContent}
+      </div>
 
       <div
-        className={twMerge(
-          "absolute inset-0 transition-opacity duration-300",
-          active ? "opacity-100 delay-300" : "opacity-0",
-        )}
+        ref={activeRef}
+        className="absolute inset-0 z-[2] hidden h-full w-full"
+        aria-hidden={!isActive}
       >
         {secondContent}
       </div>
 
       <div
-        className={twMerge(
-          "pointer-events-none absolute inset-0 z-20 grid",
-          pixelGridClassName,
-        )}
-        style={{
-          gridTemplateColumns: `repeat(${gridSize}, minmax(0, 1fr))`,
-          gridTemplateRows: `repeat(${gridSize}, minmax(0, 1fr))`,
-        }}
-      >
-        {pixels.map((pixel) => (
-          <span
-            key={pixel.id}
-            className={twMerge(
-              "pixel-transition__pixel",
-              secondImageSrc && "pixel-transition__pixel--image",
-              active && "pixel-transition__pixel--active",
-            )}
-            style={
-              {
-                "--pixel-bg": secondImageSrc ? `url(${secondImageSrc})` : "none",
-                "--pixel-color": pixelColor,
-                "--pixel-delay": pixel.delay,
-                "--pixel-image-size": `${gridSize * 100}% ${gridSize * 100}%`,
-                "--pixel-position": `${(pixel.x / (gridSize - 1)) * 100}% ${
-                  (pixel.y / (gridSize - 1)) * 100
-                }%`,
-              } as PixelStyle
-            }
-          />
-        ))}
-      </div>
+        ref={pixelGridRef}
+        className="pointer-events-none absolute inset-0 z-[3] h-full w-full"
+      />
     </div>
   );
 };
