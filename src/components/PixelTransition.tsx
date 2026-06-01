@@ -131,6 +131,7 @@ const PixelTransition: FC<PixelTransitionProps> = ({
   };
 
   return (
+  // biome-ignore lint/a11y/useKeyWithClickEvents: decorative hover/focus effect; click is touch-only fallback
     <div
       ref={containerRef}
       className={twMerge(
@@ -143,7 +144,6 @@ const PixelTransition: FC<PixelTransitionProps> = ({
       onClick={isTouchDevice ? handleClick : undefined}
       onFocus={!isTouchDevice ? handleEnter : undefined}
       onBlur={!isTouchDevice ? handleLeave : undefined}
-      tabIndex={0}
     >
       <div style={{ paddingTop: aspectRatio }} />
 
