@@ -37,3 +37,7 @@ body {
 .animate-fade-in-up {
   animation: fadeInUp 0.8s ease forwards;
 }
+
+  .pixelated-image-card__pixel {
+    display: none !important;
+  }
