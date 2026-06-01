@@ -2,10 +2,11 @@ import type { FC } from "react";
 import GithubIcon from "../../assets/icons/socials/github.svg?react";
 import XIcon from "../../assets/icons/socials/x.svg?react";
 import ZennIcon from "../../assets/icons/socials/zenn.svg?react";
+import QiitaIcon from "../../assets/icons/socials/qiita.svg?react";
 import NoteIcon from "../../assets/icons/socials/note.svg?react";
 
 const socialIconProps = {
-  className: "text-white w-9 h-10 hover:opacity-80 transition",
+  className: "h-5 w-5",
 };
 
 const socials = [
@@ -25,6 +26,11 @@ const socials = [
     href: "https://zenn.dev/fuuji",
   },
   {
+    name: "Qiita",
+    icon: <QiitaIcon {...socialIconProps} />,
+    href: "https://qiita.com/fujifuji1414",
+  },
+  {
     name: "Note",
     icon: <NoteIcon {...socialIconProps} />,
     href: "https://note.com/easy_dolphin1414",
@@ -33,7 +39,7 @@ const socials = [
 
 const Socials: FC = () => {
   return (
-    <ul className="flex gap-4 mt-1">
+    <ul className="mt-3 flex gap-3">
       {socials.map((social) => (
         <li key={social.href}>
           <a
@@ -41,6 +47,7 @@ const Socials: FC = () => {
             title={social.name}
             target="_blank"
             rel="noreferrer noopener"
+            className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/[0.04] text-white/78 transition hover:-translate-y-0.5 hover:border-white/25 hover:bg-white/[0.08] hover:text-white [&_path]:fill-current"
           >
             {social.icon}
           </a>

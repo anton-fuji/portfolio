@@ -3,9 +3,8 @@ import { useEffect } from "react";
 import "../../styles/App.css";
 import { PERSONAL_INFO } from "../../mydata/data";
 // import Layout from '../../layouts';
-import Profile from "./Profile";
 import BackgroundGlobe from "../../components/BackgroundGlobe";
-import SkillSection from "../../components/SkillSection";
+import HomeShowcase from "./HomeShowcase";
 export { Page };
 
 function Page() {
@@ -17,9 +16,7 @@ function Page() {
     <div className="relative min-h-screen overflow-hidden">
       <BackgroundGlobe />
       <div className="relative">
-        <Profile />
-
-        <SkillSection />
+        <HomeShowcase />
       </div>
     </div>
   );
