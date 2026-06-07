@@ -14,13 +14,13 @@ const Profile: FC = () => {
   return (
     <section className="grid min-h-[560px] items-center gap-12 px-6 py-20 sm:px-8 lg:grid-cols-[0.9fr_1.1fr] lg:px-10">
       <div className="relative mx-auto flex h-64 w-64 items-center justify-center sm:h-72 sm:w-72 lg:mx-0, lg:justify-self-">
-        <div className="absolute inset-0 rounded-full border border-white/10 bg-white/[0.03] shadow-[0_0_70px_rgba(112,228,166,0.12)]" />
-        <div className="absolute inset-5 rounded-full border border-dashed border-white/16" />
+        <div className="absolute inset-0 rounded-full border border-cyan-400/10 bg-white/[0.03] shadow-[0_0_70px_rgba(112,228,166,0.12)]" />
+        <div className="absolute inset-5 rounded-full border border-dashed border-cyan-400/16" />
         <PixelTransition
           gridSize={9}
           pixelColor="#07151d"
           animationStepDuration={0.45}
-          className="relative h-44 w-44 rounded-full border border-white/25 shadow-2xl sm:h-52 sm:w-52"
+          className="relative h-44 w-44 rounded-full border border-cyan-400/25 shadow-2xl sm:h-52 sm:w-52"
           firstContent={
             <img
               className="h-full w-full object-cover"
