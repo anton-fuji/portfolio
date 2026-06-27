@@ -113,7 +113,7 @@ export const ENGINEERING_SURFACES: EngineeringSurface[] = [
   {
     id: "technical-writing",
     verb: "$ cat ~/notes/rough-edges.md",
-    title: "Writing down the rough edges",
+    title: "Notes from the Debug Log",
     description:
       "When I get stuck around Docker, Go, or Terraform, I turn the notes into articles so the next pass is faster.",
     stack: ["Zenn", "Qiita", "Docker", "Go", "Terraform"],

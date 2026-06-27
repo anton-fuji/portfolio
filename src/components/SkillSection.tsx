@@ -63,7 +63,7 @@ const SkillSection: FC = () => (
       <div className="mb-10 grid gap-6 lg:grid-cols-[0.95fr_1.05fr] lg:items-end">
         <div>
           <p className="text-xs font-semibold uppercase text-sky-200/70">
-            Daily Driver
+            ~/stack
           </p>
           <h2 className="mt-3 text-3xl font-semibold text-white sm:text-4xl">
             My Tech Stack
@@ -79,13 +79,11 @@ const SkillSection: FC = () => (
         <div className="relative grid gap-5 border-b border-blue-300/15 p-5 sm:p-6 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-center">
           <div>
             <p className="text-sm font-medium text-white/86">
-              Here is a summary of the technologies I typically work with, both
-              professionally and personally.
+              Mostly backend, infra, PostgreSQL, and terminal-heavy workflows.
             </p>
             <p className="mt-2 max-w-2xl text-sm leading-6 text-white/52">
-              My center of gravity is backend, infrastructure, PostgreSQL, and
-              the terminal. I can build frontend surfaces too, but I am most at
-              home in Vim, Neovim, and CLI-heavy workflows.
+              Frontend when needed. Notes when something hurts enough to
+              remember.
             </p>
           </div>
 
@@ -114,9 +112,8 @@ const SkillSection: FC = () => (
               key={surface.id}
               className="group relative grid gap-5 border-t border-blue-300/12 px-5 py-6 first:border-t-0 sm:grid-cols-[7rem_1fr] sm:px-6 lg:grid-cols-[8rem_minmax(0,1fr)_18rem]"
             >
-              <div className="flex items-start gap-3 sm:block">
-                <span className="relative z-10 mt-1 block h-2.5 w-2.5 shrink-0 rounded-full border border-cyan-200/45 bg-[#020711] shadow-[0_0_12px_rgba(56,189,248,0.35)] sm:mt-1" />
-                <span className="block font-mono text-[0.68rem] leading-5 text-sky-100/58 sm:mt-3 sm:max-w-[6.5rem]">
+              <div>
+                <span className="block font-mono text-[0.68rem] leading-5 text-sky-100/58 sm:max-w-[6.5rem]">
                   {surface.verb}
                 </span>
               </div>
