@@ -1,7 +1,11 @@
+export type SocialLinkName = "GitHub" | "X" | "Zenn" | "Qiita" | "Note";
+
+export type SocialIconName = "Github" | "X" | "Zenn" | "Qiita" | "Note";
+
 export interface SocialLink {
-  name: string;
+  name: SocialLinkName;
   url: string;
-  icon: string;
+  icon: SocialIconName;
 }
 
 export interface SkillCategory {

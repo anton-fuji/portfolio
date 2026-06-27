@@ -24,10 +24,18 @@ export const SOCIAL_LINKS: SocialLink[] = [
   },
   {
     name: "Note",
-    url: "https://note.com/easy_dolphin1414",
+    url: "https://note.com/mochi_mochi777",
     icon: "Note",
   },
 ];
+
+export const getSocialUrl = (name: SocialLink["name"]): string => {
+  const socialLink = SOCIAL_LINKS.find((link) => link.name === name);
+  if (!socialLink) {
+    throw new Error(`Social link not found: ${name}`);
+  }
+  return socialLink.url;
+};
 
 export const PERSONAL_INFO = {
   name: "Kazuki Fujimoto",

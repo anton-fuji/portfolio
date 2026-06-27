@@ -1,6 +1,7 @@
 import type { FC, SVGProps } from "react";
 import ZennIcon from "../../assets/icons/socials/zenn.svg?react";
 import QiitaIcon from "../../assets/icons/socials/qiita.svg?react";
+import { getSocialUrl } from "../../mydata/data";
 import type { Platform } from "./Platform";
 
 type IconType = FC<SVGProps<SVGSVGElement>>;
@@ -27,7 +28,7 @@ export const PLATFORM_THEMES: PlatformTheme[] = [
     key: "Zenn",
     label: "Zenn Articles",
     Icon: ZennIcon,
-    profileUrl: "https://zenn.dev/fuuji",
+    profileUrl: getSocialUrl("Zenn"),
     spotlight: "rgba(62, 168, 255, 0.25)",
     glare: "#3ea8ff",
     border: "border-gray-600/30",
@@ -39,7 +40,7 @@ export const PLATFORM_THEMES: PlatformTheme[] = [
     key: "Qiita",
     label: "Qiita Articles",
     Icon: QiitaIcon,
-    profileUrl: "https://qiita.com/fujifuji1414",
+    profileUrl: getSocialUrl("Qiita"),
     spotlight: "rgba(101, 193, 0, 0.25)",
     glare: "#65c500",
     border: "border-gray-600/30",

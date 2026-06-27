@@ -1,6 +1,8 @@
 import type React from "react";
-import { PERSONAL_INFO } from "../mydata/data";
+import { getSocialUrl, PERSONAL_INFO } from "../mydata/data";
 import { Github } from "lucide-react";
+
+const githubUrl = getSocialUrl("GitHub");
 
 const Footer: React.FC = () => {
   return (
@@ -12,7 +14,7 @@ const Footer: React.FC = () => {
               &copy; 2025 {PERSONAL_INFO.name}
             </p>
             <a
-              href="https://github.com/anton-fuji"
+              href={githubUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center"
