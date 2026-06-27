@@ -54,7 +54,7 @@ export const ENGINEERING_SURFACES: EngineeringSurface[] = [
     title: "Building CLIs for Fun",
     description:
       "I like building small terminal tools for jobs that are too specific for a dashboard. Vim, Neovim, and CLI-heavy workflows are where I feel most at home.",
-    stack: ["Go", "Rust", "Zig", "Linux", "Vim", "Neovim"],
+    stack: ["Go", "Rust", "Nix", "Linux", "Vim", "Neovim"],
     signals: [
       "techfeed pulls Qiita / Zenn posts into a README",
       "gitviz turns commit history into a terminal view",

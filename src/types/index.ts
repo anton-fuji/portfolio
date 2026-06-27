@@ -11,7 +11,7 @@ export interface SocialLink {
 export type TechName =
   | "Go"
   | "Rust"
-  | "Zig"
+  | "Nix"
   | "Linux"
   | "Vim"
   | "Neovim"

@@ -9,6 +9,7 @@ import {
   SiGooglecloud,
   SiLinux,
   SiNeovim,
+  SiNixos,
   SiPostgresql,
   SiQiita,
   SiReact,
@@ -19,7 +20,6 @@ import {
   SiVite,
   SiVim,
   SiZenn,
-  SiZig,
 } from "react-icons/si";
 import { ENGINEERING_SURFACES } from "../mydata/data";
 import type { TechName } from "../types";
@@ -28,7 +28,7 @@ import { twMerge } from "tailwind-merge";
 const techIcons = {
   Go: SiGo,
   Rust: SiRust,
-  Zig: SiZig,
+  Nix: SiNixos,
   Linux: SiLinux,
   Vim: SiVim,
   Neovim: SiNeovim,
@@ -55,6 +55,7 @@ const featuredStack = [
   "AWS",
   "PostgreSQL",
   "Neovim",
+  "Nix",
 ] satisfies TechName[];
 
 const SkillSection: FC = () => (
