@@ -8,45 +8,51 @@ interface Certification {
   name: string;
   organization: string;
   date: string;
-  imageUrl: string;
+  imageUrl?: string;
   category: string;
   credentialUrl?: string;
 }
 
 export const CERTIFICATIONS: Certification[] = [
   {
-    name: "Cloud Digital Leader",
-    organization: "Google Cloud",
-    date: "2025年11月",
-    imageUrl: cdlImage,
-    category: "IT",
+    name: "基本情報技術者試験",
+    organization: "IPA",
+    date: "Dec 2024",
+    category: "IPA",
   },
   {
-    name: "Assosiate Cloud Engineer",
+    name: "Cloud Digital Leader",
     organization: "Google Cloud",
-    date: "2025年10月",
+    date: "Nov 2025",
+    imageUrl: cdlImage,
+    category: "Google Cloud",
+  },
+  {
+    name: "Associate Cloud Engineer",
+    organization: "Google Cloud",
+    date: "Oct 2025",
     imageUrl: aceImage,
-    category: "IT",
+    category: "Google Cloud",
   },
   {
     name: "Professional Cloud Developer",
     organization: "Google Cloud",
-    date: "2025年12月",
+    date: "Dec 2025",
     imageUrl: pcdImage,
-    category: "IT",
+    category: "Google Cloud",
   },
   {
     name: "Professional Cloud Architect",
     organization: "Google Cloud",
-    date: "2026年 1月",
+    date: "Jan 2026",
     imageUrl: pcaImage,
-    category: "IT",
+    category: "Google Cloud",
   },
   {
     name: "Professional DevOps Engineer",
     organization: "Google Cloud",
-    date: "2026年 4月",
+    date: "Apr 2026",
     imageUrl: doImage,
-    category: "IT",
+    category: "Google Cloud",
   },
 ];
