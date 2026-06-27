@@ -30,7 +30,7 @@ function Page() {
             const certs = getCertificationsByCategory(category);
             return (
               <section key={category} className="space-y-6">
-                <div className="border-white/10 border-b pb-3">
+                <div className="border-blue-400/14 border-b pb-3">
                   <h2 className="text-sm font-medium tracking-[0.2em] text-gray-300 uppercase">
                     {category}
                   </h2>
@@ -47,25 +47,35 @@ function Page() {
                     >
                       <SpotlightCard
                         spotlightColor="rgba(62, 168, 255, 0.18)"
-                        className="group flex h-full min-h-[260px] flex-col gap-5 border-gray-600/30 p-5 transition-shadow duration-300 hover:shadow-[0_0_24px_-8px_rgba(62,168,255,0.55)]"
+                        className="group flex h-full min-h-65 flex-col gap-5 border-blue-600/18 bg-black/15 p-5 shadow-xl/5 backdrop-blur-sm transition-shadow duration-300 hover:border-blue-500/25 hover:bg-black/25 hover:shadow-[0_0_24px_-10px_rgba(37,99,235,0.36)]"
                       >
                         <div className="relative flex h-28 items-center justify-center">
                           <span className="absolute inset-x-8 top-1/2 h-16 -translate-y-1/2 rounded-full bg-sky-300/6 blur-2xl transition-opacity duration-300 group-hover:opacity-80" />
                           {cert.imageUrl ? (
-                            <img
-                              src={cert.imageUrl}
-                              alt={cert.name}
-                              className="relative max-h-28 max-w-44 object-contain opacity-90 grayscale-[18%] transition duration-300 group-hover:opacity-100 group-hover:grayscale-0"
-                            />
+                            <div className="relative grid h-28 w-28 place-items-center">
+                              <img
+                                src={cert.imageUrl}
+                                alt={cert.name}
+                                className="h-full w-full object-contain opacity-90 grayscale-18 transition duration-300 group-hover:opacity-100 group-hover:grayscale-0"
+                              />
+                            </div>
                           ) : (
-                            <div className="relative grid h-22 w-40 place-items-center border border-white/15 bg-black/35 shadow-[inset_0_0_24px_rgba(255,255,255,0.035)]">
-                              <span className="absolute top-3 left-3 h-px w-7 bg-white/25" />
-                              <span className="absolute right-3 bottom-3 h-px w-7 bg-white/25" />
+                            <div className="relative grid h-24 w-44 place-items-center overflow-hidden border border-blue-600/18 bg-[linear-gradient(145deg,rgba(30,64,175,0.08),rgba(15,23,42,0.07)_42%,rgba(0,0,0,0.12)_100%)] shadow-[inset_0_0_0_1px_rgba(37,99,235,0.055),inset_0_0_30px_rgba(37,99,235,0.035)]">
+                              <span className="absolute top-3 left-3 h-px w-8 bg-blue-400/24" />
+                              <span className="absolute right-3 bottom-3 h-px w-8 bg-blue-400/24" />
+                              <span className="absolute top-3 right-3 h-8 w-px bg-blue-600/14" />
+                              <span className="absolute bottom-3 left-3 h-8 w-px bg-blue-600/14" />
                               <div className="text-center">
                                 <p className="text-[10px] font-medium tracking-[0.28em] text-gray-500">
-                                  FE CERTIFIED
+                                  FE
                                 </p>
-                                <p className="mt-1.5 text-4xl font-medium tracking-[0.16em] text-white">
+                                <p
+                                  className="mt-1.5 bg-linear-to-br from-white via-sky-100 to-slate-400 bg-clip-text text-[42px] leading-none font-bold tracking-[0.12em] text-transparent"
+                                  style={{
+                                    fontFamily:
+                                      '"VAG Rounded", "Arial Rounded MT Bold", "Arial Rounded MT", "Helvetica Rounded", Arial, sans-serif',
+                                  }}
+                                >
                                   IPA
                                 </p>
                               </div>
@@ -91,13 +101,10 @@ function Page() {
                             </h3>
                           )}
 
-                          <div className="mt-auto flex items-center justify-between border-white/10 border-t pt-4">
-                            <span className="text-[10px] font-medium tracking-[0.22em] text-gray-600 uppercase">
-                              Issued
-                            </span>
-                            <span className="text-sm text-gray-300">
-                              {cert.date}
-                            </span>
+                          <div className="mt-auto border-blue-400/14 border-t pt-4">
+                            <p className="text-[11px] font-medium tracking-[0.22em] text-blue-100/45 uppercase">
+                              Issued · {cert.date}
+                            </p>
                           </div>
                         </div>
                       </SpotlightCard>

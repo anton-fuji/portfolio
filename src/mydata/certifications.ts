@@ -21,17 +21,17 @@ export const CERTIFICATIONS: Certification[] = [
     category: "IPA",
   },
   {
-    name: "Associate Cloud Engineer",
-    organization: "Google Cloud",
-    date: "Oct 2025",
-    imageUrl: aceImage,
-    category: "Google Cloud",
-  },
-  {
     name: "Cloud Digital Leader",
     organization: "Google Cloud",
     date: "Nov 2025",
     imageUrl: cdlImage,
+    category: "Google Cloud",
+  },
+  {
+    name: "Associate Cloud Engineer",
+    organization: "Google Cloud",
+    date: "Oct 2025",
+    imageUrl: aceImage,
     category: "Google Cloud",
   },
   {
