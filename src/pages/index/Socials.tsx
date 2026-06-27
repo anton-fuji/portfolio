@@ -33,7 +33,7 @@ const socials = [
   {
     name: "Note",
     icon: <NoteIcon {...socialIconProps} />,
-    href: "https://note.com/easy_dolphin1414",
+    href: "https://note.com/mochi_mochi777",
   },
 ];
 
