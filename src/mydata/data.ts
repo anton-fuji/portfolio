@@ -1,5 +1,4 @@
-import type { SkillCategory } from "../types/index";
-import type { SocialLink } from "../types";
+import type { EngineeringSurface, SocialLink } from "../types";
 
 export const SOCIAL_LINKS: SocialLink[] = [
   {
@@ -48,50 +47,85 @@ export const PERSONAL_INFO = {
   profileImage: ".public/fuji-icon.jpg",
 };
 
-export const SKILLS: SkillCategory[] = [
+export const ENGINEERING_SURFACES: EngineeringSurface[] = [
   {
-    id: "frontend",
-    name: "Frontend",
-    color: "bg-cyan-400",
-    skills: [
-      { id: "react", name: "React", level: 40 },
-      { id: "typescript", name: "TypeScript", level: 60 },
-      { id: "tailwind", name: "Tailwind CSS", level: 30 },
+    id: "cli-systems",
+    verb: "$ cat ~/dev/cli.md",
+    title: "Building CLIs for Fun",
+    description:
+      "I like building small terminal tools for jobs that are too specific for a dashboard. Vim, Neovim, and CLI-heavy workflows are where I feel most at home.",
+    stack: ["Go", "Rust", "Zig", "Linux", "Vim", "Neovim"],
+    signals: [
+      "techfeed pulls Qiita / Zenn posts into a README",
+      "gitviz turns commit history into a terminal view",
+      "dibo / ztree are small CLIs where I tune the details",
+      "Neovim and terminal UX are a big part of how I work",
     ],
+    proofs: [
+      { label: "CLI projects", href: "/projects#Go" },
+      { label: "Go writeups" },
+    ],
+    accent: "from-cyan-300 to-blue-400",
   },
   {
-    id: "backend",
-    name: "Backend",
-    color: "bg-sky-600",
-    skills: [
-      { id: "go", name: "Go", level: 70 },
-      { id: "rust", name: "Rust", level: 50 },
-      { id: "python", name: "Python", level: 40 },
-      { id: "postgresql", name: "PostgreSQL", level: 50 },
+    id: "cloud-delivery",
+    verb: "$ cat ~/infra/cloud.md",
+    title: "Shipping things to the cloud",
+    description:
+      "I try not to stop at \"works on my machine.\" I care about where it runs, how it gets deployed, and how the data layer behaves in real use.",
+    stack: [
+      "GCP",
+      "AWS",
+      "Terraform",
+      "Docker",
+      "GitHub Actions",
+      "PostgreSQL",
     ],
+    signals: [
+      "Terraform for AWS / GCP resources",
+      "GitHub Actions for build and deploy",
+      "PostgreSQL in day-to-day professional work",
+      "Google Cloud certs to back up the fundamentals",
+    ],
+    proofs: [
+      { label: "Google Cloud certs", href: "/certifications" },
+      { label: "Infra writeups" },
+    ],
+    accent: "from-sky-300 to-blue-500",
   },
   {
-    id: "infra",
-    name: "Infra",
-    color: "bg-blue-500",
-    skills: [
-      { id: "aws", name: "AWS", level: 50 },
-      { id: "gcp", name: "Google Cloud", level: 70 },
-      { id: "terraform", name: "Terraform", level: 50 },
-      { id: "gh-actions", name: "Github Actions", level: 50 },
-      { id: "nix" , name: "Nix", level: 50 },
-      { id: "docker", name: "Docker", level: 60 },
+    id: "product-frontend",
+    verb: "$ cat ~/web/frontend.md",
+    title: "Frontend When Needed",
+    description:
+      "Frontend is not my main lane, but I can put together React and TypeScript surfaces when I need to make my work presentable.",
+    stack: ["React", "TypeScript", "Tailwind CSS", "Vike"],
+    signals: [
+      "Static prerendering with Vike",
+      "This portfolio as a small frontend playground",
     ],
+    proofs: [
+      { label: "portfolio source" },
+      { label: "hackathon products" },
+    ],
+    accent: "from-blue-300 to-indigo-400",
   },
   {
-    id: "other",
-    name: "Other",
-    color: "bg-blue-900",
-    skills: [
-      { id: "git", name: "Git", level: 70 },
-      { id: "linux", name: "Linux", level: 70 },
-      { id: "lua", name: "Lua", level: 50 },
-      { id: "neovim", name: "Neovim", level: 65 },
+    id: "technical-writing",
+    verb: "$ cat ~/notes/rough-edges.md",
+    title: "Writing down the rough edges",
+    description:
+      "When I get stuck around Docker, Go, or Terraform, I turn the notes into articles so the next pass is faster.",
+    stack: ["Zenn", "Qiita", "Docker", "Go", "Terraform"],
+    signals: [
+      "Docker image and security notes",
+      "Go posts that build UNIX commands and OAuth flows",
+      "Terraform notes that include the reasoning, not just the steps",
     ],
+    proofs: [
+      { label: "Zenn / Qiita articles" },
+      { label: "Zenn profile" },
+    ],
+    accent: "from-indigo-300 to-cyan-400",
   },
 ];

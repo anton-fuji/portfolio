@@ -8,15 +8,38 @@ export interface SocialLink {
   icon: SocialIconName;
 }
 
-export interface SkillCategory {
-  id: string;
-  name: string;
-  color: string;
-  skills: Skill[];
+export type TechName =
+  | "Go"
+  | "Rust"
+  | "Zig"
+  | "Linux"
+  | "Vim"
+  | "Neovim"
+  | "PostgreSQL"
+  | "GCP"
+  | "AWS"
+  | "Terraform"
+  | "Docker"
+  | "GitHub Actions"
+  | "React"
+  | "TypeScript"
+  | "Tailwind CSS"
+  | "Vike"
+  | "Zenn"
+  | "Qiita";
+
+export interface EngineeringProof {
+  label: string;
+  href?: string;
 }
 
-export interface Skill {
+export interface EngineeringSurface {
   id: string;
-  name: string;
-  level: number;
+  verb: string;
+  title: string;
+  description: string;
+  stack: TechName[];
+  signals: string[];
+  proofs: EngineeringProof[];
+  accent: string;
 }
