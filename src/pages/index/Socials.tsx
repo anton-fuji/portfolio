@@ -1,24 +1,23 @@
-import type { FC, SVGProps } from "react";
+import type { ElementType, FC } from "react";
 import GithubIcon from "../../assets/icons/socials/github.svg?react";
 import XIcon from "../../assets/icons/socials/x.svg?react";
 import ZennIcon from "../../assets/icons/socials/zenn.svg?react";
-import QiitaIcon from "../../assets/icons/socials/qiita.svg?react";
-import NoteIcon from "../../assets/icons/socials/note.svg?react";
 import { SOCIAL_LINKS } from "../../mydata/data";
 import type { SocialIconName } from "../../types";
+import { SiNote, SiQiita } from "react-icons/si";
 
 const socialIconProps = {
   className: "h-5 w-5",
 };
 
-type SocialIcon = FC<SVGProps<SVGSVGElement>>;
+type SocialIcon = ElementType<{ className?: string }>;
 
 const socialIcons = {
   Github: GithubIcon,
   X: XIcon,
   Zenn: ZennIcon,
-  Qiita: QiitaIcon,
-  Note: NoteIcon,
+  Qiita: SiQiita,
+  Note: SiNote,
 } satisfies Record<SocialIconName, SocialIcon>;
 
 const Socials: FC = () => {
