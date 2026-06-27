@@ -1,6 +1,6 @@
-import Card from "../../components/Card";
 import BackgroundGlobe from "../../components/BackgroundGlobe";
-import { FaAward, FaCertificate } from "react-icons/fa6";
+import GlareHover from "../../components/GlareHover";
+import SpotlightCard from "../../components/SpotlightCard";
 import { CERTIFICATIONS } from "../../mydata/certifications";
 
 export { Page };
@@ -15,63 +15,99 @@ function Page() {
   return (
     <>
       <BackgroundGlobe />
-      <div className="space-y-16 py-20">
-        {categories.map((category) => {
-          const certs = getCertificationsByCategory(category);
-          return (
-            <section key={category}>
-              <div className="flex items-center gap-2 mb-6 px-15">
-                <FaAward className="w-6 h-6 text-white" />
-                <h2 className="text-3xl font-bold text-white">
-                  Certifications
-                </h2>
-              </div>
-              <div className="container mx-auto px-8">
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 justify-center-safe">
+      <div className="px-6 py-24 sm:px-8">
+        <div className="mx-auto max-w-6xl space-y-12">
+          <header>
+            <p className="mb-4 text-xs font-medium tracking-[0.28em] text-gray-500 uppercase">
+              Credentials
+            </p>
+            <h1 className="text-4xl font-medium tracking-normal text-white sm:text-5xl">
+              Certifications
+            </h1>
+          </header>
+
+          {categories.map((category) => {
+            const certs = getCertificationsByCategory(category);
+            return (
+              <section key={category} className="space-y-6">
+                <div className="border-white/10 border-b pb-3">
+                  <h2 className="text-sm font-medium tracking-[0.2em] text-gray-300 uppercase">
+                    {category}
+                  </h2>
+                </div>
+
+                <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
                   {certs.map((cert) => (
-                    <Card
+                    <GlareHover
                       key={cert.name}
-                      className="flex flex-col hover:shadow-lg hover:-translate-y-1 transition-all"
+                      className="h-full rounded-lg"
+                      glareColor="#3ea8ff"
+                      glareOpacity={0.22}
+                      glareSize={240}
                     >
-                      <div className="mb-4 flex items-center justify-center min-h-[180px]">
-                        <img
-                          src={cert.imageUrl}
-                          alt={cert.name}
-                          className="max-w-[200px] max-h-[180px] object-contain rounded-lg"
-                        />
-                      </div>
-
-                      <div className="space-y-2 grow">
-                        {cert.credentialUrl ? (
-                          <a
-                            href={cert.credentialUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-white hover:text-gray-400 transition-colors"
-                          >
-                            <h3 className="text-xl font-medium">{cert.name}</h3>
-                          </a>
-                        ) : (
-                          <h3 className="text-xl font-medium text-white">
-                            {cert.name}
-                          </h3>
-                        )}
-
-                        <p className="text-gray-400 text-sm">
-                          {cert.organization}
-                        </p>
-                        <div className="flex items-center gap-2 text-gray-500 text-sm pt-2">
-                          <FaCertificate className="w-4 h-4" />
-                          <span>取得日: {cert.date}</span>
+                      <SpotlightCard
+                        spotlightColor="rgba(62, 168, 255, 0.18)"
+                        className="group flex h-full min-h-[260px] flex-col gap-5 border-gray-600/30 p-5 transition-shadow duration-300 hover:shadow-[0_0_24px_-8px_rgba(62,168,255,0.55)]"
+                      >
+                        <div className="relative flex h-28 items-center justify-center">
+                          <span className="absolute inset-x-8 top-1/2 h-16 -translate-y-1/2 rounded-full bg-sky-300/6 blur-2xl transition-opacity duration-300 group-hover:opacity-80" />
+                          {cert.imageUrl ? (
+                            <img
+                              src={cert.imageUrl}
+                              alt={cert.name}
+                              className="relative max-h-28 max-w-44 object-contain opacity-90 grayscale-[18%] transition duration-300 group-hover:opacity-100 group-hover:grayscale-0"
+                            />
+                          ) : (
+                            <div className="relative grid h-22 w-40 place-items-center border border-white/15 bg-black/35 shadow-[inset_0_0_24px_rgba(255,255,255,0.035)]">
+                              <span className="absolute top-3 left-3 h-px w-7 bg-white/25" />
+                              <span className="absolute right-3 bottom-3 h-px w-7 bg-white/25" />
+                              <div className="text-center">
+                                <p className="text-[10px] font-medium tracking-[0.28em] text-gray-500">
+                                  FE CERTIFIED
+                                </p>
+                                <p className="mt-1.5 text-4xl font-medium tracking-[0.16em] text-white">
+                                  IPA
+                                </p>
+                              </div>
+                            </div>
+                          )}
                         </div>
-                      </div>
-                    </Card>
+
+                        <div className="flex grow flex-col text-center">
+                          {cert.credentialUrl ? (
+                            <a
+                              href={cert.credentialUrl}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="text-white transition-colors hover:text-gray-300"
+                            >
+                              <h3 className="text-[17px] leading-snug font-medium">
+                                {cert.name}
+                              </h3>
+                            </a>
+                          ) : (
+                            <h3 className="text-[17px] leading-snug font-medium">
+                              {cert.name}
+                            </h3>
+                          )}
+
+                          <div className="mt-auto flex items-center justify-between border-white/10 border-t pt-4">
+                            <span className="text-[10px] font-medium tracking-[0.22em] text-gray-600 uppercase">
+                              Issued
+                            </span>
+                            <span className="text-sm text-gray-300">
+                              {cert.date}
+                            </span>
+                          </div>
+                        </div>
+                      </SpotlightCard>
+                    </GlareHover>
                   ))}
                 </div>
-              </div>
-            </section>
-          );
-        })}
+              </section>
+            );
+          })}
+        </div>
       </div>
     </>
   );
