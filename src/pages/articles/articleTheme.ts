@@ -1,10 +1,10 @@
-import type { FC, SVGProps } from "react";
+import type { ElementType } from "react";
+import { SiQiita } from "react-icons/si";
 import ZennIcon from "../../assets/icons/socials/zenn.svg?react";
-import QiitaIcon from "../../assets/icons/socials/qiita.svg?react";
 import { getSocialUrl } from "../../mydata/data";
 import type { Platform } from "./Platform";
 
-type IconType = FC<SVGProps<SVGSVGElement>>;
+type IconType = ElementType<{ className?: string }>;
 
 export type PlatformTheme = {
   /** Which key on a Platform item holds this platform's title */
@@ -16,17 +16,17 @@ export type PlatformTheme = {
   spotlight: string;
   /** Glare sweep color (hex) */
   glare: string;
-  /** Tailwind classes for accents (border / hover glow / button) */
+  /** Tailwind classes for accents (border / hover glow / profile link) */
   border: string;
   hoverGlow: string;
   title: string;
-  button: string;
+  profileLink: string;
 };
 
 export const PLATFORM_THEMES: PlatformTheme[] = [
   {
     key: "Zenn",
-    label: "Zenn Articles",
+    label: "Writing on Zenn",
     Icon: ZennIcon,
     profileUrl: getSocialUrl("Zenn"),
     spotlight: "rgba(62, 168, 255, 0.25)",
@@ -34,18 +34,20 @@ export const PLATFORM_THEMES: PlatformTheme[] = [
     border: "border-gray-600/30",
     hoverGlow: "hover:shadow-[0_0_24px_-4px_rgba(62,168,255,0.6)]",
     title: "text-white",
-    button: "bg-gray-600/80 hover:bg-gray-700",
+    profileLink:
+      "border-cyan-300/20 hover:border-cyan-300/50 hover:bg-cyan-300/10",
   },
   {
     key: "Qiita",
-    label: "Qiita Articles",
-    Icon: QiitaIcon,
+    label: "Notes on Qiita",
+    Icon: SiQiita,
     profileUrl: getSocialUrl("Qiita"),
     spotlight: "rgba(101, 193, 0, 0.25)",
     glare: "#65c500",
     border: "border-gray-600/30",
     hoverGlow: "hover:shadow-[0_0_24px_-4px_rgba(101,193,0,0.6)]",
     title: "text-white",
-    button: "bg-gray-600/80 hover:bg-gray-700",
+    profileLink:
+      "border-lime-300/20 hover:border-lime-300/50 hover:bg-lime-300/10",
   },
 ];
