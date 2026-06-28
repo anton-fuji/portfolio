@@ -1,5 +1,6 @@
-import { FaLink } from "react-icons/fa6";
+import { LuExternalLink } from "react-icons/lu";
 import { useData } from "vike-react/useData";
+import { twMerge } from "tailwind-merge";
 import BackgroundGlobe from "../../components/BackgroundGlobe";
 import type { Data } from "./+data";
 import ArticleCard from "./ArticleCard";
@@ -20,11 +21,31 @@ function Page() {
 
           return (
             <section key={theme.key}>
-              <div className="mb-6 flex items-center gap-2 px-15">
-                <Icon className="h-6 w-6 text-white" />
-                <h2 className={`text-3xl font-bold ${theme.title}`}>
-                  {theme.label}
-                </h2>
+              <div className="container mx-auto mb-6 px-8">
+                <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+                  <div className="flex items-center gap-2">
+                    <Icon className="h-6 w-6 text-white" />
+                    <h2 className={`text-3xl font-bold ${theme.title}`}>
+                      {theme.label}
+                    </h2>
+                  </div>
+
+                  <a
+                    href={theme.profileUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={twMerge(
+                      "group inline-flex w-fit items-center gap-1.5 rounded-full border bg-white/[0.03] px-3 py-1.5 text-sm font-medium text-white/72 transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300/70",
+                      theme.profileLink,
+                    )}
+                  >
+                    <span>{theme.key} profile</span>
+                    <LuExternalLink
+                      size={14}
+                      className="opacity-60 transition-opacity group-hover:opacity-100"
+                    />
+                  </a>
+                </div>
               </div>
 
               <div className="container mx-auto px-8">
@@ -36,18 +57,6 @@ function Page() {
                       theme={theme}
                     />
                   ))}
-                </div>
-
-                <div className="mt-8 flex justify-center">
-                  <a
-                    href={theme.profileUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={`inline-flex items-center gap-2 rounded-full px-6 py-2 font-medium text-white shadow-md transition-colors hover:shadow-lg ${theme.button}`}
-                  >
-                    <FaLink size={15} className="animate-pulse" />
-                    <span>View more on {theme.key}</span>
-                  </a>
                 </div>
               </div>
             </section>
