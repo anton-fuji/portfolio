@@ -123,9 +123,9 @@ fuji   1005    4.8   0.1   team-dev    hackathon prototypes`}
             <section
               key={group.name}
               id={group.slug}
-              className="relative scroll-mt-24 overflow-hidden rounded-lg border border-sky-300/14 bg-black/30 font-mono shadow-[0_0_38px_-28px_rgba(56,189,248,0.82)] backdrop-blur-xl"
+              className="relative scroll-mt-24 overflow-hidden rounded-lg border border-sky-300/14 bg-black/22 font-mono shadow-[0_0_38px_-28px_rgba(56,189,248,0.82)] backdrop-blur-xl"
             >
-              <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(56,189,248,0.12),transparent_28%),linear-gradient(180deg,rgba(255,255,255,0.055),transparent_38%)]" />
+              <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(56,189,248,0.1),transparent_28%),linear-gradient(180deg,rgba(255,255,255,0.062),transparent_38%)]" />
               <div className="pointer-events-none absolute inset-px rounded-lg border border-white/[0.03]" />
               <div className="relative flex items-center justify-between gap-3 border-sky-300/10 border-b bg-[linear-gradient(90deg,rgba(2,6,23,0.78),rgba(15,23,42,0.68),rgba(2,6,23,0.74))] px-4 py-3 shadow-[inset_0_1px_0_rgba(255,255,255,0.022)]">
                 <div className="flex min-w-0 items-center gap-3">
@@ -151,8 +151,8 @@ fuji   1005    4.8   0.1   team-dev    hackathon prototypes`}
                   </span>
                 </p>
 
-                <div className="mt-4 overflow-hidden rounded border border-sky-300/12 bg-black/18 shadow-[inset_0_1px_0_rgba(255,255,255,0.035)] backdrop-blur-md">
-                  <div className="hidden grid-cols-[4.5rem_minmax(0,1.35fr)_8.5rem_minmax(0,1fr)_2rem] border-sky-300/10 border-b bg-white/[0.025] px-4 py-2 text-[10px] tracking-[0.16em] text-slate-600 uppercase sm:grid">
+                <div className="mt-4 overflow-hidden rounded border border-sky-300/12 bg-black/8 shadow-[inset_0_1px_0_rgba(255,255,255,0.045)] backdrop-blur-lg">
+                  <div className="hidden grid-cols-[4.5rem_minmax(0,1.35fr)_8.5rem_minmax(0,1fr)_2rem] border-sky-300/10 border-b bg-white/[0.035] px-4 py-2 text-[10px] tracking-[0.16em] text-slate-600 uppercase sm:grid">
                     <span>PID</span>
                     <span>Repo</span>
                     <span>Type</span>

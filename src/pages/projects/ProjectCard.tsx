@@ -38,11 +38,11 @@ const ProjectCard: FC<ProjectCardProps> = ({ project, accent, index }) => {
       href={project.githuburl}
       rel="noopener noreferrer"
       target="_blank"
-      className="group relative grid gap-3 px-4 py-4 font-mono text-xs transition-colors hover:bg-sky-300/[0.075] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-300/70 sm:grid-cols-[4.5rem_minmax(0,1.35fr)_8.5rem_minmax(0,1fr)_2rem] sm:items-center"
+      className="group relative grid gap-3 bg-white/[0.012] px-4 py-4 font-mono text-xs transition-colors hover:bg-sky-300/[0.065] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-300/70 sm:grid-cols-[4.5rem_minmax(0,1.35fr)_8.5rem_minmax(0,1fr)_2rem] sm:items-center"
     >
       <span
         aria-hidden
-        className="pointer-events-none absolute inset-0 bg-linear-to-r from-white/[0.025] via-transparent to-sky-300/[0.025] opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+        className="pointer-events-none absolute inset-0 bg-linear-to-r from-white/[0.035] via-transparent to-sky-300/[0.03] opacity-70 transition-opacity duration-300 group-hover:opacity-100"
       />
       <span
         aria-hidden
