@@ -21,7 +21,7 @@ function Page() {
             <p className="mb-4 text-xs font-medium tracking-[0.28em] text-gray-500 uppercase">
               Credentials
             </p>
-            <h1 className="text-4xl font-medium tracking-normal text-white sm:text-5xl">
+            <h1 className="text-4xl font-extrabold tracking-normal text-white sm:text-5xl">
               Certifications
             </h1>
           </header>
