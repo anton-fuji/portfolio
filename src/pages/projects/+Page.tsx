@@ -21,10 +21,10 @@ function Page() {
       <BackgroundGlobe />
       <div className="px-6 py-24 sm:px-8">
         <div className="mx-auto max-w-6xl space-y-14">
-          <header className="project-terminal-shell relative overflow-hidden rounded-lg border border-sky-300/18 bg-[#020617]/76 shadow-[0_28px_80px_-46px_rgba(14,165,233,0.95),0_0_54px_-34px_rgba(255,255,255,0.42)] backdrop-blur-xl">
-            <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_16%_0%,rgba(148,163,184,0.14),transparent_28%),radial-gradient(circle_at_88%_8%,rgba(56,189,248,0.22),transparent_32%),linear-gradient(180deg,rgba(255,255,255,0.085),rgba(255,255,255,0.018)_34%,rgba(2,6,23,0.28)_100%)]" />
-            <div className="pointer-events-none absolute inset-px rounded-lg border border-white/[0.055]" />
-            <div className="relative flex items-center gap-2 border-sky-300/12 border-b bg-[linear-gradient(180deg,rgba(15,23,42,0.86),rgba(2,6,23,0.78)),linear-gradient(90deg,rgba(56,189,248,0.12),transparent_24%,rgba(248,113,113,0.08)_100%)] px-4 py-3 shadow-[inset_0_1px_0_rgba(255,255,255,0.06),0_14px_28px_-24px_rgba(56,189,248,0.78)]">
+          <header className="project-terminal-shell relative overflow-hidden rounded-lg border border-sky-200/18 bg-[#020617]/68 shadow-[0_30px_90px_-52px_rgba(125,211,252,0.96),0_0_72px_-46px_rgba(251,207,232,0.65)] backdrop-blur-xl">
+            <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(118deg,rgba(56,189,248,0.14),transparent_24%,rgba(244,114,182,0.08)_58%,transparent_82%),linear-gradient(180deg,rgba(255,255,255,0.095),rgba(255,255,255,0.018)_34%,rgba(2,6,23,0.18)_100%)]" />
+            <div className="pointer-events-none absolute inset-px rounded-lg border border-white/[0.07]" />
+            <div className="relative flex items-center gap-2 border-sky-200/12 border-b bg-[linear-gradient(180deg,rgba(15,23,42,0.7),rgba(2,6,23,0.54)),linear-gradient(90deg,rgba(186,230,253,0.12),rgba(244,114,182,0.07)_46%,rgba(165,243,252,0.1)_100%)] px-4 py-3 shadow-[inset_0_1px_0_rgba(255,255,255,0.08),0_18px_34px_-28px_rgba(125,211,252,0.72)]">
               <span aria-hidden className="grid h-5 w-5 place-items-center">
                 <span className="h-2.5 w-2.5 rounded-full bg-rose-400/90 shadow-[0_0_14px_rgba(251,113,133,0.55)] ring-1 ring-white/15" />
               </span>
@@ -54,12 +54,12 @@ function Page() {
                   )}
                 </span>
               </button>
-              <span className="ml-2 min-w-0 flex-1 truncate rounded border border-white/[0.055] bg-black/18 px-2.5 py-1 font-mono text-xs font-medium text-slate-400 shadow-[inset_0_1px_0_rgba(255,255,255,0.035)]">
+              <span className="ml-2 min-w-0 flex-1 truncate rounded border border-white/[0.07] bg-white/[0.035] px-2.5 py-1 font-mono text-xs font-medium text-slate-300/78 shadow-[inset_0_1px_0_rgba(255,255,255,0.045),0_0_24px_-18px_rgba(186,230,253,0.88)]">
                 /var/log/fuji/projects.log
               </span>
               <span
                 aria-hidden
-                className="hidden h-1.5 w-20 rounded-full bg-linear-to-r from-sky-300/0 via-sky-300/60 to-rose-300/0 shadow-[0_0_18px_rgba(56,189,248,0.28)] sm:block"
+                className="hidden h-1.5 w-20 rounded-full bg-linear-to-r from-sky-200/0 via-cyan-200/50 to-rose-200/0 shadow-[0_0_22px_rgba(186,230,253,0.32)] sm:block"
               />
             </div>
 
@@ -68,6 +68,67 @@ function Page() {
                 isTerminalExpanded ? "max-h-[58rem]" : "max-h-72"
               }`}
             >
+              <svg
+                aria-labelledby="libra-constellation-title"
+                viewBox="0 0 260 170"
+                role="img"
+                className="project-libra-constellation pointer-events-none absolute top-4 right-5 hidden h-42 w-64 text-cyan-100/58 sm:block"
+              >
+                <title id="libra-constellation-title">天秤座の星座</title>
+                <path
+                  className="project-libra-line"
+                  d="M42 78 L102 74"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="1"
+                />
+                <path
+                  className="project-libra-line"
+                  d="M102 74 L164 32"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="1.05"
+                />
+                <path
+                  className="project-libra-line"
+                  d="M164 32 L214 112"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="1.05"
+                />
+                <path
+                  className="project-libra-line"
+                  d="M214 112 L128 130"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="0.9"
+                />
+                <path
+                  className="project-libra-line"
+                  d="M214 112 L120 98"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="0.85"
+                />
+                <g className="project-libra-stars">
+                  <circle cx="42" cy="78" r="2" />
+                  <circle cx="102" cy="74" r="2.5" />
+                  <circle cx="164" cy="32" r="3.2" />
+                  <circle cx="214" cy="112" r="3.4" />
+                  <circle cx="128" cy="130" r="2.2" />
+                  <circle cx="120" cy="98" r="1.8" />
+                </g>
+              </svg>
               <div className="mb-6">
                 <p
                   className="project-terminal-row"
