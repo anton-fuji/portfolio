@@ -11,3 +11,350 @@ a {
 a:hover {
   opacity: 0.8;
 }
+
+.project-terminal-shell {
+  animation: project-terminal-float 8s ease-in-out infinite;
+}
+
+.project-terminal-shell::before {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  content: "";
+  background-image:
+    radial-gradient(circle at 12% 22%, rgba(226, 232, 240, 0.24) 0 1px, transparent 1.5px),
+    radial-gradient(circle at 28% 72%, rgba(148, 163, 184, 0.2) 0 1px, transparent 1.5px),
+    radial-gradient(circle at 72% 34%, rgba(125, 211, 252, 0.16) 0 1px, transparent 1.5px),
+    radial-gradient(circle at 88% 68%, rgba(148, 163, 184, 0.2) 0 1px, transparent 1.5px);
+  background-position:
+    0 0,
+    0 0,
+    0 0,
+    0 0,
+    0 0,
+    0 0;
+  background-size:
+    210px 180px,
+    260px 220px,
+    240px 190px,
+    280px 230px;
+  mask-image: linear-gradient(
+    180deg,
+    transparent,
+    black 18%,
+    black 82%,
+    transparent
+  );
+  opacity: 0.28;
+  animation: project-terminal-stardust 18s linear infinite;
+}
+
+.project-terminal-shell::after {
+  position: absolute;
+  top: 0;
+  right: 14%;
+  left: 14%;
+  height: 1px;
+  pointer-events: none;
+  content: "";
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(226, 232, 240, 0.42),
+    rgba(148, 163, 184, 0.38),
+    transparent
+  );
+  box-shadow:
+    0 0 24px rgba(148, 163, 184, 0.22),
+    0 0 42px rgba(8, 47, 73, 0.24);
+}
+
+.project-terminal-body {
+  isolation: isolate;
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.022), transparent 34%),
+    linear-gradient(180deg, rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.3));
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.026),
+    inset 0 0 48px rgba(0, 0, 0, 0.36);
+}
+
+.project-terminal-body::before {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  content: "";
+  background: repeating-linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.014) 0,
+    rgba(255, 255, 255, 0.014) 1px,
+    transparent 1px,
+    transparent 7px
+  );
+  opacity: 0.07;
+}
+
+.project-terminal-body::after {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  content: "";
+  background: linear-gradient(
+    112deg,
+    transparent 12%,
+    rgba(255, 255, 255, 0.045) 28%,
+    rgba(148, 163, 184, 0.018) 39%,
+    transparent 56%
+  );
+  opacity: 0.62;
+  mask-image: linear-gradient(90deg, transparent 5%, black 28%, black 76%, transparent);
+}
+
+.project-libra-constellation {
+  opacity: 0;
+  filter: drop-shadow(0 0 7px rgba(148, 163, 184, 0.12));
+  animation: project-libra-constellation-in 7.2s ease-out 3.4s both;
+}
+
+.project-libra-line {
+  opacity: 0;
+  stroke-dasharray: 260;
+  stroke-dashoffset: 260;
+  animation: project-libra-line-in 2.4s ease-out both;
+}
+
+.project-libra-line:nth-of-type(1) {
+  animation-delay: 3.7s;
+}
+
+.project-libra-line:nth-of-type(2) {
+  animation-delay: 5.2s;
+}
+
+.project-libra-line:nth-of-type(3) {
+  animation-delay: 7s;
+}
+
+.project-libra-line:nth-of-type(4) {
+  animation-delay: 8.8s;
+}
+
+.project-libra-line:nth-of-type(5) {
+  animation-delay: 9.4s;
+}
+
+.project-libra-stars circle {
+  fill: currentColor;
+  opacity: 0;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation:
+    project-libra-star-in 1.1s ease-out both,
+    project-libra-twinkle 3.8s ease-in-out infinite;
+  animation-delay: 3.6s, 5.4s;
+}
+
+.project-libra-stars circle:nth-child(2) {
+  animation-delay: 4.5s, 6.1s;
+}
+
+.project-libra-stars circle:nth-child(3) {
+  animation-delay: 5.6s, 7.2s;
+}
+
+.project-libra-stars circle:nth-child(4) {
+  animation-delay: 6.6s, 8.2s;
+}
+
+.project-libra-stars circle:nth-child(5),
+.project-libra-stars circle:nth-child(6) {
+  animation-delay: 7.7s, 9.2s;
+}
+
+@keyframes project-terminal-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes project-terminal-stardust {
+  from {
+    background-position:
+      0 0,
+      0 0,
+      0 0;
+  }
+  to {
+    background-position:
+      38px -24px,
+      -34px 28px,
+      24px 34px,
+      -28px -18px;
+  }
+}
+
+@keyframes project-libra-constellation-in {
+  0% {
+    opacity: 0;
+  }
+  42% {
+    opacity: 0.04;
+  }
+  100% {
+    opacity: 0.11;
+  }
+}
+
+@keyframes project-libra-line-in {
+  from {
+    opacity: 0;
+    stroke-dashoffset: 260;
+  }
+  to {
+    opacity: 0.26;
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes project-libra-star-in {
+  from {
+    opacity: 0;
+    transform: scale(0.45);
+  }
+  to {
+    opacity: 0.32;
+    transform: scale(1);
+  }
+}
+
+@keyframes project-libra-twinkle {
+  0%,
+  100% {
+    opacity: 0.16;
+    transform: scale(0.86);
+  }
+  50% {
+    opacity: 0.38;
+    transform: scale(1.08);
+  }
+}
+
+@keyframes project-terminal-line-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+    filter: blur(2px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+@keyframes project-terminal-type {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes project-terminal-caret {
+  0%,
+  30%,
+  64%,
+  92% {
+    border-color: rgba(125, 211, 252, 0.85);
+  }
+  31%,
+  63%,
+  65%,
+  100% {
+    border-color: transparent;
+  }
+}
+
+@keyframes project-terminal-error-shake {
+  0%,
+  100% {
+    transform: translateX(0);
+    text-shadow: 0 0 14px rgba(251, 113, 133, 0.14);
+  }
+  20% {
+    transform: translateX(-1px);
+    text-shadow: -1px 0 10px rgba(251, 113, 133, 0.42);
+  }
+  40% {
+    transform: translateX(1px);
+    text-shadow: 1px 0 12px rgba(244, 63, 94, 0.34);
+  }
+  60% {
+    transform: translateX(-0.5px);
+    text-shadow: -1px 0 8px rgba(251, 113, 133, 0.38);
+  }
+  80% {
+    transform: translateX(0.5px);
+    text-shadow: 1px 0 10px rgba(251, 113, 133, 0.24);
+  }
+}
+
+.project-terminal-row {
+  animation: project-terminal-line-in 0.24s ease-out both;
+}
+
+.project-terminal-command {
+  display: inline-block;
+  max-width: max-content;
+  overflow: hidden;
+  vertical-align: bottom;
+  white-space: nowrap;
+  border-right: 0.12em solid rgba(125, 211, 252, 0.85);
+  animation:
+    project-terminal-type 0.82s steps(32, end) both,
+    project-terminal-caret 0.92s steps(1, end) both;
+}
+
+.project-terminal-error {
+  display: block;
+  width: fit-content;
+  animation:
+    project-terminal-line-in 0.18s ease-out both,
+    project-terminal-error-shake 0.18s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .project-terminal-shell,
+  .project-terminal-shell::before,
+  .project-libra-stars circle,
+  .project-terminal-row,
+  .project-terminal-command,
+  .project-terminal-error {
+    width: auto;
+    opacity: 1;
+    transform: none;
+    filter: none;
+    border-right-color: transparent;
+    animation: none;
+  }
+
+  .project-libra-constellation {
+    opacity: 0.11;
+  }
+
+  .project-libra-line {
+    opacity: 0.26;
+    stroke-dashoffset: 0;
+  }
+
+  .project-libra-stars circle {
+    opacity: 0.32;
+  }
+}
