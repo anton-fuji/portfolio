@@ -1,3 +1,5 @@
+import { useState } from "react";
+import { Maximize2, Minimize2 } from "lucide-react";
 import BackgroundGlobe from "../../components/BackgroundGlobe";
 import ProjectCard from "./ProjectCard";
 import projectGroups from "./Projects";
@@ -5,6 +7,7 @@ import projectGroups from "./Projects";
 export { Page };
 
 function Page() {
+  const [isTerminalExpanded, setIsTerminalExpanded] = useState(true);
   const projectOffsets = new Map<string, number>();
   let projectOffset = 0;
 
@@ -18,19 +21,53 @@ function Page() {
       <BackgroundGlobe />
       <div className="px-6 py-24 sm:px-8">
         <div className="mx-auto max-w-6xl space-y-14">
-          <header className="relative overflow-hidden rounded-lg border border-sky-300/16 bg-black/42 shadow-[0_0_46px_-26px_rgba(56,189,248,0.78)] backdrop-blur-xl">
-            <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(56,189,248,0.18),transparent_34%),linear-gradient(180deg,rgba(255,255,255,0.075),rgba(255,255,255,0.018)_32%,transparent_72%)]" />
-            <div className="pointer-events-none absolute inset-px rounded-lg border border-white/[0.035]" />
-            <div className="relative flex items-center gap-2 border-sky-300/10 border-b bg-[linear-gradient(90deg,rgba(2,6,23,0.84),rgba(15,23,42,0.76),rgba(2,6,23,0.82))] px-4 py-3 shadow-[inset_0_1px_0_rgba(255,255,255,0.025)]">
-              <span className="h-2.5 w-2.5 rounded-full bg-rose-400/80" />
-              <span className="h-2.5 w-2.5 rounded-full bg-amber-300/80" />
-              <span className="h-2.5 w-2.5 rounded-full bg-sky-300/80" />
-              <span className="ml-3 truncate bg-linear-to-r from-slate-500 via-sky-500/58 to-slate-400 bg-clip-text font-mono text-xs font-medium text-transparent drop-shadow-[0_0_8px_rgba(2,6,23,0.85)]">
+          <header className="project-terminal-shell relative overflow-hidden rounded-lg border border-sky-300/18 bg-[#020617]/76 shadow-[0_28px_80px_-46px_rgba(14,165,233,0.95),0_0_54px_-34px_rgba(255,255,255,0.42)] backdrop-blur-xl">
+            <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_16%_0%,rgba(148,163,184,0.14),transparent_28%),radial-gradient(circle_at_88%_8%,rgba(56,189,248,0.22),transparent_32%),linear-gradient(180deg,rgba(255,255,255,0.085),rgba(255,255,255,0.018)_34%,rgba(2,6,23,0.28)_100%)]" />
+            <div className="pointer-events-none absolute inset-px rounded-lg border border-white/[0.055]" />
+            <div className="relative flex items-center gap-2 border-sky-300/12 border-b bg-[linear-gradient(180deg,rgba(15,23,42,0.86),rgba(2,6,23,0.78)),linear-gradient(90deg,rgba(56,189,248,0.12),transparent_24%,rgba(248,113,113,0.08)_100%)] px-4 py-3 shadow-[inset_0_1px_0_rgba(255,255,255,0.06),0_14px_28px_-24px_rgba(56,189,248,0.78)]">
+              <span aria-hidden className="grid h-5 w-5 place-items-center">
+                <span className="h-2.5 w-2.5 rounded-full bg-rose-400/90 shadow-[0_0_14px_rgba(251,113,133,0.55)] ring-1 ring-white/15" />
+              </span>
+              <button
+                type="button"
+                aria-label={
+                  isTerminalExpanded ? "ターミナルを縮小" : "ターミナルを拡大"
+                }
+                aria-pressed={isTerminalExpanded}
+                title={
+                  isTerminalExpanded ? "ターミナルを縮小" : "ターミナルを拡大"
+                }
+                onClick={() => setIsTerminalExpanded((current) => !current)}
+                className="group grid h-5 w-5 place-items-center rounded-full transition-colors hover:bg-white/8 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-300/70"
+              >
+                <span
+                  className={`grid h-4 w-4 place-items-center rounded-full ring-1 ring-white/15 transition-colors ${
+                    isTerminalExpanded
+                      ? "bg-sky-300/90 shadow-[0_0_14px_rgba(125,211,252,0.5)]"
+                      : "bg-amber-300/90 shadow-[0_0_14px_rgba(252,211,77,0.48)]"
+                  }`}
+                >
+                  {isTerminalExpanded ? (
+                    <Minimize2 className="h-2.5 w-2.5 text-slate-950" />
+                  ) : (
+                    <Maximize2 className="h-2.5 w-2.5 text-slate-950" />
+                  )}
+                </span>
+              </button>
+              <span className="ml-2 min-w-0 flex-1 truncate rounded border border-white/[0.055] bg-black/18 px-2.5 py-1 font-mono text-xs font-medium text-slate-400 shadow-[inset_0_1px_0_rgba(255,255,255,0.035)]">
                 /var/log/fuji/projects.log
               </span>
+              <span
+                aria-hidden
+                className="hidden h-1.5 w-20 rounded-full bg-linear-to-r from-sky-300/0 via-sky-300/60 to-rose-300/0 shadow-[0_0_18px_rgba(56,189,248,0.28)] sm:block"
+              />
             </div>
 
-            <div className="relative px-4 py-6 font-mono text-[12px] leading-6 text-slate-300 sm:px-6 sm:py-8 sm:text-sm">
+            <div
+              className={`project-terminal-body relative overflow-hidden px-4 py-6 font-mono text-[12px] leading-6 text-slate-300 transition-[max-height] duration-500 ease-out sm:px-6 sm:py-8 sm:text-sm ${
+                isTerminalExpanded ? "max-h-[58rem]" : "max-h-72"
+              }`}
+            >
               <div className="mb-6">
                 <p
                   className="project-terminal-row"
@@ -199,6 +236,12 @@ function Page() {
                   </p>
                 </div>
               </div>
+              {!isTerminalExpanded && (
+                <div
+                  aria-hidden
+                  className="pointer-events-none absolute inset-x-0 bottom-0 h-18 bg-linear-to-t from-[#020617] via-[#020617]/86 to-transparent"
+                />
+              )}
             </div>
           </header>
 
