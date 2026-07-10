@@ -32,68 +32,166 @@ function Page() {
 
             <div className="relative px-4 py-6 font-mono text-[12px] leading-6 text-slate-300 sm:px-6 sm:py-8 sm:text-sm">
               <div className="mb-6">
-                <p>
+                <p
+                  className="project-terminal-row"
+                  style={{ animationDelay: "0.2s" }}
+                >
                   <span className="text-sky-300">(*'-') &gt;</span>{" "}
-                  <span className="text-slate-100">whoami</span>
+                  <span
+                    className="project-terminal-command text-slate-100"
+                    style={{ animationDelay: "0.46s" }}
+                  >
+                    whoami
+                  </span>
                 </p>
-                <p className="pl-4 text-slate-400">fuji</p>
+                <p
+                  className="project-terminal-row pl-4 text-slate-400"
+                  style={{ animationDelay: "1.32s" }}
+                >
+                  fuji
+                </p>
               </div>
 
               <div className="mb-6">
-                <p>
+                <p
+                  className="project-terminal-row"
+                  style={{ animationDelay: "1.72s" }}
+                >
                   <span className="text-sky-300">(*'-') &gt;</span>{" "}
-                  <span className="text-slate-100">which editor</span>
+                  <span
+                    className="project-terminal-command text-slate-100"
+                    style={{ animationDelay: "1.98s" }}
+                  >
+                    which editor
+                  </span>
                 </p>
-                <p className="pl-4 text-slate-400">/usr/bin/nvim</p>
+                <p
+                  className="project-terminal-row pl-4 text-slate-400"
+                  style={{ animationDelay: "2.92s" }}
+                >
+                  /usr/bin/nvim
+                </p>
               </div>
 
               <div className="mb-6 overflow-x-auto">
-                <p>
+                <p
+                  className="project-terminal-row"
+                  style={{ animationDelay: "3.32s" }}
+                >
                   <span className="text-rose-300">(*;-;) &gt;</span>{" "}
-                  <span className="text-slate-100">ps aux | grep projects</span>
+                  <span
+                    className="project-terminal-command text-slate-100"
+                    style={{ animationDelay: "3.58s" }}
+                  >
+                    ps aux | grep projects
+                  </span>
                 </p>
                 <pre className="mt-2 min-w-150 text-slate-400">
-                  {`USER   PID    %CPU  %MEM  COMMAND
-fuji   1001   12.4   0.3   go          CLI tools and backend services
-fuji   1002    9.1   0.2   typescript  portfolio and static frontend
-fuji   1003    7.7   0.1   lua         neovim configuration
-fuji   1004   18.3   0.4   zig         small experiments near the metal
-fuji   1005    4.8   0.1   team-dev    hackathon prototypes`}
+                  <span
+                    className="project-terminal-row block"
+                    style={{ animationDelay: "4.72s" }}
+                  >
+                    USER   PID    %CPU  %MEM  COMMAND
+                  </span>
+                  <span
+                    className="project-terminal-row block"
+                    style={{ animationDelay: "4.94s" }}
+                  >
+                    fuji   1001   12.4   0.3   go          CLI tools and backend
+                    services
+                  </span>
+                  <span
+                    className="project-terminal-row block"
+                    style={{ animationDelay: "5.16s" }}
+                  >
+                    fuji   1002    9.1   0.2   typescript  portfolio and static
+                    frontend
+                  </span>
+                  <span
+                    className="project-terminal-row block"
+                    style={{ animationDelay: "5.38s" }}
+                  >
+                    fuji   1003    7.7   0.1   lua         neovim configuration
+                  </span>
+                  <span
+                    className="project-terminal-row block"
+                    style={{ animationDelay: "5.6s" }}
+                  >
+                    fuji   1004   18.3   0.4   zig         small experiments
+                    near the metal
+                  </span>
+                  <span
+                    className="project-terminal-row block"
+                    style={{ animationDelay: "5.82s" }}
+                  >
+                    fuji   1005    4.8   0.1   team-dev    hackathon prototypes
+                  </span>
                 </pre>
               </div>
 
               <div className="mb-6">
-                <p className="text-rose-300">
+                <p
+                  className="project-terminal-error project-terminal-row text-rose-300"
+                  style={{ animationDelay: "6.34s" }}
+                >
                   [1] Segmentation fault (core dumped) ps aux | grep projects
                 </p>
-                <p>
+                <p
+                  className="project-terminal-row"
+                  style={{ animationDelay: "6.84s" }}
+                >
                   <span className="text-rose-300">(*;-;) &gt;</span>{" "}
-                  <span className="text-slate-100">echo $?</span>
+                  <span
+                    className="project-terminal-command text-slate-100"
+                    style={{ animationDelay: "7.1s" }}
+                  >
+                    echo $?
+                  </span>
                 </p>
-                <p className="pl-4 text-rose-200">139</p>
+                <p
+                  className="project-terminal-error project-terminal-row pl-4 text-rose-200"
+                  style={{ animationDelay: "7.86s" }}
+                >
+                  139
+                </p>
               </div>
 
               <div>
-                <p>
+                <p
+                  className="project-terminal-row"
+                  style={{ animationDelay: "8.28s" }}
+                >
                   <span className="text-sky-300">(*'-') &gt;</span>{" "}
-                  <span className="text-slate-100">
+                  <span
+                    className="project-terminal-command text-slate-100"
+                    style={{ animationDelay: "8.54s" }}
+                  >
                     cat /var/log/fuji.log | tail -n 3
                   </span>
                 </p>
                 <div className="mt-2 space-y-1 pl-4">
-                  <p>
+                  <p
+                    className="project-terminal-row"
+                    style={{ animationDelay: "9.82s" }}
+                  >
                     <span className="text-amber-200">[WARN]</span>{" "}
                     <span className="text-slate-400">
                       too many interests loaded into memory
                     </span>
                   </p>
-                  <p>
+                  <p
+                    className="project-terminal-error project-terminal-row"
+                    style={{ animationDelay: "10.12s" }}
+                  >
                     <span className="text-rose-300">[ERROR]</span>{" "}
                     <span className="text-slate-400">
                       stack overflow: side_projects exceeded ulimit
                     </span>
                   </p>
-                  <p>
+                  <p
+                    className="project-terminal-row"
+                    style={{ animationDelay: "10.42s" }}
+                  >
                     <span className="text-sky-300">[INFO]</span>{" "}
                     <span className="text-slate-400">
                       core dumped to: github.com/anton-fuji

@@ -11,3 +11,101 @@ a {
 a:hover {
   opacity: 0.8;
 }
+
+@keyframes project-terminal-line-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+    filter: blur(2px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+@keyframes project-terminal-type {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes project-terminal-caret {
+  0%,
+  30%,
+  64%,
+  92% {
+    border-color: rgba(125, 211, 252, 0.85);
+  }
+  31%,
+  63%,
+  65%,
+  100% {
+    border-color: transparent;
+  }
+}
+
+@keyframes project-terminal-error-shake {
+  0%,
+  100% {
+    transform: translateX(0);
+    text-shadow: 0 0 14px rgba(251, 113, 133, 0.14);
+  }
+  20% {
+    transform: translateX(-1px);
+    text-shadow: -1px 0 10px rgba(251, 113, 133, 0.42);
+  }
+  40% {
+    transform: translateX(1px);
+    text-shadow: 1px 0 12px rgba(244, 63, 94, 0.34);
+  }
+  60% {
+    transform: translateX(-0.5px);
+    text-shadow: -1px 0 8px rgba(251, 113, 133, 0.38);
+  }
+  80% {
+    transform: translateX(0.5px);
+    text-shadow: 1px 0 10px rgba(251, 113, 133, 0.24);
+  }
+}
+
+.project-terminal-row {
+  animation: project-terminal-line-in 0.24s ease-out both;
+}
+
+.project-terminal-command {
+  display: inline-block;
+  max-width: max-content;
+  overflow: hidden;
+  vertical-align: bottom;
+  white-space: nowrap;
+  border-right: 0.12em solid rgba(125, 211, 252, 0.85);
+  animation:
+    project-terminal-type 0.82s steps(32, end) both,
+    project-terminal-caret 0.92s steps(1, end) both;
+}
+
+.project-terminal-error {
+  display: block;
+  width: fit-content;
+  animation:
+    project-terminal-line-in 0.18s ease-out both,
+    project-terminal-error-shake 0.18s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .project-terminal-row,
+  .project-terminal-command,
+  .project-terminal-error {
+    width: auto;
+    opacity: 1;
+    transform: none;
+    filter: none;
+    border-right-color: transparent;
+    animation: none;
+  }
+}
