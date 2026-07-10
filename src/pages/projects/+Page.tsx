@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { Maximize2, Minimize2 } from "lucide-react";
 import BackgroundGlobe from "../../components/BackgroundGlobe";
+import GlareHover from "../../components/GlareHover";
+import SpotlightCard from "../../components/SpotlightCard";
 import ProjectCard from "./ProjectCard";
 import projectGroups from "./Projects";
 
@@ -21,53 +23,72 @@ function Page() {
       <BackgroundGlobe />
       <div className="px-6 py-24 sm:px-8">
         <div className="mx-auto max-w-6xl space-y-14">
-          <header className="project-terminal-shell relative overflow-hidden rounded-lg border border-sky-200/18 bg-[#020617]/68 shadow-[0_30px_90px_-52px_rgba(125,211,252,0.96),0_0_72px_-46px_rgba(251,207,232,0.65)] backdrop-blur-xl">
-            <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(118deg,rgba(56,189,248,0.14),transparent_24%,rgba(244,114,182,0.08)_58%,transparent_82%),linear-gradient(180deg,rgba(255,255,255,0.095),rgba(255,255,255,0.018)_34%,rgba(2,6,23,0.18)_100%)]" />
-            <div className="pointer-events-none absolute inset-px rounded-lg border border-white/[0.07]" />
-            <div className="relative flex items-center gap-2 border-sky-200/12 border-b bg-[linear-gradient(180deg,rgba(15,23,42,0.7),rgba(2,6,23,0.54)),linear-gradient(90deg,rgba(186,230,253,0.12),rgba(244,114,182,0.07)_46%,rgba(165,243,252,0.1)_100%)] px-4 py-3 shadow-[inset_0_1px_0_rgba(255,255,255,0.08),0_18px_34px_-28px_rgba(125,211,252,0.72)]">
-              <span aria-hidden className="grid h-5 w-5 place-items-center">
-                <span className="h-2.5 w-2.5 rounded-full bg-rose-400/90 shadow-[0_0_14px_rgba(251,113,133,0.55)] ring-1 ring-white/15" />
-              </span>
-              <button
-                type="button"
-                aria-label={
-                  isTerminalExpanded ? "ターミナルを縮小" : "ターミナルを拡大"
-                }
-                aria-pressed={isTerminalExpanded}
-                title={
-                  isTerminalExpanded ? "ターミナルを縮小" : "ターミナルを拡大"
-                }
-                onClick={() => setIsTerminalExpanded((current) => !current)}
-                className="group grid h-5 w-5 place-items-center rounded-full transition-colors hover:bg-white/8 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-300/70"
-              >
-                <span
-                  className={`grid h-4 w-4 place-items-center rounded-full ring-1 ring-white/15 transition-colors ${
-                    isTerminalExpanded
-                      ? "bg-sky-300/90 shadow-[0_0_14px_rgba(125,211,252,0.5)]"
-                      : "bg-amber-300/90 shadow-[0_0_14px_rgba(252,211,77,0.48)]"
+          <GlareHover
+            className="rounded-lg"
+            glareColor="#7dd3fc"
+            glareOpacity={0.1}
+            glareSize={240}
+          >
+            <SpotlightCard
+              spotlightColor="rgba(125, 211, 252, 0.09)"
+              className="project-terminal-shell border-slate-700/38 bg-black/62 p-0 shadow-[0_26px_86px_-60px_rgba(8,47,73,0.78)] transition-shadow duration-300 hover:shadow-[0_0_24px_-10px_rgba(56,189,248,0.3)]"
+            >
+              <header>
+                <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.026),rgba(255,255,255,0.004)_34%,rgba(0,0,0,0.14)_100%)]" />
+                <div className="pointer-events-none absolute inset-px rounded-lg border border-slate-200/[0.032]" />
+                <div className="relative flex items-center gap-2 border-slate-700/38 border-b bg-black/38 px-4 py-3 shadow-[inset_0_1px_0_rgba(255,255,255,0.032)]">
+                  <span
+                    aria-hidden
+                    className="grid h-5 w-5 place-items-center"
+                  >
+                    <span className="h-2.5 w-2.5 rounded-full bg-slate-400/80 shadow-[0_0_12px_rgba(148,163,184,0.28)] ring-1 ring-white/12" />
+                  </span>
+                  <button
+                    type="button"
+                    aria-label={
+                      isTerminalExpanded
+                        ? "ターミナルを縮小"
+                        : "ターミナルを拡大"
+                    }
+                    aria-pressed={isTerminalExpanded}
+                    title={
+                      isTerminalExpanded
+                        ? "ターミナルを縮小"
+                        : "ターミナルを拡大"
+                    }
+                    onClick={() =>
+                      setIsTerminalExpanded((current) => !current)
+                    }
+                    className="group grid h-5 w-5 place-items-center rounded-full transition-colors hover:bg-white/8 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300/70"
+                  >
+                    <span
+                      className={`grid h-4 w-4 place-items-center rounded-full ring-1 ring-white/15 transition-colors ${
+                        isTerminalExpanded
+                          ? "bg-slate-300/85 shadow-[0_0_12px_rgba(148,163,184,0.34)]"
+                          : "bg-sky-300/70 shadow-[0_0_12px_rgba(125,211,252,0.26)]"
+                      }`}
+                    >
+                      {isTerminalExpanded ? (
+                        <Minimize2 className="h-2.5 w-2.5 text-slate-950" />
+                      ) : (
+                        <Maximize2 className="h-2.5 w-2.5 text-slate-950" />
+                      )}
+                    </span>
+                  </button>
+                  <span className="ml-2 min-w-0 flex-1 truncate rounded border border-slate-600/32 bg-black/24 px-2.5 py-1 font-mono text-xs font-medium text-slate-300/78 shadow-[inset_0_1px_0_rgba(255,255,255,0.032)]">
+                    /var/log/fuji/projects.log
+                  </span>
+                  <span
+                    aria-hidden
+                    className="hidden h-1.5 w-20 rounded-full bg-linear-to-r from-slate-200/0 via-slate-300/28 to-sky-300/0 shadow-[0_0_16px_rgba(148,163,184,0.16)] sm:block"
+                  />
+                </div>
+
+                <div
+                  className={`project-terminal-body relative overflow-hidden px-4 py-6 font-mono text-[12px] leading-6 text-slate-300 transition-[max-height] duration-500 ease-out sm:px-6 sm:py-8 sm:text-sm ${
+                    isTerminalExpanded ? "max-h-[58rem]" : "max-h-72"
                   }`}
                 >
-                  {isTerminalExpanded ? (
-                    <Minimize2 className="h-2.5 w-2.5 text-slate-950" />
-                  ) : (
-                    <Maximize2 className="h-2.5 w-2.5 text-slate-950" />
-                  )}
-                </span>
-              </button>
-              <span className="ml-2 min-w-0 flex-1 truncate rounded border border-white/[0.07] bg-white/[0.035] px-2.5 py-1 font-mono text-xs font-medium text-slate-300/78 shadow-[inset_0_1px_0_rgba(255,255,255,0.045),0_0_24px_-18px_rgba(186,230,253,0.88)]">
-                /var/log/fuji/projects.log
-              </span>
-              <span
-                aria-hidden
-                className="hidden h-1.5 w-20 rounded-full bg-linear-to-r from-sky-200/0 via-cyan-200/50 to-rose-200/0 shadow-[0_0_22px_rgba(186,230,253,0.32)] sm:block"
-              />
-            </div>
-
-            <div
-              className={`project-terminal-body relative overflow-hidden px-4 py-6 font-mono text-[12px] leading-6 text-slate-300 transition-[max-height] duration-500 ease-out sm:px-6 sm:py-8 sm:text-sm ${
-                isTerminalExpanded ? "max-h-[58rem]" : "max-h-72"
-              }`}
-            >
               <svg
                 aria-labelledby="libra-constellation-title"
                 viewBox="0 0 260 170"
@@ -297,14 +318,16 @@ function Page() {
                   </p>
                 </div>
               </div>
-              {!isTerminalExpanded && (
-                <div
-                  aria-hidden
-                  className="pointer-events-none absolute inset-x-0 bottom-0 h-18 bg-linear-to-t from-[#020617] via-[#020617]/86 to-transparent"
-                />
-              )}
-            </div>
-          </header>
+                  {!isTerminalExpanded && (
+                    <div
+                      aria-hidden
+                      className="pointer-events-none absolute inset-x-0 bottom-0 h-18 bg-linear-to-t from-[#020617] via-[#020617]/86 to-transparent"
+                    />
+                  )}
+                </div>
+              </header>
+            </SpotlightCard>
+          </GlareHover>
 
           <nav aria-label="Project categories" className="flex flex-wrap gap-2">
             {projectGroups.map((group) => (
