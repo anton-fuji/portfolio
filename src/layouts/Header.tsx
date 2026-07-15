@@ -104,7 +104,9 @@ export default function Header() {
                 );
               })}
             </nav>
-            <LanguageToggle />
+            <div className="md:ml-2 lg:ml-5">
+              <LanguageToggle />
+            </div>
           </div>
 
           <button
