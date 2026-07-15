@@ -11,11 +11,25 @@ on:
         - main 
     paths:
         - 'src/**'
+        - 'package.json'
+        - 'package-lock.json'
+        - '.npmrc'
+        - '.github/**'
+        - 'vite.config.ts'
+        - 'tsconfig*.json'
+        - 'biome.json'
   pull_request:
     branches:
         - main
     paths:
         - 'src/**'
+        - 'package.json'
+        - 'package-lock.json'
+        - '.npmrc'
+        - '.github/**'
+        - 'vite.config.ts'
+        - 'tsconfig*.json'
+        - 'biome.json'
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -34,7 +48,7 @@ jobs:
       - name: Setup & Run Lint    
         uses: ./.github/actions/setup
         with:
-          script: biome:lint
+          script: lint
 
   build:
     name: Build & Type-Check
