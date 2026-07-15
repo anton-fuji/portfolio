@@ -2,6 +2,7 @@ import { LuExternalLink } from "react-icons/lu";
 import { useData } from "vike-react/useData";
 import { twMerge } from "tailwind-merge";
 import BackgroundGlobe from "../../components/BackgroundGlobe";
+import { useTranslation } from "../../i18n";
 import type { Data } from "./+data";
 import ArticleCard from "./ArticleCard";
 import { PLATFORM_THEMES } from "./articleTheme";
@@ -10,6 +11,7 @@ export { Page };
 
 function Page() {
   const articles = useData<Data>();
+  const { t } = useTranslation();
 
   return (
     <>
@@ -39,7 +41,9 @@ function Page() {
                       theme.profileLink,
                     )}
                   >
-                    <span>{theme.key} profile</span>
+                    <span>
+                      {theme.key} {t.articles.profileLink}
+                    </span>
                     <LuExternalLink
                       size={14}
                       className="opacity-60 transition-opacity group-hover:opacity-100"

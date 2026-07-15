@@ -4,9 +4,10 @@ import pcdImage from "../assets/icons/certifications/googlecloud-pcd.png";
 import pcaImage from "../assets/icons/certifications/googlecloud-pca.png";
 import doImage from "../assets/icons/certifications/googlecloud-devops.png";
 import daImage from "../assets/icons/certifications/googlecloud-data.png";
+import type { LocalizedText } from "../i18n";
 
 interface Certification {
-  name: string;
+  name: LocalizedText;
   organization: string;
   date: string;
   imageUrl?: string;
@@ -16,50 +17,53 @@ interface Certification {
 
 export const CERTIFICATIONS: Certification[] = [
   {
-    name: "基本情報技術者試験",
+    name: {
+      ja: "基本情報技術者試験",
+      en: "Fundamental Information Technology Engineer Examination",
+    },
     organization: "IPA",
-    date: "Dec 2024",
+    date: "2024-12",
     category: "IPA",
   },
   {
     name: "Cloud Digital Leader",
     organization: "Google Cloud",
-    date: "Nov 2025",
+    date: "2025-11",
     imageUrl: cdlImage,
     category: "Google Cloud",
   },
   {
     name: "Associate Cloud Engineer",
     organization: "Google Cloud",
-    date: "Oct 2025",
+    date: "2025-10",
     imageUrl: aceImage,
     category: "Google Cloud",
   },
   {
     name: "Professional Cloud Developer",
     organization: "Google Cloud",
-    date: "Dec 2025",
+    date: "2025-12",
     imageUrl: pcdImage,
     category: "Google Cloud",
   },
   {
     name: "Professional Cloud Architect",
     organization: "Google Cloud",
-    date: "Jan 2026",
+    date: "2026-01",
     imageUrl: pcaImage,
     category: "Google Cloud",
   },
   {
     name: "Professional DevOps Engineer",
     organization: "Google Cloud",
-    date: "Apr 2026",
+    date: "2026-04",
     imageUrl: doImage,
     category: "Google Cloud",
   },
   {
     name: "Professional Data Engineer",
     organization: "Google Cloud",
-    date: "Jul 2026",
+    date: "2026-07",
     imageUrl: daImage,
     category: "Google Cloud",
   },

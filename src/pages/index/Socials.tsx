@@ -4,7 +4,8 @@ import portfolioQr from "../../assets/cat-qr.png";
 import GithubIcon from "../../assets/icons/socials/github.svg?react";
 import XIcon from "../../assets/icons/socials/x.svg?react";
 import ZennIcon from "../../assets/icons/socials/zenn.svg?react";
-import { PERSONAL_INFO, SOCIAL_LINKS } from "../../mydata/data";
+import { useTranslation } from "../../i18n";
+import { SOCIAL_LINKS } from "../../mydata/data";
 import type { SocialIconName } from "../../types";
 import { SiNote, SiQiita } from "react-icons/si";
 
@@ -25,6 +26,7 @@ const socialIcons = {
 const Socials: FC = () => {
   const [isQrOpen, setIsQrOpen] = useState(false);
   const titleId = useId();
+  const { t } = useTranslation();
 
   useEffect(() => {
     if (!isQrOpen) {
@@ -70,7 +72,7 @@ const Socials: FC = () => {
           <li>
             <button
               type="button"
-              title="Check Out My Site"
+              title={t.home.qrTitle}
               aria-haspopup="dialog"
               aria-expanded={isQrOpen}
               onClick={() => setIsQrOpen(true)}
@@ -91,18 +93,18 @@ const Socials: FC = () => {
         >
           <button
             type="button"
-            aria-label="Close QR modal"
+            aria-label={t.menu.close}
             onClick={() => setIsQrOpen(false)}
             className="absolute inset-0 bg-slate-950/78 backdrop-blur-xl"
           />
           <div className="relative w-full max-w-sm overflow-hidden rounded-lg border border-white/10 bg-[#07151d]/95 p-5 text-white shadow-[0_24px_90px_rgba(0,0,0,0.45)]">
             <div className="mb-4 flex items-center justify-between gap-4">
               <h2 id={titleId} className="text-lg font-semibold">
-                Check Out My Site
+                {t.home.qrTitle}
               </h2>
               <button
                 type="button"
-                aria-label="Close QR modal"
+                aria-label={t.menu.close}
                 onClick={() => setIsQrOpen(false)}
                 className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/[0.04] text-white/70 transition hover:border-white/25 hover:bg-white/[0.08] hover:text-white"
               >
@@ -113,7 +115,7 @@ const Socials: FC = () => {
             <div className="rounded-lg bg-white p-3">
               <img
                 src={portfolioQr}
-                alt={`${PERSONAL_INFO.url}へ遷移するQRコード`}
+                alt={t.home.qrAlt}
                 className="mx-auto aspect-square w-full max-w-[280px]"
               />
             </div>

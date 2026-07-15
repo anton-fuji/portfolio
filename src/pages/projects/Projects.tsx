@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import type { LocalizedText } from "../../i18n";
 import { FaPeopleGroup, FaGolang } from "react-icons/fa6";
 import { SiLua } from "react-icons/si";
 import { BiLogoTypescript } from "react-icons/bi";
@@ -14,7 +15,7 @@ export interface ProjectGroup {
 
 export interface Project {
   name: string;
-  description: string;
+  description: LocalizedText;
   githuburl: string;
   kind: "CLI Tool" | "Web App" | "Environment" | "Portfolio" | "Team Project";
   tags: string[];
@@ -29,31 +30,40 @@ export const projectGroups: ProjectGroup[] = [
     projects: [
       {
         name: "Tech Feed",
-        description:
-          "QiitaやZennの記事をGitHubのREADMEに自動埋め込みするGo製ツール",
+        description: {
+          ja: "QiitaやZennの記事をGitHubのREADMEに自動埋め込みするGo製ツール",
+          en: "A Go CLI that automatically embeds Qiita and Zenn articles into a GitHub README.",
+        },
         githuburl: "https://github.com/anton-fuji/techfeed",
         kind: "CLI Tool",
         tags: ["Go", "GitHub Actions", "Markdown"],
       },
       {
         name: "mini link",
-        description: "FiberでURL Shortener を実装",
+        description: {
+          ja: "FiberでURL Shortener を実装",
+          en: "A URL shortener implemented with Fiber.",
+        },
         githuburl: "https://github.com/anton-fuji/minilink",
         kind: "Web App",
         tags: ["Go", "Fiber", "URL Shortener"],
       },
       {
         name: "gitviz",
-        description:
-          "Gitのコミット履歴をContributionグラフのようにターミナルで視覚化するCLIツール",
+        description: {
+          ja: "Gitのコミット履歴をContributionグラフのようにターミナルで視覚化するCLIツール",
+          en: "A CLI that visualizes Git commit history in the terminal like a contribution graph.",
+        },
         githuburl: "https://github.com/anton-fuji/gitviz",
         kind: "CLI Tool",
         tags: ["Go", "Git", "Terminal UI"],
       },
       {
         name: "dibo",
-        description:
-          ".dockerignoreファイルのテンプレートを生成するCLIツール",
+        description: {
+          ja: ".dockerignoreファイルのテンプレートを生成するCLIツール",
+          en: "A CLI that generates .dockerignore templates.",
+        },
         githuburl: "https://github.com/anton-fuji/dibo",
         kind: "CLI Tool",
         tags: ["Go", "Docker", "Generator"],
@@ -68,7 +78,10 @@ export const projectGroups: ProjectGroup[] = [
     projects: [
       {
         name: "dotfiles",
-        description: "Neovim + WezTerm 環境構築",
+        description: {
+          ja: "Neovim + WezTerm 環境構築",
+          en: "Neovim and WezTerm environment setup.",
+        },
         githuburl: "https://github.com/anton-fuji/dotfiles",
         kind: "Environment",
         tags: ["Lua", "Neovim", "WezTerm"],
@@ -83,7 +96,10 @@ export const projectGroups: ProjectGroup[] = [
     projects: [
       {
         name: "ztree",
-        description: "Zig ディレクトリツリーCLI",
+        description: {
+          ja: "Zig ディレクトリツリーCLI",
+          en: "A directory tree CLI written in Zig.",
+        },
         githuburl: "https://github.com/anton-fuji/ztree",
         kind: "CLI Tool",
         tags: ["Zig", "File System", "CLI"],
@@ -98,7 +114,10 @@ export const projectGroups: ProjectGroup[] = [
     projects: [
       {
         name: "Portfolio",
-        description: "個人のポートフォリオサイト",
+        description: {
+          ja: "個人のポートフォリオサイト",
+          en: "My personal portfolio site.",
+        },
         githuburl: "https://github.com/anton-fuji/portfolio",
         kind: "Portfolio",
         tags: ["React", "Vike", "Tailwind CSS"],
@@ -113,14 +132,20 @@ export const projectGroups: ProjectGroup[] = [
     projects: [
       {
         name: "Tech Hub",
-        description: "RareTECH 受講生向けに作成した、記事プラットフォーム",
+        description: {
+          ja: "RareTECH 受講生向けに作成した、記事プラットフォーム",
+          en: "An article platform built for RareTECH students.",
+        },
         githuburl: "https://github.com/E-Team-Hackathon/TechHub",
         kind: "Team Project",
         tags: ["Team", "Articles", "Community"],
       },
       {
         name: "Chimy",
-        description: "小学校向け 連絡帳チャットアプリ",
+        description: {
+          ja: "小学校向け 連絡帳チャットアプリ",
+          en: "A contact-book chat app for elementary schools.",
+        },
         githuburl: "https://github.com/2024-Summer-Raretech-Team-F/chatapp",
         kind: "Team Project",
         tags: ["Team", "Chat", "School"],
