@@ -23,10 +23,17 @@
     "rules": {
       "recommended": true,
       "correctness": {
+        "useHookAtTopLevel": "error",
         "noUnusedImports": "error",
         "noUnusedVariables": "error"
       },
       "nursery": {
+        "useComponentExportOnlyModules": {
+          "level": "warn",
+          "options": {
+            "allowConstantExport": true
+          }
+        },
         "useSortedClasses": "off"
       },
       "suspicious": {
