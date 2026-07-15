@@ -14,8 +14,9 @@
   "home": {
     "title": "My Portfolio",
     "stackTitle": "My Tech Stack",
-    "stackSummary": "Go や TypeScript を軸に、バックエンドからインフラまで手を動かして作っています。",
+    "stackSummary": "Go や TypeScript を軸に、バックエンドからインフラまで設計・実装しています。",
     "stackNote": "Database、Docker、Terraform、ターミナル環境など、実装と運用の境目にある技術が好きです。",
+    "stackCta": "Projects を見る",
     "qrTitle": "サイトを開く",
     "qrAlt": "fuuji.site へ遷移する QR コード"
   },

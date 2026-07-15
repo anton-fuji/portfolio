@@ -16,6 +16,7 @@
     "stackTitle": "My Tech Stack",
     "stackSummary": "My main focus is backend engineering, infrastructure, PostgreSQL, and terminal-heavy workflows.",
     "stackNote": "I build frontend surfaces when needed, and turn painful debugging notes into articles for the next pass.",
+    "stackCta": "View projects",
     "qrTitle": "Open this site",
     "qrAlt": "QR code linking to fuuji.site"
   },
