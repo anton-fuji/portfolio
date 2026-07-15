@@ -96,7 +96,7 @@ export const ENGINEERING_SURFACES: EngineeringSurface[] = [
     id: "cloud-delivery",
     verb: "$ cat ~/infra/cloud.md",
     title: {
-      ja: "動かし続けるところまで見る",
+      ja: "運用まで見据えて設計する",
       en: "Shipping things to the cloud",
     },
     description: {
@@ -177,7 +177,7 @@ export const ENGINEERING_SURFACES: EngineeringSurface[] = [
       ja: "Docker、Go、Terraform などで調べたことや失敗したことは、あとで見返せるように記事へまとめています。自分の理解を整理しつつ、同じところで困った人の助けにもなればいいなと思っています。",
       en: "When I get stuck around Docker, Go, or Terraform, I turn the notes into articles so the next pass is faster.",
     },
-    stack: ["Zenn", "Qiita", "Docker", "Go", "Terraform"],
+    stack: ["Zenn", "Qiita", "Note"],
     signals: [
       {
         ja: "GoでUNIXコマンドを作りながら、I/O処理を理解する",

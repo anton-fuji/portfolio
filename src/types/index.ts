@@ -28,7 +28,8 @@ export type TechName =
   | "Tailwind CSS"
   | "Vite"
   | "Zenn"
-  | "Qiita";
+  | "Qiita"
+  | "Note";
 
 export interface EngineeringProof {
   label: LocalizedText;
