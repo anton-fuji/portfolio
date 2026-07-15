@@ -6,6 +6,7 @@ import {
   TerminalSquare,
   Users,
 } from "lucide-react";
+import { useTranslation } from "../../i18n";
 import type { Project } from "./Projects";
 
 export type ProjectCardProps = {
@@ -32,6 +33,7 @@ const getKindIcon = (kind: Project["kind"]) => {
 const ProjectCard: FC<ProjectCardProps> = ({ project, accent, index }) => {
   const repoPath = getRepoPath(project.githuburl);
   const pid = 1001 + index;
+  const { t, text } = useTranslation();
 
   return (
     <a
@@ -63,17 +65,17 @@ const ProjectCard: FC<ProjectCardProps> = ({ project, accent, index }) => {
         </div>
         <p className="mt-1 truncate text-slate-500">{repoPath}</p>
         <p className="mt-2 text-[11px] leading-5 text-slate-400 sm:hidden">
-          {project.description}
+          {text(project.description)}
         </p>
       </div>
 
       <div className="relative inline-flex w-fit items-center gap-1.5 rounded border border-sky-300/14 bg-sky-300/[0.055] px-2 py-1 text-[11px] text-slate-300 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)] backdrop-blur-sm">
         {getKindIcon(project.kind)}
-        <span>{project.kind}</span>
+        <span>{t.projects.kinds[project.kind]}</span>
       </div>
 
       <div className="hidden min-w-0 sm:block">
-        <p className="truncate text-slate-400">{project.description}</p>
+        <p className="truncate text-slate-400">{text(project.description)}</p>
         <div className="mt-1 flex flex-wrap gap-x-2 gap-y-1 text-[10px] text-sky-200/55">
           {project.tags.map((tag) => (
             <span key={tag}>--{tag}</span>

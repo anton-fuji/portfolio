@@ -6,6 +6,11 @@ on:
             - main
         paths:
             - 'src/**'
+            - 'package.json'
+            - 'package-lock.json'
+            - '.npmrc'
+            - 'vite.config.ts'
+            - 'tsconfig*.json'
 
 permissions:
     id-token: write

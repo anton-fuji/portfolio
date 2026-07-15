@@ -1,18 +1,38 @@
-import { usePageContext } from "vike-react/usePageContext";
-import { PERSONAL_INFO } from "../mydata/data";
 import { useEffect, useState } from "react";
-import { Menu, X } from "lucide-react";
+import { usePageContext } from "vike-react/usePageContext";
+import { Languages, Menu, X } from "lucide-react";
+import { useTranslation } from "../i18n";
+import { PERSONAL_INFO } from "../mydata/data";
 
 const navLinks = [
-  { name: "Home", href: "/" },
-  { name: "Articles", href: "/articles" },
-  { name: "Projects", href: "/projects" },
-  { name: "Certs", href: "/certifications" },
-];
+  { key: "home", href: "/" },
+  { key: "articles", href: "/articles" },
+  { key: "projects", href: "/projects" },
+  { key: "certs", href: "/certifications" },
+] as const;
+
+function LanguageToggle() {
+  const { language, toggleLanguage, t } = useTranslation();
+  const nextLanguage = language === "ja" ? "EN" : "JA";
+
+  return (
+    <button
+      type="button"
+      onClick={toggleLanguage}
+      aria-label={t.languageToggleLabel}
+      title={t.languageToggleLabel}
+      className="inline-flex h-10 items-center gap-2 rounded-full border border-white/10 bg-white/[0.035] px-3 text-xs font-semibold text-white/78 transition hover:border-cyan-200/35 hover:bg-cyan-300/[0.09] hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300/70"
+    >
+      <Languages className="h-4 w-4" aria-hidden="true" />
+      <span>{nextLanguage}</span>
+    </button>
+  );
+}
 
 export default function Header() {
   const pageContext = usePageContext();
   const { urlPathname } = pageContext;
+  const { t } = useTranslation();
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -47,48 +67,53 @@ export default function Header() {
   return (
     <>
       <header
-        className={`fixed top-0 right-0 left-0 z-50 py-4 md:py-6 transition-all duration-500 ease-out ${
+        className={`fixed top-0 right-0 left-0 z-50 py-4 transition-all duration-500 ease-out md:py-6 ${
           isVisible ? "translate-y-0" : "-translate-y-full"
         } ${
           isScrolled
-            ? "border-b border-white/10 bg-black/40 backdrop-blur-2xl shadow-2xl"
-            : "border-b border-transparent bg-transparent"
+            ? "border-white/10 border-b bg-black/40 shadow-2xl backdrop-blur-2xl"
+            : "border-transparent border-b bg-transparent"
         }`}
       >
         <div className="container mx-auto flex items-center justify-between px-4 md:px-6 lg:px-12">
           <a
             href="/"
-            className="text-xl md:text-2xl font-semibold text-white z-50 relative"
+            className="relative z-50 text-xl font-semibold text-white md:text-2xl"
           >
             {PERSONAL_INFO.url}
           </a>
 
-          <nav className="hidden md:flex items-center space-x-6 lg:space-x-8">
-            {navLinks.map(({ name, href }) => {
-              const isActive =
-                href === "/"
-                  ? urlPathname === "/"
-                  : urlPathname.startsWith(href);
-              return (
-                <a
-                  key={name}
-                  href={href}
-                  className={`relative font-sans transition-all duration-300 hover:scale-105 group ${
-                    isActive ? "font-bold text-white" : "text-gray-400"
-                  }`}
-                >
-                  {name}
-                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full transition-all duration-300 group-hover:w-full" />
-                </a>
-              );
-            })}
-          </nav>
+          <div className="hidden items-center gap-4 md:flex">
+            <nav className="flex items-center space-x-6 lg:space-x-8">
+              {navLinks.map(({ key, href }) => {
+                const isActive =
+                  href === "/"
+                    ? urlPathname === "/"
+                    : urlPathname.startsWith(href);
+                return (
+                  <a
+                    key={key}
+                    href={href}
+                    className={`group relative font-sans transition-all duration-300 hover:scale-105 ${
+                      isActive ? "font-bold text-white" : "text-gray-400"
+                    }`}
+                  >
+                    {t.nav[key]}
+                    <span className="absolute -bottom-1 left-0 h-0.5 w-0 rounded-full bg-gradient-to-r from-blue-400 to-purple-400 transition-all duration-300 group-hover:w-full" />
+                  </a>
+                );
+              })}
+            </nav>
+            <div className="md:ml-2 lg:ml-5">
+              <LanguageToggle />
+            </div>
+          </div>
 
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             type="button"
-            className="md:hidden z-60 relative text-white hover:text-gray-300 transition-colors p-2"
-            aria-label="Toggle menu"
+            className="relative z-60 p-2 text-white transition-colors hover:text-gray-300 md:hidden"
+            aria-label={isMobileMenuOpen ? t.menu.close : t.menu.open}
           >
             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -96,30 +121,33 @@ export default function Header() {
       </header>
 
       <div
-        className={`fixed inset-0 z-50 md:hidden transition-all duration-400 ${
+        className={`fixed inset-0 z-50 transition-all duration-400 md:hidden ${
           isMobileMenuOpen ? "visible opacity-100" : "invisible opacity-0"
         }`}
       >
         <div className="absolute inset-0 bg-blue-700/5 backdrop-blur-xl" />
-        <nav className="relative h-full flex flex-col items-center justify-center space-y-12 px-8">
-          {navLinks.map(({ name, href }) => {
+        <nav className="relative flex h-full flex-col items-center justify-center space-y-10 px-8">
+          {navLinks.map(({ key, href }) => {
             const isActive =
               href === "/" ? urlPathname === "/" : urlPathname.startsWith(href);
             return (
               <a
-                key={name}
+                key={key}
                 href={href}
                 onClick={() => setIsMobileMenuOpen(false)}
-                className={`text-3xl font-sans transition-all duration-200 ${
+                className={`font-sans text-3xl transition-all duration-200 ${
                   isActive
-                    ? "font-bold text-white scale-105"
-                    : "text-slate-700 hover:text-white hover:scale-100"
+                    ? "scale-105 font-bold text-white"
+                    : "text-slate-700 hover:scale-100 hover:text-white"
                 }`}
               >
-                {name}
+                {t.nav[key]}
               </a>
             );
           })}
+          <div className="pt-2">
+            <LanguageToggle />
+          </div>
         </nav>
       </div>
     </>

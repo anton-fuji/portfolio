@@ -1,11 +1,43 @@
 import BackgroundGlobe from "../../components/BackgroundGlobe";
 import GlareHover from "../../components/GlareHover";
 import SpotlightCard from "../../components/SpotlightCard";
+import { useTranslation } from "../../i18n";
 import { CERTIFICATIONS } from "../../mydata/certifications";
 
 export { Page };
 
+const englishMonthLabels = [
+  "Jan",
+  "Feb",
+  "Mar",
+  "Apr",
+  "May",
+  "Jun",
+  "Jul",
+  "Aug",
+  "Sep",
+  "Oct",
+  "Nov",
+  "Dec",
+];
+
+const formatCertificationDate = (date: string, language: "ja" | "en") => {
+  const match = date.match(/^(\d{4})-(\d{2})$/);
+  if (!match) return date;
+
+  const year = match[1];
+  const month = Number(match[2]);
+  if (month < 1 || month > 12) return date;
+
+  if (language === "ja") {
+    return `${year}年${month}月`;
+  }
+
+  return `${englishMonthLabels[month - 1]} ${year}`;
+};
+
 function Page() {
+  const { language, t, text } = useTranslation();
   const categories = Array.from(new Set(CERTIFICATIONS.map((c) => c.category)));
 
   const getCertificationsByCategory = (category: string) => {
@@ -19,10 +51,10 @@ function Page() {
         <div className="mx-auto max-w-6xl space-y-12">
           <header>
             <p className="mb-4 text-xs font-medium tracking-[0.28em] text-gray-500 uppercase">
-              Credentials
+              {t.certifications.eyebrow}
             </p>
             <h1 className="text-4xl font-extrabold tracking-normal text-white sm:text-5xl">
-              Certifications
+              {t.certifications.title}
             </h1>
           </header>
 
@@ -39,7 +71,7 @@ function Page() {
                 <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
                   {certs.map((cert) => (
                     <GlareHover
-                      key={cert.name}
+                      key={`${text(cert.name)}-${cert.date}`}
                       className="h-full rounded-lg"
                       glareColor="#3ea8ff"
                       glareOpacity={0.22}
@@ -55,7 +87,7 @@ function Page() {
                             <div className="relative grid h-28 w-28 place-items-center">
                               <img
                                 src={cert.imageUrl}
-                                alt={cert.name}
+                                alt={text(cert.name)}
                                 className="h-full w-full object-contain opacity-90 grayscale-18 transition duration-300 group-hover:opacity-100 group-hover:grayscale-0"
                               />
                             </div>
@@ -92,18 +124,19 @@ function Page() {
                               className="text-white transition-colors hover:text-gray-300"
                             >
                               <h3 className="text-[17px] leading-snug font-medium">
-                                {cert.name}
+                                {text(cert.name)}
                               </h3>
                             </a>
                           ) : (
                             <h3 className="text-[17px] leading-snug font-medium">
-                              {cert.name}
+                              {text(cert.name)}
                             </h3>
                           )}
 
                           <div className="mt-auto border-blue-400/14 border-t pt-4">
                             <p className="text-[11px] font-medium tracking-[0.22em] text-blue-100/45 uppercase">
-                              Issued · {cert.date}
+                              {t.certifications.issued} ·{" "}
+                              {formatCertificationDate(cert.date, language)}
                             </p>
                           </div>
                         </div>

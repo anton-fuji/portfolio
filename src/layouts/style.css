@@ -1,7 +1,12 @@
 body {
   background-color: #0a0a0a; /* gray-900 */
   color: #fff;
-  font-family: "Inter", sans-serif;
+  font-family:
+    "Inter",
+    "Noto Sans JP",
+    "Hiragino Sans",
+    "Yu Gothic",
+    sans-serif;
 }
 
 a {
@@ -14,6 +19,35 @@ a:hover {
 
 .project-terminal-shell {
   animation: project-terminal-float 8s ease-in-out infinite;
+}
+
+.skill-timeline-fill {
+  height: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(103, 232, 249, 0.52),
+    rgba(147, 197, 253, 0.4),
+    rgba(129, 140, 248, 0.32)
+  );
+  box-shadow: 0 0 14px rgba(125, 211, 252, 0.28);
+  animation: skill-timeline-fill 28s linear infinite;
+}
+
+.skill-timeline-gradient {
+  top: -2rem;
+  height: 4rem;
+  background: linear-gradient(
+    180deg,
+    transparent,
+    rgba(103, 232, 249, 0.18),
+    rgba(125, 211, 252, 0.62),
+    rgba(147, 197, 253, 0.22),
+    transparent
+  );
+  border-radius: 999px;
+  filter: drop-shadow(0 0 10px rgba(125, 211, 252, 0.46));
+  opacity: 0.85;
+  animation: skill-timeline-gradient 28s linear infinite;
 }
 
 .project-terminal-shell::before {
@@ -180,6 +214,24 @@ a:hover {
   }
   50% {
     transform: translateY(-5px);
+  }
+}
+
+@keyframes skill-timeline-fill {
+  from {
+    height: 0;
+  }
+  to {
+    height: 100%;
+  }
+}
+
+@keyframes skill-timeline-gradient {
+  from {
+    top: -2rem;
+  }
+  to {
+    top: calc(100% - 2rem);
   }
 }
 

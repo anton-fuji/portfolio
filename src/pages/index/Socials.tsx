@@ -4,7 +4,8 @@ import portfolioQr from "../../assets/cat-qr.png";
 import GithubIcon from "../../assets/icons/socials/github.svg?react";
 import XIcon from "../../assets/icons/socials/x.svg?react";
 import ZennIcon from "../../assets/icons/socials/zenn.svg?react";
-import { PERSONAL_INFO, SOCIAL_LINKS } from "../../mydata/data";
+import { useTranslation } from "../../i18n";
+import { SOCIAL_LINKS } from "../../mydata/data";
 import type { SocialIconName } from "../../types";
 import { SiNote, SiQiita } from "react-icons/si";
 
@@ -25,6 +26,7 @@ const socialIcons = {
 const Socials: FC = () => {
   const [isQrOpen, setIsQrOpen] = useState(false);
   const titleId = useId();
+  const { t } = useTranslation();
 
   useEffect(() => {
     if (!isQrOpen) {
@@ -54,27 +56,27 @@ const Socials: FC = () => {
           {SOCIAL_LINKS.map((social) => {
             const Icon = socialIcons[social.icon];
             return (
-              <li key={social.url}>
+              <li key={social.url} className="group/social h-11 w-11">
                 <a
                   href={social.url}
                   title={social.name}
                   target="_blank"
                   rel="noreferrer noopener"
-                  className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-cyan-300/18 bg-cyan-300/[0.05] text-cyan-50/78 transition hover:-translate-y-0.5 hover:border-cyan-200/40 hover:bg-cyan-300/[0.12] hover:text-white [&_path]:fill-current"
+                  className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-cyan-300/18 bg-cyan-300/[0.05] text-cyan-50/78 opacity-100 transition group-hover/social:-translate-y-0.5 group-hover/social:border-cyan-200/40 group-hover/social:bg-cyan-300/[0.12] group-hover/social:text-white hover:opacity-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300/70 [&_path]:fill-current"
                 >
                   <Icon {...socialIconProps} />
                 </a>
               </li>
             );
           })}
-          <li>
+          <li className="group/social h-11 w-11">
             <button
               type="button"
-              title="Check Out My Site"
+              title={t.home.qrTitle}
               aria-haspopup="dialog"
               aria-expanded={isQrOpen}
               onClick={() => setIsQrOpen(true)}
-              className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-cyan-300/18 bg-cyan-300/[0.05] text-cyan-50/78 transition hover:-translate-y-0.5 hover:border-cyan-200/40 hover:bg-cyan-300/[0.12] hover:text-white"
+              className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-cyan-300/18 bg-cyan-300/[0.05] text-cyan-50/78 transition group-hover/social:-translate-y-0.5 group-hover/social:border-cyan-200/40 group-hover/social:bg-cyan-300/[0.12] group-hover/social:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300/70"
             >
               <QrCode className="h-5 w-5" aria-hidden="true" />
             </button>
@@ -91,18 +93,18 @@ const Socials: FC = () => {
         >
           <button
             type="button"
-            aria-label="Close QR modal"
+            aria-label={t.menu.close}
             onClick={() => setIsQrOpen(false)}
             className="absolute inset-0 bg-slate-950/78 backdrop-blur-xl"
           />
           <div className="relative w-full max-w-sm overflow-hidden rounded-lg border border-white/10 bg-[#07151d]/95 p-5 text-white shadow-[0_24px_90px_rgba(0,0,0,0.45)]">
             <div className="mb-4 flex items-center justify-between gap-4">
               <h2 id={titleId} className="text-lg font-semibold">
-                Check Out My Site
+                {t.home.qrTitle}
               </h2>
               <button
                 type="button"
-                aria-label="Close QR modal"
+                aria-label={t.menu.close}
                 onClick={() => setIsQrOpen(false)}
                 className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/[0.04] text-white/70 transition hover:border-white/25 hover:bg-white/[0.08] hover:text-white"
               >
@@ -113,7 +115,7 @@ const Socials: FC = () => {
             <div className="rounded-lg bg-white p-3">
               <img
                 src={portfolioQr}
-                alt={`${PERSONAL_INFO.url}へ遷移するQRコード`}
+                alt={t.home.qrAlt}
                 className="mx-auto aspect-square w-full max-w-[280px]"
               />
             </div>

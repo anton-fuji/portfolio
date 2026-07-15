@@ -1,0 +1,52 @@
+{
+  "languageLabel": "English",
+  "languageToggleLabel": "Switch display language",
+  "nav": {
+    "home": "Home",
+    "articles": "Articles",
+    "projects": "Projects",
+    "certs": "Certs"
+  },
+  "menu": {
+    "open": "Open menu",
+    "close": "Close menu"
+  },
+  "home": {
+    "title": "My Portfolio",
+    "stackTitle": "My Tech Stack",
+    "stackSummary": "My main focus is backend engineering, infrastructure, PostgreSQL, and terminal-heavy workflows.",
+    "stackNote": "I build frontend surfaces when needed, and turn painful debugging notes into articles for the next pass.",
+    "stackCta": "View projects",
+    "qrTitle": "Open this site",
+    "qrAlt": "QR code linking to fuuji.site"
+  },
+  "articles": {
+    "profileLink": "profile"
+  },
+  "projects": {
+    "terminalCollapse": "Collapse terminal",
+    "terminalExpand": "Expand terminal",
+    "categories": "Project categories",
+    "table": {
+      "repo": "Repo",
+      "type": "Type",
+      "output": "Output"
+    },
+    "constellationTitle": "Libra constellation",
+    "kinds": {
+      "CLI Tool": "CLI Tool",
+      "Web App": "Web App",
+      "Environment": "Environment",
+      "Portfolio": "Portfolio",
+      "Team Project": "Team Project"
+    }
+  },
+  "certifications": {
+    "eyebrow": "Credentials",
+    "title": "Certifications",
+    "issued": "Issued"
+  },
+  "footer": {
+    "github": "View on GitHub"
+  }
+}

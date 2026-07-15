@@ -14,11 +14,10 @@
 - `npm run dev` - ローカル開発サーバーを起動します。
 - `npm run build` - Vike/Vite のビルドと型チェック相当の検証を行います。
 - `npm run preview` - ビルド済みサイトをプレビューします。
-- `npm run lint` - ESLint を実行します。
-- `npm run biome:lint` - Biome の lint を実行します。CI の lint ジョブでも使われます。
-- `npm run biome:format -- --write .` - Biome でフォーマットを書き込みます。実行前に対象差分を確認してください。
+- `npm run lint` - Biome の lint を実行します。
+- `npm run format -- --write .` - Biome でフォーマットを書き込みます。実行前に対象差分を確認してください。
 
-変更後は、少なくとも `npm run biome:lint` と `npm run build` を実行してください。React Hooks や refresh 境界に関わる変更では `npm run lint` も実行してください。
+変更後は、少なくとも `npm run lint` と `npm run build` を実行してください。
 
 ## 主要な構成
 
@@ -29,7 +28,7 @@
 - `src/pages/projects/Projects.tsx` - プロジェクト一覧データを持ちます。
 - `src/pages/articles/` - Zenn/Qiita 記事一覧の取得、テーマ、カード UI です。`articles.ts` はビルド時取得に失敗した場合の静的フォールバックを持ちます。
 - `src/assets/` と `public/` - 画像、SVG、favicon などの静的アセットです。import する画像は原則 `src/assets/` に置いてください。
-- `.github/workflows/` - CI/CD です。CI は `src/**` 変更時に `biome:lint` と `build` を実行します。
+- `.github/workflows/` - CI/CD です。CI は `src/**` 変更時に `lint` と `build` を実行します。
 
 ## 実装ルール
 
@@ -53,9 +52,8 @@
 
 変更内容に応じて以下を確認してください。
 
-- `npm run biome:lint`
+- `npm run lint`
 - `npm run build`
-- 必要に応じて `npm run lint`
 - UI 変更では `npm run dev` で `/`、`/articles`、`/projects`、`/certifications` を確認
 - 外部記事取得に関わる変更では、API 失敗時でも記事ページが空にならないことを確認
 

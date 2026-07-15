@@ -5,11 +5,13 @@ import GlareHover from "../../components/GlareHover";
 import SpotlightCard from "../../components/SpotlightCard";
 import ProjectCard from "./ProjectCard";
 import projectGroups from "./Projects";
+import { useTranslation } from "../../i18n";
 
 export { Page };
 
 function Page() {
   const [isTerminalExpanded, setIsTerminalExpanded] = useState(true);
+  const { t } = useTranslation();
   const projectOffsets = new Map<string, number>();
   let projectOffset = 0;
 
@@ -37,28 +39,23 @@ function Page() {
                 <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.026),rgba(255,255,255,0.004)_34%,rgba(0,0,0,0.14)_100%)]" />
                 <div className="pointer-events-none absolute inset-px rounded-lg border border-slate-200/[0.032]" />
                 <div className="relative flex items-center gap-2 border-slate-700/38 border-b bg-black/38 px-4 py-3 shadow-[inset_0_1px_0_rgba(255,255,255,0.032)]">
-                  <span
-                    aria-hidden
-                    className="grid h-5 w-5 place-items-center"
-                  >
+                  <span aria-hidden className="grid h-5 w-5 place-items-center">
                     <span className="h-2.5 w-2.5 rounded-full bg-slate-400/80 shadow-[0_0_12px_rgba(148,163,184,0.28)] ring-1 ring-white/12" />
                   </span>
                   <button
                     type="button"
                     aria-label={
                       isTerminalExpanded
-                        ? "ターミナルを縮小"
-                        : "ターミナルを拡大"
+                        ? t.projects.terminalCollapse
+                        : t.projects.terminalExpand
                     }
                     aria-pressed={isTerminalExpanded}
                     title={
                       isTerminalExpanded
-                        ? "ターミナルを縮小"
-                        : "ターミナルを拡大"
+                        ? t.projects.terminalCollapse
+                        : t.projects.terminalExpand
                     }
-                    onClick={() =>
-                      setIsTerminalExpanded((current) => !current)
-                    }
+                    onClick={() => setIsTerminalExpanded((current) => !current)}
                     className="group grid h-5 w-5 place-items-center rounded-full transition-colors hover:bg-white/8 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300/70"
                   >
                     <span
@@ -89,235 +86,236 @@ function Page() {
                     isTerminalExpanded ? "max-h-[58rem]" : "max-h-72"
                   }`}
                 >
-              <svg
-                aria-labelledby="libra-constellation-title"
-                viewBox="0 0 260 170"
-                role="img"
-                className="project-libra-constellation pointer-events-none absolute top-4 right-5 hidden h-42 w-64 text-cyan-100/58 sm:block"
-              >
-                <title id="libra-constellation-title">天秤座の星座</title>
-                <path
-                  className="project-libra-line"
-                  d="M42 78 L102 74"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="1"
-                />
-                <path
-                  className="project-libra-line"
-                  d="M102 74 L164 32"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="1.05"
-                />
-                <path
-                  className="project-libra-line"
-                  d="M164 32 L214 112"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="1.05"
-                />
-                <path
-                  className="project-libra-line"
-                  d="M214 112 L128 130"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="0.9"
-                />
-                <path
-                  className="project-libra-line"
-                  d="M214 112 L120 98"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="0.85"
-                />
-                <g className="project-libra-stars">
-                  <circle cx="42" cy="78" r="2" />
-                  <circle cx="102" cy="74" r="2.5" />
-                  <circle cx="164" cy="32" r="3.2" />
-                  <circle cx="214" cy="112" r="3.4" />
-                  <circle cx="128" cy="130" r="2.2" />
-                  <circle cx="120" cy="98" r="1.8" />
-                </g>
-              </svg>
-              <div className="mb-6">
-                <p
-                  className="project-terminal-row"
-                  style={{ animationDelay: "0.2s" }}
-                >
-                  <span className="text-sky-300">(*'-') &gt;</span>{" "}
-                  <span
-                    className="project-terminal-command text-slate-100"
-                    style={{ animationDelay: "0.46s" }}
+                  <svg
+                    aria-labelledby="libra-constellation-title"
+                    viewBox="0 0 260 170"
+                    role="img"
+                    className="project-libra-constellation pointer-events-none absolute top-4 right-5 hidden h-42 w-64 text-cyan-100/58 sm:block"
                   >
-                    whoami
-                  </span>
-                </p>
-                <p
-                  className="project-terminal-row pl-4 text-slate-400"
-                  style={{ animationDelay: "1.32s" }}
-                >
-                  fuji
-                </p>
-              </div>
+                    <title id="libra-constellation-title">
+                      {t.projects.constellationTitle}
+                    </title>
+                    <path
+                      className="project-libra-line"
+                      d="M42 78 L102 74"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="1"
+                    />
+                    <path
+                      className="project-libra-line"
+                      d="M102 74 L164 32"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="1.05"
+                    />
+                    <path
+                      className="project-libra-line"
+                      d="M164 32 L214 112"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="1.05"
+                    />
+                    <path
+                      className="project-libra-line"
+                      d="M214 112 L128 130"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="0.9"
+                    />
+                    <path
+                      className="project-libra-line"
+                      d="M214 112 L120 98"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="0.85"
+                    />
+                    <g className="project-libra-stars">
+                      <circle cx="42" cy="78" r="2" />
+                      <circle cx="102" cy="74" r="2.5" />
+                      <circle cx="164" cy="32" r="3.2" />
+                      <circle cx="214" cy="112" r="3.4" />
+                      <circle cx="128" cy="130" r="2.2" />
+                      <circle cx="120" cy="98" r="1.8" />
+                    </g>
+                  </svg>
+                  <div className="mb-6">
+                    <p
+                      className="project-terminal-row"
+                      style={{ animationDelay: "0.2s" }}
+                    >
+                      <span className="text-sky-300">(*'-') &gt;</span>{" "}
+                      <span
+                        className="project-terminal-command text-slate-100"
+                        style={{ animationDelay: "0.46s" }}
+                      >
+                        whoami
+                      </span>
+                    </p>
+                    <p
+                      className="project-terminal-row pl-4 text-slate-400"
+                      style={{ animationDelay: "1.32s" }}
+                    >
+                      fuji
+                    </p>
+                  </div>
 
-              <div className="mb-6">
-                <p
-                  className="project-terminal-row"
-                  style={{ animationDelay: "1.72s" }}
-                >
-                  <span className="text-sky-300">(*'-') &gt;</span>{" "}
-                  <span
-                    className="project-terminal-command text-slate-100"
-                    style={{ animationDelay: "1.98s" }}
-                  >
-                    which editor
-                  </span>
-                </p>
-                <p
-                  className="project-terminal-row pl-4 text-slate-400"
-                  style={{ animationDelay: "2.92s" }}
-                >
-                  /usr/bin/nvim
-                </p>
-              </div>
+                  <div className="mb-6">
+                    <p
+                      className="project-terminal-row"
+                      style={{ animationDelay: "1.72s" }}
+                    >
+                      <span className="text-sky-300">(*'-') &gt;</span>{" "}
+                      <span
+                        className="project-terminal-command text-slate-100"
+                        style={{ animationDelay: "1.98s" }}
+                      >
+                        which editor
+                      </span>
+                    </p>
+                    <p
+                      className="project-terminal-row pl-4 text-slate-400"
+                      style={{ animationDelay: "2.92s" }}
+                    >
+                      /usr/bin/nvim
+                    </p>
+                  </div>
 
-              <div className="mb-6 overflow-x-auto">
-                <p
-                  className="project-terminal-row"
-                  style={{ animationDelay: "3.32s" }}
-                >
-                  <span className="text-rose-300">(*;-;) &gt;</span>{" "}
-                  <span
-                    className="project-terminal-command text-slate-100"
-                    style={{ animationDelay: "3.58s" }}
-                  >
-                    ps aux | grep projects
-                  </span>
-                </p>
-                <pre className="mt-2 min-w-150 text-slate-400">
-                  <span
-                    className="project-terminal-row block"
-                    style={{ animationDelay: "4.72s" }}
-                  >
-                    USER   PID    %CPU  %MEM  COMMAND
-                  </span>
-                  <span
-                    className="project-terminal-row block"
-                    style={{ animationDelay: "4.94s" }}
-                  >
-                    fuji   1001   12.4   0.3   go          CLI tools and backend
-                    services
-                  </span>
-                  <span
-                    className="project-terminal-row block"
-                    style={{ animationDelay: "5.16s" }}
-                  >
-                    fuji   1002    9.1   0.2   typescript  portfolio and static
-                    frontend
-                  </span>
-                  <span
-                    className="project-terminal-row block"
-                    style={{ animationDelay: "5.38s" }}
-                  >
-                    fuji   1003    7.7   0.1   lua         neovim configuration
-                  </span>
-                  <span
-                    className="project-terminal-row block"
-                    style={{ animationDelay: "5.6s" }}
-                  >
-                    fuji   1004   18.3   0.4   zig         small experiments
-                    near the metal
-                  </span>
-                  <span
-                    className="project-terminal-row block"
-                    style={{ animationDelay: "5.82s" }}
-                  >
-                    fuji   1005    4.8   0.1   team-dev    hackathon prototypes
-                  </span>
-                </pre>
-              </div>
+                  <div className="mb-6 overflow-x-auto">
+                    <p
+                      className="project-terminal-row"
+                      style={{ animationDelay: "3.32s" }}
+                    >
+                      <span className="text-rose-300">(*;-;) &gt;</span>{" "}
+                      <span
+                        className="project-terminal-command text-slate-100"
+                        style={{ animationDelay: "3.58s" }}
+                      >
+                        ps aux | grep projects
+                      </span>
+                    </p>
+                    <pre className="mt-2 min-w-150 text-slate-400">
+                      <span
+                        className="project-terminal-row block"
+                        style={{ animationDelay: "4.72s" }}
+                      >
+                        USER PID %CPU %MEM COMMAND
+                      </span>
+                      <span
+                        className="project-terminal-row block"
+                        style={{ animationDelay: "4.94s" }}
+                      >
+                        fuji 1001 12.4 0.3 go CLI tools and backend services
+                      </span>
+                      <span
+                        className="project-terminal-row block"
+                        style={{ animationDelay: "5.16s" }}
+                      >
+                        fuji 1002 9.1 0.2 typescript portfolio and static
+                        frontend
+                      </span>
+                      <span
+                        className="project-terminal-row block"
+                        style={{ animationDelay: "5.38s" }}
+                      >
+                        fuji 1003 7.7 0.1 lua neovim configuration
+                      </span>
+                      <span
+                        className="project-terminal-row block"
+                        style={{ animationDelay: "5.6s" }}
+                      >
+                        fuji 1004 18.3 0.4 zig small experiments near the metal
+                      </span>
+                      <span
+                        className="project-terminal-row block"
+                        style={{ animationDelay: "5.82s" }}
+                      >
+                        fuji 1005 4.8 0.1 team-dev hackathon prototypes
+                      </span>
+                    </pre>
+                  </div>
 
-              <div className="mb-6">
-                <p
-                  className="project-terminal-error project-terminal-row text-rose-300"
-                  style={{ animationDelay: "6.34s" }}
-                >
-                  [1] Segmentation fault (core dumped) ps aux | grep projects
-                </p>
-                <p
-                  className="project-terminal-row"
-                  style={{ animationDelay: "6.84s" }}
-                >
-                  <span className="text-rose-300">(*;-;) &gt;</span>{" "}
-                  <span
-                    className="project-terminal-command text-slate-100"
-                    style={{ animationDelay: "7.1s" }}
-                  >
-                    echo $?
-                  </span>
-                </p>
-                <p
-                  className="project-terminal-error project-terminal-row pl-4 text-rose-200"
-                  style={{ animationDelay: "7.86s" }}
-                >
-                  139
-                </p>
-              </div>
+                  <div className="mb-6">
+                    <p
+                      className="project-terminal-error project-terminal-row text-rose-300"
+                      style={{ animationDelay: "6.34s" }}
+                    >
+                      [1] Segmentation fault (core dumped) ps aux | grep
+                      projects
+                    </p>
+                    <p
+                      className="project-terminal-row"
+                      style={{ animationDelay: "6.84s" }}
+                    >
+                      <span className="text-rose-300">(*;-;) &gt;</span>{" "}
+                      <span
+                        className="project-terminal-command text-slate-100"
+                        style={{ animationDelay: "7.1s" }}
+                      >
+                        echo $?
+                      </span>
+                    </p>
+                    <p
+                      className="project-terminal-error project-terminal-row pl-4 text-rose-200"
+                      style={{ animationDelay: "7.86s" }}
+                    >
+                      139
+                    </p>
+                  </div>
 
-              <div>
-                <p
-                  className="project-terminal-row"
-                  style={{ animationDelay: "8.28s" }}
-                >
-                  <span className="text-sky-300">(*'-') &gt;</span>{" "}
-                  <span
-                    className="project-terminal-command text-slate-100"
-                    style={{ animationDelay: "8.54s" }}
-                  >
-                    cat /var/log/fuji.log | tail -n 3
-                  </span>
-                </p>
-                <div className="mt-2 space-y-1 pl-4">
-                  <p
-                    className="project-terminal-row"
-                    style={{ animationDelay: "9.82s" }}
-                  >
-                    <span className="text-amber-200">[WARN]</span>{" "}
-                    <span className="text-slate-400">
-                      too many interests loaded into memory
-                    </span>
-                  </p>
-                  <p
-                    className="project-terminal-error project-terminal-row"
-                    style={{ animationDelay: "10.12s" }}
-                  >
-                    <span className="text-rose-300">[ERROR]</span>{" "}
-                    <span className="text-slate-400">
-                      stack overflow: side_projects exceeded ulimit
-                    </span>
-                  </p>
-                  <p
-                    className="project-terminal-row"
-                    style={{ animationDelay: "10.42s" }}
-                  >
-                    <span className="text-sky-300">[INFO]</span>{" "}
-                    <span className="text-slate-400">
-                      core dumped to: github.com/anton-fuji
-                    </span>
-                  </p>
-                </div>
-              </div>
+                  <div>
+                    <p
+                      className="project-terminal-row"
+                      style={{ animationDelay: "8.28s" }}
+                    >
+                      <span className="text-sky-300">(*'-') &gt;</span>{" "}
+                      <span
+                        className="project-terminal-command text-slate-100"
+                        style={{ animationDelay: "8.54s" }}
+                      >
+                        cat /var/log/fuji.log | tail -n 3
+                      </span>
+                    </p>
+                    <div className="mt-2 space-y-1 pl-4">
+                      <p
+                        className="project-terminal-row"
+                        style={{ animationDelay: "9.82s" }}
+                      >
+                        <span className="text-amber-200">[WARN]</span>{" "}
+                        <span className="text-slate-400">
+                          too many interests loaded into memory
+                        </span>
+                      </p>
+                      <p
+                        className="project-terminal-error project-terminal-row"
+                        style={{ animationDelay: "10.12s" }}
+                      >
+                        <span className="text-rose-300">[ERROR]</span>{" "}
+                        <span className="text-slate-400">
+                          stack overflow: side_projects exceeded ulimit
+                        </span>
+                      </p>
+                      <p
+                        className="project-terminal-row"
+                        style={{ animationDelay: "10.42s" }}
+                      >
+                        <span className="text-sky-300">[INFO]</span>{" "}
+                        <span className="text-slate-400">
+                          core dumped to: github.com/anton-fuji
+                        </span>
+                      </p>
+                    </div>
+                  </div>
                   {!isTerminalExpanded && (
                     <div
                       aria-hidden
@@ -329,7 +327,10 @@ function Page() {
             </SpotlightCard>
           </GlareHover>
 
-          <nav aria-label="Project categories" className="flex flex-wrap gap-2">
+          <nav
+            aria-label={t.projects.categories}
+            className="flex flex-wrap gap-2"
+          >
             {projectGroups.map((group) => (
               <a
                 key={group.name}
@@ -379,9 +380,9 @@ function Page() {
                 <div className="mt-4 overflow-hidden rounded border border-sky-300/12 bg-black/8 shadow-[inset_0_1px_0_rgba(255,255,255,0.045)] backdrop-blur-lg">
                   <div className="hidden grid-cols-[4.5rem_minmax(0,1.35fr)_8.5rem_minmax(0,1fr)_2rem] border-sky-300/10 border-b bg-white/[0.035] px-4 py-2 text-[10px] tracking-[0.16em] text-slate-600 uppercase sm:grid">
                     <span>PID</span>
-                    <span>Repo</span>
-                    <span>Type</span>
-                    <span>Output</span>
+                    <span>{t.projects.table.repo}</span>
+                    <span>{t.projects.table.type}</span>
+                    <span>{t.projects.table.output}</span>
                     <span />
                   </div>
                   <div className="divide-y divide-sky-300/8">

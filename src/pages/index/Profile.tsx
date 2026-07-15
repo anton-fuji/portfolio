@@ -4,14 +4,12 @@ import gopherGif from "../../assets/gopher.gif";
 import DecryptedText from "../../components/DecryptedText";
 import PixelTransition from "../../components/PixelTransition";
 import { PERSONAL_INFO } from "../../mydata/data";
+import { useTranslation } from "../../i18n";
 import Socials from "./Socials";
 
-const profile = {
-  name: PERSONAL_INFO.name,
-  description: PERSONAL_INFO.description,
-};
-
 const Profile: FC = () => {
+  const { text } = useTranslation();
+
   return (
     <section className="grid min-h-[560px] items-center gap-12 px-6 py-20 sm:px-8 lg:grid-cols-[0.9fr_1.1fr] lg:px-10">
       <div className="relative mx-auto flex h-64 w-64 items-center justify-center sm:h-72 sm:w-72 lg:mx-0 lg:justify-self-start">
@@ -30,13 +28,13 @@ const Profile: FC = () => {
             />
           }
           secondContent={
-          <div className="flex h-full w-full items-center justify-center bg-[#07151d]">
-            <img
-              className="h-[58%] w-[58%] object-contain [image-rendering:pixelated]"
-              src={gopherGif}
-              alt=""
-            />
-          </div>
+            <div className="flex h-full w-full items-center justify-center bg-[#07151d]">
+              <img
+                className="h-[58%] w-[58%] object-contain [image-rendering:pixelated]"
+                src={gopherGif}
+                alt=""
+              />
+            </div>
           }
         />
       </div>
@@ -44,14 +42,14 @@ const Profile: FC = () => {
       <div className="flex flex-col gap-5 text-center text-white lg:text-left">
         <h1 className="whitespace-nowrap text-4xl font-bold leading-tight sm:text-5xl lg:text-6xl">
           <DecryptedText
-            text={profile.name}
+            text={PERSONAL_INFO.name}
             speed={50}
             maxIterations={20}
             encryptedClassName="text-cyan-200/70"
           />
         </h1>
         <p className="mx-auto max-w-2xl whitespace-pre-line text-xl leading-relaxed text-white/72 lg:mx-0">
-          {profile.description}
+          {text(PERSONAL_INFO.description)}
         </p>
         <div className="flex justify-center lg:justify-start">
           <Socials />
