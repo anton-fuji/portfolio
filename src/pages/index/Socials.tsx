@@ -56,27 +56,27 @@ const Socials: FC = () => {
           {SOCIAL_LINKS.map((social) => {
             const Icon = socialIcons[social.icon];
             return (
-              <li key={social.url}>
+              <li key={social.url} className="group/social h-11 w-11">
                 <a
                   href={social.url}
                   title={social.name}
                   target="_blank"
                   rel="noreferrer noopener"
-                  className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-cyan-300/18 bg-cyan-300/[0.05] text-cyan-50/78 transition hover:-translate-y-0.5 hover:border-cyan-200/40 hover:bg-cyan-300/[0.12] hover:text-white [&_path]:fill-current"
+                  className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-cyan-300/18 bg-cyan-300/[0.05] text-cyan-50/78 opacity-100 transition group-hover/social:-translate-y-0.5 group-hover/social:border-cyan-200/40 group-hover/social:bg-cyan-300/[0.12] group-hover/social:text-white hover:opacity-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300/70 [&_path]:fill-current"
                 >
                   <Icon {...socialIconProps} />
                 </a>
               </li>
             );
           })}
-          <li>
+          <li className="group/social h-11 w-11">
             <button
               type="button"
               title={t.home.qrTitle}
               aria-haspopup="dialog"
               aria-expanded={isQrOpen}
               onClick={() => setIsQrOpen(true)}
-              className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-cyan-300/18 bg-cyan-300/[0.05] text-cyan-50/78 transition hover:-translate-y-0.5 hover:border-cyan-200/40 hover:bg-cyan-300/[0.12] hover:text-white"
+              className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-cyan-300/18 bg-cyan-300/[0.05] text-cyan-50/78 transition group-hover/social:-translate-y-0.5 group-hover/social:border-cyan-200/40 group-hover/social:bg-cyan-300/[0.12] group-hover/social:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300/70"
             >
               <QrCode className="h-5 w-5" aria-hidden="true" />
             </button>
