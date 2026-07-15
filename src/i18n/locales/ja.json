@@ -1,0 +1,51 @@
+{
+  "languageLabel": "日本語",
+  "languageToggleLabel": "表示言語を切り替え",
+  "nav": {
+    "home": "Home",
+    "articles": "Articles",
+    "projects": "Projects",
+    "certs": "Certs"
+  },
+  "menu": {
+    "open": "メニューを開く",
+    "close": "メニューを閉じる"
+  },
+  "home": {
+    "title": "My Portfolio",
+    "stackTitle": "My Tech Stack",
+    "stackSummary": "Go や TypeScript を軸に、バックエンドからインフラまで手を動かして作っています。",
+    "stackNote": "Database、Docker、Terraform、ターミナル環境など、実装と運用の境目にある技術が好きです。",
+    "qrTitle": "サイトを開く",
+    "qrAlt": "fuuji.site へ遷移する QR コード"
+  },
+  "articles": {
+    "profileLink": "プロフィール"
+  },
+  "projects": {
+    "terminalCollapse": "ターミナルを縮小",
+    "terminalExpand": "ターミナルを拡大",
+    "categories": "プロジェクトカテゴリ",
+    "table": {
+      "repo": "Repo",
+      "type": "Type",
+      "output": "Output"
+    },
+    "constellationTitle": "天秤座の星座",
+    "kinds": {
+      "CLI Tool": "CLI Tool",
+      "Web App": "Web App",
+      "Environment": "Environment",
+      "Portfolio": "Portfolio",
+      "Team Project": "Team Project"
+    }
+  },
+  "certifications": {
+    "eyebrow": "Credentials",
+    "title": "Certifications",
+    "issued": "取得"
+  },
+  "footer": {
+    "github": "GitHub で見る"
+  }
+}
