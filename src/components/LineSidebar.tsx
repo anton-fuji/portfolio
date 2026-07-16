@@ -85,6 +85,7 @@ const LineSidebar = ({
   const smoothingRef = useRef(smoothing);
   const touchTargetRef = useRef<number | null>(null);
   const touchPointerIdRef = useRef<number | null>(null);
+  const pointerStartYRef = useRef<number | null>(null);
   const isDraggingRef = useRef(false);
   const suppressClickRef = useRef(false);
   const [activeIndex, setActiveIndex] = useState<number | null>(defaultActive);
@@ -192,9 +193,9 @@ const LineSidebar = ({
       }
 
       touchPointerIdRef.current = event.pointerId;
-      isDraggingRef.current = true;
+      pointerStartYRef.current = event.clientY;
+      isDraggingRef.current = false;
       suppressClickRef.current = false;
-      event.currentTarget.setPointerCapture(event.pointerId);
       updateTargets(event.clientY, true);
       startLoop();
     },
@@ -211,7 +212,14 @@ const LineSidebar = ({
         return;
       }
 
-      updateTargets(event.clientY, touchPointerIdRef.current != null);
+      if (
+        pointerStartYRef.current != null &&
+        Math.abs(event.clientY - pointerStartYRef.current) > 8
+      ) {
+        isDraggingRef.current = true;
+      }
+
+      updateTargets(event.clientY, isDraggingRef.current);
       startLoop();
     },
     [startLoop, updateTargets],
@@ -245,10 +253,15 @@ const LineSidebar = ({
 
       const targetIndex = touchTargetRef.current;
       touchPointerIdRef.current = null;
-      isDraggingRef.current = false;
-      if (event.currentTarget.hasPointerCapture(event.pointerId)) {
-        event.currentTarget.releasePointerCapture(event.pointerId);
+      pointerStartYRef.current = null;
+
+      if (!isDraggingRef.current) {
+        isDraggingRef.current = false;
+        startLoop();
+        return;
       }
+
+      isDraggingRef.current = false;
 
       if (targetIndex == null) {
         return;
@@ -260,11 +273,12 @@ const LineSidebar = ({
         handleSelect(targetIndex, label);
       }
     },
-    [handleSelect, items],
+    [handleSelect, items, startLoop],
   );
 
   const handlePointerCancel = useCallback(() => {
     touchPointerIdRef.current = null;
+    pointerStartYRef.current = null;
     isDraggingRef.current = false;
     touchTargetRef.current = null;
     targetsRef.current = targetsRef.current.map(() => 0);
@@ -340,7 +354,7 @@ const LineSidebar = ({
                 }
                 handleSelect(index, label);
               }}
-              className="relative cursor-pointer border-0 bg-transparent p-0 text-left no-underline [font:inherit] before:absolute before:-inset-x-12 before:-inset-y-[6px] before:content-['']"
+              className="relative inline-flex min-h-11 cursor-pointer items-center border-0 bg-transparent p-0 text-left no-underline [font:inherit] before:absolute before:-inset-x-12 before:-inset-y-2 before:content-['']"
             >
               {showMarker && (
                 <span
