@@ -36,31 +36,21 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  lint:
-    name: Lint
-    runs-on: ubuntu-latest        
+  checks:
+    name: Lint & Build
+    runs-on: ubuntu-latest
     timeout-minutes: 10
     if: github.actor != 'renovate[bot]'
     steps:
       - name: Checkout Repo
         uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
 
-      - name: Setup & Run Lint    
+      - name: Setup dependencies
         uses: ./.github/actions/setup
-        with:
-          script: lint
 
-  build:
-    name: Build & Type-Check
-    needs: lint
-    runs-on: ubuntu-latest        
-    timeout-minutes: 10
-    if: github.actor != 'renovate[bot]'
-    steps:
-      - name: Checkout Repo
-        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
-      
-      - name: Setup & Run Build
-        uses: ./.github/actions/setup
-        with:
-          script: build
+      - parallel:
+          - name: Lint
+            run: npm run lint
+
+          - name: Build & Type-Check
+            run: npm run build
