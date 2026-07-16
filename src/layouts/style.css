@@ -17,6 +17,213 @@ a:hover {
   opacity: 0.8;
 }
 
+.desktop-header-nav {
+  display: none;
+}
+
+.mobile-line-menu-button {
+  display: inline-flex;
+  width: 2.75rem;
+  height: 2.75rem;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.28rem;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+  color: rgba(226, 232, 240, 0.92);
+  transition:
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.mobile-line-menu-button span {
+  display: block;
+  height: 1.5px;
+  border-radius: 999px;
+  background: currentColor;
+  box-shadow: 0 0 10px rgba(143, 180, 255, 0.14);
+  transition:
+    opacity 0.2s ease,
+    transform 0.24s ease,
+    width 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.mobile-line-menu-button span:nth-child(1) {
+  width: 1.25rem;
+}
+
+.mobile-line-menu-button span:nth-child(2) {
+  width: 1.55rem;
+}
+
+.mobile-line-menu-button span:nth-child(3) {
+  width: 0.92rem;
+}
+
+.mobile-line-menu-button:hover,
+.mobile-line-menu-button.is-open {
+  color: rgba(191, 219, 254, 0.98);
+}
+
+.mobile-line-menu-button:hover span,
+.mobile-line-menu-button.is-open span {
+  box-shadow: 0 0 13px rgba(143, 180, 255, 0.28);
+}
+
+.mobile-line-menu-button.is-open span:nth-child(1) {
+  width: 1.45rem;
+  transform: translateY(5.6px) rotate(45deg);
+}
+
+.mobile-line-menu-button.is-open span:nth-child(2) {
+  opacity: 0;
+}
+
+.mobile-line-menu-button.is-open span:nth-child(3) {
+  width: 1.45rem;
+  transform: translateY(-5.6px) rotate(-45deg);
+}
+
+.mobile-line-backdrop {
+  background:
+    radial-gradient(circle at 22% 18%, rgba(31, 25, 89, 0.18), transparent 34%),
+    radial-gradient(circle at 76% 44%, rgba(8, 47, 73, 0.16), transparent 36%),
+    linear-gradient(180deg, rgba(0, 0, 0, 0.82), rgba(2, 6, 23, 0.9));
+  backdrop-filter: blur(12px) saturate(1.02);
+}
+
+.mobile-line-backdrop::before {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  content: "";
+  background-image:
+    radial-gradient(circle at 14% 22%, rgba(226, 232, 240, 0.16) 0 1px, transparent 1.5px),
+    radial-gradient(circle at 32% 66%, rgba(148, 163, 184, 0.14) 0 1px, transparent 1.5px),
+    radial-gradient(circle at 72% 38%, rgba(125, 211, 252, 0.1) 0 1px, transparent 1.5px),
+    radial-gradient(circle at 88% 74%, rgba(122, 137, 217, 0.1) 0 1px, transparent 1.5px);
+  background-position:
+    0 0,
+    0 0,
+    0 0,
+    0 0;
+  background-size:
+    210px 180px,
+    260px 220px,
+    240px 190px,
+    280px 230px;
+  opacity: 0.38;
+  mask-image: linear-gradient(90deg, black, black 72%, transparent);
+}
+
+.mobile-line-backdrop::after {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  content: "";
+  background: repeating-linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.012) 0,
+    rgba(255, 255, 255, 0.012) 1px,
+    transparent 1px,
+    transparent 8px
+  );
+  opacity: 0.22;
+  mask-image: linear-gradient(90deg, black 0%, black 62%, transparent 92%);
+}
+
+.mobile-line-sidebar {
+  overflow: hidden;
+  border-left: 1px solid rgba(148, 163, 184, 0.11);
+  background:
+    radial-gradient(circle at 8% 16%, rgba(122, 137, 217, 0.12), transparent 32%),
+    radial-gradient(circle at 100% 88%, rgba(8, 47, 73, 0.14), transparent 32%),
+    linear-gradient(180deg, rgba(3, 7, 18, 0.94), rgba(2, 6, 23, 0.985));
+  box-shadow:
+    -34px 0 96px rgba(0, 0, 0, 0.48),
+    -12px 0 44px rgba(31, 25, 89, 0.16),
+    inset 1px 0 0 rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(30px) saturate(1.14);
+  transform: translateX(105%);
+  transition: transform 0.34s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.mobile-line-sidebar.is-open {
+  transform: translateX(0);
+}
+
+.mobile-line-sidebar::before {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  content: "";
+  background-image:
+    radial-gradient(circle at 14% 24%, rgba(226, 232, 240, 0.11) 0 1px, transparent 1.5px),
+    radial-gradient(circle at 34% 72%, rgba(148, 163, 184, 0.11) 0 1px, transparent 1.5px),
+    radial-gradient(circle at 76% 34%, rgba(125, 211, 252, 0.08) 0 1px, transparent 1.5px),
+    radial-gradient(circle at 88% 70%, rgba(122, 137, 217, 0.08) 0 1px, transparent 1.5px);
+  background-position:
+    0 0,
+    0 0,
+    0 0,
+    0 0;
+  background-size:
+    190px 160px,
+    230px 190px,
+    210px 170px,
+    250px 210px;
+  mask-image: linear-gradient(180deg, black 0%, black 58%, transparent 92%);
+  opacity: 0.42;
+}
+
+.mobile-line-sidebar::after {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  content: "";
+  background:
+    linear-gradient(180deg, transparent, rgba(143, 180, 255, 0.34), transparent) 0 0 / 1px 100% no-repeat,
+    repeating-linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.01) 0,
+      rgba(255, 255, 255, 0.01) 1px,
+      transparent 1px,
+      transparent 7px
+    );
+  opacity: 0.34;
+}
+
+.mobile-line-sidebar-nav {
+  filter: drop-shadow(0 0 16px rgba(31, 25, 89, 0.18));
+}
+
+.mobile-line-sidebar-nav button:focus-visible {
+  outline: 1px solid rgba(143, 180, 255, 0.52);
+  outline-offset: 7px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mobile-line-menu-button,
+  .mobile-line-menu-button span,
+  .mobile-line-sidebar {
+    transition: none;
+  }
+}
+
+@media (min-width: 1024px) and (hover: hover) and (pointer: fine) {
+  .desktop-header-nav {
+    display: flex;
+  }
+
+  .mobile-line-menu-button,
+  .mobile-line-overlay {
+    display: none;
+  }
+}
+
 .project-terminal-shell {
   animation: project-terminal-float 8s ease-in-out infinite;
 }
