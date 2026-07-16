@@ -17,6 +17,200 @@ a:hover {
   opacity: 0.8;
 }
 
+.desktop-header-nav {
+  display: none;
+}
+
+.mobile-line-menu-button {
+  display: inline-flex;
+  width: 2.75rem;
+  height: 2.75rem;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.28rem;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+  color: rgba(226, 232, 240, 0.92);
+  transition:
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.mobile-line-menu-button span {
+  display: block;
+  height: 1.5px;
+  border-radius: 999px;
+  background: currentColor;
+  box-shadow: 0 0 10px rgba(143, 180, 255, 0.14);
+  transition:
+    opacity 0.2s ease,
+    transform 0.24s ease,
+    width 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.mobile-line-menu-button span:nth-child(1) {
+  width: 1.25rem;
+}
+
+.mobile-line-menu-button span:nth-child(2) {
+  width: 1.55rem;
+}
+
+.mobile-line-menu-button span:nth-child(3) {
+  width: 0.92rem;
+}
+
+.mobile-line-menu-button:hover,
+.mobile-line-menu-button.is-open {
+  color: rgba(191, 219, 254, 0.98);
+}
+
+.mobile-line-menu-button:hover span,
+.mobile-line-menu-button.is-open span {
+  box-shadow: 0 0 13px rgba(143, 180, 255, 0.28);
+}
+
+.mobile-line-menu-button.is-open span:nth-child(1) {
+  width: 1.45rem;
+  transform: translateY(5.6px) rotate(45deg);
+}
+
+.mobile-line-menu-button.is-open span:nth-child(2) {
+  opacity: 0;
+}
+
+.mobile-line-menu-button.is-open span:nth-child(3) {
+  width: 1.45rem;
+  transform: translateY(-5.6px) rotate(-45deg);
+}
+
+.mobile-line-backdrop {
+  background:
+    linear-gradient(115deg, rgba(14, 116, 144, 0.08), transparent 28%),
+    linear-gradient(245deg, rgba(99, 102, 241, 0.08), transparent 36%),
+    linear-gradient(180deg, rgba(0, 0, 0, 0.86), rgba(2, 6, 23, 0.94));
+  backdrop-filter: blur(14px) saturate(1.04);
+}
+
+.mobile-line-backdrop::before {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  content: "";
+  background-image:
+    linear-gradient(rgba(125, 211, 252, 0.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(147, 197, 253, 0.04) 1px, transparent 1px),
+    radial-gradient(circle, rgba(226, 232, 240, 0.18) 0 1px, transparent 1.4px);
+  background-position:
+    0 0,
+    0 0,
+    0 0;
+  background-size:
+    44px 44px,
+    44px 44px,
+    132px 132px;
+  opacity: 0.28;
+  mask-image: linear-gradient(90deg, black, black 68%, transparent 92%);
+}
+
+.mobile-line-backdrop::after {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  content: "";
+  background:
+    linear-gradient(128deg, transparent 0 18%, rgba(125, 211, 252, 0.12) 18.1% 18.35%, transparent 18.45% 44%, rgba(129, 140, 248, 0.08) 44.1% 44.3%, transparent 44.45%),
+    linear-gradient(32deg, transparent 0 56%, rgba(226, 232, 240, 0.08) 56.1% 56.25%, transparent 56.35%),
+    repeating-linear-gradient(180deg, rgba(255, 255, 255, 0.012) 0, rgba(255, 255, 255, 0.012) 1px, transparent 1px, transparent 8px);
+  opacity: 0.34;
+  mask-image: linear-gradient(90deg, black 0%, black 58%, transparent 90%);
+}
+
+.mobile-line-sidebar {
+  overflow: hidden;
+  border-left: 1px solid rgba(148, 163, 184, 0.14);
+  background:
+    linear-gradient(90deg, rgba(125, 211, 252, 0.055), transparent 24%),
+    linear-gradient(180deg, rgba(3, 7, 18, 0.955), rgba(2, 6, 23, 0.99));
+  box-shadow:
+    -34px 0 96px rgba(0, 0, 0, 0.48),
+    -12px 0 44px rgba(15, 23, 42, 0.28),
+    inset 1px 0 0 rgba(255, 255, 255, 0.035),
+    inset 14px 0 32px rgba(14, 116, 144, 0.055);
+  backdrop-filter: blur(30px) saturate(1.1);
+  transform: translateX(105%);
+  transition: transform 0.34s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.mobile-line-sidebar.is-open {
+  transform: translateX(0);
+}
+
+.mobile-line-sidebar::before {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  content: "";
+  background-image:
+    linear-gradient(rgba(125, 211, 252, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(147, 197, 253, 0.045) 1px, transparent 1px),
+    repeating-linear-gradient(135deg, transparent 0 21px, rgba(226, 232, 240, 0.035) 21px 22px, transparent 22px 54px);
+  background-position:
+    0 0,
+    0 0,
+    0 0;
+  background-size:
+    38px 38px,
+    38px 38px,
+    100% 100%;
+  mask-image: linear-gradient(180deg, black 0%, black 64%, transparent 94%);
+  opacity: 0.34;
+}
+
+.mobile-line-sidebar::after {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  content: "";
+  background:
+    linear-gradient(180deg, transparent 0%, rgba(125, 211, 252, 0.4) 22%, rgba(129, 140, 248, 0.24) 48%, transparent 78%) 0 0 / 1px 100% no-repeat,
+    linear-gradient(90deg, rgba(226, 232, 240, 0.11), transparent 16%) 0 6.5rem / 100% 1px no-repeat,
+    linear-gradient(90deg, rgba(125, 211, 252, 0.09), transparent 28%) 0 calc(100% - 5.6rem) / 100% 1px no-repeat,
+    repeating-linear-gradient(180deg, rgba(255, 255, 255, 0.01) 0, rgba(255, 255, 255, 0.01) 1px, transparent 1px, transparent 7px);
+  opacity: 0.42;
+}
+
+.mobile-line-sidebar-nav {
+  filter: drop-shadow(0 0 18px rgba(14, 116, 144, 0.2));
+}
+
+.mobile-line-sidebar-nav a:focus-visible {
+  outline: 1px solid rgba(143, 180, 255, 0.52);
+  outline-offset: 7px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mobile-line-menu-button,
+  .mobile-line-menu-button span,
+  .mobile-line-sidebar {
+    transition: none;
+  }
+}
+
+@media (min-width: 1024px) and (hover: hover) and (pointer: fine) {
+  .desktop-header-nav {
+    display: flex;
+  }
+
+  .mobile-line-menu-button,
+  .mobile-line-overlay {
+    display: none;
+  }
+}
+
 .project-terminal-shell {
   animation: project-terminal-float 8s ease-in-out infinite;
 }
@@ -382,6 +576,45 @@ a:hover {
     project-terminal-error-shake 0.18s linear infinite;
 }
 
+.stack-project-link-scan {
+  animation: stack-project-link-scan 2.8s ease-in-out infinite;
+}
+
+.stack-project-link-cursor {
+  animation: stack-project-link-cursor 1.05s steps(1, end) infinite;
+}
+
+.stack-project-link:hover .stack-project-link-scan {
+  animation-duration: 1.15s;
+}
+
+@keyframes stack-project-link-scan {
+  0%,
+  18% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  38% {
+    opacity: 0.9;
+  }
+  68%,
+  100% {
+    opacity: 0;
+    transform: translateX(220%);
+  }
+}
+
+@keyframes stack-project-link-cursor {
+  0%,
+  45% {
+    opacity: 0.9;
+  }
+  46%,
+  100% {
+    opacity: 0.22;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .project-terminal-shell,
   .project-terminal-shell::before,
@@ -394,6 +627,13 @@ a:hover {
     transform: none;
     filter: none;
     border-right-color: transparent;
+    animation: none;
+  }
+
+  .stack-project-link-scan,
+  .stack-project-link-cursor {
+    opacity: 1;
+    transform: none;
     animation: none;
   }
 

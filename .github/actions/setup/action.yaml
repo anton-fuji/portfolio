@@ -1,40 +1,15 @@
-name: Setup & Run
-description: Setup Environment
-
-inputs:
-  script:
-    required: true
+name: Setup Dependencies
+description: Setup Node.js and install npm dependencies
 
 runs:
   using: composite
   steps:
-    - name: Checkout repository
-      uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
-      with:
-        persist-credentials: false
-
     - name: Setup Node.js
       uses: actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f
       with:
         node-version: '20'
         cache: 'npm'
 
-    - name: Cache & install dependencies
-      id: deps
-      uses: actions/cache@5a3ec84eff668545956fd18022155c47e93e2684
-      with:
-        path: node_modules
-        key: ${{ runner.os }}-npm-${{ hashFiles('**/package-lock.json', '.npmrc') }}
-        restore-keys: |
-          ${{ runner.os }}-npm-
-    - run: npm ci --ignore-scripts
+    - name: Install dependencies
+      run: npm ci --ignore-scripts
       shell: bash
-
-    - name: Run npm script
-      run: npm run ${{ inputs.script }}
-      shell: bash
-
-outputs:
-  cache-hit:
-    description: Whether node_modules was restored from cache
-    value: ${{ steps.deps.outputs.cache-hit }}

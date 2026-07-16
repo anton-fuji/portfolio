@@ -1,5 +1,5 @@
 import { useEffect, useState, type FC } from "react";
-import { ArrowRight, ArrowUpRight } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { FaAws } from "react-icons/fa6";
 import type { IconType } from "react-icons";
 import {
@@ -57,7 +57,11 @@ const SkillSection: FC = () => {
   const [hoveredSurfaceIndex, setHoveredSurfaceIndex] = useState<number | null>(
     null,
   );
-  const activeSurfaceIndex = hoveredSurfaceIndex ?? globeSurfaceIndex;
+  const [selectedSurfaceIndex, setSelectedSurfaceIndex] = useState<
+    number | null
+  >(null);
+  const visibleSurfaceIndex =
+    selectedSurfaceIndex ?? hoveredSurfaceIndex ?? globeSurfaceIndex;
 
   useEffect(() => {
     const startedAt = window.performance.now();
@@ -100,13 +104,19 @@ const SkillSection: FC = () => {
 
             <a
               href="/projects"
-              className="group relative inline-flex h-12 w-full items-center justify-between overflow-hidden rounded-md border border-blue-300/12 bg-white/[0.025] px-4 text-sm font-semibold text-sky-50/80 transition hover:border-cyan-200/28 hover:bg-cyan-300/[0.06] hover:text-white lg:justify-self-end"
+              className="stack-project-link group relative inline-flex w-fit items-center gap-3 overflow-hidden py-2 pr-1 pl-0 font-mono text-sm font-semibold text-sky-100/68 transition duration-300 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300/60 lg:justify-self-end"
             >
-              <span className="pointer-events-none absolute inset-y-3 left-0 w-px bg-gradient-to-b from-cyan-200/0 via-cyan-200/70 to-cyan-200/0 opacity-70 transition group-hover:opacity-100" />
-              <span className="relative">{t.home.stackCta}</span>
-              <span className="relative grid h-7 w-7 place-items-center rounded-full border border-cyan-200/14 bg-cyan-300/[0.055] text-cyan-100/78 transition group-hover:border-cyan-200/35 group-hover:bg-cyan-300/[0.12] group-hover:text-white">
-                <ArrowRight className="h-3.5 w-3.5 transition group-hover:translate-x-0.5" />
+              <span className="pointer-events-none absolute bottom-0 left-0 h-px w-full bg-gradient-to-r from-cyan-200/72 via-blue-300/34 to-transparent" />
+              <span className="stack-project-link-scan pointer-events-none absolute bottom-0 left-0 h-px w-10 bg-cyan-100/78 blur-[0.5px]" />
+              <span className="pointer-events-none absolute bottom-0 left-0 h-3 w-14 bg-cyan-300/[0.055] blur-md transition duration-300 group-hover:w-full group-hover:bg-cyan-200/[0.08]" />
+              <span className="pointer-events-none absolute top-1/2 right-0 h-px w-5 -translate-y-1/2 bg-cyan-100/28 opacity-70 transition duration-300 group-hover:w-8 group-hover:bg-cyan-100/55" />
+              <span className="relative text-[0.68rem] tracking-[0.2em] text-cyan-100/38 transition group-hover:text-cyan-100/62">
+                cd
               </span>
+              <span className="relative whitespace-nowrap pr-8">
+                ~/projects
+              </span>
+              <span className="stack-project-link-cursor relative -ml-7 h-4 w-[7px] bg-cyan-100/56 transition group-hover:bg-cyan-100/80" />
             </a>
           </div>
         </div>
@@ -127,7 +137,7 @@ const SkillSection: FC = () => {
 
           <div className="grid pl-8 sm:pl-10">
             {ENGINEERING_SURFACES.map((surface, index) => {
-              const isActive = activeSurfaceIndex === index;
+              const isActive = visibleSurfaceIndex === index;
 
               return (
                 <article
@@ -135,6 +145,14 @@ const SkillSection: FC = () => {
                   aria-label={text(surface.title)}
                   onMouseEnter={() => setHoveredSurfaceIndex(index)}
                   onMouseLeave={() => setHoveredSurfaceIndex(null)}
+                  onPointerUp={(event) => {
+                    if (event.pointerType === "mouse" && event.button !== 0) {
+                      return;
+                    }
+                    setSelectedSurfaceIndex((currentIndex) =>
+                      currentIndex === index ? null : index,
+                    );
+                  }}
                   onFocusCapture={() => setHoveredSurfaceIndex(index)}
                   onBlurCapture={(event) => {
                     const nextFocusedElement = event.relatedTarget;
@@ -148,7 +166,7 @@ const SkillSection: FC = () => {
                     }
                   }}
                   className={twMerge(
-                    "group relative overflow-hidden border-blue-300/8 border-b px-2 py-6 transition duration-500 last:border-b-0 hover:bg-cyan-300/[0.025] sm:px-4 lg:px-5",
+                    "group relative cursor-pointer overflow-hidden border-blue-300/8 border-b px-2 py-6 transition duration-500 last:border-b-0 hover:bg-cyan-300/[0.025] sm:px-4 lg:px-5",
                     isActive && "bg-cyan-300/[0.035]",
                   )}
                 >
@@ -170,7 +188,6 @@ const SkillSection: FC = () => {
                         {surface.verb}
                       </p>
                     </div>
-
                     <div>
                       <div
                         className={twMerge(
@@ -251,6 +268,7 @@ const SkillSection: FC = () => {
                             <a
                               key={text(proof.label)}
                               href={proof.href}
+                              onClick={(event) => event.stopPropagation()}
                               className="inline-flex items-center gap-1.5 rounded-md border border-blue-300/15 bg-blue-400/[0.08] px-3 py-1.5 text-xs font-semibold text-sky-100/76 transition hover:border-cyan-200/30 hover:bg-blue-400/[0.14] hover:text-white"
                             >
                               <span>{text(proof.label)}</span>

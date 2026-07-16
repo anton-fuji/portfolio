@@ -40,7 +40,7 @@ const Profile: FC = () => {
       </div>
 
       <div className="flex flex-col gap-5 text-center text-white lg:text-left">
-        <h1 className="whitespace-nowrap text-4xl font-bold leading-tight sm:text-5xl lg:text-6xl">
+        <h1 className="text-3xl font-bold leading-tight sm:whitespace-nowrap sm:text-5xl lg:text-6xl">
           <DecryptedText
             text={PERSONAL_INFO.name}
             speed={50}

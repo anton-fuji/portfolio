@@ -36,10 +36,11 @@ jobs:
             - name: Checkout Repo
               uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
 
-            - name: Setup, Install & Build
+            - name: Setup dependencies
               uses: ./.github/actions/setup
-              with:
-                script: build
+
+            - name: Build
+              run: npm run build
 
             - name: Configure AWS Credentials
               uses: aws-actions/configure-aws-credentials@v4

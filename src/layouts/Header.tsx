@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { usePageContext } from "vike-react/usePageContext";
-import { Languages, Menu, X } from "lucide-react";
+import { Languages } from "lucide-react";
+import LineSidebar from "../components/LineSidebar";
 import { useTranslation } from "../i18n";
 import { PERSONAL_INFO } from "../mydata/data";
 
@@ -37,6 +38,10 @@ export default function Header() {
   const [lastScrollY, setLastScrollY] = useState(0);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const activeNavIndex = navLinks.findIndex(({ href }) =>
+    href === "/" ? urlPathname === "/" : urlPathname.startsWith(href),
+  );
+  const mobileNavItems = navLinks.map(({ key }) => t.nav[key]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -57,17 +62,33 @@ export default function Header() {
   }, [lastScrollY]);
 
   useEffect(() => {
-    if (isMobileMenuOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "unset";
+    if (!isMobileMenuOpen) {
+      return;
     }
+
+    const originalOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setIsMobileMenuOpen(false);
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      document.body.style.overflow = originalOverflow;
+      window.removeEventListener("keydown", handleKeyDown);
+    };
   }, [isMobileMenuOpen]);
 
   return (
     <>
       <header
-        className={`fixed top-0 right-0 left-0 z-50 py-4 transition-all duration-500 ease-out md:py-6 ${
+        className={`fixed top-0 right-0 left-0 py-4 transition-all duration-500 ease-out md:py-6 ${
+          isMobileMenuOpen ? "z-[70]" : "z-50"
+        } ${
           isVisible ? "translate-y-0" : "-translate-y-full"
         } ${
           isScrolled
@@ -83,7 +104,7 @@ export default function Header() {
             {PERSONAL_INFO.url}
           </a>
 
-          <div className="hidden items-center gap-4 md:flex">
+          <div className="desktop-header-nav items-center gap-4">
             <nav className="flex items-center space-x-6 lg:space-x-8">
               {navLinks.map(({ key, href }) => {
                 const isActive =
@@ -104,7 +125,7 @@ export default function Header() {
                 );
               })}
             </nav>
-            <div className="md:ml-2 lg:ml-5">
+            <div className="lg:ml-5">
               <LanguageToggle />
             </div>
           </div>
@@ -112,43 +133,76 @@ export default function Header() {
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             type="button"
-            className="relative z-60 p-2 text-white transition-colors hover:text-gray-300 md:hidden"
+            className={`mobile-line-menu-button relative z-[60] ${
+              isMobileMenuOpen ? "is-open" : ""
+            }`}
             aria-label={isMobileMenuOpen ? t.menu.close : t.menu.open}
+            aria-expanded={isMobileMenuOpen}
+            aria-controls="mobile-line-sidebar"
           >
-            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            <span />
+            <span />
+            <span />
           </button>
         </div>
       </header>
 
       <div
-        className={`fixed inset-0 z-50 transition-all duration-400 md:hidden ${
-          isMobileMenuOpen ? "visible opacity-100" : "invisible opacity-0"
+        className={`mobile-line-overlay fixed inset-0 z-50 transition-all duration-300 ${
+          isMobileMenuOpen
+            ? "visible pointer-events-auto opacity-100"
+            : "invisible pointer-events-none opacity-0"
         }`}
       >
-        <div className="absolute inset-0 bg-blue-700/5 backdrop-blur-xl" />
-        <nav className="relative flex h-full flex-col items-center justify-center space-y-10 px-8">
-          {navLinks.map(({ key, href }) => {
-            const isActive =
-              href === "/" ? urlPathname === "/" : urlPathname.startsWith(href);
-            return (
-              <a
-                key={key}
-                href={href}
-                onClick={() => setIsMobileMenuOpen(false)}
-                className={`font-sans text-3xl transition-all duration-200 ${
-                  isActive
-                    ? "scale-105 font-bold text-white"
-                    : "text-slate-700 hover:scale-100 hover:text-white"
-                }`}
-              >
-                {t.nav[key]}
-              </a>
-            );
-          })}
-          <div className="pt-2">
-            <LanguageToggle />
+        <button
+          type="button"
+          aria-label={t.menu.close}
+          className="mobile-line-backdrop absolute inset-0"
+          onClick={() => setIsMobileMenuOpen(false)}
+        />
+        <aside
+          id="mobile-line-sidebar"
+          className={`mobile-line-sidebar absolute top-0 right-0 h-full w-[min(360px,92vw)] ${
+            isMobileMenuOpen ? "is-open" : ""
+          }`}
+        >
+          <div className="flex h-full flex-col px-6 pt-26 pb-8">
+            <LineSidebar
+              items={mobileNavItems}
+              itemHrefs={navLinks.map(({ href }) => href)}
+              defaultActive={activeNavIndex >= 0 ? activeNavIndex : null}
+              accentColor="#8fb4ff"
+              textColor="rgba(203, 213, 225, 0.72)"
+              markerColor="rgba(100, 116, 139, 0.5)"
+              markerLength={72}
+              markerGap={12}
+              itemGap={28}
+              fontSize={1.3}
+              maxShift={18}
+              proximityRadius={104}
+              className="mobile-line-sidebar-nav flex-1 items-center"
+              onItemClick={(index) => {
+                const href = navLinks[index]?.href;
+                if (!href) {
+                  return;
+                }
+                setIsMobileMenuOpen(false);
+                if (href !== urlPathname) {
+                  window.location.href = href;
+                }
+              }}
+            />
+
+            <div className="border-white/10 border-t pt-5">
+              <div className="flex items-center justify-between gap-4">
+                <span className="font-mono text-[10px] font-semibold tracking-[0.22em] text-slate-400/58 uppercase">
+                  Language
+                </span>
+                <LanguageToggle />
+              </div>
+            </div>
           </div>
-        </nav>
+        </aside>
       </div>
     </>
   );
