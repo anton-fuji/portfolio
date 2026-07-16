@@ -11,6 +11,7 @@ type Falloff = "linear" | "smooth" | "sharp";
 
 export interface LineSidebarProps {
   items?: string[];
+  itemHrefs?: string[];
   accentColor?: string;
   textColor?: string;
   markerColor?: string;
@@ -54,6 +55,7 @@ const DEFAULT_ITEMS = [
 
 const LineSidebar = ({
   items = DEFAULT_ITEMS,
+  itemHrefs,
   accentColor = "#A855F7",
   textColor = "#c4c4c4",
   markerColor = "#6c6c6c",
@@ -178,10 +180,14 @@ const LineSidebar = ({
 
   const handlePointerDown = useCallback(
     (event: PointerEvent<HTMLUListElement>) => {
-      if (
-        event.pointerType === "mouse" &&
-        event.button !== 0
-      ) {
+      if (event.pointerType === "mouse" && event.button !== 0) {
+        return;
+      }
+
+      event.stopPropagation();
+      if (event.pointerType === "mouse") {
+        updateTargets(event.clientY, true);
+        startLoop();
         return;
       }
 
@@ -197,6 +203,7 @@ const LineSidebar = ({
 
   const handlePointerMove = useCallback(
     (event: PointerEvent<HTMLUListElement>) => {
+      event.stopPropagation();
       if (
         touchPointerIdRef.current != null &&
         event.pointerId !== touchPointerIdRef.current
@@ -218,7 +225,7 @@ const LineSidebar = ({
     startLoop();
   }, [startLoop]);
 
-  const handleClick = useCallback(
+  const handleSelect = useCallback(
     (index: number, label: string) => {
       setActiveIndex(index);
       onItemClick?.(index, label);
@@ -228,6 +235,7 @@ const LineSidebar = ({
 
   const handlePointerUp = useCallback(
     (event: PointerEvent<HTMLUListElement>) => {
+      event.stopPropagation();
       if (
         touchPointerIdRef.current == null ||
         event.pointerId !== touchPointerIdRef.current
@@ -249,11 +257,10 @@ const LineSidebar = ({
       suppressClickRef.current = true;
       const label = items[targetIndex];
       if (label) {
-        event.preventDefault();
-        handleClick(targetIndex, label);
+        handleSelect(targetIndex, label);
       }
     },
-    [handleClick, items],
+    [handleSelect, items],
   );
 
   const handlePointerCancel = useCallback(() => {
@@ -321,17 +328,19 @@ const LineSidebar = ({
             }}
             className={`relative ${tickClass}`}
           >
-            <button
-              type="button"
+            <a
+              href={itemHrefs?.[index] ?? "#"}
               aria-current={activeIndex === index ? "true" : undefined}
-              onClick={() => {
+              onClick={(event) => {
+                event.stopPropagation();
                 if (suppressClickRef.current) {
+                  event.preventDefault();
                   suppressClickRef.current = false;
                   return;
                 }
-                handleClick(index, label);
+                handleSelect(index, label);
               }}
-              className="relative cursor-pointer border-0 bg-transparent p-0 text-left [font:inherit] before:absolute before:-inset-x-12 before:-inset-y-[6px] before:content-['']"
+              className="relative cursor-pointer border-0 bg-transparent p-0 text-left no-underline [font:inherit] before:absolute before:-inset-x-12 before:-inset-y-[6px] before:content-['']"
             >
               {showMarker && (
                 <span
@@ -347,7 +356,7 @@ const LineSidebar = ({
                 )}
                 <span>{label}</span>
               </span>
-            </button>
+            </a>
           </li>
         ))}
       </ul>

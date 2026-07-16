@@ -204,7 +204,7 @@ function Page() {
                         ps aux | grep projects
                       </span>
                     </p>
-                    <pre className="mt-2 min-w-150 text-slate-400">
+                    <pre className="mt-2 min-w-[34rem] text-slate-400 sm:min-w-150">
                       <span
                         className="project-terminal-row block"
                         style={{ animationDelay: "4.72s" }}

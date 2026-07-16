@@ -86,7 +86,9 @@ export default function Header() {
   return (
     <>
       <header
-        className={`fixed top-0 right-0 left-0 z-50 py-4 transition-all duration-500 ease-out md:py-6 ${
+        className={`fixed top-0 right-0 left-0 py-4 transition-all duration-500 ease-out md:py-6 ${
+          isMobileMenuOpen ? "z-[70]" : "z-50"
+        } ${
           isVisible ? "translate-y-0" : "-translate-y-full"
         } ${
           isScrolled
@@ -147,7 +149,9 @@ export default function Header() {
 
       <div
         className={`mobile-line-overlay fixed inset-0 z-50 transition-all duration-300 ${
-          isMobileMenuOpen ? "visible opacity-100" : "invisible opacity-0"
+          isMobileMenuOpen
+            ? "visible pointer-events-auto opacity-100"
+            : "invisible pointer-events-none opacity-0"
         }`}
       >
         <button
@@ -165,6 +169,7 @@ export default function Header() {
           <div className="flex h-full flex-col px-6 pt-26 pb-8">
             <LineSidebar
               items={mobileNavItems}
+              itemHrefs={navLinks.map(({ href }) => href)}
               defaultActive={activeNavIndex >= 0 ? activeNavIndex : null}
               accentColor="#8fb4ff"
               textColor="rgba(203, 213, 225, 0.72)"
