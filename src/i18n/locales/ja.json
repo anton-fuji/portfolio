@@ -27,6 +27,7 @@
     "terminalCollapse": "ターミナルを縮小",
     "terminalExpand": "ターミナルを拡大",
     "categories": "プロジェクトカテゴリ",
+    "all": "All",
     "table": {
       "repo": "Repo",
       "type": "Type",

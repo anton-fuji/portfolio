@@ -27,6 +27,7 @@
     "terminalCollapse": "Collapse terminal",
     "terminalExpand": "Expand terminal",
     "categories": "Project categories",
+    "all": "All",
     "table": {
       "repo": "Repo",
       "type": "Type",

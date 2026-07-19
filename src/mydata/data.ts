@@ -43,8 +43,8 @@ export const PERSONAL_INFO = {
     en: "My Portfolio",
   },
   description: {
-    ja: "20歳 | Software Engineer\n好きなもの: Go / Rust / TypeScript / Neovim / WezTerm",
-    en: "20 y/o | Software Engineer\nLikes: Go / Rust / TypeScript / Neovim / WezTerm",
+    ja: "20歳 | Software Engineer\n大阪で SWE してます。バックエンドシステム、インフラ、開発者向けツールを作っています。\n好きなもの: Go / Rust / TypeScript / Neovim / WezTerm",
+    en: "20 y/o | Software Engineer\nOsaka-based SWE building backend systems, infrastructure, and developer tools.\nLikes: Go / Rust / TypeScript / Neovim / WezTerm",
   },
   location: "Osaka, Japan",
   url: "fuuji.site",
