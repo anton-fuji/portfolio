@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { usePageContext } from "vike-react/usePageContext";
-import { Languages } from "lucide-react";
 import LineSidebar from "../components/LineSidebar";
 import { useTranslation } from "../i18n";
 import { PERSONAL_INFO } from "../mydata/data";
@@ -20,12 +19,16 @@ function LanguageToggle() {
     <button
       type="button"
       onClick={toggleLanguage}
-      aria-label={t.languageToggleLabel}
+      data-language={language}
+      aria-label={`${t.languageToggleLabel}: ${language.toUpperCase()}`}
       title={t.languageToggleLabel}
-      className="inline-flex h-10 items-center gap-2 rounded-full border border-white/10 bg-white/[0.035] px-3 text-xs font-semibold text-white/78 transition hover:border-cyan-200/35 hover:bg-cyan-300/[0.09] hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300/70"
+      className="language-toggle"
     >
-      <Languages className="h-4 w-4" aria-hidden="true" />
-      <span>{nextLanguage}</span>
+      <span className="language-toggle__label">lang</span>
+      <span className="language-toggle__value">{language.toUpperCase()}</span>
+      <span aria-hidden="true" className="language-toggle__next">
+        -&gt; {nextLanguage}
+      </span>
     </button>
   );
 }

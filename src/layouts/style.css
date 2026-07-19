@@ -21,6 +21,125 @@ a:hover {
   display: none;
 }
 
+.language-toggle {
+  position: relative;
+  display: inline-flex;
+  height: 2.2rem;
+  min-width: 0;
+  align-items: center;
+  gap: 0.38rem;
+  margin: 0;
+  padding: 0 0.2rem;
+  overflow: hidden;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: rgba(226, 232, 240, 0.92);
+  font-family:
+    "Inter",
+    ui-monospace,
+    SFMono-Regular,
+    Menlo,
+    Monaco,
+    Consolas,
+    monospace;
+  letter-spacing: 0;
+  transition:
+    opacity 0.2s ease,
+    color 0.2s ease;
+}
+
+.language-toggle::before {
+  position: absolute;
+  right: 0.2rem;
+  bottom: 0.3rem;
+  left: 0.2rem;
+  height: 1px;
+  pointer-events: none;
+  content: "";
+  background: linear-gradient(
+    90deg,
+    rgba(125, 211, 252, 0.58),
+    rgba(143, 180, 255, 0.28),
+    transparent
+  );
+  opacity: 0.64;
+  transform: scaleX(0.78);
+  transform-origin: left center;
+  transition:
+    opacity 0.2s ease,
+    transform 0.24s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.language-toggle::after {
+  position: absolute;
+  bottom: 0.15rem;
+  left: 0.2rem;
+  width: 0.24rem;
+  height: 0.24rem;
+  pointer-events: none;
+  content: "";
+  border: 1px solid rgba(191, 219, 254, 0.62);
+  background: rgba(2, 6, 23, 0.86);
+  opacity: 0.74;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.language-toggle:hover {
+  color: rgba(248, 250, 252, 0.98);
+}
+
+.language-toggle:hover::before {
+  opacity: 0.92;
+  transform: scaleX(1);
+}
+
+.language-toggle:hover::after {
+  border-color: rgba(224, 242, 254, 0.88);
+  box-shadow: 0 0 10px rgba(125, 211, 252, 0.22);
+}
+
+.language-toggle__label {
+  color: rgba(148, 163, 184, 0.58);
+  font-size: 0.66rem;
+  font-weight: 650;
+}
+
+.language-toggle__value {
+  min-width: 1.35rem;
+  color: rgba(248, 250, 252, 0.96);
+  font-size: 0.76rem;
+  font-weight: 750;
+}
+
+.language-toggle__next {
+  max-width: 0;
+  overflow: hidden;
+  color: rgba(125, 211, 252, 0.58);
+  font-size: 0.66rem;
+  font-weight: 650;
+  opacity: 0;
+  white-space: nowrap;
+  transform: translateX(-0.2rem);
+  transition:
+    max-width 0.24s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.2s ease,
+    transform 0.24s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.language-toggle:hover .language-toggle__next {
+  max-width: 2.3rem;
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.language-toggle:focus-visible {
+  outline: 1px solid rgba(143, 180, 255, 0.62);
+  outline-offset: 4px;
+}
+
 .mobile-line-menu-button {
   display: inline-flex;
   width: 2.75rem;
@@ -193,6 +312,10 @@ a:hover {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .language-toggle,
+  .language-toggle::before,
+  .language-toggle::after,
+  .language-toggle__next,
   .mobile-line-menu-button,
   .mobile-line-menu-button span,
   .mobile-line-sidebar {
