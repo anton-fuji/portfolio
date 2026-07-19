@@ -18,6 +18,7 @@ export interface Project {
   description: LocalizedText;
   githuburl: string;
   kind: "CLI Tool" | "Web App" | "Environment" | "Portfolio" | "Team Project";
+  status?: "active" | "maintained" | "paused" | "archived" | "prototype";
   tags: string[];
 }
 
@@ -36,6 +37,7 @@ export const projectGroups: ProjectGroup[] = [
         },
         githuburl: "https://github.com/anton-fuji/techfeed",
         kind: "CLI Tool",
+        status: "active",
         tags: ["Go", "GitHub Actions", "Markdown"],
       },
       {
@@ -46,6 +48,7 @@ export const projectGroups: ProjectGroup[] = [
         },
         githuburl: "https://github.com/anton-fuji/minilink",
         kind: "Web App",
+        status: "paused",
         tags: ["Go", "Fiber", "URL Shortener"],
       },
       {
@@ -56,6 +59,7 @@ export const projectGroups: ProjectGroup[] = [
         },
         githuburl: "https://github.com/anton-fuji/gitviz",
         kind: "CLI Tool",
+        status: "active",
         tags: ["Go", "Git", "Terminal UI"],
       },
       {
@@ -66,6 +70,7 @@ export const projectGroups: ProjectGroup[] = [
         },
         githuburl: "https://github.com/anton-fuji/dibo",
         kind: "CLI Tool",
+        status: "active",
         tags: ["Go", "Docker", "Generator"],
       },
     ],
@@ -84,6 +89,7 @@ export const projectGroups: ProjectGroup[] = [
         },
         githuburl: "https://github.com/anton-fuji/dotfiles",
         kind: "Environment",
+        status: "active",
         tags: ["Lua", "Neovim", "WezTerm"],
       },
     ],
@@ -102,6 +108,7 @@ export const projectGroups: ProjectGroup[] = [
         },
         githuburl: "https://github.com/anton-fuji/ztree",
         kind: "CLI Tool",
+        status: "prototype",
         tags: ["Zig", "File System", "CLI"],
       },
     ],
@@ -120,6 +127,7 @@ export const projectGroups: ProjectGroup[] = [
         },
         githuburl: "https://github.com/anton-fuji/portfolio",
         kind: "Portfolio",
+        status: "active",
         tags: ["React", "Vike", "Tailwind CSS"],
       },
     ],
@@ -138,6 +146,7 @@ export const projectGroups: ProjectGroup[] = [
         },
         githuburl: "https://github.com/E-Team-Hackathon/TechHub",
         kind: "Team Project",
+        status: "archived",
         tags: ["Team", "Articles", "Community"],
       },
       {
@@ -148,6 +157,7 @@ export const projectGroups: ProjectGroup[] = [
         },
         githuburl: "https://github.com/2024-Summer-Raretech-Team-F/chatapp",
         kind: "Team Project",
+        status: "archived",
         tags: ["Team", "Chat", "School"],
       },
     ],

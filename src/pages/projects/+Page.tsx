@@ -3,7 +3,7 @@ import { Maximize2, Minimize2 } from "lucide-react";
 import BackgroundGlobe from "../../components/BackgroundGlobe";
 import GlareHover from "../../components/GlareHover";
 import SpotlightCard from "../../components/SpotlightCard";
-import ProjectCard from "./ProjectCard";
+import ProjectProcessRow from "./ProjectProcessRow";
 import projectGroups from "./Projects";
 import { useTranslation } from "../../i18n";
 
@@ -116,7 +116,7 @@ function Page() {
 
                 <div
                   className={`project-terminal-body relative overflow-hidden px-4 py-6 font-mono text-[12px] leading-6 text-slate-300 transition-[max-height] duration-500 ease-out sm:px-6 sm:py-8 sm:text-sm ${
-                    isTerminalExpanded ? "max-h-[58rem]" : "max-h-72"
+                    isTerminalExpanded ? "max-h-232" : "max-h-72"
                   }`}
                 >
                   <svg
@@ -237,7 +237,7 @@ function Page() {
                         ps aux | grep projects
                       </span>
                     </p>
-                    <pre className="mt-2 min-w-[34rem] text-slate-400 sm:min-w-150">
+                    <pre className="mt-2 min-w-136 text-slate-400 sm:min-w-150">
                       <span
                         className="project-terminal-row block"
                         style={{ animationDelay: "4.72s" }}
@@ -438,7 +438,7 @@ function Page() {
                   className="project-editor-file-panel relative scroll-mt-24 overflow-hidden font-mono"
                 >
               <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(56,189,248,0.1),transparent_28%),linear-gradient(180deg,rgba(255,255,255,0.062),transparent_38%)]" />
-              <div className="pointer-events-none absolute inset-px rounded-lg border border-white/[0.03]" />
+              <div className="pointer-events-none absolute inset-px rounded-lg border border-white/3" />
               <div className="relative flex items-center justify-between gap-3 border-sky-300/10 border-b bg-[linear-gradient(90deg,rgba(2,6,23,0.78),rgba(15,23,42,0.68),rgba(2,6,23,0.74))] px-4 py-3 shadow-[inset_0_1px_0_rgba(255,255,255,0.022)]">
                 <div className="flex min-w-0 items-center gap-3">
                   <span className="project-section-icon">
@@ -453,25 +453,19 @@ function Page() {
                 </span>
               </div>
 
-              <div className="relative px-4 py-4">
-                <p className="text-xs text-sky-300">
-                  (*'-') &gt;{" "}
-                  <span className="text-slate-200">
-                    ps aux | grep {group.slug}
-                  </span>
-                </p>
-
-                <div className="mt-4 overflow-hidden rounded border border-sky-300/12 bg-black/8 shadow-[inset_0_1px_0_rgba(255,255,255,0.045)] backdrop-blur-lg">
-                  <div className="hidden grid-cols-[4.5rem_minmax(0,1.35fr)_8.5rem_minmax(0,1fr)_2rem] border-sky-300/10 border-b bg-white/[0.035] px-4 py-2 text-[10px] tracking-[0.16em] text-slate-600 uppercase sm:grid">
+              <div className="project-editor-file-body">
+                <div className="project-file-list">
+                  <div className="project-file-list__header hidden sm:grid">
                     <span>PID</span>
-                    <span>{t.projects.table.repo}</span>
+                    <span>State</span>
+                    <span>Command</span>
                     <span>{t.projects.table.type}</span>
                     <span>{t.projects.table.output}</span>
                     <span />
                   </div>
-                  <div className="divide-y divide-sky-300/8">
+                  <div className="project-file-list__rows">
                     {group.projects.map((proj, projectIndex) => (
-                      <ProjectCard
+                      <ProjectProcessRow
                         key={proj.githuburl}
                         project={proj}
                         accent={group.accent}

@@ -699,8 +699,8 @@ a:hover {
 .project-editor-content {
   position: relative;
   display: grid;
-  gap: 1rem;
-  padding: 1rem;
+  gap: 0.9rem;
+  padding: 0.9rem;
   background:
     radial-gradient(circle at top right, rgba(56, 189, 248, 0.055), transparent 32%),
     linear-gradient(180deg, rgba(2, 6, 23, 0.62), rgba(2, 6, 23, 0.32));
@@ -718,12 +718,12 @@ a:hover {
 }
 
 .project-editor-file-panel {
-  border: 1px solid rgba(125, 211, 252, 0.12);
-  border-radius: 6px;
-  background: rgba(0, 0, 0, 0.18);
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.026),
-    0 0 34px -28px rgba(56, 189, 248, 0.76);
+  border: 1px solid rgba(125, 211, 252, 0.095);
+  border-radius: 3px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.022), transparent 4rem),
+    rgba(0, 0, 0, 0.12);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.022);
 }
 
 .project-section-icon {
@@ -738,6 +738,116 @@ a:hover {
 .project-section-icon svg {
   width: 1rem;
   height: 1rem;
+}
+
+.project-editor-file-body {
+  position: relative;
+}
+
+.project-file-list {
+  overflow: hidden;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  backdrop-filter: none;
+}
+
+.project-file-list__header {
+  grid-template-columns: 4.2rem 5.7rem minmax(0, 1.08fr) 8.4rem minmax(0, 1fr) 2rem;
+  border-bottom: 1px solid rgba(125, 211, 252, 0.1);
+  background:
+    linear-gradient(90deg, rgba(15, 23, 42, 0.52), rgba(2, 6, 23, 0.24)),
+    rgba(255, 255, 255, 0.018);
+  color: rgba(100, 116, 139, 0.9);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  padding: 0.55rem 1rem;
+  text-transform: uppercase;
+}
+
+.project-file-list__rows {
+  display: grid;
+  padding: 0;
+}
+
+.project-process-row {
+  isolation: isolate;
+  overflow: hidden;
+  border: 0;
+  border-bottom: 1px solid rgba(125, 211, 252, 0.075);
+  border-radius: 0;
+  background:
+    linear-gradient(90deg, rgba(15, 23, 42, 0.22), transparent 72%),
+    rgba(255, 255, 255, 0.012);
+  box-shadow: none;
+}
+
+.project-process-row:last-child {
+  border-bottom: 0;
+}
+
+.project-process-row::after {
+  position: absolute;
+  top: 0.8rem;
+  bottom: 0.8rem;
+  left: 4.35rem;
+  width: 1px;
+  pointer-events: none;
+  content: "";
+  background: linear-gradient(
+    180deg,
+    transparent,
+    rgba(100, 116, 139, 0.24),
+    transparent
+  );
+  opacity: 0.58;
+}
+
+.project-process-row:nth-child(even) {
+  background:
+    linear-gradient(90deg, rgba(15, 23, 42, 0.18), transparent 72%),
+    rgba(255, 255, 255, 0.006);
+}
+
+.project-process-pid {
+  color: rgba(125, 211, 252, 0.8);
+  font-variant-numeric: tabular-nums;
+}
+
+.project-process-state {
+  color: rgba(148, 163, 184, 0.72);
+}
+
+.project-process-row:hover .project-process-state {
+  color: rgba(125, 211, 252, 0.86);
+}
+
+.project-process-repo {
+  color: rgba(100, 116, 139, 0.92);
+}
+
+.project-process-kind {
+  color: rgba(148, 163, 184, 0.86);
+}
+
+.project-process-kind svg {
+  color: rgba(125, 211, 252, 0.6);
+}
+
+.project-process-output {
+  color: rgba(148, 163, 184, 0.78);
+}
+
+.project-process-tags span {
+  color: rgba(125, 211, 252, 0.56);
+}
+
+@media (max-width: 639px) {
+  .project-process-row::after {
+    display: none;
+  }
 }
 
 .project-terminal-body {
