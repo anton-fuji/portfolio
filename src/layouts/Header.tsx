@@ -90,7 +90,7 @@ export default function Header() {
     <>
       <header
         className={`fixed top-0 right-0 left-0 py-4 transition-all duration-500 ease-out md:py-6 ${
-          isMobileMenuOpen ? "z-[70]" : "z-50"
+          isMobileMenuOpen ? "z-70" : "z-50"
         } ${
           isVisible ? "translate-y-0" : "-translate-y-full"
         } ${
@@ -123,7 +123,7 @@ export default function Header() {
                     }`}
                   >
                     {t.nav[key]}
-                    <span className="absolute -bottom-1 left-0 h-0.5 w-0 rounded-full bg-gradient-to-r from-blue-400 to-purple-400 transition-all duration-300 group-hover:w-full" />
+                    <span className="absolute -bottom-1 left-0 h-0.5 w-0 rounded-full bg-lineaer-to-r from-blue-400 to-purple-400 transition-all duration-300 group-hover:w-full" />
                   </a>
                 );
               })}
@@ -136,7 +136,7 @@ export default function Header() {
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             type="button"
-            className={`mobile-line-menu-button relative z-[60] ${
+            className={`mobile-line-menu-button relative z-60 ${
               isMobileMenuOpen ? "is-open" : ""
             }`}
             aria-label={isMobileMenuOpen ? t.menu.close : t.menu.open}
