@@ -9,8 +9,17 @@ import { useTranslation } from "../../i18n";
 
 export { Page };
 
+const projectTabFiles: Record<string, string> = {
+  go: "go.mod",
+  lua: "init.lua",
+  zig: "build.zig",
+  typescript: "portfolio.tsx",
+  "hackathon-projects": "team.md",
+};
+
 function Page() {
   const [isTerminalExpanded, setIsTerminalExpanded] = useState(true);
+  const [selectedGroupSlug, setSelectedGroupSlug] = useState<string>("all");
   const { t } = useTranslation();
   const projectOffsets = new Map<string, number>();
   let projectOffset = 0;
@@ -19,6 +28,30 @@ function Page() {
     projectOffsets.set(group.slug, projectOffset);
     projectOffset += group.projects.length;
   }
+  const totalProjectCount = projectGroups.reduce(
+    (count, group) => count + group.projects.length,
+    0,
+  );
+  const visibleGroups =
+    selectedGroupSlug === "all"
+      ? projectGroups
+      : projectGroups.filter((group) => group.slug === selectedGroupSlug);
+  const selectedGroup = projectGroups.find(
+    (group) => group.slug === selectedGroupSlug,
+  );
+  const selectedProjectCount =
+    selectedGroupSlug === "all"
+      ? totalProjectCount
+      : (selectedGroup?.projects.length ?? 0);
+  const selectedScope =
+    selectedGroupSlug === "all"
+      ? "workspace"
+      : (selectedGroup?.name ?? selectedGroupSlug);
+  const selectGroup = (slug: string) => {
+    setSelectedGroupSlug((currentSlug) =>
+      currentSlug === slug ? "all" : slug,
+    );
+  };
 
   return (
     <>
@@ -327,37 +360,88 @@ function Page() {
             </SpotlightCard>
           </GlareHover>
 
-          <nav
-            aria-label={t.projects.categories}
-            className="flex flex-wrap gap-2"
-          >
-            {projectGroups.map((group) => (
-              <a
-                key={group.name}
-                href={`#${group.slug}`}
-                className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.03] px-3 py-1.5 text-sm font-medium text-slate-300 transition-colors hover:border-sky-300/30 hover:bg-sky-300/8 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-300/70"
-              >
-                <span className="text-white/90 [&_svg]:h-4 [&_svg]:w-4">
-                  {group.icon}
-                </span>
-                <span>{group.name}</span>
-              </a>
-            ))}
-          </nav>
-
-          {projectGroups.map((group) => (
+          <div className="project-editor-workspace">
             <section
-              key={group.name}
-              id={group.slug}
-              className="relative scroll-mt-24 overflow-hidden rounded-lg border border-sky-300/14 bg-black/22 font-mono shadow-[0_0_38px_-28px_rgba(56,189,248,0.82)] backdrop-blur-xl"
+              aria-label={t.projects.categories}
+              className="project-editor-tabs-shell"
             >
+              <div className="project-editor-tabs-titlebar">
+                <div aria-hidden className="project-editor-tabs-controls">
+                  <span />
+                  <span />
+                  <span />
+                </div>
+                <span className="project-editor-tabs-title">
+                  ~/projects/filter
+                </span>
+              </div>
+
+              <ul className="project-editor-tabs">
+                <li>
+                  <button
+                    type="button"
+                    onClick={() => setSelectedGroupSlug("all")}
+                    aria-pressed={selectedGroupSlug === "all"}
+                    className="project-editor-tab"
+                    data-active={selectedGroupSlug === "all"}
+                  >
+                    <span className="project-editor-tab__icon">＊</span>
+                    <span className="project-editor-tab__name">
+                      projects.code-workspace
+                    </span>
+                    <span className="project-editor-tab__count">
+                      {totalProjectCount}
+                    </span>
+                    <span className="project-editor-tab__close" aria-hidden>
+                      ×
+                    </span>
+                  </button>
+                </li>
+                {projectGroups.map((group) => (
+                  <li key={group.name}>
+                    <button
+                      type="button"
+                      onClick={() => selectGroup(group.slug)}
+                      aria-pressed={selectedGroupSlug === group.slug}
+                      className="project-editor-tab"
+                      data-active={selectedGroupSlug === group.slug}
+                    >
+                      <span className="project-editor-tab__icon">
+                        {group.icon}
+                      </span>
+                      <span className="project-editor-tab__name">
+                        {projectTabFiles[group.slug] ?? `${group.slug}.md`}
+                      </span>
+                      <span className="project-editor-tab__count">
+                        {group.projects.length}
+                      </span>
+                      <span className="project-editor-tab__close" aria-hidden>
+                        ×
+                      </span>
+                    </button>
+                  </li>
+                ))}
+              </ul>
+
+              <div className="project-editor-tabs-status">
+                <span>scope: {selectedScope}</span>
+                <span>{selectedProjectCount} repos</span>
+                <span className="hidden sm:inline">filter: live</span>
+              </div>
+            </section>
+
+            <div className="project-editor-content">
+              {visibleGroups.map((group) => (
+                <section
+                  key={group.name}
+                  id={group.slug}
+                  className="project-editor-file-panel relative scroll-mt-24 overflow-hidden font-mono"
+                >
               <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(56,189,248,0.1),transparent_28%),linear-gradient(180deg,rgba(255,255,255,0.062),transparent_38%)]" />
               <div className="pointer-events-none absolute inset-px rounded-lg border border-white/[0.03]" />
               <div className="relative flex items-center justify-between gap-3 border-sky-300/10 border-b bg-[linear-gradient(90deg,rgba(2,6,23,0.78),rgba(15,23,42,0.68),rgba(2,6,23,0.74))] px-4 py-3 shadow-[inset_0_1px_0_rgba(255,255,255,0.022)]">
                 <div className="flex min-w-0 items-center gap-3">
-                  <span
-                    className={`grid h-8 w-8 shrink-0 place-items-center rounded bg-linear-to-br ${group.accent} text-black shadow-[0_0_24px_-12px_rgba(125,211,252,0.72)] [&_svg]:h-5 [&_svg]:w-5`}
-                  >
+                  <span className="project-section-icon">
                     {group.icon}
                   </span>
                   <h2 className="truncate text-sm font-semibold text-white sm:text-base">
@@ -399,8 +483,10 @@ function Page() {
                   </div>
                 </div>
               </div>
-            </section>
-          ))}
+                </section>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </>

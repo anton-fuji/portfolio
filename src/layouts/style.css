@@ -420,6 +420,326 @@ a:hover {
     0 0 42px rgba(8, 47, 73, 0.24);
 }
 
+.project-editor-workspace {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(148, 163, 184, 0.14);
+  border-radius: 8px;
+  background:
+    linear-gradient(115deg, rgba(125, 211, 252, 0.035), transparent 36%),
+    linear-gradient(180deg, rgba(15, 23, 42, 0.74), rgba(2, 6, 23, 0.58));
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.032),
+    0 22px 72px -58px rgba(56, 189, 248, 0.7);
+  backdrop-filter: blur(20px);
+}
+
+.project-editor-workspace::after {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  content: "";
+  border: 1px solid rgba(255, 255, 255, 0.028);
+  border-radius: inherit;
+}
+
+.project-editor-tabs-shell {
+  position: relative;
+  overflow: hidden;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+}
+
+.project-editor-tabs-shell::before {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  content: "";
+  background:
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.012) 0, rgba(255, 255, 255, 0.012) 1px, transparent 1px, transparent 26px),
+    linear-gradient(90deg, rgba(125, 211, 252, 0.06), transparent 26%, rgba(129, 140, 248, 0.045));
+  opacity: 0.34;
+  mask-image: linear-gradient(180deg, black 0%, transparent 82%);
+}
+
+.project-editor-tabs-titlebar {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.12);
+  padding: 0.58rem 0.75rem;
+  background: rgba(2, 6, 23, 0.36);
+  font-family:
+    "Inter",
+    ui-monospace,
+    SFMono-Regular,
+    Menlo,
+    Monaco,
+    Consolas,
+    monospace;
+}
+
+.project-editor-tabs-controls {
+  display: flex;
+  gap: 0.36rem;
+  align-items: center;
+}
+
+.project-editor-tabs-controls span {
+  width: 0.56rem;
+  height: 0.56rem;
+  border-radius: 50%;
+  background: rgba(100, 116, 139, 0.58);
+  box-shadow: 0 0 10px rgba(148, 163, 184, 0.08);
+}
+
+.project-editor-tabs-controls span:nth-child(2) {
+  background: rgba(125, 211, 252, 0.5);
+}
+
+.project-editor-tabs-controls span:nth-child(3) {
+  background: rgba(129, 140, 248, 0.5);
+}
+
+.project-editor-tabs-title {
+  min-width: 0;
+  overflow: hidden;
+  color: rgba(148, 163, 184, 0.72);
+  font-size: 0.72rem;
+  font-weight: 650;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.project-editor-tabs {
+  position: relative;
+  display: flex;
+  overflow-x: auto;
+  margin: 0;
+  padding: 0;
+  border-bottom: 1px solid rgba(125, 211, 252, 0.12);
+  background: rgba(2, 6, 23, 0.26);
+  list-style: none;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(125, 211, 252, 0.24) transparent;
+}
+
+.project-editor-tabs li {
+  display: flex;
+  flex: 0 0 auto;
+}
+
+.project-editor-tabs::-webkit-scrollbar {
+  height: 0.35rem;
+}
+
+.project-editor-tabs::-webkit-scrollbar-thumb {
+  border-radius: 999px;
+  background: rgba(125, 211, 252, 0.22);
+}
+
+.project-editor-tab {
+  position: relative;
+  display: inline-grid;
+  min-width: 10.25rem;
+  max-width: 13.5rem;
+  grid-template-columns: auto minmax(0, 1fr) auto auto;
+  align-items: center;
+  gap: 0.48rem;
+  border: 0;
+  border-right: 1px solid rgba(148, 163, 184, 0.12);
+  background: rgba(15, 23, 42, 0.32);
+  color: rgba(148, 163, 184, 0.86);
+  font-family:
+    "Inter",
+    ui-monospace,
+    SFMono-Regular,
+    Menlo,
+    Monaco,
+    Consolas,
+    monospace;
+  padding: 0.72rem 0.72rem 0.68rem;
+  text-align: left;
+  transition:
+    background-color 0.18s ease,
+    color 0.18s ease;
+}
+
+.project-editor-tab::before {
+  position: absolute;
+  top: 0;
+  right: 0.65rem;
+  left: 0.65rem;
+  height: 1px;
+  pointer-events: none;
+  content: "";
+  background: linear-gradient(90deg, transparent, rgba(125, 211, 252, 0.66), transparent);
+  opacity: 0;
+  transition: opacity 0.18s ease;
+}
+
+.project-editor-tab::after {
+  position: absolute;
+  right: 0;
+  bottom: -1px;
+  left: 0;
+  height: 1px;
+  pointer-events: none;
+  content: "";
+  background: rgba(2, 6, 23, 0.9);
+  opacity: 0;
+}
+
+.project-editor-tab:hover {
+  background: rgba(30, 41, 59, 0.42);
+  color: rgba(226, 232, 240, 0.96);
+}
+
+.project-editor-tab[data-active="true"] {
+  background:
+    linear-gradient(180deg, rgba(125, 211, 252, 0.07), transparent 42%),
+    rgba(2, 6, 23, 0.68);
+  color: rgba(248, 250, 252, 0.98);
+}
+
+.project-editor-tab[data-active="true"]::before {
+  opacity: 1;
+}
+
+.project-editor-tab[data-active="true"]::after {
+  opacity: 1;
+}
+
+.project-editor-tab:focus-visible {
+  z-index: 1;
+  outline: 1px solid rgba(143, 180, 255, 0.62);
+  outline-offset: -2px;
+}
+
+.project-editor-tab__icon {
+  display: grid;
+  width: 1.1rem;
+  height: 1.1rem;
+  place-items: center;
+  color: rgba(125, 211, 252, 0.78);
+  font-size: 0.86rem;
+}
+
+.project-editor-tab__icon svg {
+  width: 1rem;
+  height: 1rem;
+}
+
+.project-editor-tab__name {
+  min-width: 0;
+  overflow: hidden;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.project-editor-tab__count {
+  color: rgba(100, 116, 139, 0.86);
+  font-size: 0.66rem;
+  font-weight: 700;
+}
+
+.project-editor-tab__close {
+  display: grid;
+  width: 1rem;
+  height: 1rem;
+  place-items: center;
+  border-radius: 3px;
+  color: rgba(100, 116, 139, 0.76);
+  font-size: 0.88rem;
+  line-height: 1;
+  opacity: 0;
+  transition:
+    background-color 0.18s ease,
+    color 0.18s ease,
+    opacity 0.18s ease;
+}
+
+.project-editor-tab:hover .project-editor-tab__close,
+.project-editor-tab[data-active="true"] .project-editor-tab__close {
+  opacity: 1;
+}
+
+.project-editor-tab:hover .project-editor-tab__close {
+  background: rgba(148, 163, 184, 0.1);
+  color: rgba(226, 232, 240, 0.86);
+}
+
+.project-editor-tabs-status {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem 1rem;
+  padding: 0.48rem 0.75rem;
+  background:
+    linear-gradient(90deg, rgba(14, 116, 144, 0.28), rgba(30, 41, 59, 0.36)),
+    rgba(2, 6, 23, 0.62);
+  color: rgba(203, 213, 225, 0.78);
+  font-family:
+    "Inter",
+    ui-monospace,
+    SFMono-Regular,
+    Menlo,
+    Monaco,
+    Consolas,
+    monospace;
+  font-size: 0.68rem;
+  font-weight: 650;
+}
+
+.project-editor-content {
+  position: relative;
+  display: grid;
+  gap: 1rem;
+  padding: 1rem;
+  background:
+    radial-gradient(circle at top right, rgba(56, 189, 248, 0.055), transparent 32%),
+    linear-gradient(180deg, rgba(2, 6, 23, 0.62), rgba(2, 6, 23, 0.32));
+}
+
+.project-editor-content::before {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  content: "";
+  background:
+    repeating-linear-gradient(180deg, rgba(255, 255, 255, 0.01) 0, rgba(255, 255, 255, 0.01) 1px, transparent 1px, transparent 9px),
+    linear-gradient(90deg, rgba(125, 211, 252, 0.045), transparent 18%);
+  opacity: 0.6;
+}
+
+.project-editor-file-panel {
+  border: 1px solid rgba(125, 211, 252, 0.12);
+  border-radius: 6px;
+  background: rgba(0, 0, 0, 0.18);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.026),
+    0 0 34px -28px rgba(56, 189, 248, 0.76);
+}
+
+.project-section-icon {
+  display: grid;
+  width: 1.25rem;
+  height: 1.25rem;
+  flex-shrink: 0;
+  place-items: center;
+  color: rgba(191, 219, 254, 0.74);
+}
+
+.project-section-icon svg {
+  width: 1rem;
+  height: 1rem;
+}
+
 .project-terminal-body {
   isolation: isolate;
   background:
