@@ -29,6 +29,7 @@
     "categories": "Project categories",
     "all": "All",
     "table": {
+      "name": "Name",
       "repo": "Repo",
       "type": "Type",
       "output": "Output"

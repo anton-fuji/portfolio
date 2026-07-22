@@ -24,13 +24,6 @@ const getRepoPath = (url: string) => {
   }
 };
 
-const getCommandName = (name: string) =>
-  name
-    .trim()
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/^-|-$/g, "");
-
 const getKindIcon = (kind: Project["kind"]) => {
   if (kind === "Team Project") return <Users className="h-3.5 w-3.5" />;
   if (kind === "CLI Tool") return <TerminalSquare className="h-3.5 w-3.5" />;
@@ -45,7 +38,6 @@ const ProjectProcessRow: FC<ProjectProcessRowProps> = ({
   const repoPath = getRepoPath(project.githuburl);
   const pid = 1001 + index;
   const state = project.status ?? "active";
-  const commandName = getCommandName(project.name);
   const { t, text } = useTranslation();
 
   return (
@@ -71,7 +63,7 @@ const ProjectProcessRow: FC<ProjectProcessRowProps> = ({
         <div className="flex min-w-0 items-center gap-2">
           <Github className="h-4 w-4 shrink-0 text-slate-500 transition-colors group-hover:text-sky-200" />
           <span className="truncate text-sm font-semibold text-white">
-            ./run {commandName}
+            {project.name}
           </span>
         </div>
         <p className="project-process-repo mt-1 truncate">{repoPath}</p>

@@ -458,7 +458,7 @@ function Page() {
                   <div className="project-file-list__header hidden sm:grid">
                     <span>PID</span>
                     <span>State</span>
-                    <span>Command</span>
+                    <span>{t.projects.table.name}</span>
                     <span>{t.projects.table.type}</span>
                     <span>{t.projects.table.output}</span>
                     <span />
