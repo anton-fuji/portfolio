@@ -7,29 +7,29 @@ defaults:
 
 on:
   push:
-    branches:  
-        - main 
+    branches:
+      - main
     paths:
-        - 'src/**'
-        - 'package.json'
-        - 'package-lock.json'
-        - '.npmrc'
-        - '.github/**'
-        - 'vite.config.ts'
-        - 'tsconfig*.json'
-        - 'biome.json'
+      - "src/**"
+      - "package.json"
+      - "package-lock.json"
+      - ".npmrc"
+      - ".github/**"
+      - "vite.config.ts"
+      - "tsconfig*.json"
+      - "biome.json"
   pull_request:
     branches:
-        - main
+      - main
     paths:
-        - 'src/**'
-        - 'package.json'
-        - 'package-lock.json'
-        - '.npmrc'
-        - '.github/**'
-        - 'vite.config.ts'
-        - 'tsconfig*.json'
-        - 'biome.json'
+      - "src/**"
+      - "package.json"
+      - "package-lock.json"
+      - ".npmrc"
+      - ".github/**"
+      - "vite.config.ts"
+      - "tsconfig*.json"
+      - "biome.json"
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -40,7 +40,9 @@ jobs:
     name: Lint & Build
     runs-on: ubuntu-latest
     timeout-minutes: 10
-    if: github.actor != 'renovate[bot]'
+    if: >-
+      github.actor != 'renovate[bot]' &&
+      (github.event_name != 'push' || github.event.head_commit.author.username != 'renovate[bot]')
     steps:
       - name: Checkout Repo
         uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0

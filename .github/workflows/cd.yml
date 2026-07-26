@@ -1,63 +1,64 @@
 name: Deploy to S3/CloudFront
 
 on:
-    push:
-        branches:
-            - main
-        paths:
-            - 'src/**'
-            - 'package.json'
-            - 'package-lock.json'
-            - '.npmrc'
-            - 'vite.config.ts'
-            - 'tsconfig*.json'
+  push:
+    branches:
+      - main
+    paths:
+      - "src/**"
+      - "package.json"
+      - "package-lock.json"
+      - ".npmrc"
+      - "vite.config.ts"
+      - "tsconfig*.json"
 
 permissions:
-    id-token: write
-    contents: read
+  id-token: write
+  contents: read
 
 defaults:
-    run:
-        shell: bash
+  run:
+    shell: bash
 
 concurrency:
-    group: ${{ github.workflow }}-${{ github.ref }}
-    cancel-in-progress: true
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
-    deploy:
-        name: Build & Deploy to S3/CloudFront
-        runs-on: ubuntu-latest
-        timeout-minutes: 10
-        if: github.actor != 'renovate[bot]'
-        environment: production
+  deploy:
+    name: Build & Deploy to S3/CloudFront
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    if: >-
+      github.actor != 'renovate[bot]' &&
+      github.event.head_commit.author.username != 'renovate[bot]'
+    environment: production
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
 
-        steps:
-            - name: Checkout Repo
-              uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+      - name: Setup dependencies
+        uses: ./.github/actions/setup
 
-            - name: Setup dependencies
-              uses: ./.github/actions/setup
+      - name: Build
+        run: npm run build
 
-            - name: Build
-              run: npm run build
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ secrets.AWS_IAM_ROLE_ARN }}
+          aws-region: ap-northeast-1
 
-            - name: Configure AWS Credentials
-              uses: aws-actions/configure-aws-credentials@v4
-              with:
-                role-to-assume: ${{ secrets.AWS_IAM_ROLE_ARN }}
-                aws-region: ap-northeast-1
+      - name: Set S3 Bucket Name and CloudFront ID
+        run: |
+          echo "S3_BUCKET_NAME=${{ vars.S3_BUCKET_NAME }}" >> $GITHUB_ENV
+          echo "CLOUDFRONT_DISTRIBUTION_ID=${{ vars.CLOUDFRONT_DISTRIBUTION_ID }}" >> $GITHUB_ENV
 
-            - name: Set S3 Bucket Name and CloudFront ID
-              run: |
-                  echo "S3_BUCKET_NAME=${{ vars.S3_BUCKET_NAME }}" >> $GITHUB_ENV
-                  echo "CLOUDFRONT_DISTRIBUTION_ID=${{ vars.CLOUDFRONT_DISTRIBUTION_ID }}" >> $GITHUB_ENV
+      - name: Upload to S3
+        run: aws s3 sync dist/client/ s3://${{ env.S3_BUCKET_NAME }}/ --delete
 
-            - name: Upload to S3
-              run: aws s3 sync dist/client/ s3://${{ env.S3_BUCKET_NAME }}/ --delete
-
-            - name: Invalidate CloudFront cache
-              run: |
-                  aws cloudfront create-invalidation \
-                    --distribution-id ${{ env.CLOUDFRONT_DISTRIBUTION_ID }} \
-                    --paths "/*"
+      - name: Invalidate CloudFront cache
+        run: |
+          aws cloudfront create-invalidation \
+            --distribution-id ${{ env.CLOUDFRONT_DISTRIBUTION_ID }} \
+            --paths "/*"
