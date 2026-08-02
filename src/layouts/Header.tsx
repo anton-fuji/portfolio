@@ -7,6 +7,7 @@ import { PERSONAL_INFO } from "../mydata/data";
 const navLinks = [
   { key: "home", href: "/" },
   { key: "articles", href: "/articles" },
+  { key: "blog", href: "https://fuji-blog.netlify.app/", external: true },
   { key: "projects", href: "/projects" },
   { key: "certs", href: "/certifications" },
 ] as const;
@@ -109,7 +110,7 @@ export default function Header() {
 
           <div className="desktop-header-nav items-center gap-4">
             <nav className="flex items-center space-x-6 lg:space-x-8">
-              {navLinks.map(({ key, href }) => {
+              {navLinks.map(({ key, href, external }) => {
                 const isActive =
                   href === "/"
                     ? urlPathname === "/"
@@ -118,6 +119,8 @@ export default function Header() {
                   <a
                     key={key}
                     href={href}
+                    target={external ? "_blank" : undefined}
+                    rel={external ? "noopener noreferrer" : undefined}
                     className={`group relative font-sans transition-all duration-300 hover:scale-105 ${
                       isActive ? "font-bold text-white" : "text-gray-400"
                     }`}
@@ -185,13 +188,15 @@ export default function Header() {
               proximityRadius={104}
               className="mobile-line-sidebar-nav flex-1 items-center"
               onItemClick={(index) => {
-                const href = navLinks[index]?.href;
-                if (!href) {
+                const link = navLinks[index];
+                if (!link) {
                   return;
                 }
                 setIsMobileMenuOpen(false);
-                if (href !== urlPathname) {
-                  window.location.href = href;
+                if (link.external) {
+                  window.open(link.href, "_blank", "noopener,noreferrer");
+                } else if (link.href !== urlPathname) {
+                  window.location.href = link.href;
                 }
               }}
             />
