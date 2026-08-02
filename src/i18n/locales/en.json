@@ -4,6 +4,7 @@
   "nav": {
     "home": "Home",
     "articles": "Articles",
+    "blog": "Blog",
     "projects": "Projects",
     "certs": "Certs"
   },

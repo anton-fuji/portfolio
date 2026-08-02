@@ -7,6 +7,7 @@ import { PERSONAL_INFO } from "../mydata/data";
 const navLinks = [
   { key: "home", href: "/" },
   { key: "articles", href: "/articles" },
+  { key: "blog", href: "https://fuji-blog.netlify.app/", external: true },
   { key: "projects", href: "/projects" },
   { key: "certs", href: "/certifications" },
 ] as const;
@@ -107,9 +108,9 @@ export default function Header() {
             {PERSONAL_INFO.url}
           </a>
 
-          <div className="desktop-header-nav items-center gap-4">
-            <nav className="flex items-center space-x-6 lg:space-x-8">
-              {navLinks.map(({ key, href }) => {
+          <div className="desktop-header-nav items-center gap-5">
+            <nav className="flex items-center gap-5 lg:gap-7">
+              {navLinks.map(({ key, href, external }) => {
                 const isActive =
                   href === "/"
                     ? urlPathname === "/"
@@ -118,17 +119,39 @@ export default function Header() {
                   <a
                     key={key}
                     href={href}
-                    className={`group relative font-sans transition-all duration-300 hover:scale-105 ${
-                      isActive ? "font-bold text-white" : "text-gray-400"
+                    target={external ? "_blank" : undefined}
+                    rel={external ? "noopener noreferrer" : undefined}
+                    className={`group inline-flex items-center gap-1 font-mono text-[0.78rem] tracking-[0.08em] transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300/70 ${
+                      isActive
+                        ? "text-cyan-200 hover:text-cyan-100"
+                        : "text-slate-300/82 hover:text-cyan-100"
                     }`}
                   >
+                    {isActive && (
+                      <span className="text-cyan-200" aria-hidden="true">
+                        &gt;
+                      </span>
+                    )}
                     {t.nav[key]}
-                    <span className="absolute -bottom-1 left-0 h-0.5 w-0 rounded-full bg-lineaer-to-r from-blue-400 to-purple-400 transition-all duration-300 group-hover:w-full" />
+                    {external && (
+                      <span
+                        className="text-[0.7rem] text-current opacity-65 transition-opacity group-hover:opacity-100"
+                        aria-hidden="true"
+                      >
+                        ↗
+                      </span>
+                    )}
+                    {isActive && (
+                      <span
+                        className="h-3 w-px animate-pulse bg-cyan-100"
+                        aria-hidden="true"
+                      />
+                    )}
                   </a>
                 );
               })}
             </nav>
-            <div className="lg:ml-5">
+            <div className="border-white/10 border-l pl-4">
               <LanguageToggle />
             </div>
           </div>
@@ -185,13 +208,15 @@ export default function Header() {
               proximityRadius={104}
               className="mobile-line-sidebar-nav flex-1 items-center"
               onItemClick={(index) => {
-                const href = navLinks[index]?.href;
-                if (!href) {
+                const link = navLinks[index];
+                if (!link) {
                   return;
                 }
                 setIsMobileMenuOpen(false);
-                if (href !== urlPathname) {
-                  window.location.href = href;
+                if (link.external) {
+                  window.open(link.href, "_blank", "noopener,noreferrer");
+                } else if (link.href !== urlPathname) {
+                  window.location.href = link.href;
                 }
               }}
             />

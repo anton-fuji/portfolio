@@ -335,7 +335,7 @@ a:hover {
 }
 
 .project-terminal-shell {
-  animation: project-terminal-float 8s ease-in-out infinite;
+  animation: none;
 }
 
 .skill-timeline-fill {
@@ -397,7 +397,7 @@ a:hover {
     transparent
   );
   opacity: 0.28;
-  animation: project-terminal-stardust 18s linear infinite;
+  animation: none;
 }
 
 .project-terminal-shell::after {
@@ -1126,7 +1126,7 @@ a:hover {
   width: fit-content;
   animation:
     project-terminal-line-in 0.18s ease-out both,
-    project-terminal-error-shake 0.18s linear infinite;
+    project-terminal-error-shake 0.18s linear 3;
 }
 
 .stack-project-link-scan {

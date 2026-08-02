@@ -14,6 +14,7 @@ const projectTabFiles: Record<string, string> = {
   lua: "init.lua",
   zig: "build.zig",
   typescript: "portfolio.tsx",
+  astro: "astro.config.mjs",
   "hackathon-projects": "team.md",
 };
 
@@ -66,7 +67,7 @@ function Page() {
           >
             <SpotlightCard
               spotlightColor="rgba(125, 211, 252, 0.09)"
-              className="project-terminal-shell border-slate-700/38 bg-black/62 p-0 shadow-[0_26px_86px_-60px_rgba(8,47,73,0.78)] transition-shadow duration-300 hover:shadow-[0_0_24px_-10px_rgba(56,189,248,0.3)]"
+              className="project-terminal-shell border-slate-700/38 bg-black/62 p-0 shadow-[0_26px_86px_-60px_rgba(8,47,73,0.78)] backdrop-blur-none transition-shadow duration-300 hover:shadow-[0_0_24px_-10px_rgba(56,189,248,0.3)]"
             >
               <header>
                 <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.026),rgba(255,255,255,0.004)_34%,rgba(0,0,0,0.14)_100%)]" />

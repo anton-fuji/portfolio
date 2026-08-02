@@ -194,7 +194,13 @@ export const ENGINEERING_SURFACES: EngineeringSurface[] = [
     ],
     proofs: [
       { label: { ja: "Zenn / Qiita 記事", en: "Zenn / Qiita articles" } },
-      { label: { ja: "Zenn プロフィール", en: "Zenn profile" } },
+      {
+        label: {
+          ja: "個人ブログ始めた〜",
+          en: "I started a personal blog",
+        },
+        href: "https://fuji-blog.netlify.app/",
+      },
     ],
     accent: "from-indigo-300 to-cyan-400",
   },
