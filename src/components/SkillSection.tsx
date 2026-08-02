@@ -263,13 +263,22 @@ const SkillSection: FC = () => {
                           isActive && "mt-5 max-h-24 opacity-100",
                         )}
                       >
-                        {surface.proofs.map((proof) =>
-                          proof.href ? (
+                        {surface.proofs.map((proof) => {
+                          const isExternalLink = proof.href?.startsWith("http");
+
+                          return proof.href ? (
                             <a
                               key={text(proof.label)}
                               href={proof.href}
+                              target={isExternalLink ? "_blank" : undefined}
+                              rel={isExternalLink ? "noopener noreferrer" : undefined}
                               onClick={(event) => event.stopPropagation()}
-                              className="inline-flex items-center gap-1.5 rounded-md border border-blue-300/15 bg-blue-400/[0.08] px-3 py-1.5 text-xs font-semibold text-sky-100/76 transition hover:border-cyan-200/30 hover:bg-blue-400/[0.14] hover:text-white"
+                              className={twMerge(
+                                "inline-flex items-center gap-1.5 text-xs transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300/70",
+                                isExternalLink
+                                  ? "text-cyan-100/62 underline decoration-cyan-200/25 underline-offset-4 hover:text-cyan-50 hover:decoration-cyan-100/75"
+                                  : "rounded-md border border-blue-300/15 bg-blue-400/[0.08] px-3 py-1.5 font-semibold text-sky-100/76 hover:border-cyan-200/30 hover:bg-blue-400/[0.14] hover:text-white",
+                              )}
                             >
                               <span>{text(proof.label)}</span>
                               <ArrowUpRight className="h-3.5 w-3.5" />
@@ -281,8 +290,8 @@ const SkillSection: FC = () => {
                             >
                               {text(proof.label)}
                             </span>
-                          ),
-                        )}
+                          );
+                        })}
                       </div>
                     </div>
                   </div>
