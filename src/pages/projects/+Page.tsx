@@ -14,6 +14,7 @@ const projectTabFiles: Record<string, string> = {
   lua: "init.lua",
   zig: "build.zig",
   typescript: "portfolio.tsx",
+  astro: "astro.config.mjs",
   "hackathon-projects": "team.md",
 };
 

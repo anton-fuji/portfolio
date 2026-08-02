@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 import type { LocalizedText } from "../../i18n";
 import { FaPeopleGroup, FaGolang } from "react-icons/fa6";
-import { SiLua } from "react-icons/si";
+import { SiAstro, SiLua } from "react-icons/si";
 import { BiLogoTypescript } from "react-icons/bi";
 import { SiZig } from "react-icons/si";
 
@@ -78,7 +78,7 @@ export const projectGroups: ProjectGroup[] = [
   {
     name: "Lua",
     slug: "lua",
-    accent: "from-sky-300 via-blue-500 to-indigo-500",
+    accent: "from-purple-300 via-violet-500 to-indigo-600",
     icon: <SiLua size={30} />,
     projects: [
       {
@@ -97,7 +97,7 @@ export const projectGroups: ProjectGroup[] = [
   {
     name: "Zig",
     slug: "zig",
-    accent: "from-blue-200 via-cyan-400 to-sky-600",
+    accent: "from-amber-200 via-amber-400 to-orange-500",
     icon: <SiZig size={30} />,
     projects: [
       {
@@ -129,6 +129,25 @@ export const projectGroups: ProjectGroup[] = [
         kind: "Portfolio",
         status: "active",
         tags: ["React", "Vike", "Tailwind CSS"],
+      },
+    ],
+  },
+  {
+    name: "Astro",
+    slug: "astro",
+    accent: "from-orange-300 via-rose-400 to-violet-500",
+    icon: <SiAstro size={30} />,
+    projects: [
+      {
+        name: "fuji.blog",
+        description: {
+          ja: "Astro で作った個人ブログ",
+          en: "My personal blog built with Astro.",
+        },
+        githuburl: "https://github.com/anton-fuji/fuji.blog",
+        kind: "Web App",
+        status: "active",
+        tags: ["Astro", "TypeScript", "Blog"],
       },
     ],
   },
