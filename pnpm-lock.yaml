@@ -46,10 +46,10 @@ importers:
         specifier: 1.9.4
         version: 1.9.4
       '@types/react':
-        specifier: ^19.0.10
+        specifier: ^19.2.18
         version: 19.2.18
       '@types/react-dom':
-        specifier: ^19.0.4
+        specifier: ^19.2.4
         version: 19.2.4(@types/react@19.2.18)
       '@types/three':
         specifier: ^0.185.0
@@ -67,7 +67,7 @@ importers:
         specifier: ^7.0.2
         version: 7.0.2
       vite:
-        specifier: ^8.2.0
+        specifier: ^8.1.4
         version: 8.2.0(esbuild@0.28.1)(jiti@2.7.0)
       vite-plugin-svgr:
         specifier: ^4.3.0
