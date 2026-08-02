@@ -67,7 +67,7 @@ importers:
         specifier: ^7.0.2
         version: 7.0.2
       vite:
-        specifier: ^8.1.4
+        specifier: ^8.2.0
         version: 8.2.0(esbuild@0.28.1)(jiti@2.7.0)
       vite-plugin-svgr:
         specifier: ^4.3.0
