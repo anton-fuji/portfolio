@@ -39,8 +39,8 @@ importers:
         specifier: 0.4.260
         version: 0.4.260(react-streaming@0.4.20(react-dom@19.2.8(react@19.2.8))(react@19.2.8))(srvx@0.11.22)(vite@8.2.1(esbuild@0.28.2)(jiti@2.7.0))
       vike-react:
-        specifier: ^0.6.1
-        version: 0.6.25(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(vike@0.4.260(react-streaming@0.4.20(react-dom@19.2.8(react@19.2.8))(react@19.2.8))(srvx@0.11.22)(vite@8.2.1(esbuild@0.28.2)(jiti@2.7.0)))
+        specifier: ^0.6.26
+        version: 0.6.26(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(vike@0.4.260(react-streaming@0.4.20(react-dom@19.2.8(react@19.2.8))(react@19.2.8))(srvx@0.11.22)(vite@8.2.1(esbuild@0.28.2)(jiti@2.7.0)))
     devDependencies:
       '@biomejs/biome':
         specifier: 1.9.4
@@ -1396,8 +1396,8 @@ packages:
   vanta@0.5.24:
     resolution: {integrity: sha512-fvieEbHy1ZS23zrcX+topzqAgA4Uct1enngOEWLFBgs9TtOf6RDFOYatH7KSVdrABzQDMCQ5myQy+nTSZZwLzg==}
 
-  vike-react@0.6.25:
-    resolution: {integrity: sha512-Jrl015u5WnLUhy8uxRjcuPGGAMW5Kb2FoRRKB9XnMEInS2+GW4qOHfzS5SYmlr6xzKjNn1z+eimfHN3N51E77g==}
+  vike-react@0.6.26:
+    resolution: {integrity: sha512-zkwEHeYqxqR7US72u/ga+udKzM2K9RmWaaYtZYGZndlbGEOgu92z8HIYWTZ3C+8Kls8zmp2NLNVU7wTmwGXTgg==}
     peerDependencies:
       react: '>=19'
       react-dom: '>=19'
@@ -2545,7 +2545,7 @@ snapshots:
 
   vanta@0.5.24: {}
 
-  vike-react@0.6.25(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(vike@0.4.260(react-streaming@0.4.20(react-dom@19.2.8(react@19.2.8))(react@19.2.8))(srvx@0.11.22)(vite@8.2.1(esbuild@0.28.2)(jiti@2.7.0))):
+  vike-react@0.6.26(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(vike@0.4.260(react-streaming@0.4.20(react-dom@19.2.8(react@19.2.8))(react@19.2.8))(srvx@0.11.22)(vite@8.2.1(esbuild@0.28.2)(jiti@2.7.0))):
     dependencies:
       react: 19.2.8
       react-dom: 19.2.8(react@19.2.8)
