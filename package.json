@@ -36,5 +36,10 @@
     "vike": "^0.4.229",
     "vite": "^8.1.4",
     "vite-plugin-svgr": "^4.3.0"
+  },
+  "overrides": {
+    "cosmiconfig": {
+      "js-yaml": "4.3.1"
+    }
   }
 }
