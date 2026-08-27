@@ -12,9 +12,13 @@ on:
     paths:
       - "src/**"
       - "package.json"
-      - "package-lock.json"
+      - "pnpm-lock.yaml"
+      - "pnpm-workspace.yaml"
       - ".npmrc"
       - ".github/**"
+      - "lefthook.yml"
+      - "AGENTS.md"
+      - "README.md"
       - "vite.config.ts"
       - "tsconfig*.json"
       - ".oxlintrc.json"
@@ -25,9 +29,13 @@ on:
     paths:
       - "src/**"
       - "package.json"
-      - "package-lock.json"
+      - "pnpm-lock.yaml"
+      - "pnpm-workspace.yaml"
       - ".npmrc"
       - ".github/**"
+      - "lefthook.yml"
+      - "AGENTS.md"
+      - "README.md"
       - "vite.config.ts"
       - "tsconfig*.json"
       - ".oxlintrc.json"
@@ -54,13 +62,13 @@ jobs:
 
       - parallel:
           - name: Format check
-            run: npm run format:check
+            run: pnpm run format:check
 
           - name: Lint
-            run: npm run lint
+            run: pnpm run lint
 
           - name: Type-check
-            run: npm run typecheck
+            run: pnpm run typecheck
 
           - name: Build
-            run: npm run build
+            run: pnpm run build

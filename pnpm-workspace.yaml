@@ -1,4 +1,3 @@
 allowBuilds:
-  "@biomejs/biome": true
   esbuild: true
-  lefthook: set this to true or false
+  lefthook: true

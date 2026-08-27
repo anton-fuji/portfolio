@@ -4,10 +4,10 @@
 
 ## 開発
 
-- CI は Node.js 20。依存関係は `package-lock.json` を正とし、インストールには `npm ci` を使う。
-- 開発サーバー: `npm run dev`
-- 標準検証: `npm run check`（format check、lint、typecheck、build）
-- 整形を更新する場合は、差分を確認してから `npm run format` を実行する。
+- CI は Node.js 20。依存関係は `pnpm-lock.yaml` を正とし、pnpm 11 を使う。
+- 開発サーバー: `pnpm run dev`
+- 標準検証: `pnpm run check`（format check、lint、typecheck、build）
+- 整形を更新する場合は、差分を確認してから `pnpm run format` を実行する。
 
 ## 構成
 
@@ -26,6 +26,6 @@
 
 ## 検証
 
-- 変更後は `npm run check` を実行する。
+- 変更後は `pnpm run check` を実行する。
 - UI 変更では `/`、`/articles`、`/projects`、`/certifications` を確認する。
 - 外部記事取得を変更した場合は、取得失敗時にも記事一覧が空にならないことを確認する。
