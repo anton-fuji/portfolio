@@ -9,6 +9,8 @@
     "lint:fix": "oxlint --fix",
     "format": "oxfmt --write .",
     "format:check": "oxfmt --check .",
+    "typecheck": "tsc -b",
+    "check": "npm run format:check && npm run lint && npm run typecheck && npm run build",
     "security:audit": "npm audit --audit-level=moderate",
     "security:check:indicators": "bash scripts/check-supply-chain-indicators.sh"
   },

@@ -1,5 +1,8 @@
 pre-commit:
   commands:
+    format:
+      glob: "*.{js,jsx,ts,tsx,json,jsonc,css}"
+      run: npm run format:check
     lint:
       glob: "*.{js,jsx,ts,tsx,json,jsonc,css}"
       run: npm run lint

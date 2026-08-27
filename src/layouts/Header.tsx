@@ -5,7 +5,13 @@ import LineSidebar from "../components/LineSidebar";
 import { useTranslation } from "../i18n";
 import { PERSONAL_INFO } from "../mydata/data";
 
-const navLinks = [
+type NavLink = {
+  key: "home" | "articles" | "blog" | "projects" | "certs";
+  href: string;
+  external?: boolean;
+};
+
+const navLinks: readonly NavLink[] = [
   { key: "home", href: "/" },
   { key: "articles", href: "/articles" },
   { key: "blog", href: "https://fuji-blog.netlify.app/", external: true },
