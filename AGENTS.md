@@ -4,7 +4,7 @@
 
 ## 開発
 
-- CI は Node.js 20。依存関係は `pnpm-lock.yaml` を正とし、pnpm 11 を使う。
+- CI は Node.js 24。依存関係は `pnpm-lock.yaml` を正とし、pnpm 11 を使う。
 - 開発サーバー: `pnpm run dev`
 - 標準検証: `pnpm run check`（format check、lint、typecheck、build）
 - 整形を更新する場合は、差分を確認してから `pnpm run format` を実行する。
