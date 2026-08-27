@@ -105,8 +105,7 @@ const LineSidebar = ({
       if (!el) {
         continue;
       }
-      const activeEffect =
-        !isDraggingRef.current && activeRef.current === i ? 1 : 0;
+      const activeEffect = !isDraggingRef.current && activeRef.current === i ? 1 : 0;
       const target = Math.max(targetsRef.current[i] || 0, activeEffect);
       const cur = currentRef.current[i] || 0;
       const next = cur + (target - cur) * k;
@@ -171,9 +170,7 @@ const LineSidebar = ({
 
       targetsRef.current = nextTargets;
       touchTargetRef.current =
-        closestIndex != null && (lockClosest || strongestEffect > 0)
-          ? closestIndex
-          : null;
+        closestIndex != null && (lockClosest || strongestEffect > 0) ? closestIndex : null;
       return touchTargetRef.current;
     },
     [falloff, proximityRadius],
@@ -205,10 +202,7 @@ const LineSidebar = ({
   const handlePointerMove = useCallback(
     (event: PointerEvent<HTMLUListElement>) => {
       event.stopPropagation();
-      if (
-        touchPointerIdRef.current != null &&
-        event.pointerId !== touchPointerIdRef.current
-      ) {
+      if (touchPointerIdRef.current != null && event.pointerId !== touchPointerIdRef.current) {
         return;
       }
 
@@ -244,10 +238,7 @@ const LineSidebar = ({
   const handlePointerUp = useCallback(
     (event: PointerEvent<HTMLUListElement>) => {
       event.stopPropagation();
-      if (
-        touchPointerIdRef.current == null ||
-        event.pointerId !== touchPointerIdRef.current
-      ) {
+      if (touchPointerIdRef.current == null || event.pointerId !== touchPointerIdRef.current) {
         return;
       }
 

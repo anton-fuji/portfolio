@@ -5,22 +5,22 @@ on:
     branches:
       - main
     paths:
-      - 'package.json'
-      - 'package-lock.json'
-      - '.npmrc'
-      - '.github/**'
-      - 'renovate.json'
+      - "package.json"
+      - "package-lock.json"
+      - ".npmrc"
+      - ".github/**"
+      - "renovate.json"
   push:
     branches:
       - main
     paths:
-      - 'package.json'
-      - 'package-lock.json'
-      - '.npmrc'
-      - '.github/**'
-      - 'renovate.json'
+      - "package.json"
+      - "package-lock.json"
+      - ".npmrc"
+      - ".github/**"
+      - "renovate.json"
   schedule:
-    - cron: '0 19 * * 0'
+    - cron: "0 19 * * 0"
   workflow_dispatch:
 
 permissions:

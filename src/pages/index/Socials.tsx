@@ -1,5 +1,7 @@
 import { QrCode, X } from "lucide-react";
 import { useEffect, useId, useState, type ElementType, type FC } from "react";
+import { SiNote, SiQiita } from "react-icons/si";
+
 import portfolioQr from "../../assets/cat-qr.png";
 import GithubIcon from "../../assets/icons/socials/github.svg?react";
 import XIcon from "../../assets/icons/socials/x.svg?react";
@@ -7,7 +9,6 @@ import ZennIcon from "../../assets/icons/socials/zenn.svg?react";
 import { useTranslation } from "../../i18n";
 import { SOCIAL_LINKS } from "../../mydata/data";
 import type { SocialIconName } from "../../types";
-import { SiNote, SiQiita } from "react-icons/si";
 
 const socialIconProps = {
   className: "h-5 w-5",

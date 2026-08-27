@@ -1,6 +1,6 @@
+import { gsap } from "gsap";
 import type { CSSProperties, FC, ReactNode } from "react";
 import { useEffect, useRef, useState } from "react";
-import { gsap } from "gsap";
 import { twMerge } from "tailwind-merge";
 
 type PixelTransitionProps = {
@@ -79,9 +79,7 @@ const PixelTransition: FC<PixelTransitionProps> = ({
     const activeEl = activeRef.current;
     if (!pixelGridEl || !activeEl) return;
 
-    const pixels = pixelGridEl.querySelectorAll<HTMLDivElement>(
-      ".pixelated-image-card__pixel",
-    );
+    const pixels = pixelGridEl.querySelectorAll<HTMLDivElement>(".pixelated-image-card__pixel");
     if (!pixels.length) return;
 
     gsap.killTweensOf(pixels);
@@ -131,7 +129,7 @@ const PixelTransition: FC<PixelTransitionProps> = ({
   };
 
   return (
-  // biome-ignore lint/a11y/useKeyWithClickEvents: decorative hover/focus effect; click is touch-only fallback
+    // biome-ignore lint/a11y/useKeyWithClickEvents: decorative hover/focus effect; click is touch-only fallback
     <div
       ref={containerRef}
       className={twMerge(

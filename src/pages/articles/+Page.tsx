@@ -1,6 +1,7 @@
 import { LuExternalLink } from "react-icons/lu";
-import { useData } from "vike-react/useData";
 import { twMerge } from "tailwind-merge";
+import { useData } from "vike-react/useData";
+
 import BackgroundGlobe from "../../components/BackgroundGlobe";
 import { useTranslation } from "../../i18n";
 import type { Data } from "./+data";
@@ -27,9 +28,7 @@ function Page() {
                 <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                   <div className="flex items-center gap-2">
                     <Icon className="h-6 w-6 text-white" />
-                    <h2 className={`text-3xl font-bold ${theme.title}`}>
-                      {theme.label}
-                    </h2>
+                    <h2 className={`text-3xl font-bold ${theme.title}`}>{theme.label}</h2>
                   </div>
 
                   <a
@@ -55,11 +54,7 @@ function Page() {
               <div className="container mx-auto px-8">
                 <div className="grid grid-cols-1 gap-8 sm:grid-cols-2">
                   {items.map((article) => (
-                    <ArticleCard
-                      key={article.url}
-                      article={article}
-                      theme={theme}
-                    />
+                    <ArticleCard key={article.url} article={article} theme={theme} />
                   ))}
                 </div>
               </div>

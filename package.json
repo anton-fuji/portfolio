@@ -6,7 +6,8 @@
     "build": "vike build",
     "preview": "vike preview",
     "lint": "biome lint",
-    "format": "biome format",
+    "format": "oxfmt --write .",
+    "format:check": "oxfmt --check .",
     "security:audit": "npm audit --audit-level=moderate",
     "security:check:indicators": "bash scripts/check-supply-chain-indicators.sh"
   },
@@ -31,6 +32,7 @@
     "@vitejs/plugin-react": "^5.2.0",
     "esbuild": "^0.28.1",
     "lefthook": "^2.1.10",
+    "oxfmt": "^0.61.0",
     "tailwindcss": "^4.1.4",
     "typescript": "^7.0.2",
     "vike": "^0.4.229",

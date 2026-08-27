@@ -1,9 +1,10 @@
 import type { ReactNode } from "react";
-import type { LocalizedText } from "../../i18n";
+import { BiLogoTypescript } from "react-icons/bi";
 import { FaPeopleGroup, FaGolang } from "react-icons/fa6";
 import { SiAstro, SiLua } from "react-icons/si";
-import { BiLogoTypescript } from "react-icons/bi";
 import { SiZig } from "react-icons/si";
+
+import type { LocalizedText } from "../../i18n";
 
 export interface ProjectGroup {
   name: string;

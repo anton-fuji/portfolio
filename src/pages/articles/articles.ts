@@ -105,9 +105,7 @@ async function fetchQiita(handle: string): Promise<Article[]> {
 }
 
 function fetchByPlatform(source: ArticleSource): Promise<Article[]> {
-  return source.platform === "Zenn"
-    ? fetchZenn(source.handle)
-    : fetchQiita(source.handle);
+  return source.platform === "Zenn" ? fetchZenn(source.handle) : fetchQiita(source.handle);
 }
 
 function byDateDesc(a: Article, b: Article): number {
@@ -131,9 +129,7 @@ export async function getArticles(): Promise<Article[]> {
       } catch {
         // fall through to the static list below
       }
-      return STATIC_FALLBACK.filter(
-        (a) => a.platform === source.platform,
-      ).slice(0, PER_PLATFORM);
+      return STATIC_FALLBACK.filter((a) => a.platform === source.platform).slice(0, PER_PLATFORM);
     }),
   );
   return grouped.flat();

@@ -1,11 +1,12 @@
-import { useState } from "react";
 import { Maximize2, Minimize2 } from "lucide-react";
+import { useState } from "react";
+
 import BackgroundGlobe from "../../components/BackgroundGlobe";
 import GlareHover from "../../components/GlareHover";
 import SpotlightCard from "../../components/SpotlightCard";
+import { useTranslation } from "../../i18n";
 import ProjectProcessRow from "./ProjectProcessRow";
 import projectGroups from "./Projects";
-import { useTranslation } from "../../i18n";
 
 export { Page };
 
@@ -37,21 +38,13 @@ function Page() {
     selectedGroupSlug === "all"
       ? projectGroups
       : projectGroups.filter((group) => group.slug === selectedGroupSlug);
-  const selectedGroup = projectGroups.find(
-    (group) => group.slug === selectedGroupSlug,
-  );
+  const selectedGroup = projectGroups.find((group) => group.slug === selectedGroupSlug);
   const selectedProjectCount =
-    selectedGroupSlug === "all"
-      ? totalProjectCount
-      : (selectedGroup?.projects.length ?? 0);
+    selectedGroupSlug === "all" ? totalProjectCount : (selectedGroup?.projects.length ?? 0);
   const selectedScope =
-    selectedGroupSlug === "all"
-      ? "workspace"
-      : (selectedGroup?.name ?? selectedGroupSlug);
+    selectedGroupSlug === "all" ? "workspace" : (selectedGroup?.name ?? selectedGroupSlug);
   const selectGroup = (slug: string) => {
-    setSelectedGroupSlug((currentSlug) =>
-      currentSlug === slug ? "all" : slug,
-    );
+    setSelectedGroupSlug((currentSlug) => (currentSlug === slug ? "all" : slug));
   };
 
   return (
@@ -79,15 +72,11 @@ function Page() {
                   <button
                     type="button"
                     aria-label={
-                      isTerminalExpanded
-                        ? t.projects.terminalCollapse
-                        : t.projects.terminalExpand
+                      isTerminalExpanded ? t.projects.terminalCollapse : t.projects.terminalExpand
                     }
                     aria-pressed={isTerminalExpanded}
                     title={
-                      isTerminalExpanded
-                        ? t.projects.terminalCollapse
-                        : t.projects.terminalExpand
+                      isTerminalExpanded ? t.projects.terminalCollapse : t.projects.terminalExpand
                     }
                     onClick={() => setIsTerminalExpanded((current) => !current)}
                     className="group grid h-5 w-5 place-items-center rounded-full transition-colors hover:bg-white/8 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300/70"
@@ -126,9 +115,7 @@ function Page() {
                     role="img"
                     className="project-libra-constellation pointer-events-none absolute top-4 right-5 hidden h-42 w-64 text-cyan-100/58 sm:block"
                   >
-                    <title id="libra-constellation-title">
-                      {t.projects.constellationTitle}
-                    </title>
+                    <title id="libra-constellation-title">{t.projects.constellationTitle}</title>
                     <path
                       className="project-libra-line"
                       d="M42 78 L102 74"
@@ -184,10 +171,7 @@ function Page() {
                     </g>
                   </svg>
                   <div className="mb-6">
-                    <p
-                      className="project-terminal-row"
-                      style={{ animationDelay: "0.2s" }}
-                    >
+                    <p className="project-terminal-row" style={{ animationDelay: "0.2s" }}>
                       <span className="text-sky-300">(*'-') &gt;</span>{" "}
                       <span
                         className="project-terminal-command text-slate-100"
@@ -205,10 +189,7 @@ function Page() {
                   </div>
 
                   <div className="mb-6">
-                    <p
-                      className="project-terminal-row"
-                      style={{ animationDelay: "1.72s" }}
-                    >
+                    <p className="project-terminal-row" style={{ animationDelay: "1.72s" }}>
                       <span className="text-sky-300">(*'-') &gt;</span>{" "}
                       <span
                         className="project-terminal-command text-slate-100"
@@ -226,10 +207,7 @@ function Page() {
                   </div>
 
                   <div className="mb-6 overflow-x-auto">
-                    <p
-                      className="project-terminal-row"
-                      style={{ animationDelay: "3.32s" }}
-                    >
+                    <p className="project-terminal-row" style={{ animationDelay: "3.32s" }}>
                       <span className="text-rose-300">(*;-;) &gt;</span>{" "}
                       <span
                         className="project-terminal-command text-slate-100"
@@ -255,8 +233,7 @@ function Page() {
                         className="project-terminal-row block"
                         style={{ animationDelay: "5.16s" }}
                       >
-                        fuji 1002 9.1 0.2 typescript portfolio and static
-                        frontend
+                        fuji 1002 9.1 0.2 typescript portfolio and static frontend
                       </span>
                       <span
                         className="project-terminal-row block"
@@ -284,13 +261,9 @@ function Page() {
                       className="project-terminal-error project-terminal-row text-rose-300"
                       style={{ animationDelay: "6.34s" }}
                     >
-                      [1] Segmentation fault (core dumped) ps aux | grep
-                      projects
+                      [1] Segmentation fault (core dumped) ps aux | grep projects
                     </p>
-                    <p
-                      className="project-terminal-row"
-                      style={{ animationDelay: "6.84s" }}
-                    >
+                    <p className="project-terminal-row" style={{ animationDelay: "6.84s" }}>
                       <span className="text-rose-300">(*;-;) &gt;</span>{" "}
                       <span
                         className="project-terminal-command text-slate-100"
@@ -308,10 +281,7 @@ function Page() {
                   </div>
 
                   <div>
-                    <p
-                      className="project-terminal-row"
-                      style={{ animationDelay: "8.28s" }}
-                    >
+                    <p className="project-terminal-row" style={{ animationDelay: "8.28s" }}>
                       <span className="text-sky-300">(*'-') &gt;</span>{" "}
                       <span
                         className="project-terminal-command text-slate-100"
@@ -321,10 +291,7 @@ function Page() {
                       </span>
                     </p>
                     <div className="mt-2 space-y-1 pl-4">
-                      <p
-                        className="project-terminal-row"
-                        style={{ animationDelay: "9.82s" }}
-                      >
+                      <p className="project-terminal-row" style={{ animationDelay: "9.82s" }}>
                         <span className="text-amber-200">[WARN]</span>{" "}
                         <span className="text-slate-400">
                           too many interests loaded into memory
@@ -339,10 +306,7 @@ function Page() {
                           stack overflow: side_projects exceeded ulimit
                         </span>
                       </p>
-                      <p
-                        className="project-terminal-row"
-                        style={{ animationDelay: "10.42s" }}
-                      >
+                      <p className="project-terminal-row" style={{ animationDelay: "10.42s" }}>
                         <span className="text-sky-300">[INFO]</span>{" "}
                         <span className="text-slate-400">
                           core dumped to: github.com/anton-fuji
@@ -362,19 +326,14 @@ function Page() {
           </GlareHover>
 
           <div className="project-editor-workspace">
-            <section
-              aria-label={t.projects.categories}
-              className="project-editor-tabs-shell"
-            >
+            <section aria-label={t.projects.categories} className="project-editor-tabs-shell">
               <div className="project-editor-tabs-titlebar">
                 <div aria-hidden className="project-editor-tabs-controls">
                   <span />
                   <span />
                   <span />
                 </div>
-                <span className="project-editor-tabs-title">
-                  ~/projects/filter
-                </span>
+                <span className="project-editor-tabs-title">~/projects/filter</span>
               </div>
 
               <ul className="project-editor-tabs">
@@ -387,12 +346,8 @@ function Page() {
                     data-active={selectedGroupSlug === "all"}
                   >
                     <span className="project-editor-tab__icon">＊</span>
-                    <span className="project-editor-tab__name">
-                      projects.code-workspace
-                    </span>
-                    <span className="project-editor-tab__count">
-                      {totalProjectCount}
-                    </span>
+                    <span className="project-editor-tab__name">projects.code-workspace</span>
+                    <span className="project-editor-tab__count">{totalProjectCount}</span>
                     <span className="project-editor-tab__close" aria-hidden>
                       ×
                     </span>
@@ -407,15 +362,11 @@ function Page() {
                       className="project-editor-tab"
                       data-active={selectedGroupSlug === group.slug}
                     >
-                      <span className="project-editor-tab__icon">
-                        {group.icon}
-                      </span>
+                      <span className="project-editor-tab__icon">{group.icon}</span>
                       <span className="project-editor-tab__name">
                         {projectTabFiles[group.slug] ?? `${group.slug}.md`}
                       </span>
-                      <span className="project-editor-tab__count">
-                        {group.projects.length}
-                      </span>
+                      <span className="project-editor-tab__count">{group.projects.length}</span>
                       <span className="project-editor-tab__close" aria-hidden>
                         ×
                       </span>
@@ -438,46 +389,42 @@ function Page() {
                   id={group.slug}
                   className="project-editor-file-panel relative scroll-mt-24 overflow-hidden font-mono"
                 >
-              <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(56,189,248,0.1),transparent_28%),linear-gradient(180deg,rgba(255,255,255,0.062),transparent_38%)]" />
-              <div className="pointer-events-none absolute inset-px rounded-lg border border-white/3" />
-              <div className="relative flex items-center justify-between gap-3 border-sky-300/10 border-b bg-[linear-gradient(90deg,rgba(2,6,23,0.78),rgba(15,23,42,0.68),rgba(2,6,23,0.74))] px-4 py-3 shadow-[inset_0_1px_0_rgba(255,255,255,0.022)]">
-                <div className="flex min-w-0 items-center gap-3">
-                  <span className="project-section-icon">
-                    {group.icon}
-                  </span>
-                  <h2 className="truncate text-sm font-semibold text-white sm:text-base">
-                    {group.name}
-                  </h2>
-                </div>
-                <span className="hidden bg-linear-to-r from-slate-600 via-sky-500/45 to-slate-500 bg-clip-text text-xs font-medium text-transparent drop-shadow-[0_0_8px_rgba(2,6,23,0.78)] sm:block">
-                  ~/projects/{group.slug}
-                </span>
-              </div>
+                  <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(56,189,248,0.1),transparent_28%),linear-gradient(180deg,rgba(255,255,255,0.062),transparent_38%)]" />
+                  <div className="pointer-events-none absolute inset-px rounded-lg border border-white/3" />
+                  <div className="relative flex items-center justify-between gap-3 border-sky-300/10 border-b bg-[linear-gradient(90deg,rgba(2,6,23,0.78),rgba(15,23,42,0.68),rgba(2,6,23,0.74))] px-4 py-3 shadow-[inset_0_1px_0_rgba(255,255,255,0.022)]">
+                    <div className="flex min-w-0 items-center gap-3">
+                      <span className="project-section-icon">{group.icon}</span>
+                      <h2 className="truncate text-sm font-semibold text-white sm:text-base">
+                        {group.name}
+                      </h2>
+                    </div>
+                    <span className="hidden bg-linear-to-r from-slate-600 via-sky-500/45 to-slate-500 bg-clip-text text-xs font-medium text-transparent drop-shadow-[0_0_8px_rgba(2,6,23,0.78)] sm:block">
+                      ~/projects/{group.slug}
+                    </span>
+                  </div>
 
-              <div className="project-editor-file-body">
-                <div className="project-file-list">
-                  <div className="project-file-list__header hidden sm:grid">
-                    <span>PID</span>
-                    <span>State</span>
-                    <span>{t.projects.table.name}</span>
-                    <span>{t.projects.table.type}</span>
-                    <span>{t.projects.table.output}</span>
-                    <span />
+                  <div className="project-editor-file-body">
+                    <div className="project-file-list">
+                      <div className="project-file-list__header hidden sm:grid">
+                        <span>PID</span>
+                        <span>State</span>
+                        <span>{t.projects.table.name}</span>
+                        <span>{t.projects.table.type}</span>
+                        <span>{t.projects.table.output}</span>
+                        <span />
+                      </div>
+                      <div className="project-file-list__rows">
+                        {group.projects.map((proj, projectIndex) => (
+                          <ProjectProcessRow
+                            key={proj.githuburl}
+                            project={proj}
+                            accent={group.accent}
+                            index={(projectOffsets.get(group.slug) ?? 0) + projectIndex}
+                          />
+                        ))}
+                      </div>
+                    </div>
                   </div>
-                  <div className="project-file-list__rows">
-                    {group.projects.map((proj, projectIndex) => (
-                      <ProjectProcessRow
-                        key={proj.githuburl}
-                        project={proj}
-                        accent={group.accent}
-                        index={
-                          (projectOffsets.get(group.slug) ?? 0) + projectIndex
-                        }
-                      />
-                    ))}
-                  </div>
-                </div>
-              </div>
                 </section>
               ))}
             </div>

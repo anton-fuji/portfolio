@@ -1,11 +1,12 @@
 // import { useState } from 'react'
 import { useEffect } from "react";
+
 import "../../styles/App.css";
-import { PERSONAL_INFO } from "../../mydata/data";
 // import Layout from '../../layouts';
 import BackgroundGlobe from "../../components/BackgroundGlobe";
-import HomeShowcase from "./HomeShowcase";
 import { useTranslation } from "../../i18n";
+import { PERSONAL_INFO } from "../../mydata/data";
+import HomeShowcase from "./HomeShowcase";
 export { Page };
 
 function Page() {

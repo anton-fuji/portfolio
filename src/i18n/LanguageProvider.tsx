@@ -1,10 +1,5 @@
-import {
-  useCallback,
-  useEffect,
-  useMemo,
-  useState,
-  type ReactNode,
-} from "react";
+import { useCallback, useEffect, useMemo, useState, type ReactNode } from "react";
+
 import {
   defaultLanguage,
   isLanguage,
@@ -46,16 +41,10 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
       toggleLanguage,
       t: translations[language],
       text: (localizedText) =>
-        typeof localizedText === "string"
-          ? localizedText
-          : localizedText[language],
+        typeof localizedText === "string" ? localizedText : localizedText[language],
     }),
     [language, setLanguage, toggleLanguage],
   );
 
-  return (
-    <LanguageContext.Provider value={value}>
-      {children}
-    </LanguageContext.Provider>
-  );
+  return <LanguageContext.Provider value={value}>{children}</LanguageContext.Provider>;
 }

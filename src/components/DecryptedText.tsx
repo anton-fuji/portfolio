@@ -14,8 +14,7 @@ type DecryptedTextProps = {
   encryptedClassName?: string;
 };
 
-const DEFAULT_CHARACTERS =
-  "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+const DEFAULT_CHARACTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
 
 const getPlaceholderChar = (index: number, characters: string): string =>
   characters[index % characters.length] ?? "";
@@ -27,19 +26,14 @@ const buildDisplayText = (
   characters: string,
   revealDirection: RevealDirection,
 ): string => {
-  const revealCount = Math.min(
-    text.length,
-    Math.floor((iteration / maxIterations) * text.length),
-  );
+  const revealCount = Math.min(text.length, Math.floor((iteration / maxIterations) * text.length));
 
   return [...text]
     .map((char, index) => {
       if (char === " ") return " ";
 
       const shouldReveal =
-        revealDirection === "start"
-          ? index < revealCount
-          : index >= text.length - revealCount;
+        revealDirection === "start" ? index < revealCount : index >= text.length - revealCount;
 
       if (shouldReveal || iteration >= maxIterations) return char;
 
@@ -75,15 +69,7 @@ const DecryptedText: FC<DecryptedTextProps> = ({
     const intervalId = window.setInterval(() => {
       iteration += 1;
 
-      setDisplayText(
-        buildDisplayText(
-          text,
-          iteration,
-          maxIterations,
-          characters,
-          revealDirection,
-        ),
-      );
+      setDisplayText(buildDisplayText(text, iteration, maxIterations, characters, revealDirection));
 
       if (iteration >= maxIterations) {
         window.clearInterval(intervalId);

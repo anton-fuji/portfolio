@@ -2,10 +2,11 @@ import type { FC } from "react";
 import { FaRegHeart } from "react-icons/fa6";
 import { LuExternalLink } from "react-icons/lu";
 import { twMerge } from "tailwind-merge";
+
 import GlareHover from "../../components/GlareHover";
 import SpotlightCard from "../../components/SpotlightCard";
-import type { PlatformTheme } from "./articleTheme";
 import type { Article } from "./articles";
+import type { PlatformTheme } from "./articleTheme";
 
 export type ArticleCardProps = {
   article: Article;
@@ -50,9 +51,7 @@ const ArticleCard: FC<ArticleCardProps> = ({ article, theme }) => {
                 {article.emoji}
               </span>
             ) : null}
-            <h3 className="min-w-0 break-words text-lg font-medium">
-              {article.title}
-            </h3>
+            <h3 className="min-w-0 break-words text-lg font-medium">{article.title}</h3>
             <LuExternalLink
               size={18}
               className="mt-1 ml-auto shrink-0 opacity-60 transition-opacity group-hover/article:opacity-90"

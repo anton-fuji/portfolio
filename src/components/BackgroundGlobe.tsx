@@ -18,8 +18,7 @@ const BackgroundGlobe: React.FC = () => {
         if (!window.THREE) {
           await new Promise((resolve, reject) => {
             const script = document.createElement("script");
-            script.src =
-              "https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js";
+            script.src = "https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js";
             script.onload = resolve;
             script.onerror = reject;
             document.head.appendChild(script);
@@ -29,8 +28,7 @@ const BackgroundGlobe: React.FC = () => {
         if (!window.VANTA) {
           await new Promise((resolve, reject) => {
             const script = document.createElement("script");
-            script.src =
-              "https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.globe.min.js";
+            script.src = "https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.globe.min.js";
             script.onload = resolve;
             script.onerror = reject;
             document.head.appendChild(script);

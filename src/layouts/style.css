@@ -1,12 +1,7 @@
 body {
   background-color: #0a0a0a; /* gray-900 */
   color: #fff;
-  font-family:
-    "Inter",
-    "Noto Sans JP",
-    "Hiragino Sans",
-    "Yu Gothic",
-    sans-serif;
+  font-family: "Inter", "Noto Sans JP", "Hiragino Sans", "Yu Gothic", sans-serif;
 }
 
 a {
@@ -35,14 +30,7 @@ a:hover {
   border-radius: 0;
   background: transparent;
   color: rgba(226, 232, 240, 0.92);
-  font-family:
-    "Inter",
-    ui-monospace,
-    SFMono-Regular,
-    Menlo,
-    Monaco,
-    Consolas,
-    monospace;
+  font-family: "Inter", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
   letter-spacing: 0;
   transition:
     opacity 0.2s ease,
@@ -241,9 +229,27 @@ a:hover {
   pointer-events: none;
   content: "";
   background:
-    linear-gradient(128deg, transparent 0 18%, rgba(125, 211, 252, 0.12) 18.1% 18.35%, transparent 18.45% 44%, rgba(129, 140, 248, 0.08) 44.1% 44.3%, transparent 44.45%),
-    linear-gradient(32deg, transparent 0 56%, rgba(226, 232, 240, 0.08) 56.1% 56.25%, transparent 56.35%),
-    repeating-linear-gradient(180deg, rgba(255, 255, 255, 0.012) 0, rgba(255, 255, 255, 0.012) 1px, transparent 1px, transparent 8px);
+    linear-gradient(
+      128deg,
+      transparent 0 18%,
+      rgba(125, 211, 252, 0.12) 18.1% 18.35%,
+      transparent 18.45% 44%,
+      rgba(129, 140, 248, 0.08) 44.1% 44.3%,
+      transparent 44.45%
+    ),
+    linear-gradient(
+      32deg,
+      transparent 0 56%,
+      rgba(226, 232, 240, 0.08) 56.1% 56.25%,
+      transparent 56.35%
+    ),
+    repeating-linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.012) 0,
+      rgba(255, 255, 255, 0.012) 1px,
+      transparent 1px,
+      transparent 8px
+    );
   opacity: 0.34;
   mask-image: linear-gradient(90deg, black 0%, black 58%, transparent 90%);
 }
@@ -276,7 +282,12 @@ a:hover {
   background-image:
     linear-gradient(rgba(125, 211, 252, 0.06) 1px, transparent 1px),
     linear-gradient(90deg, rgba(147, 197, 253, 0.045) 1px, transparent 1px),
-    repeating-linear-gradient(135deg, transparent 0 21px, rgba(226, 232, 240, 0.035) 21px 22px, transparent 22px 54px);
+    repeating-linear-gradient(
+      135deg,
+      transparent 0 21px,
+      rgba(226, 232, 240, 0.035) 21px 22px,
+      transparent 22px 54px
+    );
   background-position:
     0 0,
     0 0,
@@ -295,10 +306,24 @@ a:hover {
   pointer-events: none;
   content: "";
   background:
-    linear-gradient(180deg, transparent 0%, rgba(125, 211, 252, 0.4) 22%, rgba(129, 140, 248, 0.24) 48%, transparent 78%) 0 0 / 1px 100% no-repeat,
+    linear-gradient(
+        180deg,
+        transparent 0%,
+        rgba(125, 211, 252, 0.4) 22%,
+        rgba(129, 140, 248, 0.24) 48%,
+        transparent 78%
+      )
+      0 0 / 1px 100% no-repeat,
     linear-gradient(90deg, rgba(226, 232, 240, 0.11), transparent 16%) 0 6.5rem / 100% 1px no-repeat,
-    linear-gradient(90deg, rgba(125, 211, 252, 0.09), transparent 28%) 0 calc(100% - 5.6rem) / 100% 1px no-repeat,
-    repeating-linear-gradient(180deg, rgba(255, 255, 255, 0.01) 0, rgba(255, 255, 255, 0.01) 1px, transparent 1px, transparent 7px);
+    linear-gradient(90deg, rgba(125, 211, 252, 0.09), transparent 28%) 0 calc(100% - 5.6rem) / 100%
+      1px no-repeat,
+    repeating-linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.01) 0,
+      rgba(255, 255, 255, 0.01) 1px,
+      transparent 1px,
+      transparent 7px
+    );
   opacity: 0.42;
 }
 
@@ -389,13 +414,7 @@ a:hover {
     260px 220px,
     240px 190px,
     280px 230px;
-  mask-image: linear-gradient(
-    180deg,
-    transparent,
-    black 18%,
-    black 82%,
-    transparent
-  );
+  mask-image: linear-gradient(180deg, transparent, black 18%, black 82%, transparent);
   opacity: 0.28;
   animation: none;
 }
@@ -457,7 +476,13 @@ a:hover {
   pointer-events: none;
   content: "";
   background:
-    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.012) 0, rgba(255, 255, 255, 0.012) 1px, transparent 1px, transparent 26px),
+    repeating-linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.012) 0,
+      rgba(255, 255, 255, 0.012) 1px,
+      transparent 1px,
+      transparent 26px
+    ),
     linear-gradient(90deg, rgba(125, 211, 252, 0.06), transparent 26%, rgba(129, 140, 248, 0.045));
   opacity: 0.34;
   mask-image: linear-gradient(180deg, black 0%, transparent 82%);
@@ -471,14 +496,7 @@ a:hover {
   border-bottom: 1px solid rgba(148, 163, 184, 0.12);
   padding: 0.58rem 0.75rem;
   background: rgba(2, 6, 23, 0.36);
-  font-family:
-    "Inter",
-    ui-monospace,
-    SFMono-Regular,
-    Menlo,
-    Monaco,
-    Consolas,
-    monospace;
+  font-family: "Inter", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 }
 
 .project-editor-tabs-controls {
@@ -552,14 +570,7 @@ a:hover {
   border-right: 1px solid rgba(148, 163, 184, 0.12);
   background: rgba(15, 23, 42, 0.32);
   color: rgba(148, 163, 184, 0.86);
-  font-family:
-    "Inter",
-    ui-monospace,
-    SFMono-Regular,
-    Menlo,
-    Monaco,
-    Consolas,
-    monospace;
+  font-family: "Inter", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
   padding: 0.72rem 0.72rem 0.68rem;
   text-align: left;
   transition:
@@ -599,8 +610,7 @@ a:hover {
 
 .project-editor-tab[data-active="true"] {
   background:
-    linear-gradient(180deg, rgba(125, 211, 252, 0.07), transparent 42%),
-    rgba(2, 6, 23, 0.68);
+    linear-gradient(180deg, rgba(125, 211, 252, 0.07), transparent 42%), rgba(2, 6, 23, 0.68);
   color: rgba(248, 250, 252, 0.98);
 }
 
@@ -681,17 +691,9 @@ a:hover {
   gap: 0.35rem 1rem;
   padding: 0.48rem 0.75rem;
   background:
-    linear-gradient(90deg, rgba(14, 116, 144, 0.28), rgba(30, 41, 59, 0.36)),
-    rgba(2, 6, 23, 0.62);
+    linear-gradient(90deg, rgba(14, 116, 144, 0.28), rgba(30, 41, 59, 0.36)), rgba(2, 6, 23, 0.62);
   color: rgba(203, 213, 225, 0.78);
-  font-family:
-    "Inter",
-    ui-monospace,
-    SFMono-Regular,
-    Menlo,
-    Monaco,
-    Consolas,
-    monospace;
+  font-family: "Inter", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
   font-size: 0.68rem;
   font-weight: 650;
 }
@@ -712,7 +714,13 @@ a:hover {
   pointer-events: none;
   content: "";
   background:
-    repeating-linear-gradient(180deg, rgba(255, 255, 255, 0.01) 0, rgba(255, 255, 255, 0.01) 1px, transparent 1px, transparent 9px),
+    repeating-linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.01) 0,
+      rgba(255, 255, 255, 0.01) 1px,
+      transparent 1px,
+      transparent 9px
+    ),
     linear-gradient(90deg, rgba(125, 211, 252, 0.045), transparent 18%);
   opacity: 0.6;
 }
@@ -721,8 +729,7 @@ a:hover {
   border: 1px solid rgba(125, 211, 252, 0.095);
   border-radius: 3px;
   background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.022), transparent 4rem),
-    rgba(0, 0, 0, 0.12);
+    linear-gradient(180deg, rgba(255, 255, 255, 0.022), transparent 4rem), rgba(0, 0, 0, 0.12);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.022);
 }
 
@@ -757,8 +764,7 @@ a:hover {
   grid-template-columns: 4.2rem 5.7rem minmax(0, 1.08fr) 8.4rem minmax(0, 1fr) 2rem;
   border-bottom: 1px solid rgba(125, 211, 252, 0.1);
   background:
-    linear-gradient(90deg, rgba(15, 23, 42, 0.52), rgba(2, 6, 23, 0.24)),
-    rgba(255, 255, 255, 0.018);
+    linear-gradient(90deg, rgba(15, 23, 42, 0.52), rgba(2, 6, 23, 0.24)), rgba(255, 255, 255, 0.018);
   color: rgba(100, 116, 139, 0.9);
   font-size: 0.62rem;
   font-weight: 700;
@@ -779,8 +785,7 @@ a:hover {
   border-bottom: 1px solid rgba(125, 211, 252, 0.075);
   border-radius: 0;
   background:
-    linear-gradient(90deg, rgba(15, 23, 42, 0.22), transparent 72%),
-    rgba(255, 255, 255, 0.012);
+    linear-gradient(90deg, rgba(15, 23, 42, 0.22), transparent 72%), rgba(255, 255, 255, 0.012);
   box-shadow: none;
 }
 
@@ -796,19 +801,13 @@ a:hover {
   width: 1px;
   pointer-events: none;
   content: "";
-  background: linear-gradient(
-    180deg,
-    transparent,
-    rgba(100, 116, 139, 0.24),
-    transparent
-  );
+  background: linear-gradient(180deg, transparent, rgba(100, 116, 139, 0.24), transparent);
   opacity: 0.58;
 }
 
 .project-process-row:nth-child(even) {
   background:
-    linear-gradient(90deg, rgba(15, 23, 42, 0.18), transparent 72%),
-    rgba(255, 255, 255, 0.006);
+    linear-gradient(90deg, rgba(15, 23, 42, 0.18), transparent 72%), rgba(255, 255, 255, 0.006);
 }
 
 .project-process-pid {
