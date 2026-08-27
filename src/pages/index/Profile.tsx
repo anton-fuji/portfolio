@@ -1,10 +1,11 @@
 import type { FC } from "react";
+
 import ProfileIcon from "../../assets/fuji-icon.jpg";
 import gopherGif from "../../assets/gopher.gif";
 import DecryptedText from "../../components/DecryptedText";
 import PixelTransition from "../../components/PixelTransition";
-import { PERSONAL_INFO } from "../../mydata/data";
 import { useTranslation } from "../../i18n";
+import { PERSONAL_INFO } from "../../mydata/data";
 import Socials from "./Socials";
 
 const Profile: FC = () => {
@@ -20,13 +21,7 @@ const Profile: FC = () => {
           pixelColor="#07151d"
           animationStepDuration={0.45}
           className="relative h-44 w-44 rounded-full border border-cyan-400/25 shadow-2xl sm:h-52 sm:w-52"
-          firstContent={
-            <img
-              className="h-full w-full object-cover"
-              src={ProfileIcon}
-              alt=""
-            />
-          }
+          firstContent={<img className="h-full w-full object-cover" src={ProfileIcon} alt="" />}
           secondContent={
             <div className="flex h-full w-full items-center justify-center bg-[#07151d]">
               <img

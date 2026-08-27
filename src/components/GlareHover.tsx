@@ -1,10 +1,4 @@
-import {
-  type CSSProperties,
-  type FC,
-  type ReactNode,
-  useMemo,
-  useRef,
-} from "react";
+import { type CSSProperties, type FC, type ReactNode, useMemo, useRef } from "react";
 
 export type GlareHoverProps = {
   children: ReactNode;
@@ -50,10 +44,7 @@ const GlareHover: FC<GlareHoverProps> = ({
   playOnce = false,
 }) => {
   const overlayRef = useRef<HTMLDivElement>(null);
-  const rgba = useMemo(
-    () => toRgba(glareColor, glareOpacity),
-    [glareColor, glareOpacity],
-  );
+  const rgba = useMemo(() => toRgba(glareColor, glareOpacity), [glareColor, glareOpacity]);
 
   const move = (to: string) => {
     const el = overlayRef.current;

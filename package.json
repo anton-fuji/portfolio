@@ -1,13 +1,21 @@
 {
   "name": "portfolio",
   "type": "module",
+  "packageManager": "pnpm@11.16.0",
+  "engines": {
+    "node": ">=22.13"
+  },
   "scripts": {
     "dev": "vike dev",
     "build": "vike build",
     "preview": "vike preview",
-    "lint": "biome lint",
-    "format": "biome format",
-    "security:audit": "npm audit --audit-level=moderate",
+    "lint": "oxlint",
+    "lint:fix": "oxlint --fix",
+    "format": "oxfmt --write .",
+    "format:check": "oxfmt --check .",
+    "typecheck": "tsc -b",
+    "check": "pnpm run format:check && pnpm run lint && pnpm run typecheck && pnpm run build",
+    "security:audit": "pnpm audit --audit-level=moderate",
     "security:check:indicators": "bash scripts/check-supply-chain-indicators.sh"
   },
   "dependencies": {
@@ -24,13 +32,14 @@
     "vike-react": "^0.6.1"
   },
   "devDependencies": {
-    "@biomejs/biome": "1.9.4",
     "@types/react": "^19.0.10",
     "@types/react-dom": "^19.0.4",
     "@types/three": "^0.185.0",
     "@vitejs/plugin-react": "^5.2.0",
     "esbuild": "^0.28.1",
     "lefthook": "^2.1.10",
+    "oxfmt": "^0.61.0",
+    "oxlint": "^1.76.0",
     "tailwindcss": "^4.1.4",
     "typescript": "^7.0.2",
     "vike": "^0.4.229",

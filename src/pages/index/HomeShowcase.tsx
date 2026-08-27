@@ -1,5 +1,5 @@
-import Profile from "./Profile";
 import SkillSection from "../../components/SkillSection";
+import Profile from "./Profile";
 
 const HomeShowcase = () => {
   return (

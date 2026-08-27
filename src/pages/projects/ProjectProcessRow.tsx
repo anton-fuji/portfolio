@@ -1,11 +1,6 @@
+import { ArrowUpRight, Github, Package, TerminalSquare, Users } from "lucide-react";
 import type { FC } from "react";
-import {
-  ArrowUpRight,
-  Github,
-  Package,
-  TerminalSquare,
-  Users,
-} from "lucide-react";
+
 import { useTranslation } from "../../i18n";
 import type { Project } from "./Projects";
 
@@ -30,11 +25,7 @@ const getKindIcon = (kind: Project["kind"]) => {
   return <Package className="h-3.5 w-3.5" />;
 };
 
-const ProjectProcessRow: FC<ProjectProcessRowProps> = ({
-  project,
-  accent,
-  index,
-}) => {
+const ProjectProcessRow: FC<ProjectProcessRowProps> = ({ project, accent, index }) => {
   const repoPath = getRepoPath(project.githuburl);
   const pid = 1001 + index;
   const state = project.status ?? "active";
@@ -62,9 +53,7 @@ const ProjectProcessRow: FC<ProjectProcessRowProps> = ({
       <div className="project-process-command min-w-0">
         <div className="flex min-w-0 items-center gap-2">
           <Github className="h-4 w-4 shrink-0 text-slate-500 transition-colors group-hover:text-sky-200" />
-          <span className="truncate text-sm font-semibold text-white">
-            {project.name}
-          </span>
+          <span className="truncate text-sm font-semibold text-white">{project.name}</span>
         </div>
         <p className="project-process-repo mt-1 truncate">{repoPath}</p>
       </div>

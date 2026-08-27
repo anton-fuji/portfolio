@@ -1,10 +1,4 @@
-import {
-  useEffect,
-  type FC,
-  type MouseEvent,
-  type ReactNode,
-  useRef,
-} from "react";
+import { useEffect, type FC, type MouseEvent, type ReactNode, useRef } from "react";
 import { twMerge } from "tailwind-merge";
 
 export type SpotlightCardProps = {
@@ -53,14 +47,8 @@ const SpotlightCard: FC<SpotlightCardProps> = ({
       const rect = rectRef.current;
       const card = divRef.current;
       if (rect && card) {
-        card.style.setProperty(
-          "--spotlight-x",
-          `${pointerRef.current.x - rect.left}px`,
-        );
-        card.style.setProperty(
-          "--spotlight-y",
-          `${pointerRef.current.y - rect.top}px`,
-        );
+        card.style.setProperty("--spotlight-x", `${pointerRef.current.x - rect.left}px`);
+        card.style.setProperty("--spotlight-y", `${pointerRef.current.y - rect.top}px`);
       }
       frameRef.current = null;
     });

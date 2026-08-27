@@ -1,7 +1,8 @@
-import type React from "react";
-import { getSocialUrl, PERSONAL_INFO } from "../mydata/data";
 import { Github } from "lucide-react";
+import type React from "react";
+
 import { useTranslation } from "../i18n";
+import { getSocialUrl, PERSONAL_INFO } from "../mydata/data";
 
 const githubUrl = getSocialUrl("GitHub");
 const currentYear = new Date().getFullYear();

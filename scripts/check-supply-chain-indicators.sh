@@ -88,9 +88,9 @@ for node_modules_dir in "${node_modules_dirs[@]}"; do
 done | sort -u >"$tmpfile"
 
 if [ -s "$tmpfile" ]; then
-  echo "Potential npm supply-chain indicator files were found:" >&2
+  echo "Potential Node.js supply-chain indicator files were found:" >&2
   cat "$tmpfile" >&2
   exit 1
 fi
 
-echo "No npm supply-chain indicator files found."
+echo "No Node.js supply-chain indicator files found."

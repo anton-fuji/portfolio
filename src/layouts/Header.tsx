@@ -1,10 +1,17 @@
 import { useEffect, useState } from "react";
 import { usePageContext } from "vike-react/usePageContext";
+
 import LineSidebar from "../components/LineSidebar";
 import { useTranslation } from "../i18n";
 import { PERSONAL_INFO } from "../mydata/data";
 
-const navLinks = [
+type NavLink = {
+  key: "home" | "articles" | "blog" | "projects" | "certs";
+  href: string;
+  external?: boolean;
+};
+
+const navLinks: readonly NavLink[] = [
   { key: "home", href: "/" },
   { key: "articles", href: "/articles" },
   { key: "blog", href: "https://fuji-blog.netlify.app/", external: true },
@@ -92,29 +99,21 @@ export default function Header() {
       <header
         className={`fixed top-0 right-0 left-0 py-4 transition-all duration-500 ease-out md:py-6 ${
           isMobileMenuOpen ? "z-70" : "z-50"
-        } ${
-          isVisible ? "translate-y-0" : "-translate-y-full"
-        } ${
+        } ${isVisible ? "translate-y-0" : "-translate-y-full"} ${
           isScrolled
             ? "border-white/10 border-b bg-black/40 shadow-2xl backdrop-blur-2xl"
             : "border-transparent border-b bg-transparent"
         }`}
       >
         <div className="container mx-auto flex items-center justify-between px-4 md:px-6 lg:px-12">
-          <a
-            href="/"
-            className="relative z-50 text-xl font-semibold text-white md:text-2xl"
-          >
+          <a href="/" className="relative z-50 text-xl font-semibold text-white md:text-2xl">
             {PERSONAL_INFO.url}
           </a>
 
           <div className="desktop-header-nav items-center gap-5">
             <nav className="flex items-center gap-5 lg:gap-7">
               {navLinks.map(({ key, href, external }) => {
-                const isActive =
-                  href === "/"
-                    ? urlPathname === "/"
-                    : urlPathname.startsWith(href);
+                const isActive = href === "/" ? urlPathname === "/" : urlPathname.startsWith(href);
                 return (
                   <a
                     key={key}
@@ -142,10 +141,7 @@ export default function Header() {
                       </span>
                     )}
                     {isActive && (
-                      <span
-                        className="h-3 w-px animate-pulse bg-cyan-100"
-                        aria-hidden="true"
-                      />
+                      <span className="h-3 w-px animate-pulse bg-cyan-100" aria-hidden="true" />
                     )}
                   </a>
                 );
@@ -159,9 +155,7 @@ export default function Header() {
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             type="button"
-            className={`mobile-line-menu-button relative z-60 ${
-              isMobileMenuOpen ? "is-open" : ""
-            }`}
+            className={`mobile-line-menu-button relative z-60 ${isMobileMenuOpen ? "is-open" : ""}`}
             aria-label={isMobileMenuOpen ? t.menu.close : t.menu.open}
             aria-expanded={isMobileMenuOpen}
             aria-controls="mobile-line-sidebar"
