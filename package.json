@@ -38,7 +38,7 @@
     "@vitejs/plugin-react": "^5.2.0",
     "esbuild": "^0.28.1",
     "lefthook": "^2.1.10",
-    "oxfmt": "^0.61.0",
+    "oxfmt": "^0.64.0",
     "oxlint": "^1.76.0",
     "tailwindcss": "^4.1.4",
     "typescript": "^7.0.2",
