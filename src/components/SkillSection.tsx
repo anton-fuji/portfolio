@@ -125,6 +125,7 @@ const SkillSection: FC = () => {
                 const isActive = visibleSurfaceIndex === index;
 
                 return (
+                  // oxlint-disable-next-line jsx-a11y/no-noninteractive-element-interactions -- touch-only selection complements the nested proof links
                   <article
                     key={surface.id}
                     aria-label={text(surface.title)}

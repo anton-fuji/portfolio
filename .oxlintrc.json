@@ -1,0 +1,25 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "ignorePatterns": [
+    "node_modules/**",
+    "dist/**",
+    "package.json",
+    "**/*.js",
+    "tsconfig.app.json",
+    "tsconfig.node.json"
+  ],
+  "env": { "browser": true },
+  "plugins": ["eslint", "typescript", "unicorn", "oxc", "react", "jsx-a11y"],
+  "settings": { "react": { "version": "19.0" } },
+  "categories": { "correctness": "error" },
+  "rules": {
+    "no-unused-vars": "error",
+    "react/rules-of-hooks": "error",
+    "react/set-state-in-effect": "off",
+    "react/immutability": "off",
+    "react/refs": "off",
+    "jsx-a11y/click-events-have-key-events": "error",
+    "jsx-a11y/prefer-tag-over-role": "off",
+    "typescript/no-explicit-any": "off"
+  }
+}

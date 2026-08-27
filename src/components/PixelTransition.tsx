@@ -128,10 +128,18 @@ const PixelTransition: FC<PixelTransitionProps> = ({
     else if (!once) animatePixels(false);
   };
 
+  const handleKeyDown = (event: React.KeyboardEvent<HTMLDivElement>): void => {
+    if (event.key !== "Enter" && event.key !== " ") return;
+
+    event.preventDefault();
+    handleClick();
+  };
+
   return (
-    // biome-ignore lint/a11y/useKeyWithClickEvents: decorative hover/focus effect; click is touch-only fallback
     <div
       ref={containerRef}
+      role="button"
+      tabIndex={0}
       className={twMerge(
         "relative max-w-full overflow-hidden rounded-[15px] text-white",
         className,
@@ -139,7 +147,8 @@ const PixelTransition: FC<PixelTransitionProps> = ({
       style={style}
       onMouseEnter={!isTouchDevice ? handleEnter : undefined}
       onMouseLeave={!isTouchDevice ? handleLeave : undefined}
-      onClick={isTouchDevice ? handleClick : undefined}
+      onClick={handleClick}
+      onKeyDown={handleKeyDown}
       onFocus={!isTouchDevice ? handleEnter : undefined}
       onBlur={!isTouchDevice ? handleLeave : undefined}
     >
