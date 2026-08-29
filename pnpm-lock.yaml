@@ -36,11 +36,11 @@ importers:
         specifier: ^0.5.24
         version: 0.5.24
       vike:
-        specifier: 0.4.263
-        version: 0.4.263(react-streaming@0.4.20(react-dom@19.2.8(react@19.2.8))(react@19.2.8))(srvx@0.12.7)(vite@8.2.2(esbuild@0.28.2)(jiti@2.7.0))
+        specifier: 0.4.264
+        version: 0.4.264(react-streaming@0.4.20(react-dom@19.2.8(react@19.2.8))(react@19.2.8))(srvx@0.12.7)(vite@8.2.2(esbuild@0.28.2)(jiti@2.7.0))
       vike-react:
         specifier: ^0.6.1
-        version: 0.6.26(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(vike@0.4.263(react-streaming@0.4.20(react-dom@19.2.8(react@19.2.8))(react@19.2.8))(srvx@0.12.7)(vite@8.2.2(esbuild@0.28.2)(jiti@2.7.0)))
+        version: 0.6.26(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(vike@0.4.264(react-streaming@0.4.20(react-dom@19.2.8(react@19.2.8))(react@19.2.8))(srvx@0.12.7)(vite@8.2.2(esbuild@0.28.2)(jiti@2.7.0)))
     devDependencies:
       '@types/react':
         specifier: ^19.0.10
@@ -1689,8 +1689,8 @@ packages:
       react-dom: '>=19'
       vike: '>=0.4.250'
 
-  vike@0.4.263:
-    resolution: {integrity: sha512-OqYbAdo4B4DuSEb3elbd6Zn9P1bknrdYBAlJdZGjrrFpbD0DWSp0i2i4lVcb7kWvzGoKywj1aYzaK3xTlB57Wg==}
+  vike@0.4.264:
+    resolution: {integrity: sha512-Qo1LehZcdRu96JW6S4ZXU7DBZ5WVj3Y+IfJhopqUClNkRbDdstraYK/Y+PMKeMGpuPaDlImbZS//1Hto5OH9JQ==}
     engines: {node: '>=20.19.0'}
     hasBin: true
     peerDependencies:
@@ -3009,14 +3009,14 @@ snapshots:
 
   vanta@0.5.24: {}
 
-  vike-react@0.6.26(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(vike@0.4.263(react-streaming@0.4.20(react-dom@19.2.8(react@19.2.8))(react@19.2.8))(srvx@0.12.7)(vite@8.2.2(esbuild@0.28.2)(jiti@2.7.0))):
+  vike-react@0.6.26(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(vike@0.4.264(react-streaming@0.4.20(react-dom@19.2.8(react@19.2.8))(react@19.2.8))(srvx@0.12.7)(vite@8.2.2(esbuild@0.28.2)(jiti@2.7.0))):
     dependencies:
       react: 19.2.8
       react-dom: 19.2.8(react@19.2.8)
       react-streaming: 0.4.20(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      vike: 0.4.263(react-streaming@0.4.20(react-dom@19.2.8(react@19.2.8))(react@19.2.8))(srvx@0.12.7)(vite@8.2.2(esbuild@0.28.2)(jiti@2.7.0))
+      vike: 0.4.264(react-streaming@0.4.20(react-dom@19.2.8(react@19.2.8))(react@19.2.8))(srvx@0.12.7)(vite@8.2.2(esbuild@0.28.2)(jiti@2.7.0))
 
-  vike@0.4.263(react-streaming@0.4.20(react-dom@19.2.8(react@19.2.8))(react@19.2.8))(srvx@0.12.7)(vite@8.2.2(esbuild@0.28.2)(jiti@2.7.0)):
+  vike@0.4.264(react-streaming@0.4.20(react-dom@19.2.8(react@19.2.8))(react@19.2.8))(srvx@0.12.7)(vite@8.2.2(esbuild@0.28.2)(jiti@2.7.0)):
     dependencies:
       '@babel/core': 7.29.7
       '@babel/types': 7.29.8
