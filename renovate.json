@@ -2,12 +2,28 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": ["config:recommended"],
   "dependencyDashboard": false,
+  "timezone": "Asia/Tokyo",
+  "schedule": ["* 0-5 * * 1"],
   "minimumReleaseAge": "3 days",
+  "prConcurrentLimit": 3,
+  "prHourlyLimit": 2,
   "requiredStatusChecks": null,
   "major": {
     "enabled": false
   },
   "packageRules": [
+    {
+      "description": "Batch non-major npm updates into one weekly pull request",
+      "matchManagers": ["npm"],
+      "matchUpdateTypes": ["minor", "patch"],
+      "groupName": "npm non-major dependencies"
+    },
+    {
+      "description": "Batch GitHub Actions updates into one weekly pull request",
+      "matchManagers": ["github-actions"],
+      "matchUpdateTypes": ["minor", "patch", "digest"],
+      "groupName": "GitHub Actions updates"
+    },
     {
       "matchUpdateTypes": ["minor", "patch"],
       "automerge": true
