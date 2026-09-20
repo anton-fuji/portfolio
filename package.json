@@ -1,7 +1,7 @@
 {
   "name": "portfolio",
   "type": "module",
-  "packageManager": "pnpm@11.26.0",
+  "packageManager": "pnpm@11.27.0",
   "engines": {
     "node": ">=22.13"
   },
@@ -34,11 +34,11 @@
   "devDependencies": {
     "@types/react": "^19.0.10",
     "@types/react-dom": "^19.0.4",
-    "@types/three": "^0.185.0",
+    "@types/three": "^0.186.0",
     "@vitejs/plugin-react": "^5.2.0",
     "esbuild": "^0.28.1",
     "lefthook": "^2.1.10",
-    "oxfmt": "^0.67.0",
+    "oxfmt": "^0.68.0",
     "oxlint": "^1.76.0",
     "tailwindcss": "^4.1.4",
     "typescript": "^7.0.2",
