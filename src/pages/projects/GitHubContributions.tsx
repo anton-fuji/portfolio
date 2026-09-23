@@ -21,6 +21,13 @@ type ActivityData =
   | { status: "ready"; contributions: Contribution[]; years: number[] }
   | { status: "error" };
 
+type HoveredDay = {
+  text: string;
+  left: number;
+  top: number;
+  above: boolean;
+};
+
 const githubUrl = getSocialUrl("GitHub");
 const githubUsername = new URL(githubUrl).pathname.replace(/^\/+|\/+$/g, "");
 const contributionApiUrl = `https://github-contributions-api.jogruber.de/v4/${githubUsername}?y=all`;
@@ -110,6 +117,7 @@ function GitHubContributions() {
   const { t } = useTranslation();
   const [activityData, setActivityData] = useState<ActivityData>({ status: "loading" });
   const [selectedYear, setSelectedYear] = useState(() => new Date().getUTCFullYear());
+  const [hoveredDay, setHoveredDay] = useState<HoveredDay | null>(null);
   const currentYear = new Date().getUTCFullYear();
   const years = activityData.status === "ready" ? activityData.years : [selectedYear];
   const contributions = activityData.status === "ready" ? activityData.contributions : [];
@@ -121,6 +129,44 @@ function GitHubContributions() {
       contribution.date.startsWith(`${selectedYear}-`) ? total + contribution.count : total,
     0,
   );
+
+  const showDayTooltip = (day: CalendarDay, target: HTMLSpanElement) => {
+    const dayOfMonth = day.dateValue.getUTCDate();
+    const lastTwoDigits = dayOfMonth % 100;
+    const ordinal =
+      lastTwoDigits >= 11 && lastTwoDigits <= 13
+        ? "th"
+        : dayOfMonth % 10 === 1
+          ? "st"
+          : dayOfMonth % 10 === 2
+            ? "nd"
+            : dayOfMonth % 10 === 3
+              ? "rd"
+              : "th";
+    const month = new Intl.DateTimeFormat("en-US", {
+      month: "long",
+      timeZone: "UTC",
+    }).format(day.dateValue);
+    const date = `${month} ${dayOfMonth}${ordinal}`;
+    const text =
+      day.count === 0
+        ? `No contributions on ${date}.`
+        : `${day.count} contribution${day.count === 1 ? "" : "s"} on ${date}.`;
+    const bounds = target.getBoundingClientRect();
+    const above = bounds.top >= 64;
+    const estimatedWidth = Math.min(text.length * 7 + 24, window.innerWidth - 16);
+    const left = Math.min(
+      Math.max(bounds.left + bounds.width / 2, estimatedWidth / 2 + 8),
+      window.innerWidth - estimatedWidth / 2 - 8,
+    );
+
+    setHoveredDay({
+      text,
+      left,
+      top: above ? bounds.top - 6 : bounds.bottom + 6,
+      above,
+    });
+  };
 
   useEffect(() => {
     const controller = new AbortController();
@@ -203,21 +249,15 @@ function GitHubContributions() {
                       <span className="pr-1 text-right text-xs text-slate-400">{weekday}</span>
                       {weeks.map((week, weekIndex) => {
                         const day = week[dayIndex];
-                        const count = day?.count ?? 0;
-                        const tooltip = day
-                          ? `${day.dateValue.toLocaleDateString("en-US", {
-                              year: "numeric",
-                              month: "short",
-                              day: "numeric",
-                              timeZone: "UTC",
-                            })}: ${count} contribution${count === 1 ? "" : "s"}`
-                          : undefined;
                         const color = day?.isInYear ? levelColors[day.level] : "bg-transparent";
 
                         return (
                           <span
                             key={`${weekIndex}-${day?.date ?? dayIndex}`}
-                            title={tooltip}
+                            onMouseEnter={(event) => {
+                              if (day?.isInYear) showDayTooltip(day, event.currentTarget);
+                            }}
+                            onMouseLeave={() => setHoveredDay(null)}
                             className={`h-3 w-3 rounded-[3px] ${color}`}
                           />
                         );
@@ -243,7 +283,10 @@ function GitHubContributions() {
                 type="button"
                 aria-pressed={isSelected}
                 disabled={activityData.status !== "ready"}
-                onClick={() => setSelectedYear(year)}
+                onClick={() => {
+                  setHoveredDay(null);
+                  setSelectedYear(year);
+                }}
                 className={`min-w-14 rounded-md px-3 py-2 text-left text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-300/70 disabled:cursor-wait ${
                   isSelected
                     ? "bg-[#1f6feb] text-white shadow-[0_8px_24px_-14px_rgba(31,111,235,0.9)]"
@@ -256,6 +299,26 @@ function GitHubContributions() {
           })}
         </nav>
       </div>
+
+      {hoveredDay && (
+        <div
+          role="tooltip"
+          style={{
+            left: hoveredDay.left,
+            top: hoveredDay.top,
+            transform: `translate(-50%, ${hoveredDay.above ? "-100%" : "0"})`,
+          }}
+          className="pointer-events-none fixed z-50 max-w-[calc(100vw-1rem)] rounded-md border border-white/10 bg-[#161b22] px-3 py-1.5 text-sm whitespace-nowrap text-slate-100 shadow-lg shadow-black/30"
+        >
+          {hoveredDay.text}
+          <span
+            aria-hidden="true"
+            className={`absolute left-1/2 h-0 w-0 -translate-x-1/2 border-[5px] border-transparent ${
+              hoveredDay.above ? "top-full border-t-[#161b22]" : "bottom-full border-b-[#161b22]"
+            }`}
+          />
+        </div>
+      )}
     </section>
   );
 }
