@@ -120,7 +120,7 @@ function Page() {
                   <div className="relative flex items-center justify-between gap-3 border-sky-300/10 border-b bg-[linear-gradient(90deg,rgba(2,6,23,0.78),rgba(15,23,42,0.68),rgba(2,6,23,0.74))] px-4 py-3 shadow-[inset_0_1px_0_rgba(255,255,255,0.022)]">
                     <div className="flex min-w-0 items-center gap-3">
                       <span className="project-section-icon">{group.icon}</span>
-                      <h2 className="truncate text-sm font-semibold text-white sm:text-base">
+                      <h2 className="truncate font-mono text-sm font-semibold text-white sm:text-base">
                         {group.name}
                       </h2>
                     </div>

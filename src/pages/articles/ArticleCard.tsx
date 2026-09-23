@@ -51,7 +51,7 @@ const ArticleCard: FC<ArticleCardProps> = ({ article, theme }) => {
                 {article.emoji}
               </span>
             ) : null}
-            <h3 className="min-w-0 break-words text-lg font-medium">{article.title}</h3>
+            <h3 className="min-w-0 break-words font-mono text-lg font-medium">{article.title}</h3>
             <LuExternalLink
               size={18}
               className="mt-1 ml-auto shrink-0 opacity-60 transition-opacity group-hover/article:opacity-90"

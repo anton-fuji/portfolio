@@ -100,7 +100,7 @@ const Socials: FC = () => {
           />
           <div className="relative w-full max-w-sm overflow-hidden rounded-lg border border-white/10 bg-[#07151d]/95 p-5 text-white shadow-[0_24px_90px_rgba(0,0,0,0.45)]">
             <div className="mb-4 flex items-center justify-between gap-4">
-              <h2 id={titleId} className="text-lg font-semibold">
+              <h2 id={titleId} className="font-mono text-lg font-semibold">
                 {t.home.qrTitle}
               </h2>
               <button

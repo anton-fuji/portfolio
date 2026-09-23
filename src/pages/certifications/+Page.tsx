@@ -53,7 +53,7 @@ function Page() {
             <p className="mb-4 text-xs font-medium tracking-[0.28em] text-gray-500 uppercase">
               {t.certifications.eyebrow}
             </p>
-            <h1 className="text-4xl font-extrabold tracking-normal text-white sm:text-5xl">
+            <h1 className="font-mono text-4xl font-extrabold tracking-normal text-white sm:text-5xl">
               {t.certifications.title}
             </h1>
           </header>
@@ -63,7 +63,7 @@ function Page() {
             return (
               <section key={category} className="space-y-6">
                 <div className="border-blue-400/14 border-b pb-3">
-                  <h2 className="text-sm font-medium tracking-[0.2em] text-gray-300 uppercase">
+                  <h2 className="font-mono text-sm font-medium tracking-[0.2em] text-gray-300 uppercase">
                     {category}
                   </h2>
                 </div>
@@ -123,12 +123,12 @@ function Page() {
                               rel="noopener noreferrer"
                               className="text-white transition-colors hover:text-gray-300"
                             >
-                              <h3 className="text-[17px] leading-snug font-medium">
+                              <h3 className="font-mono text-[17px] leading-snug font-medium">
                                 {text(cert.name)}
                               </h3>
                             </a>
                           ) : (
-                            <h3 className="text-[17px] leading-snug font-medium">
+                            <h3 className="font-mono text-[17px] leading-snug font-medium">
                               {text(cert.name)}
                             </h3>
                           )}

@@ -84,7 +84,7 @@ const SkillSection: FC = () => {
           </p>
           <div className="mt-5 grid gap-8 lg:grid-cols-[minmax(0,1fr)_12rem] lg:items-end">
             <div>
-              <h2 className="max-w-4xl text-4xl font-semibold leading-[0.98] text-white sm:text-5xl lg:text-6xl">
+              <h2 className="max-w-4xl font-mono text-4xl font-semibold leading-[0.98] text-white sm:text-5xl lg:text-6xl">
                 {t.home.stackTitle}
               </h2>
               <p className="mt-6 max-w-3xl text-base leading-8 text-white/74 sm:text-lg">
@@ -186,7 +186,7 @@ const SkillSection: FC = () => {
                           <div>
                             <h3
                               className={twMerge(
-                                "text-2xl font-semibold leading-tight text-white/70 transition group-hover:text-white/92",
+                                "font-mono text-2xl font-semibold leading-tight text-white/70 transition group-hover:text-white/92",
                                 isActive && "text-white/92",
                               )}
                             >
