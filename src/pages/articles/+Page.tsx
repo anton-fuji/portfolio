@@ -28,7 +28,7 @@ function Page() {
                 <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                   <div className="flex items-center gap-2">
                     <Icon className="h-6 w-6 text-white" />
-                    <h2 className={`text-3xl font-bold ${theme.title}`}>{theme.label}</h2>
+                    <h2 className={`font-mono text-3xl font-bold ${theme.title}`}>{theme.label}</h2>
                   </div>
 
                   <a
