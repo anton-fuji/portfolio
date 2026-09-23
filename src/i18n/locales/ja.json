@@ -25,8 +25,6 @@
     "profileLink": "プロフィール"
   },
   "projects": {
-    "terminalCollapse": "ターミナルを縮小",
-    "terminalExpand": "ターミナルを拡大",
     "categories": "プロジェクトカテゴリ",
     "all": "All",
     "table": {
@@ -35,7 +33,6 @@
       "type": "Type",
       "output": "Output"
     },
-    "constellationTitle": "天秤座の星座",
     "contributionTitle": "My Deep Work",
     "contributionChartAlt": "GitHubコントリビューショングラフ",
     "contributionFallback": "グラフを読み込めませんでした。",
