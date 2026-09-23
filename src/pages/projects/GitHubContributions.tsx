@@ -289,7 +289,7 @@ function GitHubContributions() {
                 }}
                 className={`min-w-14 rounded-md px-3 py-2 text-left text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-300/70 disabled:cursor-wait ${
                   isSelected
-                    ? "bg-[#1f6feb] text-white shadow-[0_8px_24px_-14px_rgba(31,111,235,0.9)]"
+                    ? "bg-[#1f6feb]/65 text-white shadow-[0_8px_24px_-14px_rgba(31,111,235,0.65)] backdrop-blur-sm"
                     : "text-slate-400 hover:bg-white/5 hover:text-slate-100"
                 }`}
               >
