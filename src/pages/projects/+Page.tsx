@@ -5,6 +5,7 @@ import BackgroundGlobe from "../../components/BackgroundGlobe";
 import GlareHover from "../../components/GlareHover";
 import SpotlightCard from "../../components/SpotlightCard";
 import { useTranslation } from "../../i18n";
+import GitHubContributions from "./GitHubContributions";
 import ProjectProcessRow from "./ProjectProcessRow";
 import projectGroups from "./Projects";
 
@@ -429,6 +430,8 @@ function Page() {
               ))}
             </div>
           </div>
+
+          <GitHubContributions />
         </div>
       </div>
     </>

@@ -36,6 +36,9 @@
       "output": "Output"
     },
     "constellationTitle": "天秤座の星座",
+    "contributionTitle": "My Deep Work",
+    "contributionChartAlt": "GitHubコントリビューショングラフ",
+    "contributionFallback": "グラフを読み込めませんでした。",
     "kinds": {
       "CLI Tool": "CLI Tool",
       "Web App": "Web App",

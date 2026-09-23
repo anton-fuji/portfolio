@@ -36,6 +36,9 @@
       "output": "Output"
     },
     "constellationTitle": "Libra constellation",
+    "contributionTitle": "My Deep Work",
+    "contributionChartAlt": "GitHub contribution graph",
+    "contributionFallback": "The graph could not be loaded.",
     "kinds": {
       "CLI Tool": "CLI Tool",
       "Web App": "Web App",
