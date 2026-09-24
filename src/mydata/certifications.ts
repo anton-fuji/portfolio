@@ -1,6 +1,7 @@
 import aceImage from "../assets/icons/certifications/googlecloud-ace.png";
 import cdlImage from "../assets/icons/certifications/googlecloud-cdl.png";
 import daImage from "../assets/icons/certifications/googlecloud-data.png";
+import dbImage from "../assets/icons/certifications/googlecloud-database.png";
 import doImage from "../assets/icons/certifications/googlecloud-devops.png";
 import pcaImage from "../assets/icons/certifications/googlecloud-pca.png";
 import pcdImage from "../assets/icons/certifications/googlecloud-pcd.png";
@@ -65,6 +66,13 @@ export const CERTIFICATIONS: Certification[] = [
     organization: "Google Cloud",
     date: "2026-07",
     imageUrl: daImage,
+    category: "Google Cloud",
+  },
+  {
+    name: "Professional Cloud Database Engineer",
+    organization: "Google Cloud",
+    date: "2026-09",
+    imageUrl: dbImage,
     category: "Google Cloud",
   },
 ];
