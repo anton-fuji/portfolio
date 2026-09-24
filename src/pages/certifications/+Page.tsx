@@ -88,7 +88,7 @@ function Page() {
                               <img
                                 src={cert.imageUrl}
                                 alt={text(cert.name)}
-                                className="h-full w-full object-contain opacity-90 grayscale-18 transition duration-300 group-hover:opacity-100 group-hover:grayscale-0"
+                                className="h-full w-full object-contain opacity-90 grayscale-18 transition duration-300 ease-out group-hover:opacity-100 group-hover:grayscale-0 motion-safe:group-hover:scale-115 motion-reduce:transition-none"
                               />
                             </div>
                           ) : (
