@@ -1,13 +1,12 @@
 import { useEffect, useState } from "react";
 
 import { useTranslation } from "../../i18n";
-import { getSocialUrl } from "../../mydata/data";
-
-type Contribution = {
-  date: string;
-  count: number;
-  level: number;
-};
+import {
+  contributionApiUrl,
+  parseContributionData,
+  type Contribution,
+  type ContributionData,
+} from "./contributions";
 
 type CalendarDay = Contribution & {
   dateValue: Date;
@@ -18,7 +17,7 @@ type CalendarWeek = CalendarDay[];
 
 type ActivityData =
   | { status: "loading" }
-  | { status: "ready"; contributions: Contribution[]; years: number[] }
+  | ({ status: "ready" } & ContributionData)
   | { status: "error" };
 
 type HoveredDay = {
@@ -28,9 +27,6 @@ type HoveredDay = {
   above: boolean;
 };
 
-const githubUrl = getSocialUrl("GitHub");
-const githubUsername = new URL(githubUrl).pathname.replace(/^\/+|\/+$/g, "");
-const contributionApiUrl = `https://github-contributions-api.jogruber.de/v4/${githubUsername}?y=all`;
 const levelColors = [
   "bg-[#202126]",
   "bg-[#123960]",
@@ -38,51 +34,6 @@ const levelColors = [
   "bg-[#1878c9]",
   "bg-[#58a9f7]",
 ];
-
-const isRecord = (value: unknown): value is Record<string, unknown> =>
-  typeof value === "object" && value !== null;
-
-const isContribution = (value: unknown): value is Contribution => {
-  if (!isRecord(value)) return false;
-
-  return (
-    typeof value.date === "string" &&
-    /^\d{4}-\d{2}-\d{2}$/.test(value.date) &&
-    typeof value.count === "number" &&
-    Number.isInteger(value.count) &&
-    typeof value.level === "number" &&
-    Number.isInteger(value.level) &&
-    value.level >= 0 &&
-    value.level <= 4
-  );
-};
-
-function parseActivityData(payload: unknown) {
-  if (!isRecord(payload) || !Array.isArray(payload.contributions)) {
-    throw new Error("Contribution response was not valid");
-  }
-
-  const contributions = payload.contributions.filter(isContribution);
-  const currentYear = new Date().getUTCFullYear();
-  const availableYears = new Set<number>([currentYear]);
-
-  if (isRecord(payload.total)) {
-    for (const year of Object.keys(payload.total)) {
-      if (/^\d{4}$/.test(year)) {
-        availableYears.add(Number(year));
-      }
-    }
-  }
-
-  for (const contribution of contributions) {
-    availableYears.add(Number(contribution.date.slice(0, 4)));
-  }
-
-  return {
-    contributions,
-    years: [...availableYears].filter((year) => year <= currentYear).sort((a, b) => b - a),
-  };
-}
 
 function createCalendarWeeks(contributions: Contribution[], year: number): CalendarWeek[] {
   const januaryFirst = new Date(Date.UTC(year, 0, 1));
@@ -113,10 +64,14 @@ function createCalendarWeeks(contributions: Contribution[], year: number): Calen
   );
 }
 
-function GitHubContributions() {
+function GitHubContributions({ initialData }: { initialData: ContributionData | null }) {
   const { t } = useTranslation();
-  const [activityData, setActivityData] = useState<ActivityData>({ status: "loading" });
-  const [selectedYear, setSelectedYear] = useState(() => new Date().getUTCFullYear());
+  const [activityData, setActivityData] = useState<ActivityData>(() =>
+    initialData ? { status: "ready", ...initialData } : { status: "loading" },
+  );
+  const [selectedYear, setSelectedYear] = useState(
+    () => initialData?.years[0] ?? new Date().getUTCFullYear(),
+  );
   const [hoveredDay, setHoveredDay] = useState<HoveredDay | null>(null);
   const currentYear = new Date().getUTCFullYear();
   const years = activityData.status === "ready" ? activityData.years : [selectedYear];
@@ -171,13 +126,13 @@ function GitHubContributions() {
   useEffect(() => {
     const controller = new AbortController();
 
-    fetch(contributionApiUrl, { signal: controller.signal })
+    fetch(`${contributionApiUrl}?y=all`, { signal: controller.signal })
       .then(async (response) => {
         if (!response.ok) {
           throw new Error(`Contribution request failed: ${response.status}`);
         }
 
-        return parseActivityData(await response.json());
+        return parseContributionData(await response.json());
       })
       .then((data) => {
         setActivityData({ status: "ready", ...data });
@@ -187,7 +142,9 @@ function GitHubContributions() {
       })
       .catch(() => {
         if (!controller.signal.aborted) {
-          setActivityData({ status: "error" });
+          setActivityData((current) =>
+            current.status === "ready" ? current : { status: "error" },
+          );
         }
       });
 

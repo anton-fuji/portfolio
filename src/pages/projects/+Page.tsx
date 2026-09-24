@@ -1,7 +1,9 @@
 import { useState } from "react";
+import { useData } from "vike-react/useData";
 
 import BackgroundGlobe from "../../components/BackgroundGlobe";
 import { useTranslation } from "../../i18n";
+import type { Data } from "./+data";
 import GitHubContributions from "./GitHubContributions";
 import ProjectProcessRow from "./ProjectProcessRow";
 import projectGroups from "./Projects";
@@ -18,6 +20,7 @@ const projectTabFiles: Record<string, string> = {
 };
 
 function Page() {
+  const initialContributions = useData<Data>();
   const [selectedGroupSlug, setSelectedGroupSlug] = useState<string>("all");
   const { t } = useTranslation();
   const projectOffsets = new Map<string, number>();
@@ -49,7 +52,7 @@ function Page() {
       <BackgroundGlobe />
       <div className="px-6 py-24 sm:px-8">
         <div className="mx-auto max-w-6xl space-y-14">
-          <GitHubContributions />
+          <GitHubContributions initialData={initialContributions} />
 
           <div className="project-editor-workspace">
             <section aria-label={t.projects.categories} className="project-editor-tabs-shell">
