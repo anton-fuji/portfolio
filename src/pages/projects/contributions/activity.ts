@@ -1,4 +1,4 @@
-import { getSocialUrl } from "../../mydata/data";
+import { getSocialUrl } from "../../../mydata/data";
 
 export type Contribution = {
   date: string;

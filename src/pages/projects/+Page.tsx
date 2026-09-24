@@ -4,7 +4,7 @@ import { useData } from "vike-react/useData";
 import BackgroundGlobe from "../../components/BackgroundGlobe";
 import { useTranslation } from "../../i18n";
 import type { Data } from "./+data";
-import GitHubContributions from "./GitHubContributions";
+import GitHubContributions from "./contributions/GitHubContributions";
 import ProjectProcessRow from "./ProjectProcessRow";
 import projectGroups from "./Projects";
 

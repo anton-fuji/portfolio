@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 
-import { useTranslation } from "../../i18n";
+import { useTranslation } from "../../../i18n";
 import {
   contributionApiUrl,
   parseContributionData,
   type Contribution,
   type ContributionData,
-} from "./contributions";
+} from "./activity";
 
 type CalendarDay = Contribution & {
   dateValue: Date;
