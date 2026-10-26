@@ -153,10 +153,7 @@ export const ENGINEERING_SURFACES: EngineeringSurface[] = [
         en: "This portfolio as a small frontend playground",
       },
     ],
-    proofs: [
-      { label: { ja: "ポートフォリオのソース", en: "portfolio source" } },
-      { label: { ja: "ハッカソン作品", en: "hackathon products" } },
-    ],
+    proofs: [{ label: { ja: "ポートフォリオのソース", en: "portfolio source" } }],
     accent: "from-blue-300 to-indigo-400",
   },
   {

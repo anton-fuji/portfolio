@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 import { BiLogoTypescript } from "react-icons/bi";
-import { FaPeopleGroup, FaGolang } from "react-icons/fa6";
+import { FaGolang } from "react-icons/fa6";
 import { SiAstro, SiLua } from "react-icons/si";
 import { SiZig } from "react-icons/si";
 
@@ -149,36 +149,6 @@ export const projectGroups: ProjectGroup[] = [
         kind: "Web App",
         status: "active",
         tags: ["Astro", "TypeScript", "Blog"],
-      },
-    ],
-  },
-  {
-    name: "Hackathon Projects",
-    slug: "hackathon-projects",
-    accent: "from-indigo-300 via-sky-500 to-cyan-400",
-    icon: <FaPeopleGroup size={30} />,
-    projects: [
-      {
-        name: "Tech Hub",
-        description: {
-          ja: "RareTECH 受講生向けに作成した、記事プラットフォーム",
-          en: "An article platform built for RareTECH students.",
-        },
-        githuburl: "https://github.com/E-Team-Hackathon/TechHub",
-        kind: "Team Project",
-        status: "archived",
-        tags: ["Team", "Articles", "Community"],
-      },
-      {
-        name: "Chimy",
-        description: {
-          ja: "小学校向け 連絡帳チャットアプリ",
-          en: "A contact-book chat app for elementary schools.",
-        },
-        githuburl: "https://github.com/2024-Summer-Raretech-Team-F/chatapp",
-        kind: "Team Project",
-        status: "archived",
-        tags: ["Team", "Chat", "School"],
       },
     ],
   },
