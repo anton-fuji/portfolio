@@ -73,7 +73,7 @@ function GitHubContributions({ initialData }: { initialData: ContributionData | 
     () => initialData?.years[0] ?? new Date().getUTCFullYear(),
   );
   const [hoveredDay, setHoveredDay] = useState<HoveredDay | null>(null);
-  const currentYear = new Date().getUTCFullYear();
+  const [currentYear] = useState(() => new Date().getUTCFullYear());
   const years = activityData.status === "ready" ? activityData.years : [selectedYear];
   const contributions = activityData.status === "ready" ? activityData.contributions : [];
   const weeks = createCalendarWeeks(contributions, selectedYear);
