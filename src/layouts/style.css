@@ -1015,3 +1015,11 @@ a:hover {
     animation: none;
   }
 }
+
+/* Dissolve the dither panel into the page so it has no visible frame. */
+.veil-dissolve {
+  mask-image:
+    radial-gradient(ellipse 50% 50% at 50% 48%, black 52%, transparent 100%),
+    linear-gradient(180deg, black 70%, transparent);
+  mask-composite: intersect;
+}
