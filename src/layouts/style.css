@@ -872,3 +872,146 @@ a:hover {
     animation: none;
   }
 }
+
+/* 404: the gopher dug the wrong burrow */
+.not-found__scene {
+  font-size: clamp(6.5rem, 30vw, 12rem);
+  line-height: 0.74;
+  letter-spacing: -0.04em;
+}
+
+.not-found__digit {
+  display: block;
+  transform: translateY(0.015em);
+}
+
+.not-found__burrow {
+  position: relative;
+  display: block;
+  width: 0.82em;
+  height: 0.74em;
+  margin: 0 0.04em;
+  overflow: hidden;
+}
+
+.not-found__burrow::before {
+  position: absolute;
+  bottom: -0.07em;
+  left: 50%;
+  width: 0.7em;
+  height: 0.14em;
+  content: "";
+  border: 1px solid rgba(125, 211, 252, 0.28);
+  border-radius: 50%;
+  background: #01040b;
+  transform: translateX(-50%);
+}
+
+.not-found__gopher {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  display: block;
+  width: 0.6em;
+  height: 0.6em;
+  margin-left: -0.3em;
+  animation: not-found-gopher-pop 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) 0.25s both;
+}
+
+.not-found__ground {
+  height: 1px;
+  background: rgba(125, 211, 252, 0.32);
+  mask-image: linear-gradient(90deg, transparent, black 18%, black 82%, transparent);
+}
+
+.not-found__tunnels {
+  position: relative;
+  padding-top: 2rem;
+  background-image:
+    linear-gradient(180deg, transparent 30%, #0a0a0a),
+    radial-gradient(circle, rgba(148, 163, 184, 0.16) 0 1px, transparent 1.5px);
+  background-size:
+    100% 100%,
+    14px 14px;
+}
+
+.not-found__tunnels::before,
+.not-found__tunnels ul::before,
+.not-found__branch::before {
+  position: absolute;
+  content: "";
+  border-color: rgba(125, 211, 252, 0.34);
+  border-style: dashed;
+  border-width: 0;
+}
+
+.not-found__tunnels::before {
+  top: 0;
+  left: 50%;
+  height: 2rem;
+  border-left-width: 1px;
+  transform-origin: top;
+  animation: not-found-dig-y 0.3s ease-out 0.85s both;
+}
+
+.not-found__tunnels ul {
+  position: relative;
+}
+
+.not-found__tunnels ul::before {
+  top: 0;
+  right: calc(100% / 6);
+  left: calc(100% / 6);
+  border-top-width: 1px;
+  animation: not-found-dig-x 0.35s ease-out 1.15s both;
+}
+
+.not-found__branch {
+  position: relative;
+  padding-top: 1.5rem;
+}
+
+.not-found__branch::before {
+  top: 0;
+  left: 50%;
+  height: 1.5rem;
+  border-left-width: 1px;
+  transform-origin: top;
+  animation: not-found-dig-y 0.25s ease-out 1.5s both;
+}
+
+@keyframes not-found-gopher-pop {
+  from {
+    transform: translateY(105%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes not-found-dig-y {
+  from {
+    transform: scaleY(0);
+  }
+  to {
+    transform: scaleY(1);
+  }
+}
+
+@keyframes not-found-dig-x {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .not-found__gopher,
+  .not-found__tunnels::before,
+  .not-found__tunnels ul::before,
+  .not-found__branch::before {
+    animation: none;
+  }
+}

@@ -51,5 +51,12 @@
   },
   "footer": {
     "github": "View on GitHub"
+  },
+  "notFound": {
+    "title": "Page not found",
+    "body": "The URL may have changed, or the page was removed.",
+    "home": "Back to home",
+    "errorTitle": "Something went wrong",
+    "errorBody": "Please try again in a moment."
   }
 }
