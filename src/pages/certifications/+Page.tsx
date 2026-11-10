@@ -82,7 +82,7 @@ function Page() {
                         className="group flex h-full min-h-65 flex-col gap-5 border-blue-600/18 bg-black/15 p-5 shadow-xl/5 backdrop-blur-sm transition-shadow duration-300 hover:border-blue-500/25 hover:bg-black/25 hover:shadow-[0_0_24px_-10px_rgba(37,99,235,0.36)]"
                       >
                         <div className="relative flex h-28 items-center justify-center">
-                          <span className="absolute inset-x-8 top-1/2 h-16 -translate-y-1/2 rounded-full bg-sky-300/6 blur-2xl transition-opacity duration-300 group-hover:opacity-80" />
+                          <span className="absolute inset-x-8 top-1/2 h-16 -translate-y-1/2 rounded-full bg-indigo-300/6 blur-2xl transition-opacity duration-300 group-hover:opacity-80" />
                           {cert.imageUrl ? (
                             <div className="relative grid h-28 w-28 place-items-center">
                               <img
@@ -102,7 +102,7 @@ function Page() {
                                   FE
                                 </p>
                                 <p
-                                  className="mt-1.5 bg-linear-to-br from-white via-sky-100 to-slate-400 bg-clip-text text-[42px] leading-none font-bold tracking-[0.12em] text-transparent"
+                                  className="mt-1.5 bg-linear-to-br from-white via-indigo-100 to-slate-400 bg-clip-text text-[42px] leading-none font-bold tracking-[0.12em] text-transparent"
                                   style={{
                                     fontFamily:
                                       '"VAG Rounded", "Arial Rounded MT Bold", "Arial Rounded MT", "Helvetica Rounded", Arial, sans-serif',

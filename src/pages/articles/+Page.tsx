@@ -36,7 +36,7 @@ function Page() {
                     target="_blank"
                     rel="noopener noreferrer"
                     className={twMerge(
-                      "group inline-flex w-fit items-center gap-1.5 rounded-full border bg-white/[0.03] px-3 py-1.5 text-sm font-medium text-white/72 transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300/70",
+                      "group inline-flex w-fit items-center gap-1.5 rounded-full border bg-white/[0.03] px-3 py-1.5 text-sm font-medium text-white/72 transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-300/70",
                       theme.profileLink,
                     )}
                   >

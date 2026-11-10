@@ -47,8 +47,8 @@ a:hover {
   content: "";
   background: linear-gradient(
     90deg,
-    rgba(125, 211, 252, 0.58),
-    rgba(143, 180, 255, 0.28),
+    rgba(165, 180, 252, 0.58),
+    rgba(165, 180, 252, 0.28),
     transparent
   );
   opacity: 0.64;
@@ -85,8 +85,8 @@ a:hover {
 }
 
 .language-toggle:hover::after {
-  border-color: rgba(224, 242, 254, 0.88);
-  box-shadow: 0 0 10px rgba(125, 211, 252, 0.22);
+  border-color: rgba(224, 231, 255, 0.88);
+  box-shadow: 0 0 10px rgba(165, 180, 252, 0.22);
 }
 
 .language-toggle__label {
@@ -105,7 +105,7 @@ a:hover {
 .language-toggle__next {
   max-width: 0;
   overflow: hidden;
-  color: rgba(125, 211, 252, 0.58);
+  color: rgba(165, 180, 252, 0.58);
   font-size: 0.66rem;
   font-weight: 650;
   opacity: 0;
@@ -124,7 +124,7 @@ a:hover {
 }
 
 .language-toggle:focus-visible {
-  outline: 1px solid rgba(143, 180, 255, 0.62);
+  outline: 1px solid rgba(165, 180, 252, 0.62);
   outline-offset: 4px;
 }
 
@@ -150,7 +150,7 @@ a:hover {
   height: 1.5px;
   border-radius: 999px;
   background: currentColor;
-  box-shadow: 0 0 10px rgba(143, 180, 255, 0.14);
+  box-shadow: 0 0 10px rgba(165, 180, 252, 0.14);
   transition:
     opacity 0.2s ease,
     transform 0.24s ease,
@@ -177,7 +177,7 @@ a:hover {
 
 .mobile-line-menu-button:hover span,
 .mobile-line-menu-button.is-open span {
-  box-shadow: 0 0 13px rgba(143, 180, 255, 0.28);
+  box-shadow: 0 0 13px rgba(165, 180, 252, 0.28);
 }
 
 .mobile-line-menu-button.is-open span:nth-child(1) {
@@ -196,7 +196,7 @@ a:hover {
 
 .mobile-line-backdrop {
   background:
-    linear-gradient(115deg, rgba(14, 116, 144, 0.08), transparent 28%),
+    linear-gradient(115deg, rgba(67, 56, 202, 0.08), transparent 28%),
     linear-gradient(245deg, rgba(99, 102, 241, 0.08), transparent 36%),
     linear-gradient(180deg, rgba(0, 0, 0, 0.86), rgba(2, 6, 23, 0.94));
   backdrop-filter: blur(14px) saturate(1.04);
@@ -208,7 +208,7 @@ a:hover {
   pointer-events: none;
   content: "";
   background-image:
-    linear-gradient(rgba(125, 211, 252, 0.055) 1px, transparent 1px),
+    linear-gradient(rgba(165, 180, 252, 0.055) 1px, transparent 1px),
     linear-gradient(90deg, rgba(147, 197, 253, 0.04) 1px, transparent 1px),
     radial-gradient(circle, rgba(226, 232, 240, 0.18) 0 1px, transparent 1.4px);
   background-position:
@@ -232,7 +232,7 @@ a:hover {
     linear-gradient(
       128deg,
       transparent 0 18%,
-      rgba(125, 211, 252, 0.12) 18.1% 18.35%,
+      rgba(165, 180, 252, 0.12) 18.1% 18.35%,
       transparent 18.45% 44%,
       rgba(129, 140, 248, 0.08) 44.1% 44.3%,
       transparent 44.45%
@@ -258,13 +258,13 @@ a:hover {
   overflow: hidden;
   border-left: 1px solid rgba(148, 163, 184, 0.14);
   background:
-    linear-gradient(90deg, rgba(125, 211, 252, 0.055), transparent 24%),
+    linear-gradient(90deg, rgba(165, 180, 252, 0.055), transparent 24%),
     linear-gradient(180deg, rgba(3, 7, 18, 0.955), rgba(2, 6, 23, 0.99));
   box-shadow:
     -34px 0 96px rgba(0, 0, 0, 0.48),
     -12px 0 44px rgba(15, 23, 42, 0.28),
     inset 1px 0 0 rgba(255, 255, 255, 0.035),
-    inset 14px 0 32px rgba(14, 116, 144, 0.055);
+    inset 14px 0 32px rgba(67, 56, 202, 0.055);
   backdrop-filter: blur(30px) saturate(1.1);
   transform: translateX(105%);
   transition: transform 0.34s cubic-bezier(0.22, 1, 0.36, 1);
@@ -280,7 +280,7 @@ a:hover {
   pointer-events: none;
   content: "";
   background-image:
-    linear-gradient(rgba(125, 211, 252, 0.06) 1px, transparent 1px),
+    linear-gradient(rgba(165, 180, 252, 0.06) 1px, transparent 1px),
     linear-gradient(90deg, rgba(147, 197, 253, 0.045) 1px, transparent 1px),
     repeating-linear-gradient(
       135deg,
@@ -309,13 +309,13 @@ a:hover {
     linear-gradient(
         180deg,
         transparent 0%,
-        rgba(125, 211, 252, 0.4) 22%,
+        rgba(165, 180, 252, 0.4) 22%,
         rgba(129, 140, 248, 0.24) 48%,
         transparent 78%
       )
       0 0 / 1px 100% no-repeat,
     linear-gradient(90deg, rgba(226, 232, 240, 0.11), transparent 16%) 0 6.5rem / 100% 1px no-repeat,
-    linear-gradient(90deg, rgba(125, 211, 252, 0.09), transparent 28%) 0 calc(100% - 5.6rem) / 100%
+    linear-gradient(90deg, rgba(165, 180, 252, 0.09), transparent 28%) 0 calc(100% - 5.6rem) / 100%
       1px no-repeat,
     repeating-linear-gradient(
       180deg,
@@ -328,11 +328,11 @@ a:hover {
 }
 
 .mobile-line-sidebar-nav {
-  filter: drop-shadow(0 0 18px rgba(14, 116, 144, 0.2));
+  filter: drop-shadow(0 0 18px rgba(67, 56, 202, 0.2));
 }
 
 .mobile-line-sidebar-nav a:focus-visible {
-  outline: 1px solid rgba(143, 180, 255, 0.52);
+  outline: 1px solid rgba(165, 180, 252, 0.52);
   outline-offset: 7px;
 }
 
@@ -363,11 +363,11 @@ a:hover {
   height: 0;
   background: linear-gradient(
     180deg,
-    rgba(103, 232, 249, 0.52),
+    rgba(165, 180, 252, 0.52),
     rgba(147, 197, 253, 0.4),
     rgba(129, 140, 248, 0.32)
   );
-  box-shadow: 0 0 14px rgba(125, 211, 252, 0.28);
+  box-shadow: 0 0 14px rgba(165, 180, 252, 0.28);
   animation: skill-timeline-fill 28s linear infinite;
 }
 
@@ -377,13 +377,13 @@ a:hover {
   background: linear-gradient(
     180deg,
     transparent,
-    rgba(103, 232, 249, 0.18),
-    rgba(125, 211, 252, 0.62),
+    rgba(165, 180, 252, 0.18),
+    rgba(165, 180, 252, 0.62),
     rgba(147, 197, 253, 0.22),
     transparent
   );
   border-radius: 999px;
-  filter: drop-shadow(0 0 10px rgba(125, 211, 252, 0.46));
+  filter: drop-shadow(0 0 10px rgba(165, 180, 252, 0.46));
   opacity: 0.85;
   animation: skill-timeline-gradient 28s linear infinite;
 }
@@ -394,11 +394,11 @@ a:hover {
   border: 1px solid rgba(148, 163, 184, 0.14);
   border-radius: 8px;
   background:
-    linear-gradient(115deg, rgba(125, 211, 252, 0.035), transparent 36%),
+    linear-gradient(115deg, rgba(165, 180, 252, 0.035), transparent 36%),
     linear-gradient(180deg, rgba(15, 23, 42, 0.74), rgba(2, 6, 23, 0.58));
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.032),
-    0 22px 72px -58px rgba(56, 189, 248, 0.7);
+    0 22px 72px -58px rgba(129, 140, 248, 0.7);
   backdrop-filter: blur(20px);
 }
 
@@ -432,7 +432,7 @@ a:hover {
       transparent 1px,
       transparent 26px
     ),
-    linear-gradient(90deg, rgba(125, 211, 252, 0.06), transparent 26%, rgba(129, 140, 248, 0.045));
+    linear-gradient(90deg, rgba(165, 180, 252, 0.06), transparent 26%, rgba(129, 140, 248, 0.045));
   opacity: 0.34;
   mask-image: linear-gradient(180deg, black 0%, transparent 82%);
 }
@@ -463,7 +463,7 @@ a:hover {
 }
 
 .project-editor-tabs-controls span:nth-child(2) {
-  background: rgba(125, 211, 252, 0.5);
+  background: rgba(165, 180, 252, 0.5);
 }
 
 .project-editor-tabs-controls span:nth-child(3) {
@@ -486,11 +486,11 @@ a:hover {
   overflow-x: auto;
   margin: 0;
   padding: 0;
-  border-bottom: 1px solid rgba(125, 211, 252, 0.12);
+  border-bottom: 1px solid rgba(165, 180, 252, 0.12);
   background: rgba(2, 6, 23, 0.26);
   list-style: none;
   scrollbar-width: thin;
-  scrollbar-color: rgba(125, 211, 252, 0.24) transparent;
+  scrollbar-color: rgba(165, 180, 252, 0.24) transparent;
 }
 
 .project-editor-tabs li {
@@ -504,7 +504,7 @@ a:hover {
 
 .project-editor-tabs::-webkit-scrollbar-thumb {
   border-radius: 999px;
-  background: rgba(125, 211, 252, 0.22);
+  background: rgba(165, 180, 252, 0.22);
 }
 
 .project-editor-tab {
@@ -535,7 +535,7 @@ a:hover {
   height: 1px;
   pointer-events: none;
   content: "";
-  background: linear-gradient(90deg, transparent, rgba(125, 211, 252, 0.66), transparent);
+  background: linear-gradient(90deg, transparent, rgba(165, 180, 252, 0.66), transparent);
   opacity: 0;
   transition: opacity 0.18s ease;
 }
@@ -559,7 +559,7 @@ a:hover {
 
 .project-editor-tab[data-active="true"] {
   background:
-    linear-gradient(180deg, rgba(125, 211, 252, 0.07), transparent 42%), rgba(2, 6, 23, 0.68);
+    linear-gradient(180deg, rgba(165, 180, 252, 0.07), transparent 42%), rgba(2, 6, 23, 0.68);
   color: rgba(248, 250, 252, 0.98);
 }
 
@@ -573,7 +573,7 @@ a:hover {
 
 .project-editor-tab:focus-visible {
   z-index: 1;
-  outline: 1px solid rgba(143, 180, 255, 0.62);
+  outline: 1px solid rgba(165, 180, 252, 0.62);
   outline-offset: -2px;
 }
 
@@ -582,7 +582,7 @@ a:hover {
   width: 1.1rem;
   height: 1.1rem;
   place-items: center;
-  color: rgba(125, 211, 252, 0.78);
+  color: rgba(165, 180, 252, 0.78);
   font-size: 0.86rem;
 }
 
@@ -640,7 +640,7 @@ a:hover {
   gap: 0.35rem 1rem;
   padding: 0.48rem 0.75rem;
   background:
-    linear-gradient(90deg, rgba(14, 116, 144, 0.28), rgba(30, 41, 59, 0.36)), rgba(2, 6, 23, 0.62);
+    linear-gradient(90deg, rgba(67, 56, 202, 0.28), rgba(30, 41, 59, 0.36)), rgba(2, 6, 23, 0.62);
   color: rgba(203, 213, 225, 0.78);
   font-family: "Inter", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
   font-size: 0.68rem;
@@ -653,7 +653,7 @@ a:hover {
   gap: 0.9rem;
   padding: 0.9rem;
   background:
-    radial-gradient(circle at top right, rgba(56, 189, 248, 0.055), transparent 32%),
+    radial-gradient(circle at top right, rgba(129, 140, 248, 0.055), transparent 32%),
     linear-gradient(180deg, rgba(2, 6, 23, 0.62), rgba(2, 6, 23, 0.32));
 }
 
@@ -670,12 +670,12 @@ a:hover {
       transparent 1px,
       transparent 9px
     ),
-    linear-gradient(90deg, rgba(125, 211, 252, 0.045), transparent 18%);
+    linear-gradient(90deg, rgba(165, 180, 252, 0.045), transparent 18%);
   opacity: 0.6;
 }
 
 .project-editor-file-panel {
-  border: 1px solid rgba(125, 211, 252, 0.095);
+  border: 1px solid rgba(165, 180, 252, 0.095);
   border-radius: 3px;
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.022), transparent 4rem), rgba(0, 0, 0, 0.12);
@@ -711,7 +711,7 @@ a:hover {
 
 .project-file-list__header {
   grid-template-columns: 4.2rem 5.7rem minmax(0, 1.08fr) 8.4rem minmax(0, 1fr) 2rem;
-  border-bottom: 1px solid rgba(125, 211, 252, 0.1);
+  border-bottom: 1px solid rgba(165, 180, 252, 0.1);
   background:
     linear-gradient(90deg, rgba(15, 23, 42, 0.52), rgba(2, 6, 23, 0.24)), rgba(255, 255, 255, 0.018);
   color: rgba(100, 116, 139, 0.9);
@@ -731,7 +731,7 @@ a:hover {
   isolation: isolate;
   overflow: hidden;
   border: 0;
-  border-bottom: 1px solid rgba(125, 211, 252, 0.075);
+  border-bottom: 1px solid rgba(165, 180, 252, 0.075);
   border-radius: 0;
   background:
     linear-gradient(90deg, rgba(15, 23, 42, 0.22), transparent 72%), rgba(255, 255, 255, 0.012);
@@ -760,7 +760,7 @@ a:hover {
 }
 
 .project-process-pid {
-  color: rgba(125, 211, 252, 0.8);
+  color: rgba(165, 180, 252, 0.8);
   font-variant-numeric: tabular-nums;
 }
 
@@ -769,7 +769,7 @@ a:hover {
 }
 
 .project-process-row:hover .project-process-state {
-  color: rgba(125, 211, 252, 0.86);
+  color: rgba(165, 180, 252, 0.86);
 }
 
 .project-process-repo {
@@ -781,7 +781,7 @@ a:hover {
 }
 
 .project-process-kind svg {
-  color: rgba(125, 211, 252, 0.6);
+  color: rgba(165, 180, 252, 0.6);
 }
 
 .project-process-output {
@@ -789,7 +789,7 @@ a:hover {
 }
 
 .project-process-tags span {
-  color: rgba(125, 211, 252, 0.56);
+  color: rgba(165, 180, 252, 0.56);
 }
 
 @media (max-width: 639px) {
@@ -901,7 +901,7 @@ a:hover {
   width: 0.7em;
   height: 0.14em;
   content: "";
-  border: 1px solid rgba(125, 211, 252, 0.28);
+  border: 1px solid rgba(165, 180, 252, 0.28);
   border-radius: 50%;
   background: #01040b;
   transform: translateX(-50%);
@@ -920,7 +920,7 @@ a:hover {
 
 .not-found__ground {
   height: 1px;
-  background: rgba(125, 211, 252, 0.32);
+  background: rgba(165, 180, 252, 0.32);
   mask-image: linear-gradient(90deg, transparent, black 18%, black 82%, transparent);
 }
 
@@ -940,7 +940,7 @@ a:hover {
 .not-found__branch::before {
   position: absolute;
   content: "";
-  border-color: rgba(125, 211, 252, 0.34);
+  border-color: rgba(165, 180, 252, 0.34);
   border-style: dashed;
   border-width: 0;
 }

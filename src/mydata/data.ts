@@ -43,8 +43,8 @@ export const PERSONAL_INFO = {
     en: "My Portfolio",
   },
   description: {
-    ja: "20歳 | Software Engineer\n大阪で SWE してます。バックエンドとインフラをやりつつ、趣味で CLI を作ってます。\n好きなもの: Go / Rust / TypeScript / Neovim / WezTerm",
-    en: "20 y/o | Software Engineer\nOsaka-based SWE building backend systems, infrastructure, and developer tools.\nLikes: Go / Rust / TypeScript / Neovim / WezTerm",
+    ja: "21歳 | Software Engineer\n大阪で SWE してます。バックエンドとインフラをやりつつ、趣味で CLI を作ってます。\n好きなもの: Go / Rust / TypeScript / Neovim / WezTerm",
+    en: "21 y/o | Software Engineer\nOsaka-based SWE building backend systems, infrastructure, and developer tools.\nLikes: Go / Rust / TypeScript / Neovim / WezTerm",
   },
   location: "Osaka, Japan",
   url: "fuuji.site",
@@ -90,7 +90,7 @@ export const ENGINEERING_SURFACES: EngineeringSurface[] = [
       },
       { label: { ja: "Go の記事", en: "Go writeups" } },
     ],
-    accent: "from-cyan-300 to-blue-400",
+    accent: "from-indigo-300 to-blue-400",
   },
   {
     id: "cloud-delivery",
@@ -103,7 +103,14 @@ export const ENGINEERING_SURFACES: EngineeringSurface[] = [
       ja: "アプリを作って終わりにせず、どこで動かすか、どう安全に更新するか、データをどう扱うかまで含めて考えるのが好きです。",
       en: 'I try not to stop at "works on my machine." I care about where it runs, how it gets deployed, and how the data layer behaves in real use.',
     },
-    stack: ["GCP", "AWS", "Terraform", "Docker", "GitHub Actions", "PostgreSQL"],
+    stack: [
+      "GCP",
+      "AWS",
+      "Terraform",
+      "Docker",
+      "GitHub Actions",
+      "PostgreSQL",
+    ],
     signals: [
       {
         ja: "AWS / GCP のリソースを Terraform で構成",
@@ -129,7 +136,7 @@ export const ENGINEERING_SURFACES: EngineeringSurface[] = [
       },
       { label: { ja: "インフラ記事", en: "Infra writeups" } },
     ],
-    accent: "from-sky-300 to-blue-500",
+    accent: "from-indigo-300 to-blue-500",
   },
   {
     id: "product-frontend",
@@ -153,7 +160,9 @@ export const ENGINEERING_SURFACES: EngineeringSurface[] = [
         en: "This portfolio as a small frontend playground",
       },
     ],
-    proofs: [{ label: { ja: "ポートフォリオのソース", en: "portfolio source" } }],
+    proofs: [
+      { label: { ja: "ポートフォリオのソース", en: "portfolio source" } },
+    ],
     accent: "from-blue-300 to-indigo-400",
   },
   {
@@ -192,6 +201,6 @@ export const ENGINEERING_SURFACES: EngineeringSurface[] = [
         href: "https://fuji-blog.netlify.app/",
       },
     ],
-    accent: "from-indigo-300 to-cyan-400",
+    accent: "from-indigo-300 to-indigo-400",
   },
 ];

@@ -121,14 +121,14 @@ export default function Header() {
                     href={href}
                     target={external ? "_blank" : undefined}
                     rel={external ? "noopener noreferrer" : undefined}
-                    className={`group inline-flex items-center gap-1 font-mono text-[0.78rem] tracking-[0.08em] transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300/70 ${
+                    className={`group inline-flex items-center gap-1 font-mono text-[0.78rem] tracking-[0.08em] transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-300/70 ${
                       isActive
-                        ? "text-cyan-200 hover:text-cyan-100"
-                        : "text-slate-300/82 hover:text-cyan-100"
+                        ? "text-indigo-200 hover:text-indigo-100"
+                        : "text-slate-300/82 hover:text-indigo-100"
                     }`}
                   >
                     {isActive && (
-                      <span className="text-cyan-200" aria-hidden="true">
+                      <span className="text-indigo-200" aria-hidden="true">
                         &gt;
                       </span>
                     )}
@@ -142,7 +142,7 @@ export default function Header() {
                       </span>
                     )}
                     {isActive && (
-                      <span className="h-3 w-px animate-pulse bg-cyan-100" aria-hidden="true" />
+                      <span className="h-3 w-px animate-pulse bg-indigo-100" aria-hidden="true" />
                     )}
                   </a>
                 );
@@ -192,7 +192,7 @@ export default function Header() {
               items={mobileNavItems}
               itemHrefs={navLinks.map(({ href }) => href)}
               defaultActive={activeNavIndex >= 0 ? activeNavIndex : null}
-              accentColor="#8fb4ff"
+              accentColor="#a5b4fc"
               textColor="rgba(203, 213, 225, 0.72)"
               markerColor="rgba(100, 116, 139, 0.5)"
               markerLength={72}
