@@ -36,11 +36,11 @@ const ProjectProcessRow: FC<ProjectProcessRowProps> = ({ project, accent, index 
       href={project.githuburl}
       rel="noopener noreferrer"
       target="_blank"
-      className="project-process-row group relative grid gap-2 px-4 py-3 font-mono text-xs transition-colors hover:bg-sky-300/6.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-300/70 sm:grid-cols-[4.2rem_5.7rem_minmax(0,1.08fr)_8.4rem_minmax(0,1fr)_2rem] sm:items-center"
+      className="project-process-row group relative grid gap-2 px-4 py-3 font-mono text-xs transition-colors hover:bg-indigo-300/6.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-300/70 sm:grid-cols-[4.2rem_5.7rem_minmax(0,1.08fr)_8.4rem_minmax(0,1fr)_2rem] sm:items-center"
     >
       <span
         aria-hidden
-        className="pointer-events-none absolute inset-0 bg-linear-to-r from-white/[0.035] via-transparent to-sky-300/3 opacity-70 transition-opacity duration-300 group-hover:opacity-100"
+        className="pointer-events-none absolute inset-0 bg-linear-to-r from-white/[0.035] via-transparent to-indigo-300/3 opacity-70 transition-opacity duration-300 group-hover:opacity-100"
       />
       <span
         aria-hidden
@@ -52,7 +52,7 @@ const ProjectProcessRow: FC<ProjectProcessRowProps> = ({ project, accent, index 
 
       <div className="project-process-command min-w-0">
         <div className="flex min-w-0 items-center gap-2">
-          <Github className="h-4 w-4 shrink-0 text-slate-500 transition-colors group-hover:text-sky-200" />
+          <Github className="h-4 w-4 shrink-0 text-slate-500 transition-colors group-hover:text-indigo-200" />
           <span className="truncate text-sm font-semibold text-white">{project.name}</span>
         </div>
         <p className="project-process-repo mt-1 truncate">{repoPath}</p>
@@ -72,7 +72,7 @@ const ProjectProcessRow: FC<ProjectProcessRowProps> = ({ project, accent, index 
         </div>
       </div>
 
-      <ArrowUpRight className="hidden h-4 w-4 text-slate-600 transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-sky-200 sm:block" />
+      <ArrowUpRight className="hidden h-4 w-4 text-slate-600 transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-indigo-200 sm:block" />
     </a>
   );
 };

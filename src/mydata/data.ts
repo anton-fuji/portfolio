@@ -43,8 +43,8 @@ export const PERSONAL_INFO = {
     en: "My Portfolio",
   },
   description: {
-    ja: "20歳 | Software Engineer\n大阪で SWE してます。バックエンド、インフラ、趣味で CLI 作ってます。\n好きなもの: Go / Rust / TypeScript / Neovim / WezTerm",
-    en: "20 y/o | Software Engineer\nOsaka-based SWE building backend systems, infrastructure, and developer tools.\nLikes: Go / Rust / TypeScript / Neovim / WezTerm",
+    ja: "21歳 | Software Engineer\n大阪で SWE してます。バックエンドとインフラをやりつつ、趣味で CLI を作ってます。\n好きなもの: Go / Rust / TypeScript / Neovim / WezTerm",
+    en: "21 y/o | Software Engineer\nOsaka-based SWE building backend systems, infrastructure, and developer tools.\nLikes: Go / Rust / TypeScript / Neovim / WezTerm",
   },
   location: "Osaka, Japan",
   url: "fuuji.site",
@@ -57,14 +57,14 @@ export const ENGINEERING_SURFACES: EngineeringSurface[] = [
     id: "cli-systems",
     verb: "$ cat ~/dev/cli.md",
     title: {
-      ja: "小さな CLI で作業を軽くする",
+      ja: "小さな CLI で作業を楽にする",
       en: "Building CLIs for Fun",
     },
     description: {
-      ja: "日々の作業で少し面倒に感じることを、ターミナル上でさっと片付けられる道具にするのが好きです。エディタやシェルも含めて、自分の手になじむ開発環境を育てています。",
+      ja: "日々の作業で少し面倒に感じることを、ターミナル上でさっと片付けられる道具にするのが好きです。エディタやシェルも含めて、自分の手になじむ開発環境を少しずつ整えています。",
       en: "I like building small terminal tools for jobs that are too specific for a dashboard. Vim, Neovim, and CLI-heavy workflows are where I feel most at home.",
     },
-    stack: ["Go", "Rust", "Nix", "Linux", "Vim", "Neovim"],
+    stack: ["Go", "Rust", "Nix", "Linux", "Vim", "Neovim", "Claude Code", "Codex"],
     signals: [
       {
         ja: "techfeed で Qiita / Zenn の投稿を README に自動反映",
@@ -75,22 +75,26 @@ export const ENGINEERING_SURFACES: EngineeringSurface[] = [
         en: "gitviz turns commit history into a terminal view",
       },
       {
-        ja: "dibo / ztree では用途を絞った CLI の使い心地を調整",
+        ja: "dibo / ztree は用途を絞った CLI として使い心地を調整",
         en: "dibo / ztree are small CLIs where I tune the details",
       },
       {
-        ja: "Neovim やターミナルの体験も日々改善中",
+        ja: "Neovim やターミナルの使い勝手も日々改善中",
         en: "Neovim and terminal UX are a big part of how I work",
+      },
+      {
+        ja: "Claude Code / Codex を日々の開発に組み込み中",
+        en: "Claude Code and Codex are part of my daily workflow",
       },
     ],
     proofs: [
       {
         label: { ja: "CLI プロジェクト", en: "CLI projects" },
-        href: "/projects#Go",
+        href: "/projects#go",
       },
       { label: { ja: "Go の記事", en: "Go writeups" } },
     ],
-    accent: "from-cyan-300 to-blue-400",
+    accent: "from-indigo-300 to-blue-400",
   },
   {
     id: "cloud-delivery",
@@ -103,7 +107,7 @@ export const ENGINEERING_SURFACES: EngineeringSurface[] = [
       ja: "アプリを作って終わりにせず、どこで動かすか、どう安全に更新するか、データをどう扱うかまで含めて考えるのが好きです。",
       en: 'I try not to stop at "works on my machine." I care about where it runs, how it gets deployed, and how the data layer behaves in real use.',
     },
-    stack: ["GCP", "AWS", "Terraform", "Docker", "GitHub Actions", "PostgreSQL"],
+    stack: ["GCP", "AWS", "Turso", "Terraform", "Docker", "GitHub Actions", "PostgreSQL"],
     signals: [
       {
         ja: "AWS / GCP のリソースを Terraform で構成",
@@ -129,7 +133,7 @@ export const ENGINEERING_SURFACES: EngineeringSurface[] = [
       },
       { label: { ja: "インフラ記事", en: "Infra writeups" } },
     ],
-    accent: "from-sky-300 to-blue-500",
+    accent: "from-indigo-300 to-blue-500",
   },
   {
     id: "product-frontend",
@@ -149,7 +153,7 @@ export const ENGINEERING_SURFACES: EngineeringSurface[] = [
         en: "Static site setup built on Vite",
       },
       {
-        ja: "このポートフォリオで UI 表現やアニメーションを試しています",
+        ja: "このポートフォリオで UI 表現やアニメーションを実験中",
         en: "This portfolio as a small frontend playground",
       },
     ],
@@ -192,6 +196,6 @@ export const ENGINEERING_SURFACES: EngineeringSurface[] = [
         href: "https://fuji-blog.netlify.app/",
       },
     ],
-    accent: "from-indigo-300 to-cyan-400",
+    accent: "from-indigo-300 to-indigo-400",
   },
 ];

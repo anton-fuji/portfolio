@@ -117,16 +117,16 @@ function Page() {
                   id={group.slug}
                   className="project-editor-file-panel relative scroll-mt-24 overflow-hidden font-mono"
                 >
-                  <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(56,189,248,0.1),transparent_28%),linear-gradient(180deg,rgba(255,255,255,0.062),transparent_38%)]" />
+                  <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(129,140,248,0.1),transparent_28%),linear-gradient(180deg,rgba(255,255,255,0.062),transparent_38%)]" />
                   <div className="pointer-events-none absolute inset-px rounded-lg border border-white/3" />
-                  <div className="relative flex items-center justify-between gap-3 border-sky-300/10 border-b bg-[linear-gradient(90deg,rgba(2,6,23,0.78),rgba(15,23,42,0.68),rgba(2,6,23,0.74))] px-4 py-3 shadow-[inset_0_1px_0_rgba(255,255,255,0.022)]">
+                  <div className="relative flex items-center justify-between gap-3 border-indigo-300/10 border-b bg-[linear-gradient(90deg,rgba(2,6,23,0.78),rgba(15,23,42,0.68),rgba(2,6,23,0.74))] px-4 py-3 shadow-[inset_0_1px_0_rgba(255,255,255,0.022)]">
                     <div className="flex min-w-0 items-center gap-3">
                       <span className="project-section-icon">{group.icon}</span>
                       <h2 className="truncate font-mono text-sm font-semibold text-white sm:text-base">
                         {group.name}
                       </h2>
                     </div>
-                    <span className="hidden bg-linear-to-r from-slate-600 via-sky-500/45 to-slate-500 bg-clip-text text-xs font-medium text-transparent drop-shadow-[0_0_8px_rgba(2,6,23,0.78)] sm:block">
+                    <span className="hidden bg-linear-to-r from-slate-600 via-indigo-500/45 to-slate-500 bg-clip-text text-xs font-medium text-transparent drop-shadow-[0_0_8px_rgba(2,6,23,0.78)] sm:block">
                       ~/projects/{group.slug}
                     </span>
                   </div>

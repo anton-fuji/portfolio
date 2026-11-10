@@ -15,11 +15,11 @@
   "home": {
     "title": "My Portfolio",
     "stackTitle": "My Tech Stack",
-    "stackSummary": "Go や TypeScript を軸に、バックエンドからインフラまで設計・実装しています。",
+    "stackSummary": "主に Go と TypeScript で、バックエンドからインフラまで設計・実装しています。",
     "stackNote": "Database、Docker、Terraform、ターミナル環境など、実装と運用の境目にある技術が好きです。",
     "stackCta": "Projects を見る",
     "qrTitle": "サイトを開く",
-    "qrAlt": "fuuji.site へ遷移する QR コード"
+    "qrAlt": "fuuji.site を開く QR コード"
   },
   "articles": {
     "profileLink": "プロフィール"
@@ -51,5 +51,12 @@
   },
   "footer": {
     "github": "GitHub で見る"
+  },
+  "notFound": {
+    "title": "ページが見つかりません",
+    "body": "URL が変わったか、ページが削除された可能性があります。",
+    "home": "ホームに戻る",
+    "errorTitle": "エラーが発生しました",
+    "errorBody": "時間をおいて、もう一度開いてください。"
   }
 }

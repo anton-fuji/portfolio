@@ -1,21 +1,11 @@
 // import { useState } from 'react'
-import { useEffect } from "react";
-
 import "../../styles/App.css";
 // import Layout from '../../layouts';
 import BackgroundGlobe from "../../components/BackgroundGlobe";
-import { useTranslation } from "../../i18n";
-import { PERSONAL_INFO } from "../../mydata/data";
 import HomeShowcase from "./HomeShowcase";
 export { Page };
 
 function Page() {
-  const { text } = useTranslation();
-
-  useEffect(() => {
-    document.title = `${PERSONAL_INFO.name} | ${text(PERSONAL_INFO.title)}`;
-  }, [text]);
-
   return (
     <div className="relative min-h-screen overflow-hidden">
       <BackgroundGlobe />

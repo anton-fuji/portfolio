@@ -2,7 +2,9 @@ import { ArrowUpRight } from "lucide-react";
 import { useEffect, useState, type FC } from "react";
 import type { IconType } from "react-icons";
 import { FaAws } from "react-icons/fa6";
+import { RiOpenaiFill } from "react-icons/ri";
 import {
+  SiClaude,
   SiDocker,
   SiGithubactions,
   SiGo,
@@ -17,6 +19,7 @@ import {
   SiRust,
   SiTailwindcss,
   SiTerraform,
+  SiTurso,
   SiTypescript,
   SiVite,
   SiVim,
@@ -35,9 +38,12 @@ const techIcons = {
   Linux: SiLinux,
   Vim: SiVim,
   Neovim: SiNeovim,
+  "Claude Code": SiClaude,
+  Codex: RiOpenaiFill,
   PostgreSQL: SiPostgresql,
   GCP: SiGooglecloud,
   AWS: FaAws,
+  Turso: SiTurso,
   Terraform: SiTerraform,
   Docker: SiDocker,
   "GitHub Actions": SiGithubactions,
@@ -60,6 +66,10 @@ const SkillSection: FC = () => {
   const visibleSurfaceIndex = selectedSurfaceIndex ?? hoveredSurfaceIndex ?? globeSurfaceIndex;
 
   useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      return;
+    }
+
     const startedAt = window.performance.now();
     const segmentMs = timelineCycleMs / ENGINEERING_SURFACES.length;
 
@@ -78,8 +88,8 @@ const SkillSection: FC = () => {
     <section className="px-4 py-20 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-6xl">
         <div className="mb-8 px-1 sm:px-2 lg:px-0">
-          <p className="inline-flex items-center gap-2 font-mono text-[0.72rem] text-sky-100/45">
-            <span className="h-px w-8 bg-gradient-to-r from-cyan-200/55 to-transparent" />
+          <p className="inline-flex items-center gap-2 font-mono text-[0.72rem] text-indigo-100/45">
+            <span className="h-px w-8 bg-gradient-to-r from-indigo-200/55 to-transparent" />
             <span>~/stack</span>
           </p>
           <div className="mt-5 grid gap-8 lg:grid-cols-[minmax(0,1fr)_12rem] lg:items-end">
@@ -95,24 +105,24 @@ const SkillSection: FC = () => {
 
             <a
               href="/projects"
-              className="stack-project-link group relative inline-flex w-fit items-center gap-3 overflow-hidden py-2 pr-1 pl-0 font-mono text-sm font-semibold text-sky-100/68 transition duration-300 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300/60 lg:justify-self-end"
+              className="stack-project-link group relative inline-flex w-fit items-center gap-3 overflow-hidden py-2 pr-1 pl-0 font-mono text-sm font-semibold text-indigo-100/68 transition duration-300 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-300/60 lg:justify-self-end"
             >
-              <span className="pointer-events-none absolute bottom-0 left-0 h-px w-full bg-gradient-to-r from-cyan-200/72 via-blue-300/34 to-transparent" />
-              <span className="stack-project-link-scan pointer-events-none absolute bottom-0 left-0 h-px w-10 bg-cyan-100/78 blur-[0.5px]" />
-              <span className="pointer-events-none absolute bottom-0 left-0 h-3 w-14 bg-cyan-300/[0.055] blur-md transition duration-300 group-hover:w-full group-hover:bg-cyan-200/[0.08]" />
-              <span className="pointer-events-none absolute top-1/2 right-0 h-px w-5 -translate-y-1/2 bg-cyan-100/28 opacity-70 transition duration-300 group-hover:w-8 group-hover:bg-cyan-100/55" />
-              <span className="relative text-[0.68rem] tracking-[0.2em] text-cyan-100/38 transition group-hover:text-cyan-100/62">
+              <span className="pointer-events-none absolute bottom-0 left-0 h-px w-full bg-gradient-to-r from-indigo-200/72 via-blue-300/34 to-transparent" />
+              <span className="stack-project-link-scan pointer-events-none absolute bottom-0 left-0 h-px w-10 bg-indigo-100/78 blur-[0.5px]" />
+              <span className="pointer-events-none absolute bottom-0 left-0 h-3 w-14 bg-indigo-300/[0.055] blur-md transition duration-300 group-hover:w-full group-hover:bg-indigo-200/[0.08]" />
+              <span className="pointer-events-none absolute top-1/2 right-0 h-px w-5 -translate-y-1/2 bg-indigo-100/28 opacity-70 transition duration-300 group-hover:w-8 group-hover:bg-indigo-100/55" />
+              <span className="relative text-[0.68rem] tracking-[0.2em] text-indigo-100/38 transition group-hover:text-indigo-100/62">
                 cd
               </span>
               <span className="relative whitespace-nowrap pr-8">~/projects</span>
-              <span className="stack-project-link-cursor relative -ml-7 h-4 w-[7px] bg-cyan-100/56 transition group-hover:bg-cyan-100/80" />
+              <span className="stack-project-link-cursor relative -ml-7 h-4 w-[7px] bg-indigo-100/56 transition group-hover:bg-indigo-100/80" />
             </a>
           </div>
         </div>
 
-        <div className="relative overflow-hidden rounded-md border border-blue-300/8 bg-[#020711]/36 text-white shadow-[0_20px_70px_-66px_rgba(56,189,248,0.45)] ring-1 ring-white/[0.015] backdrop-blur-sm">
-          <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(rgba(56,189,248,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(59,130,246,0.032)_1px,transparent_1px)] bg-[size:48px_48px] opacity-14" />
-          <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-cyan-200/18 to-transparent" />
+        <div className="relative overflow-hidden rounded-md border border-blue-300/8 bg-[#020711]/36 text-white shadow-[0_20px_70px_-66px_rgba(129,140,248,0.45)] ring-1 ring-white/[0.015] backdrop-blur-sm">
+          <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(rgba(129,140,248,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(59,130,246,0.032)_1px,transparent_1px)] bg-[size:48px_48px] opacity-14" />
+          <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-indigo-200/18 to-transparent" />
 
           <div className="relative px-5 py-8 sm:px-8 lg:px-10 lg:py-10">
             <div className="pointer-events-none absolute top-10 bottom-10 left-7 w-px bg-blue-300/8 sm:left-10 lg:left-12">
@@ -152,13 +162,13 @@ const SkillSection: FC = () => {
                       }
                     }}
                     className={twMerge(
-                      "group relative cursor-pointer overflow-hidden border-blue-300/8 border-b px-2 py-6 transition duration-500 last:border-b-0 hover:bg-cyan-300/[0.025] sm:px-4 lg:px-5",
-                      isActive && "bg-cyan-300/[0.035]",
+                      "group relative cursor-pointer overflow-hidden border-blue-300/8 border-b px-2 py-6 transition duration-500 last:border-b-0 hover:bg-indigo-300/[0.025] sm:px-4 lg:px-5",
+                      isActive && "bg-indigo-300/[0.035]",
                     )}
                   >
                     <div
                       className={twMerge(
-                        "pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,rgba(125,211,252,0.055),transparent_44%)] opacity-0 transition duration-500 group-hover:opacity-100 group-focus-within:opacity-100",
+                        "pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,rgba(165,180,252,0.055),transparent_44%)] opacity-0 transition duration-500 group-hover:opacity-100 group-focus-within:opacity-100",
                         isActive && "opacity-100",
                       )}
                     />
@@ -167,8 +177,8 @@ const SkillSection: FC = () => {
                       <div className="flex items-center justify-between gap-3 lg:block">
                         <p
                           className={twMerge(
-                            "font-mono text-[0.68rem] text-sky-100/32 transition group-hover:text-cyan-100/62 lg:block",
-                            isActive && "text-cyan-100/62",
+                            "font-mono text-[0.68rem] text-indigo-100/32 transition group-hover:text-indigo-100/62 lg:block",
+                            isActive && "text-indigo-100/62",
                           )}
                         >
                           {surface.verb}
@@ -203,15 +213,15 @@ const SkillSection: FC = () => {
                                 {text(surface.description)}
                               </p>
 
-                              <div className="mt-4 flex flex-wrap items-center gap-x-3 gap-y-2 font-mono text-[0.72rem] text-sky-100/48">
-                                <span className="text-cyan-100/62">
+                              <div className="mt-4 flex flex-wrap items-center gap-x-3 gap-y-2 font-mono text-[0.72rem] text-indigo-100/48">
+                                <span className="text-indigo-100/62">
                                   {surface.id === "technical-writing" ? "platforms:" : "stack:"}
                                 </span>
                                 {surface.stack.map((tech) => {
                                   const TechIcon = techIcons[tech];
                                   return (
                                     <span key={tech} className="inline-flex items-center gap-1.5">
-                                      <TechIcon className="h-3.5 w-3.5 shrink-0 text-sky-100/52" />
+                                      <TechIcon className="h-3.5 w-3.5 shrink-0 text-indigo-100/52" />
                                       <span>{tech}</span>
                                     </span>
                                   );
@@ -255,10 +265,10 @@ const SkillSection: FC = () => {
                                 rel={isExternalLink ? "noopener noreferrer" : undefined}
                                 onClick={(event) => event.stopPropagation()}
                                 className={twMerge(
-                                  "inline-flex items-center gap-1.5 text-xs transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300/70",
+                                  "inline-flex items-center gap-1.5 text-xs transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-300/70",
                                   isExternalLink
-                                    ? "text-cyan-100/62 underline decoration-cyan-200/25 underline-offset-4 hover:text-cyan-50 hover:decoration-cyan-100/75"
-                                    : "rounded-md border border-blue-300/15 bg-blue-400/[0.08] px-3 py-1.5 font-semibold text-sky-100/76 hover:border-cyan-200/30 hover:bg-blue-400/[0.14] hover:text-white",
+                                    ? "text-indigo-100/62 underline decoration-indigo-200/25 underline-offset-4 hover:text-indigo-50 hover:decoration-indigo-100/75"
+                                    : "rounded-md border border-blue-300/15 bg-blue-400/[0.08] px-3 py-1.5 font-semibold text-indigo-100/76 hover:border-indigo-200/30 hover:bg-blue-400/[0.14] hover:text-white",
                                 )}
                               >
                                 <span>{text(proof.label)}</span>
@@ -267,7 +277,7 @@ const SkillSection: FC = () => {
                             ) : (
                               <span
                                 key={text(proof.label)}
-                                className="inline-flex rounded-md border border-blue-300/10 px-3 py-1.5 text-xs font-medium text-sky-100/45"
+                                className="inline-flex rounded-md border border-blue-300/10 px-3 py-1.5 text-xs font-medium text-indigo-100/45"
                               >
                                 {text(proof.label)}
                               </span>

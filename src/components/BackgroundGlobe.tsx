@@ -13,6 +13,10 @@ const BackgroundGlobe: React.FC = () => {
   const vantaEffect = useRef<any>(null);
 
   useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      return;
+    }
+
     const loadScripts = async () => {
       try {
         if (!window.THREE) {
@@ -28,7 +32,7 @@ const BackgroundGlobe: React.FC = () => {
         if (!window.VANTA) {
           await new Promise((resolve, reject) => {
             const script = document.createElement("script");
-            script.src = "https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.globe.min.js";
+            script.src = "https://cdn.jsdelivr.net/npm/vanta@0.5.24/dist/vanta.globe.min.js";
             script.onload = resolve;
             script.onerror = reject;
             document.head.appendChild(script);

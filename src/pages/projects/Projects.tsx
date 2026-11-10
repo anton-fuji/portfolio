@@ -27,7 +27,7 @@ export const projectGroups: ProjectGroup[] = [
   {
     name: "Go",
     slug: "go",
-    accent: "from-cyan-300 via-sky-400 to-blue-500",
+    accent: "from-indigo-300 via-indigo-400 to-blue-500",
     icon: <FaGolang size={30} />,
     projects: [
       {
@@ -117,7 +117,7 @@ export const projectGroups: ProjectGroup[] = [
   {
     name: "TypeScript",
     slug: "typescript",
-    accent: "from-sky-300 via-blue-500 to-cyan-400",
+    accent: "from-indigo-300 via-blue-500 to-indigo-400",
     icon: <BiLogoTypescript size={30} />,
     projects: [
       {

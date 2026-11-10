@@ -40,7 +40,7 @@ const ArticleCard: FC<ArticleCardProps> = ({ article, theme }) => {
         <SpotlightCard
           spotlightColor={theme.spotlight}
           className={twMerge(
-            "flex h-full flex-col gap-3 transition-shadow duration-300 group-focus-visible/article:ring-2 group-focus-visible/article:ring-inset group-focus-visible/article:ring-cyan-300/70",
+            "flex h-full flex-col gap-3 transition-shadow duration-300 group-focus-visible/article:ring-2 group-focus-visible/article:ring-inset group-focus-visible/article:ring-indigo-300/70",
             theme.border,
             theme.hoverGlow,
           )}
