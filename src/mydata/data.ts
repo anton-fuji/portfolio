@@ -64,7 +64,7 @@ export const ENGINEERING_SURFACES: EngineeringSurface[] = [
       ja: "日々の作業で少し面倒に感じることを、ターミナル上でさっと片付けられる道具にするのが好きです。エディタやシェルも含めて、自分の手になじむ開発環境を少しずつ整えています。",
       en: "I like building small terminal tools for jobs that are too specific for a dashboard. Vim, Neovim, and CLI-heavy workflows are where I feel most at home.",
     },
-    stack: ["Go", "Rust", "Nix", "Linux", "Vim", "Neovim"],
+    stack: ["Go", "Rust", "Nix", "Linux", "Vim", "Neovim", "Claude Code", "Codex"],
     signals: [
       {
         ja: "techfeed で Qiita / Zenn の投稿を README に自動反映",
@@ -81,6 +81,10 @@ export const ENGINEERING_SURFACES: EngineeringSurface[] = [
       {
         ja: "Neovim やターミナルの使い勝手も日々改善中",
         en: "Neovim and terminal UX are a big part of how I work",
+      },
+      {
+        ja: "Claude Code / Codex を日々の開発に組み込み中",
+        en: "Claude Code and Codex are part of my daily workflow",
       },
     ],
     proofs: [

@@ -2,7 +2,9 @@ import { ArrowUpRight } from "lucide-react";
 import { useEffect, useState, type FC } from "react";
 import type { IconType } from "react-icons";
 import { FaAws } from "react-icons/fa6";
+import { RiOpenaiFill } from "react-icons/ri";
 import {
+  SiClaude,
   SiDocker,
   SiGithubactions,
   SiGo,
@@ -36,6 +38,8 @@ const techIcons = {
   Linux: SiLinux,
   Vim: SiVim,
   Neovim: SiNeovim,
+  "Claude Code": SiClaude,
+  Codex: RiOpenaiFill,
   PostgreSQL: SiPostgresql,
   GCP: SiGooglecloud,
   AWS: FaAws,

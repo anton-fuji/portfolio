@@ -17,6 +17,8 @@ export type TechName =
   | "Linux"
   | "Vim"
   | "Neovim"
+  | "Claude Code"
+  | "Codex"
   | "PostgreSQL"
   | "GCP"
   | "AWS"
