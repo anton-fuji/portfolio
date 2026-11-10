@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { usePageContext } from "vike-react/usePageContext";
+import { navigate } from "vike/client/router";
 
 import LineSidebar from "../components/LineSidebar";
 import { useTranslation } from "../i18n";
@@ -210,7 +211,7 @@ export default function Header() {
                 if (link.external) {
                   window.open(link.href, "_blank", "noopener,noreferrer");
                 } else if (link.href !== urlPathname) {
-                  window.location.href = link.href;
+                  void navigate(link.href);
                 }
               }}
             />

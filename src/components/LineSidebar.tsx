@@ -343,6 +343,13 @@ const LineSidebar = ({
                   suppressClickRef.current = false;
                   return;
                 }
+                // Keep native behavior for modified clicks (open in new tab, etc.).
+                if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) {
+                  return;
+                }
+                if (onItemClick) {
+                  event.preventDefault();
+                }
                 handleSelect(index, label);
               }}
               className="relative inline-flex min-h-11 cursor-pointer items-center border-0 bg-transparent p-0 text-left no-underline [font:inherit] before:absolute before:-inset-x-12 before:-inset-y-2 before:content-['']"
