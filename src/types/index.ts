@@ -20,6 +20,7 @@ export type TechName =
   | "PostgreSQL"
   | "GCP"
   | "AWS"
+  | "Turso"
   | "Terraform"
   | "Docker"
   | "GitHub Actions"
