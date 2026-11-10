@@ -43,7 +43,7 @@ export const PERSONAL_INFO = {
     en: "My Portfolio",
   },
   description: {
-    ja: "20歳 | Software Engineer\n大阪で SWE してます。バックエンド、インフラ、趣味で CLI 作ってます。\n好きなもの: Go / Rust / TypeScript / Neovim / WezTerm",
+    ja: "20歳 | Software Engineer\n大阪で SWE してます。バックエンドとインフラをやりつつ、趣味で CLI を作ってます。\n好きなもの: Go / Rust / TypeScript / Neovim / WezTerm",
     en: "20 y/o | Software Engineer\nOsaka-based SWE building backend systems, infrastructure, and developer tools.\nLikes: Go / Rust / TypeScript / Neovim / WezTerm",
   },
   location: "Osaka, Japan",
@@ -57,11 +57,11 @@ export const ENGINEERING_SURFACES: EngineeringSurface[] = [
     id: "cli-systems",
     verb: "$ cat ~/dev/cli.md",
     title: {
-      ja: "小さな CLI で作業を軽くする",
+      ja: "小さな CLI で作業を楽にする",
       en: "Building CLIs for Fun",
     },
     description: {
-      ja: "日々の作業で少し面倒に感じることを、ターミナル上でさっと片付けられる道具にするのが好きです。エディタやシェルも含めて、自分の手になじむ開発環境を育てています。",
+      ja: "日々の作業で少し面倒に感じることを、ターミナル上でさっと片付けられる道具にするのが好きです。エディタやシェルも含めて、自分の手になじむ開発環境を少しずつ整えています。",
       en: "I like building small terminal tools for jobs that are too specific for a dashboard. Vim, Neovim, and CLI-heavy workflows are where I feel most at home.",
     },
     stack: ["Go", "Rust", "Nix", "Linux", "Vim", "Neovim"],
@@ -75,11 +75,11 @@ export const ENGINEERING_SURFACES: EngineeringSurface[] = [
         en: "gitviz turns commit history into a terminal view",
       },
       {
-        ja: "dibo / ztree では用途を絞った CLI の使い心地を調整",
+        ja: "dibo / ztree は用途を絞った CLI として使い心地を調整",
         en: "dibo / ztree are small CLIs where I tune the details",
       },
       {
-        ja: "Neovim やターミナルの体験も日々改善中",
+        ja: "Neovim やターミナルの使い勝手も日々改善中",
         en: "Neovim and terminal UX are a big part of how I work",
       },
     ],
@@ -149,7 +149,7 @@ export const ENGINEERING_SURFACES: EngineeringSurface[] = [
         en: "Static site setup built on Vite",
       },
       {
-        ja: "このポートフォリオで UI 表現やアニメーションを試しています",
+        ja: "このポートフォリオで UI 表現やアニメーションを実験中",
         en: "This portfolio as a small frontend playground",
       },
     ],
