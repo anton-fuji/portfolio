@@ -103,14 +103,7 @@ export const ENGINEERING_SURFACES: EngineeringSurface[] = [
       ja: "アプリを作って終わりにせず、どこで動かすか、どう安全に更新するか、データをどう扱うかまで含めて考えるのが好きです。",
       en: 'I try not to stop at "works on my machine." I care about where it runs, how it gets deployed, and how the data layer behaves in real use.',
     },
-    stack: [
-      "GCP",
-      "AWS",
-      "Terraform",
-      "Docker",
-      "GitHub Actions",
-      "PostgreSQL",
-    ],
+    stack: ["GCP", "AWS", "Terraform", "Docker", "GitHub Actions", "PostgreSQL"],
     signals: [
       {
         ja: "AWS / GCP のリソースを Terraform で構成",
@@ -160,9 +153,7 @@ export const ENGINEERING_SURFACES: EngineeringSurface[] = [
         en: "This portfolio as a small frontend playground",
       },
     ],
-    proofs: [
-      { label: { ja: "ポートフォリオのソース", en: "portfolio source" } },
-    ],
+    proofs: [{ label: { ja: "ポートフォリオのソース", en: "portfolio source" } }],
     accent: "from-blue-300 to-indigo-400",
   },
   {
