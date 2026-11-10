@@ -13,6 +13,10 @@ const BackgroundGlobe: React.FC = () => {
   const vantaEffect = useRef<any>(null);
 
   useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      return;
+    }
+
     const loadScripts = async () => {
       try {
         if (!window.THREE) {

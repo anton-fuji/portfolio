@@ -856,6 +856,15 @@ a:hover {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .skill-timeline-fill {
+    height: 100%;
+    animation: none;
+  }
+
+  .skill-timeline-gradient {
+    display: none;
+  }
+
   .stack-project-link-scan,
   .stack-project-link-cursor {
     opacity: 1;

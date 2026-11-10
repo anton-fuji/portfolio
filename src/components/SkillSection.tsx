@@ -60,6 +60,10 @@ const SkillSection: FC = () => {
   const visibleSurfaceIndex = selectedSurfaceIndex ?? hoveredSurfaceIndex ?? globeSurfaceIndex;
 
   useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      return;
+    }
+
     const startedAt = window.performance.now();
     const segmentMs = timelineCycleMs / ENGINEERING_SURFACES.length;
 
