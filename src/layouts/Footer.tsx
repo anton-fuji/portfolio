@@ -15,7 +15,7 @@ const Footer: React.FC = () => {
     <footer className="relative z-10 bg-black/50 py-8 text-gray-400">
       <div className="container mx-auto px-6 md:px-12">
         <div className="flex flex-col items-center justify-center gap-2 text-center">
-          <p className="text-gray-600 dark:text-gray-400">
+          <p>
             &copy; {startYear}
             {currentYear > startYear ? `–${currentYear}` : ""} {PERSONAL_INFO.name}
           </p>

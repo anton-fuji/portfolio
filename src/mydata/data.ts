@@ -86,7 +86,7 @@ export const ENGINEERING_SURFACES: EngineeringSurface[] = [
     proofs: [
       {
         label: { ja: "CLI プロジェクト", en: "CLI projects" },
-        href: "/projects#Go",
+        href: "/projects#go",
       },
       { label: { ja: "Go の記事", en: "Go writeups" } },
     ],

@@ -1,3 +1,3 @@
 export const description = () => {
-  return "技術記事";
+  return "Zenn と Qiita に書いた技術記事の一覧です。";
 };
