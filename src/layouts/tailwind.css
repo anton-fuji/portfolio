@@ -6,5 +6,7 @@
   --color-face: #f3f0eb;
   --color-shade: #dcd5cf;
   --color-blush: #e9d2cb;
-  --font-geist: "Geist", "Noto Sans JP", "Hiragino Sans", sans-serif;
+  --font-geist:
+    "Geist", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic", Meiryo, "Noto Sans CJK JP",
+    sans-serif;
 }
