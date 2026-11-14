@@ -77,7 +77,7 @@ const SkillSection: FC = () => {
                   return (
                     <li
                       key={tech}
-                      className="inline-flex items-center gap-2.5 text-lg font-semibold tracking-[-0.02em] text-face sm:text-xl"
+                      className="inline-flex items-center gap-2.5 text-lg font-normal tracking-[-0.01em] text-face sm:text-xl"
                     >
                       <TechIcon className="h-5 w-5 shrink-0 text-face/60" aria-hidden="true" />
                       {tech}
