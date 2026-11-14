@@ -33,7 +33,10 @@ const Footer: React.FC = () => {
   }, []);
 
   return (
-    <footer ref={footerRef} className="relative z-10 bg-black/50 py-8 text-gray-400">
+    <footer
+      ref={footerRef}
+      className="relative z-10 border-face/8 border-t bg-ink/60 py-8 text-face/45"
+    >
       <div
         aria-hidden="true"
         className="group/gopher absolute right-6 bottom-full h-16 w-16 overflow-hidden md:right-12"
@@ -60,7 +63,7 @@ const Footer: React.FC = () => {
             href={githubUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center"
+            className="inline-flex items-center text-face/70 transition-colors hover:text-face"
           >
             <Github size={20} className="mr-2" />
             <span>{t.footer.github}</span>

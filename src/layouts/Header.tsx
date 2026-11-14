@@ -102,12 +102,12 @@ export default function Header() {
           isMobileMenuOpen ? "z-70" : "z-50"
         } ${isVisible ? "translate-y-0" : "-translate-y-full"} ${
           isScrolled
-            ? "border-white/10 border-b bg-black/40 shadow-2xl backdrop-blur-2xl"
+            ? "border-face/8 border-b bg-ink/70 shadow-2xl backdrop-blur-2xl"
             : "border-transparent border-b bg-transparent"
         }`}
       >
         <div className="container mx-auto flex items-center justify-between px-4 md:px-6 lg:px-12">
-          <a href="/" className="relative z-50 text-xl font-semibold text-white md:text-2xl">
+          <a href="/" className="relative z-50 text-xl font-semibold text-face md:text-2xl">
             {PERSONAL_INFO.url}
           </a>
 
@@ -121,14 +121,12 @@ export default function Header() {
                     href={href}
                     target={external ? "_blank" : undefined}
                     rel={external ? "noopener noreferrer" : undefined}
-                    className={`group inline-flex items-center gap-1 font-mono text-[0.78rem] tracking-[0.08em] transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-300/70 ${
-                      isActive
-                        ? "text-indigo-200 hover:text-indigo-100"
-                        : "text-slate-300/82 hover:text-indigo-100"
+                    className={`group inline-flex items-center gap-1 font-mono text-[0.78rem] tracking-[0.08em] transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blush ${
+                      isActive ? "text-face hover:text-face" : "text-face/55 hover:text-face"
                     }`}
                   >
                     {isActive && (
-                      <span className="text-indigo-200" aria-hidden="true">
+                      <span className="text-blush" aria-hidden="true">
                         &gt;
                       </span>
                     )}
@@ -142,13 +140,13 @@ export default function Header() {
                       </span>
                     )}
                     {isActive && (
-                      <span className="h-3 w-px animate-pulse bg-indigo-100" aria-hidden="true" />
+                      <span className="h-3 w-px animate-pulse bg-face" aria-hidden="true" />
                     )}
                   </a>
                 );
               })}
             </nav>
-            <div className="border-white/10 border-l pl-4">
+            <div className="border-face/10 border-l pl-4">
               <LanguageToggle />
             </div>
           </div>
@@ -192,9 +190,9 @@ export default function Header() {
               items={mobileNavItems}
               itemHrefs={navLinks.map(({ href }) => href)}
               defaultActive={activeNavIndex >= 0 ? activeNavIndex : null}
-              accentColor="#a5b4fc"
-              textColor="rgba(203, 213, 225, 0.72)"
-              markerColor="rgba(100, 116, 139, 0.5)"
+              accentColor="#f3f0eb"
+              textColor="rgba(243, 240, 235, 0.55)"
+              markerColor="rgba(243, 240, 235, 0.22)"
               markerLength={72}
               markerGap={12}
               itemGap={28}
@@ -216,9 +214,9 @@ export default function Header() {
               }}
             />
 
-            <div className="border-white/10 border-t pt-5">
+            <div className="border-face/10 border-t pt-5">
               <div className="flex items-center justify-between gap-4">
-                <span className="font-mono text-[10px] font-semibold tracking-[0.22em] text-slate-400/58 uppercase">
+                <span className="font-mono text-[10px] font-semibold tracking-[0.22em] text-face/45 uppercase">
                   Language
                 </span>
                 <LanguageToggle />

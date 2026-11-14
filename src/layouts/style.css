@@ -29,7 +29,7 @@ a:hover {
   border: 0;
   border-radius: 0;
   background: transparent;
-  color: rgba(226, 232, 240, 0.92);
+  color: rgba(243, 240, 235, 0.92);
   font-family: "Inter", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
   letter-spacing: 0;
   transition:
@@ -47,8 +47,8 @@ a:hover {
   content: "";
   background: linear-gradient(
     90deg,
-    rgba(165, 180, 252, 0.58),
-    rgba(165, 180, 252, 0.28),
+    rgba(243, 240, 235, 0.58),
+    rgba(243, 240, 235, 0.28),
     transparent
   );
   opacity: 0.64;
@@ -67,8 +67,8 @@ a:hover {
   height: 0.24rem;
   pointer-events: none;
   content: "";
-  border: 1px solid rgba(191, 219, 254, 0.62);
-  background: rgba(2, 6, 23, 0.86);
+  border: 1px solid rgba(243, 240, 235, 0.62);
+  background: rgba(10, 10, 10, 0.86);
   opacity: 0.74;
   transition:
     border-color 0.2s ease,
@@ -76,7 +76,7 @@ a:hover {
 }
 
 .language-toggle:hover {
-  color: rgba(248, 250, 252, 0.98);
+  color: rgba(243, 240, 235, 0.98);
 }
 
 .language-toggle:hover::before {
@@ -85,19 +85,19 @@ a:hover {
 }
 
 .language-toggle:hover::after {
-  border-color: rgba(224, 231, 255, 0.88);
-  box-shadow: 0 0 10px rgba(165, 180, 252, 0.22);
+  border-color: rgba(243, 240, 235, 0.88);
+  box-shadow: 0 0 10px rgba(243, 240, 235, 0.22);
 }
 
 .language-toggle__label {
-  color: rgba(148, 163, 184, 0.58);
+  color: rgba(243, 240, 235, 0.58);
   font-size: 0.66rem;
   font-weight: 650;
 }
 
 .language-toggle__value {
   min-width: 1.35rem;
-  color: rgba(248, 250, 252, 0.96);
+  color: rgba(243, 240, 235, 0.96);
   font-size: 0.76rem;
   font-weight: 750;
 }
@@ -105,7 +105,7 @@ a:hover {
 .language-toggle__next {
   max-width: 0;
   overflow: hidden;
-  color: rgba(165, 180, 252, 0.58);
+  color: rgba(243, 240, 235, 0.58);
   font-size: 0.66rem;
   font-weight: 650;
   opacity: 0;
@@ -124,7 +124,7 @@ a:hover {
 }
 
 .language-toggle:focus-visible {
-  outline: 1px solid rgba(165, 180, 252, 0.62);
+  outline: 1px solid rgba(243, 240, 235, 0.62);
   outline-offset: 4px;
 }
 
@@ -139,7 +139,7 @@ a:hover {
   border: 0;
   background: transparent;
   box-shadow: none;
-  color: rgba(226, 232, 240, 0.92);
+  color: rgba(243, 240, 235, 0.92);
   transition:
     color 0.2s ease,
     transform 0.2s ease;
@@ -150,7 +150,7 @@ a:hover {
   height: 1.5px;
   border-radius: 999px;
   background: currentColor;
-  box-shadow: 0 0 10px rgba(165, 180, 252, 0.14);
+  box-shadow: 0 0 10px rgba(243, 240, 235, 0.14);
   transition:
     opacity 0.2s ease,
     transform 0.24s ease,
@@ -172,12 +172,12 @@ a:hover {
 
 .mobile-line-menu-button:hover,
 .mobile-line-menu-button.is-open {
-  color: rgba(191, 219, 254, 0.98);
+  color: rgba(243, 240, 235, 0.98);
 }
 
 .mobile-line-menu-button:hover span,
 .mobile-line-menu-button.is-open span {
-  box-shadow: 0 0 13px rgba(165, 180, 252, 0.28);
+  box-shadow: 0 0 13px rgba(243, 240, 235, 0.28);
 }
 
 .mobile-line-menu-button.is-open span:nth-child(1) {
@@ -196,9 +196,9 @@ a:hover {
 
 .mobile-line-backdrop {
   background:
-    linear-gradient(115deg, rgba(67, 56, 202, 0.08), transparent 28%),
-    linear-gradient(245deg, rgba(99, 102, 241, 0.08), transparent 36%),
-    linear-gradient(180deg, rgba(0, 0, 0, 0.86), rgba(2, 6, 23, 0.94));
+    linear-gradient(115deg, rgba(243, 240, 235, 0.08), transparent 28%),
+    linear-gradient(245deg, rgba(243, 240, 235, 0.08), transparent 36%),
+    linear-gradient(180deg, rgba(0, 0, 0, 0.86), rgba(10, 10, 10, 0.94));
   backdrop-filter: blur(14px) saturate(1.04);
 }
 
@@ -208,9 +208,9 @@ a:hover {
   pointer-events: none;
   content: "";
   background-image:
-    linear-gradient(rgba(165, 180, 252, 0.055) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(147, 197, 253, 0.04) 1px, transparent 1px),
-    radial-gradient(circle, rgba(226, 232, 240, 0.18) 0 1px, transparent 1.4px);
+    linear-gradient(rgba(243, 240, 235, 0.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(243, 240, 235, 0.04) 1px, transparent 1px),
+    radial-gradient(circle, rgba(243, 240, 235, 0.18) 0 1px, transparent 1.4px);
   background-position:
     0 0,
     0 0,
@@ -232,21 +232,21 @@ a:hover {
     linear-gradient(
       128deg,
       transparent 0 18%,
-      rgba(165, 180, 252, 0.12) 18.1% 18.35%,
+      rgba(243, 240, 235, 0.12) 18.1% 18.35%,
       transparent 18.45% 44%,
-      rgba(129, 140, 248, 0.08) 44.1% 44.3%,
+      rgba(243, 240, 235, 0.08) 44.1% 44.3%,
       transparent 44.45%
     ),
     linear-gradient(
       32deg,
       transparent 0 56%,
-      rgba(226, 232, 240, 0.08) 56.1% 56.25%,
+      rgba(243, 240, 235, 0.08) 56.1% 56.25%,
       transparent 56.35%
     ),
     repeating-linear-gradient(
       180deg,
-      rgba(255, 255, 255, 0.012) 0,
-      rgba(255, 255, 255, 0.012) 1px,
+      rgba(243, 240, 235, 0.012) 0,
+      rgba(243, 240, 235, 0.012) 1px,
       transparent 1px,
       transparent 8px
     );
@@ -256,15 +256,15 @@ a:hover {
 
 .mobile-line-sidebar {
   overflow: hidden;
-  border-left: 1px solid rgba(148, 163, 184, 0.14);
+  border-left: 1px solid rgba(243, 240, 235, 0.14);
   background:
-    linear-gradient(90deg, rgba(165, 180, 252, 0.055), transparent 24%),
-    linear-gradient(180deg, rgba(3, 7, 18, 0.955), rgba(2, 6, 23, 0.99));
+    linear-gradient(90deg, rgba(243, 240, 235, 0.055), transparent 24%),
+    linear-gradient(180deg, rgba(10, 10, 10, 0.955), rgba(10, 10, 10, 0.99));
   box-shadow:
     -34px 0 96px rgba(0, 0, 0, 0.48),
-    -12px 0 44px rgba(15, 23, 42, 0.28),
-    inset 1px 0 0 rgba(255, 255, 255, 0.035),
-    inset 14px 0 32px rgba(67, 56, 202, 0.055);
+    -12px 0 44px rgba(10, 10, 10, 0.28),
+    inset 1px 0 0 rgba(243, 240, 235, 0.035),
+    inset 14px 0 32px rgba(243, 240, 235, 0.055);
   backdrop-filter: blur(30px) saturate(1.1);
   transform: translateX(105%);
   transition: transform 0.34s cubic-bezier(0.22, 1, 0.36, 1);
@@ -280,12 +280,12 @@ a:hover {
   pointer-events: none;
   content: "";
   background-image:
-    linear-gradient(rgba(165, 180, 252, 0.06) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(147, 197, 253, 0.045) 1px, transparent 1px),
+    linear-gradient(rgba(243, 240, 235, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(243, 240, 235, 0.045) 1px, transparent 1px),
     repeating-linear-gradient(
       135deg,
       transparent 0 21px,
-      rgba(226, 232, 240, 0.035) 21px 22px,
+      rgba(243, 240, 235, 0.035) 21px 22px,
       transparent 22px 54px
     );
   background-position:
@@ -309,18 +309,18 @@ a:hover {
     linear-gradient(
         180deg,
         transparent 0%,
-        rgba(165, 180, 252, 0.4) 22%,
-        rgba(129, 140, 248, 0.24) 48%,
+        rgba(243, 240, 235, 0.4) 22%,
+        rgba(243, 240, 235, 0.24) 48%,
         transparent 78%
       )
       0 0 / 1px 100% no-repeat,
-    linear-gradient(90deg, rgba(226, 232, 240, 0.11), transparent 16%) 0 6.5rem / 100% 1px no-repeat,
-    linear-gradient(90deg, rgba(165, 180, 252, 0.09), transparent 28%) 0 calc(100% - 5.6rem) / 100%
+    linear-gradient(90deg, rgba(243, 240, 235, 0.11), transparent 16%) 0 6.5rem / 100% 1px no-repeat,
+    linear-gradient(90deg, rgba(243, 240, 235, 0.09), transparent 28%) 0 calc(100% - 5.6rem) / 100%
       1px no-repeat,
     repeating-linear-gradient(
       180deg,
-      rgba(255, 255, 255, 0.01) 0,
-      rgba(255, 255, 255, 0.01) 1px,
+      rgba(243, 240, 235, 0.01) 0,
+      rgba(243, 240, 235, 0.01) 1px,
       transparent 1px,
       transparent 7px
     );
@@ -328,11 +328,11 @@ a:hover {
 }
 
 .mobile-line-sidebar-nav {
-  filter: drop-shadow(0 0 18px rgba(67, 56, 202, 0.2));
+  filter: drop-shadow(0 0 18px rgba(243, 240, 235, 0.2));
 }
 
 .mobile-line-sidebar-nav a:focus-visible {
-  outline: 1px solid rgba(165, 180, 252, 0.52);
+  outline: 1px solid rgba(243, 240, 235, 0.52);
   outline-offset: 7px;
 }
 

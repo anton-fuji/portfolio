@@ -1,5 +1,5 @@
 const FONT_STYLESHEET =
-  "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;600;700;800&display=swap";
+  "https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;600;700;800&display=swap";
 
 // フォント CSS は描画をブロックしないよう media="print" で取得し、読み込み後に適用する。
 const ENABLE_FONT_STYLESHEET = `(function(){var l=document.getElementById("web-fonts");if(!l)return;var a=function(){l.media="all"};if(l.sheet){a()}else{l.addEventListener("load",a)}})();`;

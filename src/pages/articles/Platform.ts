@@ -30,6 +30,14 @@ export const PLATFORM: Platform[] = [
     url: "https://zenn.dev/fuuji/articles/795a7b6c9e4050",
   },
   {
+    Zenn: ".dockerignoreを生成する「dibo」について紹介",
+    url: "https://zenn.dev/fuuji/articles/3b355c4252a4fc",
+  },
+  {
+    Zenn: "Terraform で DockerイメージをLambdaへデプロイ",
+    url: "https://zenn.dev/fuuji/articles/547388be4ca9ce",
+  },
+  {
     Qiita: "ソケット通信を一緒に理解しよう！！",
     url: "https://qiita.com/fujifuji1414/items/6daa393a86582d81f0b5",
   },
@@ -52,5 +60,13 @@ export const PLATFORM: Platform[] = [
   {
     Qiita: "【Go言語】Qiitaの投稿をGitHubのプロフィールに反映させてみた",
     url: "https://qiita.com/fujifuji1414/items/f9606bb184951d4a3fb2",
+  },
+  {
+    Qiita: "サクッとGoで AI エージェントを構築してみる",
+    url: "https://qiita.com/fujifuji1414/items/fc259d51de4aaf1bc75e",
+  },
+  {
+    Qiita: "TypeScriptのコンパイラをGoに移植｜10倍高速になった tsgo とは",
+    url: "https://qiita.com/fujifuji1414/items/98ddf083995f4e03ff32",
   },
 ];
