@@ -361,107 +361,57 @@ a:hover {
 
 .project-editor-workspace {
   position: relative;
-  overflow: hidden;
-  border: 1px solid rgba(148, 163, 184, 0.14);
-  border-radius: 8px;
-  background:
-    linear-gradient(115deg, rgba(165, 180, 252, 0.035), transparent 36%),
-    linear-gradient(180deg, rgba(15, 23, 42, 0.74), rgba(2, 6, 23, 0.58));
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.032),
-    0 22px 72px -58px rgba(129, 140, 248, 0.7);
-  backdrop-filter: blur(20px);
+  isolation: isolate;
+  border-radius: 1.75rem;
+  background: rgba(10, 10, 10, 0.42);
+  box-shadow: 0 40px 120px -60px rgba(243, 240, 235, 0.12);
+  backdrop-filter: blur(24px) saturate(1.05);
+}
+
+/* 輪郭は上辺だけ白くにじませ、下に向かって消していく */
+.project-editor-workspace::before {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  content: "";
+  padding: 1px;
+  border-radius: inherit;
+  background: linear-gradient(
+    180deg,
+    rgba(243, 240, 235, 0.22),
+    rgba(243, 240, 235, 0.06) 35%,
+    transparent 85%
+  );
+  mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  mask-composite: exclude;
 }
 
 .project-editor-workspace::after {
   position: absolute;
-  inset: 0;
+  inset: -1px;
+  z-index: -2;
   pointer-events: none;
   content: "";
-  border: 1px solid rgba(255, 255, 255, 0.028);
   border-radius: inherit;
-}
-
-.project-editor-tabs-shell {
-  position: relative;
-  overflow: hidden;
-  border: 0;
-  border-radius: 0;
-  background: transparent;
-}
-
-.project-editor-tabs-shell::before {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  content: "";
-  background:
-    repeating-linear-gradient(
-      90deg,
-      rgba(255, 255, 255, 0.012) 0,
-      rgba(255, 255, 255, 0.012) 1px,
-      transparent 1px,
-      transparent 26px
-    ),
-    linear-gradient(90deg, rgba(165, 180, 252, 0.06), transparent 26%, rgba(129, 140, 248, 0.045));
-  opacity: 0.34;
-  mask-image: linear-gradient(180deg, black 0%, transparent 82%);
-}
-
-.project-editor-tabs-titlebar {
-  position: relative;
-  display: flex;
-  align-items: center;
-  gap: 0.65rem;
-  border-bottom: 1px solid rgba(148, 163, 184, 0.12);
-  padding: 0.58rem 0.75rem;
-  background: rgba(2, 6, 23, 0.36);
-  font-family: "Inter", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-}
-
-.project-editor-tabs-controls {
-  display: flex;
-  gap: 0.36rem;
-  align-items: center;
-}
-
-.project-editor-tabs-controls span {
-  width: 0.56rem;
-  height: 0.56rem;
-  border-radius: 50%;
-  background: rgba(100, 116, 139, 0.58);
-  box-shadow: 0 0 10px rgba(148, 163, 184, 0.08);
-}
-
-.project-editor-tabs-controls span:nth-child(2) {
-  background: rgba(165, 180, 252, 0.5);
-}
-
-.project-editor-tabs-controls span:nth-child(3) {
-  background: rgba(129, 140, 248, 0.5);
-}
-
-.project-editor-tabs-title {
-  min-width: 0;
-  overflow: hidden;
-  color: rgba(148, 163, 184, 0.72);
-  font-size: 0.72rem;
-  font-weight: 650;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  background: radial-gradient(120% 60% at 50% 0%, rgba(243, 240, 235, 0.06), transparent 70%);
+  filter: blur(18px);
 }
 
 .project-editor-tabs {
-  position: relative;
   display: flex;
+  gap: 0.4rem;
   overflow-x: auto;
   margin: 0;
-  padding: 0;
-  border-bottom: 1px solid rgba(165, 180, 252, 0.12);
-  background: rgba(2, 6, 23, 0.26);
+  padding: 1.1rem 1.1rem 0.25rem;
   list-style: none;
-  scrollbar-width: thin;
-  scrollbar-color: rgba(165, 180, 252, 0.24) transparent;
+  scrollbar-width: none;
+}
+
+.project-editor-tabs::-webkit-scrollbar {
+  display: none;
 }
 
 .project-editor-tabs li {
@@ -469,188 +419,65 @@ a:hover {
   flex: 0 0 auto;
 }
 
-.project-editor-tabs::-webkit-scrollbar {
-  height: 0.35rem;
-}
-
-.project-editor-tabs::-webkit-scrollbar-thumb {
-  border-radius: 999px;
-  background: rgba(165, 180, 252, 0.22);
-}
-
 .project-editor-tab {
-  position: relative;
-  display: inline-grid;
-  min-width: 10.25rem;
-  max-width: 13.5rem;
-  grid-template-columns: auto minmax(0, 1fr) auto auto;
+  display: inline-flex;
+  height: 2.25rem;
   align-items: center;
-  gap: 0.48rem;
-  border: 0;
-  border-right: 1px solid rgba(148, 163, 184, 0.12);
-  background: rgba(15, 23, 42, 0.32);
-  color: rgba(148, 163, 184, 0.86);
-  font-family: "Inter", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-  padding: 0.72rem 0.72rem 0.68rem;
-  text-align: left;
+  gap: 0.5rem;
+  border: 1px solid rgba(243, 240, 235, 0.1);
+  border-radius: 999px;
+  background: transparent;
+  color: rgba(243, 240, 235, 0.6);
+  padding: 0 0.95rem 0 0.75rem;
+  font-size: 0.82rem;
+  font-weight: 500;
   transition:
     background-color 0.18s ease,
+    border-color 0.18s ease,
     color 0.18s ease;
 }
 
-.project-editor-tab::before {
-  position: absolute;
-  top: 0;
-  right: 0.65rem;
-  left: 0.65rem;
-  height: 1px;
-  pointer-events: none;
-  content: "";
-  background: linear-gradient(90deg, transparent, rgba(165, 180, 252, 0.66), transparent);
-  opacity: 0;
-  transition: opacity 0.18s ease;
-}
-
-.project-editor-tab::after {
-  position: absolute;
-  right: 0;
-  bottom: -1px;
-  left: 0;
-  height: 1px;
-  pointer-events: none;
-  content: "";
-  background: rgba(2, 6, 23, 0.9);
-  opacity: 0;
-}
-
 .project-editor-tab:hover {
-  background: rgba(30, 41, 59, 0.42);
-  color: rgba(226, 232, 240, 0.96);
+  border-color: rgba(243, 240, 235, 0.22);
+  color: rgba(243, 240, 235, 0.95);
 }
 
 .project-editor-tab[data-active="true"] {
-  background:
-    linear-gradient(180deg, rgba(165, 180, 252, 0.07), transparent 42%), rgba(2, 6, 23, 0.68);
-  color: rgba(248, 250, 252, 0.98);
-}
-
-.project-editor-tab[data-active="true"]::before {
-  opacity: 1;
-}
-
-.project-editor-tab[data-active="true"]::after {
-  opacity: 1;
+  border-color: rgba(243, 240, 235, 0.95);
+  background: rgba(243, 240, 235, 0.95);
+  color: #0a0a0a;
 }
 
 .project-editor-tab:focus-visible {
-  z-index: 1;
-  outline: 1px solid rgba(165, 180, 252, 0.62);
-  outline-offset: -2px;
+  outline: 2px solid #e9d2cb;
+  outline-offset: 2px;
 }
 
 .project-editor-tab__icon {
   display: grid;
-  width: 1.1rem;
-  height: 1.1rem;
+  width: 1rem;
+  height: 1rem;
   place-items: center;
-  color: rgba(165, 180, 252, 0.78);
-  font-size: 0.86rem;
 }
 
 .project-editor-tab__icon svg {
-  width: 1rem;
-  height: 1rem;
-}
-
-.project-editor-tab__name {
-  min-width: 0;
-  overflow: hidden;
-  font-size: 0.75rem;
-  font-weight: 700;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  width: 0.95rem;
+  height: 0.95rem;
 }
 
 .project-editor-tab__count {
-  color: rgba(100, 116, 139, 0.86);
-  font-size: 0.66rem;
-  font-weight: 700;
-}
-
-.project-editor-tab__close {
-  display: grid;
-  width: 1rem;
-  height: 1rem;
-  place-items: center;
-  border-radius: 3px;
-  color: rgba(100, 116, 139, 0.76);
-  font-size: 0.88rem;
-  line-height: 1;
-  opacity: 0;
-  transition:
-    background-color 0.18s ease,
-    color 0.18s ease,
-    opacity 0.18s ease;
-}
-
-.project-editor-tab:hover .project-editor-tab__close,
-.project-editor-tab[data-active="true"] .project-editor-tab__close {
-  opacity: 1;
-}
-
-.project-editor-tab:hover .project-editor-tab__close {
-  background: rgba(148, 163, 184, 0.1);
-  color: rgba(226, 232, 240, 0.86);
-}
-
-.project-editor-tabs-status {
-  position: relative;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 0.35rem 1rem;
-  padding: 0.48rem 0.75rem;
-  background:
-    linear-gradient(90deg, rgba(67, 56, 202, 0.28), rgba(30, 41, 59, 0.36)), rgba(2, 6, 23, 0.62);
-  color: rgba(203, 213, 225, 0.78);
-  font-family: "Inter", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-  font-size: 0.68rem;
-  font-weight: 650;
+  font-variant-numeric: tabular-nums;
+  opacity: 0.5;
 }
 
 .project-editor-content {
-  position: relative;
   display: grid;
-  gap: 0.9rem;
-  padding: 0.9rem;
-  background:
-    radial-gradient(circle at top right, rgba(129, 140, 248, 0.055), transparent 32%),
-    linear-gradient(180deg, rgba(2, 6, 23, 0.62), rgba(2, 6, 23, 0.32));
-}
-
-.project-editor-content::before {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  content: "";
-  background:
-    repeating-linear-gradient(
-      180deg,
-      rgba(255, 255, 255, 0.01) 0,
-      rgba(255, 255, 255, 0.01) 1px,
-      transparent 1px,
-      transparent 9px
-    ),
-    linear-gradient(90deg, rgba(165, 180, 252, 0.045), transparent 18%);
-  opacity: 0.6;
+  gap: 1.75rem;
+  padding: 1.25rem 0.5rem 1rem;
 }
 
 .project-editor-file-panel {
-  border: 1px solid rgba(165, 180, 252, 0.095);
-  border-radius: 3px;
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.022), transparent 4rem), rgba(0, 0, 0, 0.12);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.022);
+  border-radius: 1rem;
 }
 
 .project-section-icon {
@@ -659,7 +486,7 @@ a:hover {
   height: 1.25rem;
   flex-shrink: 0;
   place-items: center;
-  color: rgba(191, 219, 254, 0.74);
+  color: rgba(243, 240, 235, 0.74);
 }
 
 .project-section-icon svg {
@@ -673,19 +500,12 @@ a:hover {
 
 .project-file-list {
   overflow: hidden;
-  border: 0;
-  border-radius: 0;
-  background: transparent;
-  box-shadow: none;
-  backdrop-filter: none;
 }
 
 .project-file-list__header {
   grid-template-columns: 4.2rem 5.7rem minmax(0, 1.08fr) 8.4rem minmax(0, 1fr) 2rem;
-  border-bottom: 1px solid rgba(165, 180, 252, 0.1);
-  background:
-    linear-gradient(90deg, rgba(15, 23, 42, 0.52), rgba(2, 6, 23, 0.24)), rgba(255, 255, 255, 0.018);
-  color: rgba(100, 116, 139, 0.9);
+  border-bottom: 1px solid rgba(243, 240, 235, 0.08);
+  color: rgba(243, 240, 235, 0.35);
   font-size: 0.62rem;
   font-weight: 700;
   letter-spacing: 0.16em;
@@ -702,10 +522,10 @@ a:hover {
   isolation: isolate;
   overflow: hidden;
   border: 0;
-  border-bottom: 1px solid rgba(165, 180, 252, 0.075);
+  border-bottom: 1px solid rgba(243, 240, 235, 0.075);
   border-radius: 0;
   background:
-    linear-gradient(90deg, rgba(15, 23, 42, 0.22), transparent 72%), rgba(255, 255, 255, 0.012);
+    linear-gradient(90deg, rgba(10, 10, 10, 0.22), transparent 72%), rgba(243, 240, 235, 0.012);
   box-shadow: none;
 }
 
@@ -721,46 +541,46 @@ a:hover {
   width: 1px;
   pointer-events: none;
   content: "";
-  background: linear-gradient(180deg, transparent, rgba(100, 116, 139, 0.24), transparent);
+  background: linear-gradient(180deg, transparent, rgba(111, 107, 102, 0.24), transparent);
   opacity: 0.58;
 }
 
 .project-process-row:nth-child(even) {
   background:
-    linear-gradient(90deg, rgba(15, 23, 42, 0.18), transparent 72%), rgba(255, 255, 255, 0.006);
+    linear-gradient(90deg, rgba(10, 10, 10, 0.18), transparent 72%), rgba(243, 240, 235, 0.006);
 }
 
 .project-process-pid {
-  color: rgba(165, 180, 252, 0.8);
+  color: rgba(243, 240, 235, 0.8);
   font-variant-numeric: tabular-nums;
 }
 
 .project-process-state {
-  color: rgba(148, 163, 184, 0.72);
+  color: rgba(243, 240, 235, 0.72);
 }
 
 .project-process-row:hover .project-process-state {
-  color: rgba(165, 180, 252, 0.86);
+  color: rgba(243, 240, 235, 0.86);
 }
 
 .project-process-repo {
-  color: rgba(100, 116, 139, 0.92);
+  color: rgba(111, 107, 102, 0.92);
 }
 
 .project-process-kind {
-  color: rgba(148, 163, 184, 0.86);
+  color: rgba(243, 240, 235, 0.86);
 }
 
 .project-process-kind svg {
-  color: rgba(165, 180, 252, 0.6);
+  color: rgba(243, 240, 235, 0.6);
 }
 
 .project-process-output {
-  color: rgba(148, 163, 184, 0.78);
+  color: rgba(243, 240, 235, 0.78);
 }
 
 .project-process-tags span {
-  color: rgba(165, 180, 252, 0.56);
+  color: rgba(243, 240, 235, 0.56);
 }
 
 @media (max-width: 639px) {
