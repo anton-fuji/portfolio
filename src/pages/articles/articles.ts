@@ -6,11 +6,8 @@ export type Article = {
   platform: ArticlePlatform;
   title: string;
   url: string;
-  emoji?: string;
-  likes?: number;
-  /** ISO-ish date string (e.g. "2024-01-31T...") */
+  /** ISO-ish date string (e.g. "2024-01-31T..."), used to sort newest first */
   publishedAt?: string;
-  tags?: string[];
 };
 
 type ArticleSource = { platform: ArticlePlatform; handle: string };
@@ -21,7 +18,7 @@ const SOURCES: ArticleSource[] = [
   { platform: "Qiita", handle: "fujifuji1414" },
 ];
 
-const PER_PLATFORM = 6;
+const PER_PLATFORM = 8;
 const REQUEST_TIMEOUT_MS = 8000;
 
 /** Built from the existing hand-written list; used when an API is unreachable. */
@@ -51,8 +48,6 @@ type ZennArticle = {
   title?: string;
   slug?: string;
   path?: string;
-  emoji?: string;
-  liked_count?: number;
   published_at?: string;
 };
 
@@ -70,8 +65,6 @@ async function fetchZenn(handle: string): Promise<Article[]> {
       url: a.path
         ? `https://zenn.dev${a.path}`
         : `https://zenn.dev/${handle}/articles/${a.slug ?? ""}`,
-      emoji: a.emoji,
-      likes: typeof a.liked_count === "number" ? a.liked_count : undefined,
       publishedAt: a.published_at,
     }));
 }
@@ -80,9 +73,7 @@ async function fetchZenn(handle: string): Promise<Article[]> {
 type QiitaItem = {
   title?: string;
   url?: string;
-  likes_count?: number;
   created_at?: string;
-  tags?: { name?: string }[];
 };
 
 async function fetchQiita(handle: string): Promise<Article[]> {
@@ -96,11 +87,7 @@ async function fetchQiita(handle: string): Promise<Article[]> {
       platform: "Qiita" as const,
       title: i.title as string,
       url: i.url as string,
-      likes: typeof i.likes_count === "number" ? i.likes_count : undefined,
       publishedAt: i.created_at,
-      tags: Array.isArray(i.tags)
-        ? i.tags.map((t) => t?.name).filter((n): n is string => Boolean(n))
-        : undefined,
     }));
 }
 

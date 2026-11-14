@@ -10,14 +10,6 @@ import projectGroups from "./Projects";
 
 export { Page };
 
-const projectTabFiles: Record<string, string> = {
-  go: "go.mod",
-  lua: "init.lua",
-  zig: "build.zig",
-  typescript: "portfolio.tsx",
-  astro: "astro.config.mjs",
-};
-
 function Page() {
   const initialContributions = useData<Data>();
   const [selectedGroupSlug, setSelectedGroupSlug] = useState<string>("all");
@@ -37,11 +29,6 @@ function Page() {
     selectedGroupSlug === "all"
       ? projectGroups
       : projectGroups.filter((group) => group.slug === selectedGroupSlug);
-  const selectedGroup = projectGroups.find((group) => group.slug === selectedGroupSlug);
-  const selectedProjectCount =
-    selectedGroupSlug === "all" ? totalProjectCount : (selectedGroup?.projects.length ?? 0);
-  const selectedScope =
-    selectedGroupSlug === "all" ? "workspace" : (selectedGroup?.name ?? selectedGroupSlug);
   const selectGroup = (slug: string) => {
     setSelectedGroupSlug((currentSlug) => (currentSlug === slug ? "all" : slug));
   };
@@ -54,17 +41,8 @@ function Page() {
           <GitHubContributions initialData={initialContributions} />
 
           <div className="project-editor-workspace">
-            <section aria-label={t.projects.categories} className="project-editor-tabs-shell">
-              <div className="project-editor-tabs-titlebar">
-                <div aria-hidden className="project-editor-tabs-controls">
-                  <span />
-                  <span />
-                  <span />
-                </div>
-                <span className="project-editor-tabs-title">~/projects/filter</span>
-              </div>
-
-              <ul className="project-editor-tabs">
+            <section aria-label={t.projects.categories}>
+              <ul className="project-editor-tabs font-geist">
                 <li>
                   <button
                     type="button"
@@ -73,12 +51,8 @@ function Page() {
                     className="project-editor-tab"
                     data-active={selectedGroupSlug === "all"}
                   >
-                    <span className="project-editor-tab__icon">＊</span>
-                    <span className="project-editor-tab__name">projects.code-workspace</span>
+                    <span>All</span>
                     <span className="project-editor-tab__count">{totalProjectCount}</span>
-                    <span className="project-editor-tab__close" aria-hidden>
-                      ×
-                    </span>
                   </button>
                 </li>
                 {projectGroups.map((group) => (
@@ -91,23 +65,12 @@ function Page() {
                       data-active={selectedGroupSlug === group.slug}
                     >
                       <span className="project-editor-tab__icon">{group.icon}</span>
-                      <span className="project-editor-tab__name">
-                        {projectTabFiles[group.slug] ?? `${group.slug}.md`}
-                      </span>
+                      <span>{group.name}</span>
                       <span className="project-editor-tab__count">{group.projects.length}</span>
-                      <span className="project-editor-tab__close" aria-hidden>
-                        ×
-                      </span>
                     </button>
                   </li>
                 ))}
               </ul>
-
-              <div className="project-editor-tabs-status">
-                <span>scope: {selectedScope}</span>
-                <span>{selectedProjectCount} repos</span>
-                <span className="hidden sm:inline">filter: live</span>
-              </div>
             </section>
 
             <div className="project-editor-content">
@@ -117,18 +80,11 @@ function Page() {
                   id={group.slug}
                   className="project-editor-file-panel relative scroll-mt-24 overflow-hidden font-mono"
                 >
-                  <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(129,140,248,0.1),transparent_28%),linear-gradient(180deg,rgba(255,255,255,0.062),transparent_38%)]" />
-                  <div className="pointer-events-none absolute inset-px rounded-lg border border-white/3" />
-                  <div className="relative flex items-center justify-between gap-3 border-indigo-300/10 border-b bg-[linear-gradient(90deg,rgba(2,6,23,0.78),rgba(15,23,42,0.68),rgba(2,6,23,0.74))] px-4 py-3 shadow-[inset_0_1px_0_rgba(255,255,255,0.022)]">
-                    <div className="flex min-w-0 items-center gap-3">
-                      <span className="project-section-icon">{group.icon}</span>
-                      <h2 className="truncate font-mono text-sm font-semibold text-white sm:text-base">
-                        {group.name}
-                      </h2>
-                    </div>
-                    <span className="hidden bg-linear-to-r from-slate-600 via-indigo-500/45 to-slate-500 bg-clip-text text-xs font-medium text-transparent drop-shadow-[0_0_8px_rgba(2,6,23,0.78)] sm:block">
-                      ~/projects/{group.slug}
-                    </span>
+                  <div className="flex items-center gap-3 px-4 py-2">
+                    <span className="project-section-icon">{group.icon}</span>
+                    <h2 className="truncate font-mono text-sm font-semibold text-face sm:text-base">
+                      {group.name}
+                    </h2>
                   </div>
 
                   <div className="project-editor-file-body">

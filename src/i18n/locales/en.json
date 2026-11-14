@@ -14,15 +14,10 @@
   },
   "home": {
     "title": "My Portfolio",
-    "stackTitle": "My Tech Stack",
-    "stackSummary": "My main focus is backend engineering, infrastructure, PostgreSQL, and terminal-heavy workflows.",
-    "stackNote": "I build frontend surfaces when needed, and turn painful debugging notes into articles for the next pass.",
-    "stackCta": "View projects",
+    "stackTitle": "Skills",
     "qrTitle": "Open this site",
-    "qrAlt": "QR code linking to fuuji.site"
-  },
-  "articles": {
-    "profileLink": "profile"
+    "qrAlt": "QR code linking to fuuji.site",
+    "certsTitle": "Certifications"
   },
   "projects": {
     "categories": "Project categories",
@@ -45,9 +40,7 @@
     }
   },
   "certifications": {
-    "eyebrow": "Credentials",
-    "title": "Certifications",
-    "issued": "Issued"
+    "title": "Certifications"
   },
   "footer": {
     "github": "View on GitHub"

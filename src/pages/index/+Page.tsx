@@ -1,5 +1,4 @@
 // import { useState } from 'react'
-import "../../styles/App.css";
 // import Layout from '../../layouts';
 import BackgroundGlobe from "../../components/BackgroundGlobe";
 import HomeShowcase from "./HomeShowcase";

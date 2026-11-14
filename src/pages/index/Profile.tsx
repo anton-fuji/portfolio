@@ -1,44 +1,28 @@
 import type { FC } from "react";
 
-import ProfileVeil from "../../assets/fuji-veil.jpg";
-import DecryptedText from "../../components/DecryptedText";
-import DitherVeil from "../../components/DitherVeil";
 import { useTranslation } from "../../i18n";
 import { PERSONAL_INFO } from "../../mydata/data";
+import Avatar from "./Avatar";
 import Socials from "./Socials";
 
 const Profile: FC = () => {
   const { text } = useTranslation();
+  const [firstName, ...lastName] = PERSONAL_INFO.name.split(" ");
 
   return (
-    <section className="grid min-h-[560px] items-center gap-12 px-6 py-20 sm:px-8 lg:grid-cols-[0.9fr_1.1fr] lg:px-10">
-      <div className="veil-dissolve mx-auto aspect-[4/5] w-full max-w-[18rem] sm:max-w-[22rem] lg:mx-0 lg:justify-self-start">
-        <DitherVeil
-          src={ProfileVeil}
-          fit="cover"
-          pattern="noise"
-          pixelSize={2}
-          inkColor="#000000"
-          paperColor="#a5b4fc"
-          revealRadius={110}
-        />
-      </div>
+    <section className="grid items-center gap-10 px-4 pt-8 pb-16 sm:px-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,26rem)] lg:gap-16 lg:px-10 lg:pt-16 lg:pb-24">
+      <Avatar className="w-full max-w-[15rem] rounded-[2.5rem] sm:max-w-[19rem] lg:order-2 lg:max-w-none lg:rounded-[3.5rem]" />
 
-      <div className="flex flex-col gap-5 text-center text-white lg:text-left">
-        <h1 className="text-3xl font-bold leading-tight sm:whitespace-nowrap sm:text-5xl lg:text-6xl">
-          <DecryptedText
-            text={PERSONAL_INFO.name}
-            speed={50}
-            maxIterations={20}
-            encryptedClassName="text-indigo-200/70"
-          />
+      <div className="flex flex-col items-start gap-8">
+        <h1 className="font-extrabold text-[clamp(3.25rem,10vw,7.5rem)] leading-[0.9] tracking-[-0.055em] text-face">
+          {firstName}
+          <br />
+          {lastName.join(" ")}
         </h1>
-        <p className="mx-auto max-w-2xl whitespace-pre-line text-xl leading-relaxed text-white/72 lg:mx-0">
+        <p className="max-w-[34em] whitespace-pre-line text-base leading-[1.95] text-face/72 sm:text-lg">
           {text(PERSONAL_INFO.description)}
         </p>
-        <div className="flex justify-center lg:justify-start">
-          <Socials />
-        </div>
+        <Socials />
       </div>
     </section>
   );

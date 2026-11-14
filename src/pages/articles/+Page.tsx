@@ -1,66 +1,61 @@
-import { LuExternalLink } from "react-icons/lu";
-import { twMerge } from "tailwind-merge";
 import { useData } from "vike-react/useData";
 
 import BackgroundGlobe from "../../components/BackgroundGlobe";
-import { useTranslation } from "../../i18n";
 import type { Data } from "./+data";
-import ArticleCard from "./ArticleCard";
 import { PLATFORM_THEMES } from "./articleTheme";
 
 export { Page };
 
+const focusRing =
+  "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blush focus-visible:ring-offset-2 focus-visible:ring-offset-ink";
+
 function Page() {
   const articles = useData<Data>();
-  const { t } = useTranslation();
 
   return (
     <>
       <BackgroundGlobe />
-      <div className="space-y-16 py-20">
-        {PLATFORM_THEMES.map((theme) => {
-          const items = articles.filter((a) => a.platform === theme.key);
-          const { Icon } = theme;
+      <div className="mx-auto w-full max-w-6xl px-4 py-16 font-geist sm:px-8 lg:px-10 lg:py-24">
+        <h1 className="text-[clamp(2.5rem,6vw,4.5rem)] font-bold leading-none tracking-[-0.045em] text-face">
+          Articles
+        </h1>
 
-          return (
-            <section key={theme.key}>
-              <div className="container mx-auto mb-6 px-8">
-                <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-                  <div className="flex items-center gap-2">
-                    <Icon className="h-6 w-6 text-white" />
-                    <h2 className={`font-mono text-3xl font-bold ${theme.title}`}>{theme.label}</h2>
-                  </div>
+        <div className="mt-14 flex flex-col gap-16 lg:mt-20 lg:gap-20">
+          {PLATFORM_THEMES.map(({ key, Icon }) => {
+            const items = articles.filter((article) => article.platform === key);
 
-                  <a
-                    href={theme.profileUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={twMerge(
-                      "group inline-flex w-fit items-center gap-1.5 rounded-full border bg-white/[0.03] px-3 py-1.5 text-sm font-medium text-white/72 transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-300/70",
-                      theme.profileLink,
-                    )}
+            return (
+              <section key={key} aria-labelledby={`articles-${key}`}>
+                <div>
+                  <h2
+                    id={`articles-${key}`}
+                    className="inline-flex items-center gap-3 text-2xl font-semibold tracking-[-0.03em] text-face"
                   >
-                    <span>
-                      {theme.key} {t.articles.profileLink}
-                    </span>
-                    <LuExternalLink
-                      size={14}
-                      className="opacity-60 transition-opacity group-hover:opacity-100"
-                    />
-                  </a>
+                    <Icon className="h-6 w-6 text-face/70 [&_path]:fill-current" />
+                    {key}
+                  </h2>
                 </div>
-              </div>
 
-              <div className="container mx-auto px-8">
-                <div className="grid grid-cols-1 gap-8 sm:grid-cols-2">
+                <ul className="mt-6 border-t border-face/12">
                   {items.map((article) => (
-                    <ArticleCard key={article.url} article={article} theme={theme} />
+                    <li key={article.url} className="border-b border-face/12">
+                      <a
+                        href={article.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={`group block py-5 ${focusRing}`}
+                      >
+                        <span className="text-base leading-relaxed text-face/80 transition-colors group-hover:text-face sm:text-lg">
+                          {article.title}
+                        </span>
+                      </a>
+                    </li>
                   ))}
-                </div>
-              </div>
-            </section>
-          );
-        })}
+                </ul>
+              </section>
+            );
+          })}
+        </div>
       </div>
     </>
   );

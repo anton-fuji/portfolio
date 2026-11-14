@@ -27,13 +27,7 @@ type HoveredDay = {
   above: boolean;
 };
 
-const levelColors = [
-  "bg-[#202126]",
-  "bg-[#123960]",
-  "bg-[#14588f]",
-  "bg-[#1878c9]",
-  "bg-[#58a9f7]",
-];
+const levelColors = ["bg-[#1a1918]", "bg-[#3a3734]", "bg-[#6f6b66]", "bg-[#b3ada7]", "bg-face"];
 
 function createCalendarWeeks(contributions: Contribution[], year: number): CalendarWeek[] {
   const januaryFirst = new Date(Date.UTC(year, 0, 1));
@@ -153,18 +147,18 @@ function GitHubContributions({ initialData }: { initialData: ContributionData | 
 
   return (
     <section className="w-full min-w-0">
-      <h2 className="mb-8 font-mono text-3xl font-semibold tracking-tight text-slate-100 sm:text-5xl">
+      <h2 className="mb-8 font-mono text-3xl font-semibold tracking-tight text-face sm:text-5xl">
         {t.projects.contributionTitle}
       </h2>
 
       <div className="grid gap-4 lg:grid-cols-[minmax(0,1fr)_10rem]">
         <div className="min-w-0">
-          <p aria-live="polite" className="mb-4 text-lg font-medium text-slate-400">
+          <p aria-live="polite" className="mb-4 text-lg font-medium text-face/50">
             {activityData.status === "ready" ? contributionCount.toLocaleString("en-US") : "—"}{" "}
             contributions in {selectedYear}
           </p>
           {activityData.status === "error" ? (
-            <p role="status" className="py-14 text-center text-sm text-slate-400">
+            <p role="status" className="py-14 text-center text-sm text-face/50">
               {t.projects.contributionFallback}
             </p>
           ) : (
@@ -178,7 +172,7 @@ function GitHubContributions({ initialData }: { initialData: ContributionData | 
                 <div
                   aria-hidden="true"
                   style={gridStyle}
-                  className="mb-4 grid gap-x-1 text-xs text-slate-400"
+                  className="mb-4 grid gap-x-1 text-xs text-face/50"
                 >
                   <span />
                   {weeks.map((week, weekIndex) => {
@@ -203,7 +197,7 @@ function GitHubContributions({ initialData }: { initialData: ContributionData | 
                 <div aria-hidden="true" className="space-y-1">
                   {weekdays.map((weekday, dayIndex) => (
                     <div key={dayIndex} style={gridStyle} className="grid items-center gap-x-1">
-                      <span className="pr-1 text-right text-xs text-slate-400">{weekday}</span>
+                      <span className="pr-1 text-right text-xs text-face/50">{weekday}</span>
                       {weeks.map((week, weekIndex) => {
                         const day = week[dayIndex];
                         const color = day?.isInYear ? levelColors[day.level] : "bg-transparent";
@@ -244,10 +238,10 @@ function GitHubContributions({ initialData }: { initialData: ContributionData | 
                   setHoveredDay(null);
                   setSelectedYear(year);
                 }}
-                className={`min-w-14 rounded-md px-3 py-2 text-left text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-300/70 disabled:cursor-wait ${
+                className={`min-w-14 rounded-md px-3 py-2 text-left text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blush disabled:cursor-wait ${
                   isSelected
-                    ? "bg-[#1f6feb]/65 text-white shadow-[0_8px_24px_-14px_rgba(31,111,235,0.65)] backdrop-blur-sm"
-                    : "text-slate-400 hover:bg-white/5 hover:text-slate-100"
+                    ? "bg-face text-ink"
+                    : "text-face/50 hover:bg-face/[0.06] hover:text-face"
                 }`}
               >
                 {year}
@@ -265,13 +259,13 @@ function GitHubContributions({ initialData }: { initialData: ContributionData | 
             top: hoveredDay.top,
             transform: `translate(-50%, ${hoveredDay.above ? "-100%" : "0"})`,
           }}
-          className="pointer-events-none fixed z-50 max-w-[calc(100vw-1rem)] rounded-md border border-white/10 bg-[#161b22] px-3 py-1.5 text-sm whitespace-nowrap text-slate-100 shadow-lg shadow-black/30"
+          className="pointer-events-none fixed z-50 max-w-[calc(100vw-1rem)] rounded-md border border-face/10 bg-[#1a1918] px-3 py-1.5 text-sm whitespace-nowrap text-face shadow-lg shadow-black/30"
         >
           {hoveredDay.text}
           <span
             aria-hidden="true"
             className={`absolute left-1/2 h-0 w-0 -translate-x-1/2 border-[5px] border-transparent ${
-              hoveredDay.above ? "top-full border-t-[#161b22]" : "bottom-full border-b-[#161b22]"
+              hoveredDay.above ? "top-full border-t-[#1a1918]" : "bottom-full border-b-[#1a1918]"
             }`}
           />
         </div>

@@ -13,11 +13,23 @@ const BackgroundGlobe: React.FC = () => {
   const vantaEffect = useRef<any>(null);
 
   useEffect(() => {
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    // WebGL の地球儀は重いため、モバイル・省データ・動きを減らす設定では読み込まない。
+    const connection = (navigator as Navigator & { connection?: { saveData?: boolean } })
+      .connection;
+    if (
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches ||
+      !window.matchMedia("(min-width: 1024px) and (pointer: fine)").matches ||
+      connection?.saveData
+    ) {
       return;
     }
 
+    let cancelled = false;
+    let idleHandle: number | undefined;
+    let timeoutHandle: ReturnType<typeof setTimeout> | undefined;
+
     const loadScripts = async () => {
+      if (cancelled) return;
       try {
         if (!window.THREE) {
           await new Promise((resolve, reject) => {
@@ -39,6 +51,8 @@ const BackgroundGlobe: React.FC = () => {
           });
         }
 
+        if (cancelled) return;
+
         if (vantaEffect.current) {
           vantaEffect.current.destroy();
           vantaEffect.current = null;
@@ -54,23 +68,45 @@ const BackgroundGlobe: React.FC = () => {
             minWidth: 200.0,
             scale: 1.0,
             scaleMobile: 1.0,
-            color: 0x1f1959,
-            color2: 0x7a89d9,
+            // 黒基調に合わせ、アイコンの影色 (#dcd5cf) を暗く落としたグレーで描く。
+            color: 0x1a1918,
+            color2: 0x45423f,
             size: 1.2,
-            backgroundColor: 0x0,
+            backgroundColor: 0x0a0a0a,
             points: 12.0,
             maxDistance: 25.0,
             spacing: 18.0,
           });
+          vantaRef.current.style.opacity = "1";
         }
       } catch (error) {
         console.error("Failed to load Vanta scripts:", error);
       }
     };
 
-    loadScripts();
+    // 初期表示を優先し、最初のユーザー操作の後、ブラウザが空いた時点で開始する。
+    const interactionEvents = ["pointermove", "pointerdown", "wheel", "keydown", "scroll"];
+    const removeInteractionListeners = () => {
+      for (const type of interactionEvents) window.removeEventListener(type, schedule);
+    };
+    const schedule = () => {
+      removeInteractionListeners();
+      if (typeof window.requestIdleCallback === "function") {
+        idleHandle = window.requestIdleCallback(() => void loadScripts(), { timeout: 1000 });
+      } else {
+        timeoutHandle = setTimeout(() => void loadScripts(), 200);
+      }
+    };
+
+    for (const type of interactionEvents) {
+      window.addEventListener(type, schedule, { once: true, passive: true });
+    }
 
     return () => {
+      cancelled = true;
+      removeInteractionListeners();
+      if (idleHandle !== undefined) window.cancelIdleCallback(idleHandle);
+      if (timeoutHandle !== undefined) clearTimeout(timeoutHandle);
       if (vantaEffect.current) {
         vantaEffect.current.destroy();
         vantaEffect.current = null;
@@ -89,6 +125,8 @@ const BackgroundGlobe: React.FC = () => {
         height: "100%",
         zIndex: -10,
         pointerEvents: "none",
+        opacity: 0,
+        transition: "opacity 1.2s ease-out",
       }}
     />
   );

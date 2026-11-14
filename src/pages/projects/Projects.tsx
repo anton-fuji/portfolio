@@ -27,7 +27,7 @@ export const projectGroups: ProjectGroup[] = [
   {
     name: "Go",
     slug: "go",
-    accent: "from-indigo-300 via-indigo-400 to-blue-500",
+    accent: "from-face/70 via-face/40 to-face/10",
     icon: <FaGolang size={30} />,
     projects: [
       {
@@ -79,7 +79,7 @@ export const projectGroups: ProjectGroup[] = [
   {
     name: "Lua",
     slug: "lua",
-    accent: "from-purple-300 via-violet-500 to-indigo-600",
+    accent: "from-face/70 via-face/40 to-face/10",
     icon: <SiLua size={30} />,
     projects: [
       {
@@ -98,7 +98,7 @@ export const projectGroups: ProjectGroup[] = [
   {
     name: "Zig",
     slug: "zig",
-    accent: "from-amber-200 via-amber-400 to-orange-500",
+    accent: "from-face/70 via-face/40 to-face/10",
     icon: <SiZig size={30} />,
     projects: [
       {
@@ -117,7 +117,7 @@ export const projectGroups: ProjectGroup[] = [
   {
     name: "TypeScript",
     slug: "typescript",
-    accent: "from-indigo-300 via-blue-500 to-indigo-400",
+    accent: "from-face/70 via-face/40 to-face/10",
     icon: <BiLogoTypescript size={30} />,
     projects: [
       {
@@ -136,7 +136,7 @@ export const projectGroups: ProjectGroup[] = [
   {
     name: "Astro",
     slug: "astro",
-    accent: "from-orange-300 via-rose-400 to-violet-500",
+    accent: "from-face/70 via-face/40 to-face/10",
     icon: <SiAstro size={30} />,
     projects: [
       {

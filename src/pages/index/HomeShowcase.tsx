@@ -3,10 +3,9 @@ import Profile from "./Profile";
 
 const HomeShowcase = () => {
   return (
-    <div className="relative mx-auto flex w-full max-w-6xl flex-col gap-24 py-20">
+    <div className="mx-auto flex w-full max-w-6xl flex-col gap-16 pb-12 font-geist lg:gap-24">
       <Profile />
       <SkillSection />
-      {/* Featured work / Writing / Workbench ... */}
     </div>
   );
 };

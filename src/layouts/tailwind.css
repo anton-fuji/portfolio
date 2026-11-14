@@ -1,2 +1,12 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;600;700;800&display=swap");
 @import "tailwindcss";
+
+/* トップページのアイコン由来の配色と書体 */
+@theme {
+  --color-ink: #0a0a0a;
+  --color-face: #f3f0eb;
+  --color-shade: #dcd5cf;
+  --color-blush: #e9d2cb;
+  --font-geist:
+    "Geist", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic", Meiryo, "Noto Sans CJK JP",
+    sans-serif;
+}

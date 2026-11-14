@@ -36,11 +36,11 @@ const ProjectProcessRow: FC<ProjectProcessRowProps> = ({ project, accent, index 
       href={project.githuburl}
       rel="noopener noreferrer"
       target="_blank"
-      className="project-process-row group relative grid gap-2 px-4 py-3 font-mono text-xs transition-colors hover:bg-indigo-300/6.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-300/70 sm:grid-cols-[4.2rem_5.7rem_minmax(0,1.08fr)_8.4rem_minmax(0,1fr)_2rem] sm:items-center"
+      className="project-process-row group relative grid gap-2 px-4 py-3 font-mono text-xs transition-colors hover:bg-face/[0.05] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blush sm:grid-cols-[4.2rem_5.7rem_minmax(0,1.08fr)_8.4rem_minmax(0,1fr)_2rem] sm:items-center"
     >
       <span
         aria-hidden
-        className="pointer-events-none absolute inset-0 bg-linear-to-r from-white/[0.035] via-transparent to-indigo-300/3 opacity-70 transition-opacity duration-300 group-hover:opacity-100"
+        className="pointer-events-none absolute inset-0 bg-linear-to-r from-face/[0.03] via-transparent to-transparent opacity-70 transition-opacity duration-300 group-hover:opacity-100"
       />
       <span
         aria-hidden
@@ -52,19 +52,19 @@ const ProjectProcessRow: FC<ProjectProcessRowProps> = ({ project, accent, index 
 
       <div className="project-process-command min-w-0">
         <div className="flex min-w-0 items-center gap-2">
-          <Github className="h-4 w-4 shrink-0 text-slate-500 transition-colors group-hover:text-indigo-200" />
-          <span className="truncate text-sm font-semibold text-white">{project.name}</span>
+          <Github className="h-4 w-4 shrink-0 text-face/40 transition-colors group-hover:text-face" />
+          <span className="truncate text-sm font-semibold text-face">{project.name}</span>
         </div>
         <p className="project-process-repo mt-1 truncate">{repoPath}</p>
       </div>
 
-      <div className="project-process-kind relative inline-flex w-fit items-center gap-1.5 text-[11px] text-slate-300">
+      <div className="project-process-kind relative inline-flex w-fit items-center gap-1.5 text-[11px] text-face/70">
         {getKindIcon(project.kind)}
         <span>{t.projects.kinds[project.kind]}</span>
       </div>
 
       <div className="project-process-output min-w-0">
-        <p className="truncate text-slate-400">{text(project.description)}</p>
+        <p className="truncate text-face/55">{text(project.description)}</p>
         <div className="project-process-tags mt-1 hidden flex-wrap gap-x-2 gap-y-1 text-[10px] sm:flex">
           {project.tags.map((tag) => (
             <span key={tag}>--{tag}</span>
@@ -72,7 +72,7 @@ const ProjectProcessRow: FC<ProjectProcessRowProps> = ({ project, accent, index 
         </div>
       </div>
 
-      <ArrowUpRight className="hidden h-4 w-4 text-slate-600 transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-indigo-200 sm:block" />
+      <ArrowUpRight className="hidden h-4 w-4 text-face/30 transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-blush sm:block" />
     </a>
   );
 };
