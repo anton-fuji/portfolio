@@ -1,6 +1,4 @@
 import BackgroundGlobe from "../../components/BackgroundGlobe";
-import GlareHover from "../../components/GlareHover";
-import SpotlightCard from "../../components/SpotlightCard";
 import { useTranslation } from "../../i18n";
 import { CERTIFICATIONS } from "../../mydata/certifications";
 
@@ -36,114 +34,82 @@ const formatCertificationDate = (date: string, language: "ja" | "en") => {
   return `${englishMonthLabels[month - 1]} ${year}`;
 };
 
+const focusRing =
+  "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blush focus-visible:ring-offset-2 focus-visible:ring-offset-ink";
+
 function Page() {
   const { language, t, text } = useTranslation();
-  const categories = Array.from(new Set(CERTIFICATIONS.map((c) => c.category)));
-
-  const getCertificationsByCategory = (category: string) => {
-    return CERTIFICATIONS.filter((c) => c.category === category);
-  };
+  const categories = Array.from(new Set(CERTIFICATIONS.map((cert) => cert.category)));
 
   return (
     <>
       <BackgroundGlobe />
-      <div className="px-6 py-24 sm:px-8">
-        <div className="mx-auto max-w-6xl space-y-12">
-          <header>
-            <p className="mb-4 text-xs font-medium tracking-[0.28em] text-gray-500 uppercase">
-              {t.certifications.eyebrow}
-            </p>
-            <h1 className="font-mono text-4xl font-extrabold tracking-normal text-white sm:text-5xl">
-              {t.certifications.title}
-            </h1>
-          </header>
+      <div className="mx-auto w-full max-w-6xl px-4 py-16 font-geist sm:px-8 lg:px-10 lg:py-24">
+        <h1 className="text-[clamp(2.5rem,6vw,4.5rem)] font-bold leading-none tracking-[-0.045em] text-face">
+          {t.certifications.title}
+        </h1>
 
+        <div className="mt-14 flex flex-col gap-16 lg:mt-20 lg:gap-20">
           {categories.map((category) => {
-            const certs = getCertificationsByCategory(category);
+            const certs = CERTIFICATIONS.filter((cert) => cert.category === category).sort((a, b) =>
+              b.date.localeCompare(a.date),
+            );
+
             return (
-              <section key={category} className="space-y-6">
-                <div className="border-blue-400/14 border-b pb-3">
-                  <h2 className="font-mono text-sm font-medium tracking-[0.2em] text-gray-300 uppercase">
-                    {category}
-                  </h2>
-                </div>
+              <section key={category} aria-labelledby={`certs-${category}`}>
+                <h2
+                  id={`certs-${category}`}
+                  className="text-2xl font-semibold tracking-[-0.03em] text-face"
+                >
+                  {category}
+                </h2>
 
-                <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-                  {certs.map((cert) => (
-                    <GlareHover
-                      key={`${text(cert.name)}-${cert.date}`}
-                      className="h-full rounded-lg"
-                      glareColor="#3ea8ff"
-                      glareOpacity={0.22}
-                      glareSize={240}
-                    >
-                      <SpotlightCard
-                        spotlightColor="rgba(62, 168, 255, 0.18)"
-                        className="group flex h-full min-h-65 flex-col gap-5 border-blue-600/18 bg-black/15 p-5 shadow-xl/5 backdrop-blur-sm transition-shadow duration-300 hover:border-blue-500/25 hover:bg-black/25 hover:shadow-[0_0_24px_-10px_rgba(37,99,235,0.36)]"
-                      >
-                        <div className="relative flex h-28 items-center justify-center">
-                          <span className="absolute inset-x-8 top-1/2 h-16 -translate-y-1/2 rounded-full bg-indigo-300/6 blur-2xl transition-opacity duration-300 group-hover:opacity-80" />
-                          {cert.imageUrl ? (
-                            <div className="relative grid h-28 w-28 place-items-center">
-                              <img
-                                src={cert.imageUrl}
-                                alt={text(cert.name)}
-                                className="h-full w-full object-contain opacity-90 grayscale-18 transition duration-300 ease-out group-hover:opacity-100 group-hover:grayscale-0 motion-safe:group-hover:scale-115 motion-reduce:transition-none"
-                              />
-                            </div>
-                          ) : (
-                            <div className="relative grid h-24 w-44 place-items-center overflow-hidden border border-blue-600/18 bg-[linear-gradient(145deg,rgba(30,64,175,0.08),rgba(15,23,42,0.07)_42%,rgba(0,0,0,0.12)_100%)] shadow-[inset_0_0_0_1px_rgba(37,99,235,0.055),inset_0_0_30px_rgba(37,99,235,0.035)]">
-                              <span className="absolute top-3 left-3 h-px w-8 bg-blue-400/24" />
-                              <span className="absolute right-3 bottom-3 h-px w-8 bg-blue-400/24" />
-                              <span className="absolute top-3 right-3 h-8 w-px bg-blue-600/14" />
-                              <span className="absolute bottom-3 left-3 h-8 w-px bg-blue-600/14" />
-                              <div className="text-center">
-                                <p className="text-[10px] font-medium tracking-[0.28em] text-gray-500">
-                                  FE
-                                </p>
-                                <p
-                                  className="mt-1.5 bg-linear-to-br from-white via-indigo-100 to-slate-400 bg-clip-text text-[42px] leading-none font-bold tracking-[0.12em] text-transparent"
-                                  style={{
-                                    fontFamily:
-                                      '"VAG Rounded", "Arial Rounded MT Bold", "Arial Rounded MT", "Helvetica Rounded", Arial, sans-serif',
-                                  }}
-                                >
-                                  IPA
-                                </p>
-                              </div>
-                            </div>
-                          )}
-                        </div>
+                <ul className="mt-6 border-t border-face/12">
+                  {certs.map((cert) => {
+                    const name = text(cert.name);
+                    const row = (
+                      <>
+                        {cert.imageUrl ? (
+                          <img
+                            src={cert.imageUrl}
+                            alt=""
+                            width={48}
+                            height={48}
+                            loading="lazy"
+                            decoding="async"
+                            className="h-12 w-12 shrink-0 object-contain"
+                          />
+                        ) : null}
+                        <span className="min-w-0 flex-1 text-base leading-snug text-face/85 sm:text-lg">
+                          {name}
+                        </span>
+                        <time
+                          dateTime={cert.date}
+                          className="shrink-0 text-sm tabular-nums text-face/45"
+                        >
+                          {formatCertificationDate(cert.date, language)}
+                        </time>
+                      </>
+                    );
 
-                        <div className="flex grow flex-col text-center">
-                          {cert.credentialUrl ? (
-                            <a
-                              href={cert.credentialUrl}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="text-white transition-colors hover:text-gray-300"
-                            >
-                              <h3 className="font-mono text-[17px] leading-snug font-medium">
-                                {text(cert.name)}
-                              </h3>
-                            </a>
-                          ) : (
-                            <h3 className="font-mono text-[17px] leading-snug font-medium">
-                              {text(cert.name)}
-                            </h3>
-                          )}
-
-                          <div className="mt-auto border-blue-400/14 border-t pt-4">
-                            <p className="text-[11px] font-medium tracking-[0.22em] text-blue-100/45 uppercase">
-                              {t.certifications.issued} ·{" "}
-                              {formatCertificationDate(cert.date, language)}
-                            </p>
-                          </div>
-                        </div>
-                      </SpotlightCard>
-                    </GlareHover>
-                  ))}
-                </div>
+                    return (
+                      <li key={`${name}-${cert.date}`} className="border-b border-face/12">
+                        {cert.credentialUrl ? (
+                          <a
+                            href={cert.credentialUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className={`flex items-center gap-4 py-4 transition-colors hover:[&>span]:text-face sm:gap-5 ${focusRing}`}
+                          >
+                            {row}
+                          </a>
+                        ) : (
+                          <div className="flex items-center gap-4 py-4 sm:gap-5">{row}</div>
+                        )}
+                      </li>
+                    );
+                  })}
+                </ul>
               </section>
             );
           })}

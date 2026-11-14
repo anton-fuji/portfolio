@@ -40,9 +40,7 @@
     }
   },
   "certifications": {
-    "eyebrow": "Credentials",
-    "title": "Certifications",
-    "issued": "Issued"
+    "title": "Certifications"
   },
   "footer": {
     "github": "View on GitHub"

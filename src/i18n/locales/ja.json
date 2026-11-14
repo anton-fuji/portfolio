@@ -40,9 +40,7 @@
     }
   },
   "certifications": {
-    "eyebrow": "Credentials",
-    "title": "Certifications",
-    "issued": "取得"
+    "title": "Certifications"
   },
   "footer": {
     "github": "GitHub で見る"
