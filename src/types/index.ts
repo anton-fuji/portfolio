@@ -1,5 +1,3 @@
-import type { LocalizedText } from "../i18n";
-
 export type SocialLinkName = "GitHub" | "X" | "Zenn" | "Qiita" | "Note";
 
 export type SocialIconName = "Github" | "X" | "Zenn" | "Qiita" | "Note";
@@ -15,7 +13,6 @@ export type TechName =
   | "Rust"
   | "Nix"
   | "Linux"
-  | "Vim"
   | "Neovim"
   | "Claude Code"
   | "Codex"
@@ -29,23 +26,9 @@ export type TechName =
   | "React"
   | "TypeScript"
   | "Tailwind CSS"
-  | "Vite"
-  | "Zenn"
-  | "Qiita"
-  | "Note";
+  | "Vite";
 
-export interface EngineeringProof {
-  label: LocalizedText;
-  href?: string;
-}
-
-export interface EngineeringSurface {
-  id: string;
-  verb: string;
-  title: LocalizedText;
-  description: LocalizedText;
-  stack: TechName[];
-  signals: LocalizedText[];
-  proofs: EngineeringProof[];
-  accent: string;
+export interface SkillLayer {
+  name: string;
+  skills: TechName[];
 }

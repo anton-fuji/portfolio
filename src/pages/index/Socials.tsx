@@ -11,8 +11,11 @@ import { SOCIAL_LINKS } from "../../mydata/data";
 import type { SocialIconName } from "../../types";
 
 const socialIconProps = {
-  className: "h-5 w-5",
+  className: "h-4 w-4",
 };
+
+const pillClassName =
+  "inline-flex h-11 items-center gap-2 rounded-full border border-face/16 px-4 text-sm font-bold text-face/82 transition-colors hover:border-face hover:bg-face hover:text-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blush focus-visible:ring-offset-2 focus-visible:ring-offset-ink [&_path]:fill-current";
 
 type SocialIcon = ElementType<{ className?: string }>;
 
@@ -52,38 +55,36 @@ const Socials: FC = () => {
 
   return (
     <>
-      <div className="mt-3 flex flex-col items-center gap-3 lg:items-start">
-        <ul className="flex flex-wrap justify-center gap-3 lg:justify-start">
-          {SOCIAL_LINKS.map((social) => {
-            const Icon = socialIcons[social.icon];
-            return (
-              <li key={social.url} className="group/social h-11 w-11">
-                <a
-                  href={social.url}
-                  title={social.name}
-                  target="_blank"
-                  rel="noreferrer noopener"
-                  className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-indigo-300/18 bg-indigo-300/[0.05] text-indigo-50/78 opacity-100 transition group-hover/social:-translate-y-0.5 group-hover/social:border-indigo-200/40 group-hover/social:bg-indigo-300/[0.12] group-hover/social:text-white hover:opacity-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-300/70 [&_path]:fill-current"
-                >
-                  <Icon {...socialIconProps} />
-                </a>
-              </li>
-            );
-          })}
-          <li className="group/social h-11 w-11">
-            <button
-              type="button"
-              title={t.home.qrTitle}
-              aria-haspopup="dialog"
-              aria-expanded={isQrOpen}
-              onClick={() => setIsQrOpen(true)}
-              className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-indigo-300/18 bg-indigo-300/[0.05] text-indigo-50/78 transition group-hover/social:-translate-y-0.5 group-hover/social:border-indigo-200/40 group-hover/social:bg-indigo-300/[0.12] group-hover/social:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-300/70"
-            >
-              <QrCode className="h-5 w-5" aria-hidden="true" />
-            </button>
-          </li>
-        </ul>
-      </div>
+      <ul className="flex flex-wrap gap-2">
+        {SOCIAL_LINKS.map((social) => {
+          const Icon = socialIcons[social.icon];
+          return (
+            <li key={social.url}>
+              <a
+                href={social.url}
+                target="_blank"
+                rel="noreferrer noopener"
+                className={pillClassName}
+              >
+                <Icon {...socialIconProps} />
+                <span>{social.name}</span>
+              </a>
+            </li>
+          );
+        })}
+        <li>
+          <button
+            type="button"
+            aria-haspopup="dialog"
+            aria-expanded={isQrOpen}
+            onClick={() => setIsQrOpen(true)}
+            className={pillClassName}
+          >
+            <QrCode className="h-4 w-4" aria-hidden="true" />
+            <span>QR</span>
+          </button>
+        </li>
+      </ul>
 
       {isQrOpen && (
         <dialog
@@ -96,24 +97,24 @@ const Socials: FC = () => {
             type="button"
             aria-label={t.menu.close}
             onClick={() => setIsQrOpen(false)}
-            className="absolute inset-0 bg-slate-950/78 backdrop-blur-xl"
+            className="absolute inset-0 bg-ink/85 backdrop-blur-md"
           />
-          <div className="relative w-full max-w-sm overflow-hidden rounded-lg border border-white/10 bg-[#07151d]/95 p-5 text-white shadow-[0_24px_90px_rgba(0,0,0,0.45)]">
+          <div className="relative w-full max-w-sm overflow-hidden rounded-[2rem] border border-face/12 bg-ink p-6 text-face">
             <div className="mb-4 flex items-center justify-between gap-4">
-              <h2 id={titleId} className="font-mono text-lg font-semibold">
+              <h2 id={titleId} className="text-lg font-bold">
                 {t.home.qrTitle}
               </h2>
               <button
                 type="button"
                 aria-label={t.menu.close}
                 onClick={() => setIsQrOpen(false)}
-                className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/[0.04] text-white/70 transition hover:border-white/25 hover:bg-white/[0.08] hover:text-white"
+                className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-face/16 text-face/70 transition-colors hover:bg-face hover:text-ink"
               >
                 <X className="h-5 w-5" aria-hidden="true" />
               </button>
             </div>
 
-            <div className="rounded-lg bg-white p-3">
+            <div className="rounded-[1.5rem] bg-face p-4">
               <img
                 src={portfolioQr}
                 alt={t.home.qrAlt}

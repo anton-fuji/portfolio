@@ -41,6 +41,10 @@ const Footer: React.FC = () => {
         <img
           src={gopherGif}
           alt=""
+          width={64}
+          height={64}
+          loading="lazy"
+          decoding="async"
           className={`h-16 w-16 [image-rendering:pixelated] transition-transform duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)] group-hover/gopher:translate-y-0 motion-reduce:transition-none ${
             isGopherPeeking ? "translate-y-[38%]" : "translate-y-full"
           }`}

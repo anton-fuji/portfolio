@@ -359,35 +359,6 @@ a:hover {
   }
 }
 
-.skill-timeline-fill {
-  height: 0;
-  background: linear-gradient(
-    180deg,
-    rgba(165, 180, 252, 0.52),
-    rgba(147, 197, 253, 0.4),
-    rgba(129, 140, 248, 0.32)
-  );
-  box-shadow: 0 0 14px rgba(165, 180, 252, 0.28);
-  animation: skill-timeline-fill 28s linear infinite;
-}
-
-.skill-timeline-gradient {
-  top: -2rem;
-  height: 4rem;
-  background: linear-gradient(
-    180deg,
-    transparent,
-    rgba(165, 180, 252, 0.18),
-    rgba(165, 180, 252, 0.62),
-    rgba(147, 197, 253, 0.22),
-    transparent
-  );
-  border-radius: 999px;
-  filter: drop-shadow(0 0 10px rgba(165, 180, 252, 0.46));
-  opacity: 0.85;
-  animation: skill-timeline-gradient 28s linear infinite;
-}
-
 .project-editor-workspace {
   position: relative;
   overflow: hidden;
@@ -798,81 +769,6 @@ a:hover {
   }
 }
 
-@keyframes skill-timeline-fill {
-  from {
-    height: 0;
-  }
-  to {
-    height: 100%;
-  }
-}
-
-@keyframes skill-timeline-gradient {
-  from {
-    top: -2rem;
-  }
-  to {
-    top: calc(100% - 2rem);
-  }
-}
-
-.stack-project-link-scan {
-  animation: stack-project-link-scan 2.8s ease-in-out infinite;
-}
-
-.stack-project-link-cursor {
-  animation: stack-project-link-cursor 1.05s steps(1, end) infinite;
-}
-
-.stack-project-link:hover .stack-project-link-scan {
-  animation-duration: 1.15s;
-}
-
-@keyframes stack-project-link-scan {
-  0%,
-  18% {
-    opacity: 0;
-    transform: translateX(-100%);
-  }
-  38% {
-    opacity: 0.9;
-  }
-  68%,
-  100% {
-    opacity: 0;
-    transform: translateX(220%);
-  }
-}
-
-@keyframes stack-project-link-cursor {
-  0%,
-  45% {
-    opacity: 0.9;
-  }
-  46%,
-  100% {
-    opacity: 0.22;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .skill-timeline-fill {
-    height: 100%;
-    animation: none;
-  }
-
-  .skill-timeline-gradient {
-    display: none;
-  }
-
-  .stack-project-link-scan,
-  .stack-project-link-cursor {
-    opacity: 1;
-    transform: none;
-    animation: none;
-  }
-}
-
 /* 404: the gopher dug the wrong burrow */
 .not-found__scene {
   font-size: clamp(6.5rem, 30vw, 12rem);
@@ -1014,12 +910,4 @@ a:hover {
   .not-found__branch::before {
     animation: none;
   }
-}
-
-/* Dissolve the dither panel into the page so it has no visible frame. */
-.veil-dissolve {
-  mask-image:
-    radial-gradient(ellipse 50% 50% at 50% 48%, black 52%, transparent 100%),
-    linear-gradient(180deg, black 70%, transparent);
-  mask-composite: intersect;
 }

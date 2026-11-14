@@ -1,10 +1,10 @@
-import aceImage from "../assets/icons/certifications/googlecloud-ace.png";
-import cdlImage from "../assets/icons/certifications/googlecloud-cdl.png";
-import daImage from "../assets/icons/certifications/googlecloud-data.png";
-import dbImage from "../assets/icons/certifications/googlecloud-database.png";
-import doImage from "../assets/icons/certifications/googlecloud-devops.png";
-import pcaImage from "../assets/icons/certifications/googlecloud-pca.png";
-import pcdImage from "../assets/icons/certifications/googlecloud-pcd.png";
+import aceImage from "../assets/icons/certifications/googlecloud-ace.webp";
+import cdlImage from "../assets/icons/certifications/googlecloud-cdl.webp";
+import daImage from "../assets/icons/certifications/googlecloud-data.webp";
+import dbImage from "../assets/icons/certifications/googlecloud-database.webp";
+import doImage from "../assets/icons/certifications/googlecloud-devops.webp";
+import pcaImage from "../assets/icons/certifications/googlecloud-pca.webp";
+import pcdImage from "../assets/icons/certifications/googlecloud-pcd.webp";
 import type { LocalizedText } from "../i18n";
 
 interface Certification {

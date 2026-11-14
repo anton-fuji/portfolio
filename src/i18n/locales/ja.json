@@ -14,12 +14,10 @@
   },
   "home": {
     "title": "My Portfolio",
-    "stackTitle": "My Tech Stack",
-    "stackSummary": "主に Go と TypeScript で、バックエンドからインフラまで設計・実装しています。",
-    "stackNote": "Database、Docker、Terraform、ターミナル環境など、実装と運用の境目にある技術が好きです。",
-    "stackCta": "Projects を見る",
+    "stackTitle": "Skills",
     "qrTitle": "サイトを開く",
-    "qrAlt": "fuuji.site を開く QR コード"
+    "qrAlt": "fuuji.site を開く QR コード",
+    "certsTitle": "Certifications"
   },
   "articles": {
     "profileLink": "プロフィール"
