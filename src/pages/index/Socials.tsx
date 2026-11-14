@@ -8,24 +8,18 @@ import XIcon from "../../assets/icons/socials/x.svg?react";
 import ZennIcon from "../../assets/icons/socials/zenn.svg?react";
 import { useTranslation } from "../../i18n";
 import { SOCIAL_LINKS } from "../../mydata/data";
-import type { SocialIconName } from "../../types";
-
-const socialIconProps = {
-  className: "h-4 w-4",
-};
-
-const pillClassName =
-  "inline-flex h-11 items-center gap-2 rounded-full border border-face/16 px-4 text-sm font-bold text-face/82 transition-colors hover:border-face hover:bg-face hover:text-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blush focus-visible:ring-offset-2 focus-visible:ring-offset-ink [&_path]:fill-current";
-
-type SocialIcon = ElementType<{ className?: string }>;
+import type { SocialLinkName } from "../../types";
 
 const socialIcons = {
-  Github: GithubIcon,
+  GitHub: GithubIcon,
   X: XIcon,
   Zenn: ZennIcon,
   Qiita: SiQiita,
   Note: SiNote,
-} satisfies Record<SocialIconName, SocialIcon>;
+} satisfies Record<SocialLinkName, ElementType<{ className?: string }>>;
+
+const focusRing =
+  "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blush focus-visible:ring-offset-2 focus-visible:ring-offset-ink";
 
 const Socials: FC = () => {
   const [isQrOpen, setIsQrOpen] = useState(false);
@@ -55,19 +49,20 @@ const Socials: FC = () => {
 
   return (
     <>
-      <ul className="flex flex-wrap gap-2">
+      <ul className="-ml-2 flex flex-wrap items-center gap-3">
         {SOCIAL_LINKS.map((social) => {
-          const Icon = socialIcons[social.icon];
+          const Icon = socialIcons[social.name];
           return (
             <li key={social.url}>
               <a
                 href={social.url}
                 target="_blank"
                 rel="noreferrer noopener"
-                className={pillClassName}
+                aria-label={social.name}
+                title={social.name}
+                className={`grid h-10 w-10 place-items-center rounded-full text-face/55 transition-colors hover:bg-face/[0.08] hover:text-face [&_path]:fill-current ${focusRing}`}
               >
-                <Icon {...socialIconProps} />
-                <span>{social.name}</span>
+                <Icon className="h-5 w-5" aria-hidden="true" />
               </a>
             </li>
           );
@@ -75,13 +70,13 @@ const Socials: FC = () => {
         <li>
           <button
             type="button"
+            aria-label={t.home.qrTitle}
             aria-haspopup="dialog"
             aria-expanded={isQrOpen}
             onClick={() => setIsQrOpen(true)}
-            className={pillClassName}
+            className={`grid h-10 w-10 place-items-center rounded-full text-face/55 transition-colors hover:bg-face/[0.08] hover:text-face ${focusRing}`}
           >
-            <QrCode className="h-4 w-4" aria-hidden="true" />
-            <span>QR</span>
+            <QrCode className="h-5 w-5" aria-hidden="true" />
           </button>
         </li>
       </ul>

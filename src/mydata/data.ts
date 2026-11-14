@@ -4,27 +4,22 @@ export const SOCIAL_LINKS: SocialLink[] = [
   {
     name: "GitHub",
     url: "https://github.com/anton-fuji",
-    icon: "Github",
   },
   {
     name: "X",
     url: "https://x.com/sXq7XBrxuB87199",
-    icon: "X",
   },
   {
     name: "Zenn",
     url: "https://zenn.dev/fuuji",
-    icon: "Zenn",
   },
   {
     name: "Qiita",
     url: "https://qiita.com/fujifuji1414",
-    icon: "Qiita",
   },
   {
     name: "Note",
     url: "https://note.com/mochi_mochi777",
-    icon: "Note",
   },
 ];
 
